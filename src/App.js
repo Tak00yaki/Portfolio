@@ -1,12 +1,27 @@
-// Example: src/App.js
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Marquee from "./components/Marquee";
+import About from "./components/About";
+import Interests from "./components/Interests";
+import Projects from "./components/Projects";
+import Footer from "./components/Footer";
+import "./App.css";
+
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      <h1 className="text-4xl font-bold text-blue-600">Hello Tailwind via CDN 👋</h1>
-      <p className="mt-4 text-lg text-gray-700">
-        Tailwind is working perfectly in your React app!
-      </p>
+    <div className="app">
+      <div className="scanlines" aria-hidden="true" />
+      <div className="grain" aria-hidden="true" />
+
+      <Navbar />
+      <main>
+        <Hero />
+        <Marquee />
+        <About />
+        <Interests />
+        <Projects />
+      </main>
+      <Footer />
     </div>
   );
 }
-
