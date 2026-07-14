@@ -1,49 +1,20 @@
-const PROJECTS = [
-  {
-    title: "Project One",
-    file: "project-one.exe",
-    desc: "A short description of what this project does and the problem it solves.",
-    tags: ["React", "Node", "CSS"],
-    live: "#",
-    code: "#",
-  },
-  {
-    title: "Project Two",
-    file: "project-two.exe",
-    desc: "Another project worth showing off — swap in the real details here.",
-    tags: ["Python", "API"],
-    live: "#",
-    code: "#",
-  },
-  {
-    title: "Project Three",
-    file: "project-three.exe",
-    desc: "Describe the tech stack, your role, and the outcome in a line or two.",
-    tags: ["TypeScript", "Design"],
-    live: "#",
-    code: "#",
-  },
-  {
-    title: "Project Four",
-    file: "project-four.exe",
-    desc: "Fourth slot for a side project, hackathon build, or experiment.",
-    tags: ["React", "Firebase"],
-    live: "#",
-    code: "#",
-  },
-];
+import { useLanguage } from "../i18n/LanguageContext";
+import { translations } from "../i18n/translations";
 
 export default function Projects() {
+  const { lang } = useLanguage();
+  const t = translations[lang].projects;
+
   return (
     <section id="projects" className="projects">
       <div className="section-heading">
         <span className="section-heading__index">03</span>
-        <h2>PROJECTS</h2>
+        <h2>{t.heading}</h2>
       </div>
 
       <div className="projects__grid">
-        {PROJECTS.map((p) => (
-          <article className="project-card" key={p.title}>
+        {t.items.map((p) => (
+          <article className="project-card" key={p.file}>
             <div className="window-bar">
               <span />
               <span />
@@ -59,8 +30,8 @@ export default function Projects() {
                 ))}
               </div>
               <div className="project-card__links">
-                <a href={p.live}>LIVE ↗</a>
-                <a href={p.code}>CODE ↗</a>
+                <a href={p.live}>{t.liveLabel} ↗</a>
+                <a href={p.code}>{t.codeLabel} ↗</a>
               </div>
             </div>
           </article>

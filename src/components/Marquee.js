@@ -1,16 +1,10 @@
-const ITEMS = [
-  "REACT",
-  "JAVASCRIPT",
-  "UI / UX",
-  "CREATIVE CODE",
-  "COFFEE",
-  "GOOD VIBES",
-  "BUILDING THINGS",
-  "RETRO EVERYTHING",
-];
+import { useLanguage } from "../i18n/LanguageContext";
+import { translations } from "../i18n/translations";
 
 export default function Marquee() {
-  const row = [...ITEMS, ...ITEMS];
+  const { lang } = useLanguage();
+  const items = translations[lang].marquee.items;
+  const row = [...items, ...items];
 
   return (
     <div className="marquee">

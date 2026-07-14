@@ -1,16 +1,15 @@
-const STATUS = [
-  { label: "LOCATION", value: "Earth, usually at my desk" },
-  { label: "ROLE", value: "Software Engineer" },
-  { label: "MODE", value: "Always building something" },
-  { label: "UPTIME", value: "Fueled by coffee" },
-];
+import { useLanguage } from "../i18n/LanguageContext";
+import { translations } from "../i18n/translations";
 
 export default function About() {
+  const { lang } = useLanguage();
+  const t = translations[lang].about;
+
   return (
     <section id="about" className="about">
       <div className="section-heading">
         <span className="section-heading__index">01</span>
-        <h2>ABOUT ME</h2>
+        <h2>{t.heading}</h2>
       </div>
 
       <div className="terminal">
@@ -24,16 +23,12 @@ export default function About() {
           <p className="terminal__line">
             <span className="prompt">$</span> whoami
           </p>
-          <p className="terminal__output">
-            Hi, I'm Khushi — a software engineer who loves building things
-            that live on the internet. I mix clean code with a weakness for
-            retro aesthetics, mixtapes, and side quests.
-          </p>
+          <p className="terminal__output">{t.bio}</p>
           <p className="terminal__line">
             <span className="prompt">$</span> cat status.log
           </p>
           <ul className="status-list">
-            {STATUS.map((row) => (
+            {t.status.map((row) => (
               <li key={row.label}>
                 <span>{row.label}</span>
                 {row.value}

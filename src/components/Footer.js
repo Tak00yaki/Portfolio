@@ -1,3 +1,6 @@
+import { useLanguage } from "../i18n/LanguageContext";
+import { translations } from "../i18n/translations";
+
 const SOCIALS = [
   { label: "GH", name: "GitHub", href: "#" },
   { label: "IN", name: "LinkedIn", href: "#" },
@@ -5,22 +8,23 @@ const SOCIALS = [
 ];
 
 export default function Footer() {
+  const { lang } = useLanguage();
+  const t = translations[lang].footer;
+
   return (
     <footer id="contact" className="footer">
       <div className="section-heading section-heading--center">
         <span className="section-heading__index">04</span>
-        <h2>GET IN TOUCH</h2>
+        <h2>{t.heading}</h2>
       </div>
 
-      <p className="footer__tagline">
-        Got a project, an idea, or just want to say hi?
-      </p>
+      <p className="footer__tagline">{t.tagline}</p>
 
       <a
         href="mailto:khushikhan1600@gmail.com"
         className="btn btn--solid footer__cta"
       >
-        SAY HELLO
+        {t.cta}
       </a>
 
       <div className="footer__socials">
@@ -32,8 +36,7 @@ export default function Footer() {
       </div>
 
       <p className="footer__bottom">
-        © {new Date().getFullYear()} KHUSHI KHAN — BUILT WITH REACT &amp; A
-        LOT OF COFFEE
+        © {new Date().getFullYear()} KHUSHI KHAN — {t.bottomSuffix}
       </p>
     </footer>
   );

@@ -1,0 +1,193 @@
+export const translations = {
+  en: {
+    nav: {
+      links: [
+        { href: "#about", label: "ABOUT" },
+        { href: "#interests", label: "INTERESTS" },
+        { href: "#projects", label: "PROJECTS" },
+        { href: "#contact", label: "CONTACT" },
+      ],
+    },
+    hero: {
+      eyebrow: "SYSTEM ONLINE",
+      subtitle: "SOFTWARE ENGINEER — BUILDER — PERPETUAL TINKERER",
+      viewProjects: "VIEW PROJECTS",
+      getInTouch: "GET IN TOUCH",
+      scroll: "SCROLL",
+    },
+    marquee: {
+      items: [
+        "REACT",
+        "JAVASCRIPT",
+        "UI / UX",
+        "CREATIVE CODE",
+        "HOT CHOCOLATE",
+        "GOOD VIBES",
+        "BUILDING THINGS",
+        "RETRO EVERYTHING",
+      ],
+    },
+    about: {
+      heading: "ABOUT ME",
+      bio: "Hi, I'm Khushi — a software engineer who loves building things that live on the internet. I mix clean code with a weakness for retro aesthetics, mixtapes, and side quests.",
+      status: [
+        { label: "LOCATION", value: "Earth, usually at my desk" },
+        { label: "ROLE", value: "Software Engineer" },
+        { label: "MODE", value: "Always building something" },
+        { label: "UPTIME", value: "Fueled by cocoa" },
+      ],
+    },
+    interests: {
+      heading: "INTERESTS",
+      items: [
+        { icon: "🎧", title: "Music", desc: "Curating mixtapes and chasing new sounds." },
+        { icon: "📸", title: "Photography", desc: "Capturing moments, one grainy shot at a time." },
+        { icon: "🎮", title: "Gaming", desc: "Retro consoles and the occasional boss battle." },
+        { icon: "📚", title: "Reading", desc: "Sci-fi, design books, and late-night rabbit holes." },
+        { icon: "✈️", title: "Travel", desc: "Collecting stamps and stories." },
+        { icon: "🎨", title: "Art", desc: "Doodles, digital art, and design experiments." },
+      ],
+    },
+    projects: {
+      heading: "PROJECTS",
+      liveLabel: "LIVE",
+      codeLabel: "CODE",
+      items: [
+        {
+          title: "Project One",
+          file: "project-one.exe",
+          desc: "A short description of what this project does and the problem it solves.",
+          tags: ["React", "Node", "CSS"],
+          live: "#",
+          code: "#",
+        },
+        {
+          title: "Project Two",
+          file: "project-two.exe",
+          desc: "Another project worth showing off — swap in the real details here.",
+          tags: ["Python", "API"],
+          live: "#",
+          code: "#",
+        },
+        {
+          title: "Project Three",
+          file: "project-three.exe",
+          desc: "Describe the tech stack, your role, and the outcome in a line or two.",
+          tags: ["TypeScript", "Design"],
+          live: "#",
+          code: "#",
+        },
+        {
+          title: "Project Four",
+          file: "project-four.exe",
+          desc: "Fourth slot for a side project, hackathon build, or experiment.",
+          tags: ["React", "Firebase"],
+          live: "#",
+          code: "#",
+        },
+      ],
+    },
+    footer: {
+      heading: "GET IN TOUCH",
+      tagline: "Got a project, an idea, or just want to say hi?",
+      cta: "SAY HELLO",
+      bottomSuffix: "BUILT WITH REACT & A LOT OF HOT CHOCOLATE",
+    },
+  },
+
+  ja: {
+    nav: {
+      links: [
+        { href: "#about", label: "概要" },
+        { href: "#interests", label: "趣味" },
+        { href: "#projects", label: "プロジェクト" },
+        { href: "#contact", label: "連絡先" },
+      ],
+    },
+    hero: {
+      eyebrow: "システムオンライン",
+      subtitle: "ソフトウェアエンジニア ― ビルダー ― 永遠の探究者",
+      viewProjects: "プロジェクトを見る",
+      getInTouch: "お問い合わせ",
+      scroll: "スクロール",
+    },
+    marquee: {
+      items: [
+        "REACT",
+        "JAVASCRIPT",
+        "UI / UX",
+        "クリエイティブコード",
+        "ホットチョコレート",
+        "良いバイブス",
+        "ものづくり",
+        "何でもレトロ",
+      ],
+    },
+    about: {
+      heading: "自己紹介",
+      bio: "こんにちは、Khushiです。インターネットで動くものを作るのが好きなソフトウェアエンジニア。整然としたコードと、レトロな美学、ミックステープ、寄り道好きな性格が入り混じっています。",
+      status: [
+        { label: "場所", value: "地球、たいてい机の前" },
+        { label: "職業", value: "ソフトウェアエンジニア" },
+        { label: "モード", value: "常に何かを作っている" },
+        { label: "稼働時間", value: "ココアで動いてる" },
+      ],
+    },
+    interests: {
+      heading: "趣味",
+      items: [
+        { icon: "🎧", title: "音楽", desc: "ミックステープを作り、新しい音を追い求める。" },
+        { icon: "📸", title: "写真", desc: "粒子感のある一枚一枚で、瞬間を切り取る。" },
+        { icon: "🎮", title: "ゲーム", desc: "レトロなゲーム機と、たまのボス戦。" },
+        { icon: "📚", title: "読書", desc: "SF小説、デザイン本、そして夜更けの寄り道。" },
+        { icon: "✈️", title: "旅行", desc: "スタンプと物語を集めて。" },
+        { icon: "🎨", title: "アート", desc: "落書き、デジタルアート、デザインの実験。" },
+      ],
+    },
+    projects: {
+      heading: "プロジェクト",
+      liveLabel: "公開",
+      codeLabel: "コード",
+      items: [
+        {
+          title: "プロジェクト 1",
+          file: "project-one.exe",
+          desc: "このプロジェクトが何をするのか、どんな課題を解決するのかを簡潔に説明。",
+          tags: ["React", "Node", "CSS"],
+          live: "#",
+          code: "#",
+        },
+        {
+          title: "プロジェクト 2",
+          file: "project-two.exe",
+          desc: "紹介する価値のある別のプロジェクト ― ここに実際の詳細を入れてください。",
+          tags: ["Python", "API"],
+          live: "#",
+          code: "#",
+        },
+        {
+          title: "プロジェクト 3",
+          file: "project-three.exe",
+          desc: "使用技術、担当した役割、成果を一言二言で。",
+          tags: ["TypeScript", "Design"],
+          live: "#",
+          code: "#",
+        },
+        {
+          title: "プロジェクト 4",
+          file: "project-four.exe",
+          desc: "サイドプロジェクトやハッカソン作品、実験のための4つ目の枠。",
+          tags: ["React", "Firebase"],
+          live: "#",
+          code: "#",
+        },
+      ],
+    },
+    footer: {
+      heading: "連絡先",
+      tagline: "プロジェクトのご相談でも、アイデアのシェアでも、ちょっとした挨拶でも。",
+      cta: "挨拶する",
+      bottomSuffix: "Reactとたくさんのホットチョコレートで作成",
+    },
+  },
+};
