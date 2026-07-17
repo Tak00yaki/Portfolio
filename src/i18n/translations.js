@@ -73,6 +73,14 @@ export const translations = {
           chips: ["Sci-fi", "Design books", "Manga", "Late-night reads"],
         },
         {
+          id: "poems",
+          icon: "🖋️",
+          title: "Poems",
+          desc: "Short lines that say more than they should.",
+          extra: "I keep a notes app full of half-finished poems and lines I liked enough to save. Mostly free verse, mostly about small things.",
+          chips: ["Free verse", "Notebook scraps", "Haiku", "Late-night lines"],
+        },
+        {
           id: "movies",
           icon: "🎬",
           title: "Movies",
@@ -226,6 +234,14 @@ export const translations = {
           desc: "SF小説、デザイン本、そして夜更けの寄り道。",
           extra: "積読の山は、あるべき高さよりずっと高い ― SF文庫、デザイン本、返し忘れた漫画。",
           chips: ["SF", "デザイン本", "漫画", "夜更けの読書"],
+        },
+        {
+          id: "poems",
+          icon: "🖋️",
+          title: "詩",
+          desc: "短い行に、言葉以上の意味を込めて。",
+          extra: "書きかけの詩や、気に入った一行でメモ帳がいっぱいになる。だいたい自由詩で、だいたい小さなことについて。",
+          chips: ["自由詩", "ノートの断片", "俳句", "夜更けの一行"],
         },
         {
           id: "movies",
