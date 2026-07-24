@@ -1,0 +1,2706 @@
+{
+  "castles": [
+    {
+      "slug": "hohensalzburg_fortress",
+      "name": "Hohensalzburg Fortress",
+      "wiki_title": "Hohensalzburg Fortress",
+      "country": "Austria",
+      "lat": 47.7955,
+      "lon": 13.0453,
+      "year_built_start": 1077,
+      "year_built_end": 1519,
+      "century_built": 11,
+      "era": "11th–13th century",
+      "architecture_style": "Romanesque core with Gothic and Renaissance additions",
+      "built_by": "Archbishop Gebhard of Salzburg",
+      "dynasty_empire": "Archbishopric of Salzburg (Prince-Archbishops)",
+      "purpose": "Begun to protect the Prince-Archbishops of Salzburg during the Investiture Controversy between the Papacy and the Holy Roman Empire, then steadily enlarged into a self-sufficient residence and stronghold.",
+      "description": "Perched on the Festungsberg above Salzburg's old town, Hohensalzburg is one of the largest fully preserved medieval castles in Europe. It was never taken by siege, and each Prince-Archbishop added to it over four centuries, layering Romanesque, Gothic, and Renaissance work into a single sprawling complex.",
+      "photos": [
+        {
+          "path": "assets/castles/hohensalzburg_fortress_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "ASaber91",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:View_of_Salzburg_from_Modern_Museum.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/hohensalzburg_fortress_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "C.Stadler/Bwag",
+            "license": "CC BY-SA 3.0 at",
+            "source_url": "https://commons.wikimedia.org/wiki/File:G%C3%BCssing_-_Burg.JPG"
+          }
+        },
+        {
+          "path": "assets/castles/hohensalzburg_fortress_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "C.Stadler/Bwag",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Perchtoldsdorf_(3).JPG"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "gravensteen",
+      "name": "Gravensteen",
+      "wiki_title": "Gravensteen",
+      "country": "Belgium",
+      "lat": 51.0575,
+      "lon": 3.7208,
+      "year_built_start": 1180,
+      "year_built_end": 1200,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Norman-style stone keep",
+      "built_by": "Philip of Alsace, Count of Flanders",
+      "dynasty_empire": "County of Flanders",
+      "purpose": "Built to project comital authority over the wealthy and increasingly independent-minded city of Ghent, deliberately modeled on Crusader castles the count had seen in the Holy Land.",
+      "description": "Gravensteen, the \"Castle of the Counts\", dominates central Ghent with its stark stone keep and battlemented curtain wall. It later served as a courthouse, prison, and even a cotton mill before restoration in the 19th century returned it to something close to its medieval appearance.",
+      "photos": [
+        {
+          "path": "assets/castles/gravensteen_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Trougnouf (Benoit Brummer)",
+            "license": "CC BY 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:De_Viron_Castle_(DSC_2198).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/gravensteen_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "EmDee",
+            "license": "CC BY 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Belgique_-_Gand_-_Ch%C3%A2teau_des_Comtes_de_Flandre_-_04.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/gravensteen_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Marc Ryckaert (MJJR)",
+            "license": "CC BY 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Gent_Gravensteen_R01.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "tsarevets_fortress",
+      "name": "Tsarevets Fortress",
+      "wiki_title": "Tsarevets (fortress)",
+      "country": "Bulgaria",
+      "lat": 43.0797,
+      "lon": 25.6467,
+      "year_built_start": 1185,
+      "year_built_end": 1393,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Medieval Bulgarian fortress complex",
+      "built_by": "Tsars of the Asen dynasty",
+      "dynasty_empire": "Second Bulgarian Empire (Asen dynasty)",
+      "purpose": "Served as the fortified capital hill of the Second Bulgarian Empire, housing the royal palace and Patriarchal cathedral, until it fell to the Ottomans in 1393.",
+      "description": "Tsarevets occupies an entire hill above Veliko Tarnovo, encircled by the Yantra river on three sides. Within its walls stood the palaces of 22 Bulgarian tsars and the seat of the Bulgarian Patriarchate; today a nightly sound-and-light show illuminates the reconstructed ramparts.",
+      "photos": [
+        {
+          "path": "assets/castles/tsarevets_fortress_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Михал Орела",
+            "license": "CC BY 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Asenova_krepost_church_1.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/tsarevets_fortress_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "RKold",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Tsarevets_Fortress,_Veliko_Tarnovo_-_3_March_2021,_rk.aerial.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/tsarevets_fortress_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Ville Miettinen from Helsinki, Finland",
+            "license": "CC BY 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Tsarevetz_church_details.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "trakoscan_castle",
+      "name": "Trakošćan Castle",
+      "wiki_title": "Trakošćan Castle",
+      "country": "Croatia",
+      "lat": 46.2394,
+      "lon": 16.0011,
+      "year_built_start": 1334,
+      "year_built_end": 1334,
+      "century_built": 14,
+      "era": "14th–15th century",
+      "architecture_style": "Medieval fortress remodeled as a Romanticist castle",
+      "built_by": "Counts of Celje",
+      "dynasty_empire": "House of Drašković (from 1584)",
+      "purpose": "Built as a small defensive fort guarding a hill road in northern Croatia, later transformed by the Drašković family into a Romantic-era residence set in an English-style landscaped park.",
+      "description": "First recorded in 1334 as a modest watchtower, Trakošćan was reshaped in the 1840s by Count Juraj V Drašković into the turreted, fairy-tale silhouette it has today, complete with an artificial lake. It now houses period furnishings and a portrait gallery of the Drašković family.",
+      "photos": [
+        {
+          "path": "assets/castles/trakoscan_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Nikolai Karaneschev",
+            "license": "CC BY 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Dvorac_Trako%C5%A1%C4%87an_(Trakostyan_Castle_-_Croatia)_-_panoramio_(28).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/trakoscan_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Miroslav.vajdic",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:PF02_Trako%C5%A1%C4%87an_._Park_forests_of_Croatia_05.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/trakoscan_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Miroslav.vajdic",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Z-886_Dvorac_Trako%C5%A1%C4%87an_02.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "prague_castle",
+      "name": "Prague Castle",
+      "wiki_title": "Prague Castle",
+      "country": "Czech Republic",
+      "lat": 50.0911,
+      "lon": 14.4016,
+      "year_built_start": 880,
+      "year_built_end": 1929,
+      "century_built": 9,
+      "era": "9th–10th century",
+      "architecture_style": "Romanesque / Gothic / Baroque (layered)",
+      "built_by": "Prince Bořivoj I of Bohemia",
+      "dynasty_empire": "Přemyslid Dynasty",
+      "purpose": "Founded as a fortified seat of Bohemian princely power overlooking the Vltava river, later expanded into the residence of Bohemian kings and Holy Roman Emperors.",
+      "description": "The largest ancient castle complex in the world by area, Prague Castle has been rebuilt in nearly every architectural style over 11 centuries, from Prince Bořivoj's original wooden fort to Charles IV's Gothic St. Vitus Cathedral to Empress Maria Theresa's Baroque facades.",
+      "photos": [
+        {
+          "path": "assets/castles/prague_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Alvesgaspar",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:St_Vitus_Prague_September_2016-21.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/prague_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Tilman2007",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Karl%C5%AFv_most_Praha,_Star%C3%A9_M%C4%9Bsto_20170810_007.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/prague_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Alvesgaspar",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:St_Vitus_Prague_September_2016-2.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "kronborg_castle",
+      "name": "Kronborg Castle",
+      "wiki_title": "Kronborg",
+      "country": "Denmark",
+      "lat": 56.0388,
+      "lon": 12.6203,
+      "year_built_start": 1574,
+      "year_built_end": 1585,
+      "century_built": 16,
+      "era": "16th–17th century",
+      "architecture_style": "Renaissance",
+      "built_by": "King Frederick II of Denmark",
+      "dynasty_empire": "House of Oldenburg",
+      "purpose": "Built to enforce the Sound Dues, a toll levied on every ship passing through the narrow Øresund strait between Denmark and Sweden, making it one of the most economically important castles in Northern Europe.",
+      "description": "Kronborg's spires dominate the strait at Helsingør, within sight of the Swedish coast. Shakespeare set Hamlet here as Elsinore, likely drawing on sailors' accounts of the castle, and it remains a UNESCO World Heritage Site and the venue for open-air performances of the play itself.",
+      "photos": [
+        {
+          "path": "assets/castles/kronborg_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Wikimedia Commons contributor",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Kronbergbel%C3%A4gring.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/kronborg_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Hagai Agmon-Snir حچاي اچمون-سنير חגי אגמון-שניר",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:KronborgCastleDenmarkOct152022_07.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/kronborg_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Georg Braun",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Kronborg_by_Braun_Hogenberg_(middle_size)_(109097077).jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "dover_castle",
+      "name": "Dover Castle",
+      "wiki_title": "Dover Castle",
+      "country": "England, United Kingdom",
+      "lat": 51.1279,
+      "lon": 1.3212,
+      "year_built_start": 1180,
+      "year_built_end": 1256,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Norman Military",
+      "built_by": "King Henry II",
+      "dynasty_empire": "Plantagenet Dynasty",
+      "purpose": "Built to defend the shortest sea crossing to continental Europe and to project royal power, earning it the nickname 'Key to England.'",
+      "description": "Dover's massive keep and concentric walls withstood a determined siege by Prince Louis of France in 1216-17. The castle's tunnels beneath the White Cliffs were later reused as a command center during the WWII evacuation of Dunkirk.",
+      "photos": [
+        {
+          "path": "assets/castles/dover_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Neptuul",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Dover_Castle_SE.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/dover_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Chensiyuan",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:1_dover_castle_aerial_panorama_2017.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/dover_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "HARTLEPOOLMARINA2014",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Dover_Castle_Great_Tower_The_guest_hall.JPG"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "leeds_castle",
+      "name": "Leeds Castle",
+      "wiki_title": "Leeds Castle",
+      "country": "England, United Kingdom",
+      "lat": 51.2481,
+      "lon": 0.6247,
+      "year_built_start": 1119,
+      "year_built_end": 1119,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Norman / Tudor (layered)",
+      "built_by": "Robert de Crevecoeur",
+      "dynasty_empire": "Norman Dynasty (later Tudor Dynasty)",
+      "purpose": "Built originally as a Norman stronghold guarding a river crossing; later transformed into a royal palace and favored residence of medieval English queens.",
+      "description": "Often called the 'Loveliest Castle in the World,' Leeds Castle sits on two islands in a lake and was extensively remodeled by Henry VIII as a pleasure palace for Catherine of Aragon, following centuries as a residence of medieval queens.",
+      "photos": [
+        {
+          "path": "assets/castles/leeds_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Chensiyuan",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:1_castle_leeds_panorama_2017.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/leeds_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "DimiTalen",
+            "license": "CC0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Staircase_in_Leeds_Castle,_2019.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/leeds_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Christoph Matthias Siebenborn",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Leeds_Castle_2014_06_19.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "warwick_castle",
+      "name": "Warwick Castle",
+      "wiki_title": "Warwick Castle",
+      "country": "England, United Kingdom",
+      "lat": 52.2793,
+      "lon": -1.585,
+      "year_built_start": 1068,
+      "year_built_end": 1400,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Norman / Gothic",
+      "built_by": "William the Conqueror (original motte); rebuilt in stone by the Earls of Warwick",
+      "dynasty_empire": "Norman Dynasty / House of Beauchamp",
+      "purpose": "Built originally as a motte-and-bailey fort to control the Midlands and the River Avon crossing, later rebuilt in stone as a formidable baronial stronghold.",
+      "description": "Warwick Castle's 14th-century towers, built by the powerful Beauchamp earls, made it one of medieval England's most heavily fortified private castles, reflecting the immense power of the Earls of Warwick during the Wars of the Roses era.",
+      "photos": [
+        {
+          "path": "assets/castles/warwick_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "DeFacto",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Warwick_Castle_-_The_Mound.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/warwick_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "DeFacto",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Warwick_Castle_May_2016.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/warwick_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Andrew Griffith from United Kingdom",
+            "license": "CC BY 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Warwick_Castle%27s_Bear_and_Clarence_Towers.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "windsor_castle",
+      "name": "Windsor Castle",
+      "wiki_title": "Windsor Castle",
+      "country": "England, United Kingdom",
+      "lat": 51.4839,
+      "lon": -0.6044,
+      "year_built_start": 1070,
+      "year_built_end": 1086,
+      "century_built": 11,
+      "era": "11th–13th century",
+      "architecture_style": "Norman / Gothic / Georgian (layered)",
+      "built_by": "William the Conqueror",
+      "dynasty_empire": "Norman Dynasty (later House of Windsor)",
+      "purpose": "Built as a motte-and-bailey fortress to guard the western approach to London and project Norman control over the conquered Anglo-Saxon countryside.",
+      "description": "The oldest and largest continuously occupied castle in the world, Windsor has been expanded by nearly every English monarch since William I. It remains a working royal residence and hosts state ceremonies, ranging in style from Norman stonework to Georgian and Victorian interiors.",
+      "photos": [
+        {
+          "path": "assets/castles/windsor_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Julie Anne Workman",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Curfew_Tower,_Windsor_Castle.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/windsor_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Wikimedia Commons contributor",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Windsor_Castle_Hollar_Birds_Eye_view.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/windsor_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Diliff",
+            "license": "CC BY 2.5",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Windsor_Castle_at_Sunset_-_Nov_2006.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "olavinlinna",
+      "name": "Olavinlinna",
+      "wiki_title": "Olavinlinna",
+      "country": "Finland",
+      "lat": 61.8628,
+      "lon": 28.8797,
+      "year_built_start": 1475,
+      "year_built_end": 1483,
+      "century_built": 15,
+      "era": "14th–15th century",
+      "architecture_style": "Medieval bastion fortress",
+      "built_by": "Erik Axelsson Tott",
+      "dynasty_empire": "Kalmar Union (Kingdom of Sweden)",
+      "purpose": "Built on an islet in the Kyrönsalmi strait to defend the eastern border of Sweden-Finland against the expanding Grand Duchy of Moscow and Novgorod.",
+      "description": "Olavinlinna is the northernmost surviving medieval stone fortress in the world, its three round towers rising directly from the water of Lake Saimaa. Since 1912 its courtyard has hosted the Savonlinna Opera Festival, one of Europe's leading summer opera events.",
+      "photos": [
+        {
+          "path": "assets/castles/olavinlinna_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "HENKKA5",
+            "license": "CC0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Olavinlinna_Savonlinna_Finland.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/olavinlinna_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Vitold Muratov",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Olavinlinna_Interior.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/olavinlinna_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Pehr Adolf Kruskopf",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Pehr_Kruskopf_-_Sawonlinna,_Finland_framst%C3%A4lldt_i_teckningar,_vihko_VII.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "chateau_de_chambord",
+      "name": "Château de Chambord",
+      "wiki_title": "Château de Chambord",
+      "country": "France",
+      "lat": 47.6161,
+      "lon": 1.517,
+      "year_built_start": 1519,
+      "year_built_end": 1547,
+      "century_built": 16,
+      "era": "14th–15th century",
+      "architecture_style": "French Renaissance",
+      "built_by": "King Francis I",
+      "dynasty_empire": "House of Valois",
+      "purpose": "Built as a hunting lodge near the royal forest of Boulogne, primarily to display Francis I's wealth and Renaissance ambitions rather than to be lived in.",
+      "description": "Chambord's famous double-helix staircase, possibly influenced by Leonardo da Vinci, and its skyline of turrets and chimneys made it the grandest of the Loire Valley chateaux. Francis I reportedly stayed there for only a few weeks total across his reign.",
+      "photos": [
+        {
+          "path": "assets/castles/chateau_de_chambord_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Arnaud Scherer",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_de_Chambord_-_19-08-2015_-_Arnaud_Scherer.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/chateau_de_chambord_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Carsten Steger",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Schwerin_Castle_(view_from_the_east).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/chateau_de_chambord_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Michal Osmenda from Brussels, Belgium",
+            "license": "CC BY-SA 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_de_Chambord,_2008.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "chateau_de_chenonceau",
+      "name": "Château de Chenonceau",
+      "wiki_title": "Château de Chenonceau",
+      "country": "France",
+      "lat": 47.3268,
+      "lon": 1.0708,
+      "year_built_start": 1514,
+      "year_built_end": 1522,
+      "century_built": 16,
+      "era": "14th–15th century",
+      "architecture_style": "French Renaissance",
+      "built_by": "Thomas Bohier, royal finance minister",
+      "dynasty_empire": "House of Valois",
+      "purpose": "Built as a country residence for the Bohier family; the famous gallery spanning the River Cher was added later by Diane de Poitiers and Catherine de' Medici.",
+      "description": "Known as the 'Château des Dames' for the women who shaped it, Chenonceau's arched bridge-gallery across the Cher was commissioned by Henri II's mistress Diane de Poitiers, then seized and completed by his widow, Catherine de' Medici, after his death.",
+      "photos": [
+        {
+          "path": "assets/castles/chateau_de_chenonceau_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Dennis G. Jarvis",
+            "license": "CC BY-SA 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:France-001675_-_Maze_(15291950978).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/chateau_de_chenonceau_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "JOLIVETV",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_de_Chenonceau_guett%C3%A9_par_l%27orage.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/chateau_de_chenonceau_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Dennis G. Jarvis",
+            "license": "CC BY-SA 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:France-001611_-_Second_Floor_Hall_(15291520557).jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "chateau_de_pierrefonds",
+      "name": "Château de Pierrefonds",
+      "wiki_title": "Château de Pierrefonds",
+      "country": "France",
+      "lat": 49.3489,
+      "lon": 2.9769,
+      "year_built_start": 1857,
+      "year_built_end": 1885,
+      "century_built": 19,
+      "era": "18th–19th century",
+      "architecture_style": "Gothic Revival",
+      "built_by": "Eugène Viollet-le-Duc, commissioned by Emperor Napoleon III; original fortress by Louis d'Orléans, 1393–1407",
+      "dynasty_empire": "House of Valois (original) / House of Bonaparte (rebuild)",
+      "purpose": "The medieval original was built to defend Valois territory; after falling to ruin, Napoleon III had it rebuilt as an imperial showcase and monument to French medieval heritage.",
+      "description": "Demolished on the orders of Cardinal Richelieu in 1617 and left a picturesque ruin for over two centuries, Pierrefonds was theatrically rebuilt by architect Viollet-le-Duc for Napoleon III, resulting in one of the most elaborate (if partly imaginative) Gothic Revival castles in Europe.",
+      "photos": [
+        {
+          "path": "assets/castles/chateau_de_pierrefonds_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Diliff",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Chateau_de_Pierrefonds,_France_-_April_2012.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/chateau_de_pierrefonds_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Wikimedia Commons contributor",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:1895_Dictionary_-_Castle.png"
+          }
+        },
+        {
+          "path": "assets/castles/chateau_de_pierrefonds_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Eric Pouhier",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Chateau_de_Pierrefonds.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "hohenzollern_castle",
+      "name": "Hohenzollern Castle",
+      "wiki_title": "Hohenzollern Castle",
+      "country": "Germany",
+      "lat": 48.3235,
+      "lon": 8.9671,
+      "year_built_start": 1850,
+      "year_built_end": 1867,
+      "century_built": 19,
+      "era": "18th–19th century",
+      "architecture_style": "Gothic Revival",
+      "built_by": "King Frederick William IV of Prussia; original fortress circa 1000s",
+      "dynasty_empire": "House of Hohenzollern",
+      "purpose": "Rebuilt as an ancestral monument to the House of Hohenzollern after the two earlier medieval fortresses on the site were destroyed, intended to celebrate the dynasty's history rather than serve as a residence.",
+      "description": "Sitting dramatically atop an isolated peak, the current Hohenzollern Castle is the third fortress built on the site since the 11th century; the first two were destroyed by rival nobles and Prussian forces before this Gothic Revival monument replaced them.",
+      "photos": [
+        {
+          "path": "assets/castles/hohenzollern_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Olga Ernst",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Hohenzollern_Castle_(2017).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/hohenzollern_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "A.Savin",
+            "license": "FAL",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Burg_Hohenzollern_10-2016.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/hohenzollern_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Wikimedia Commons contributor",
+            "license": "CC BY-SA 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:BurgHohenzollernInnenhof02.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "neuschwanstein_castle",
+      "name": "Neuschwanstein Castle",
+      "wiki_title": "Neuschwanstein Castle",
+      "country": "Germany",
+      "lat": 47.5576,
+      "lon": 10.7498,
+      "year_built_start": 1869,
+      "year_built_end": 1886,
+      "century_built": 19,
+      "era": "18th–19th century",
+      "architecture_style": "Romanesque Revival",
+      "built_by": "King Ludwig II of Bavaria",
+      "dynasty_empire": "House of Wittelsbach",
+      "purpose": "Built as a private retreat and personal refuge from public life, and as a romantic homage to composer Richard Wagner — never intended as a military fortress.",
+      "description": "Perched on a rugged hill above the village of Hohenschwangau, Neuschwanstein was Ludwig II's fantasy vision of a medieval knight's castle, financed almost entirely from his personal fortune. He died in 1886 before it was finished; it opened to the public just weeks later and became the visual inspiration for Disney's Sleeping Beauty Castle.",
+      "photos": [
+        {
+          "path": "assets/castles/neuschwanstein_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Thomas Wolf, www.foto-tw.de",
+            "license": "CC BY-SA 3.0 de",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Schloss_Neuschwanstein_2013.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/neuschwanstein_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "C.Stadler/Bwag (talk / email)",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Schwangau_-_Schloss_Neuschwanstein_(a).JPG"
+          }
+        },
+        {
+          "path": "assets/castles/neuschwanstein_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Jeff Wilcox",
+            "license": "CC BY 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Neuschwanstein_castle.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "palamidi_fortress",
+      "name": "Palamidi Fortress",
+      "wiki_title": "Palamidi",
+      "country": "Greece",
+      "lat": 37.5652,
+      "lon": 22.8022,
+      "year_built_start": 1711,
+      "year_built_end": 1714,
+      "century_built": 18,
+      "era": "18th–19th century",
+      "architecture_style": "Venetian Baroque military fortification",
+      "built_by": "Venetian Republic engineers",
+      "dynasty_empire": "Republic of Venice",
+      "purpose": "Built by Venice during its final period of rule over the Peloponnese to fortify the harbor town of Nafplio against Ottoman attack.",
+      "description": "Palamidi's eight interlinked bastions crown a steep hill above Nafplio, reachable by nearly a thousand steps from the old town. Despite its formidable design, the Ottomans captured it just three years after completion in 1715, and it later served as Greece's first state prison after independence.",
+      "photos": [
+        {
+          "path": "assets/castles/palamidi_fortress_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Divad",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Gate_palamidi.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/palamidi_fortress_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Olaf Tausch",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Frangokastello_S%C3%BCdseite.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/palamidi_fortress_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "NikosFF",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:05.%CE%A6%CF%81%CE%BF%CF%8D%CF%81%CE%B9%CE%BF_%CE%A0%CE%B1%CE%BB%CE%B1%CE%BC%CE%B7%CE%B4%CE%AF%CE%BF%CF%85_GR-J11-0053.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "buda_castle",
+      "name": "Buda Castle",
+      "wiki_title": "Buda Castle",
+      "country": "Hungary",
+      "lat": 47.4964,
+      "lon": 19.0398,
+      "year_built_start": 1265,
+      "year_built_end": 1265,
+      "century_built": 13,
+      "era": "11th–13th century",
+      "architecture_style": "Gothic origins, rebuilt in Baroque and Neoclassical styles",
+      "built_by": "King Béla IV of Hungary",
+      "dynasty_empire": "Árpád dynasty (later House of Habsburg)",
+      "purpose": "Founded on Castle Hill after the Mongol invasion of 1241–42 devastated Hungary, built as a fortified royal seat that could withstand any future assault.",
+      "description": "Buda Castle grew from Béla IV's post-invasion stronghold into the grand royal palace of Matthias Corvinus in the 15th century, then was rebuilt again in Baroque style after Ottoman occupation ended. Today it anchors Budapest's Castle Hill, a UNESCO World Heritage Site overlooking the Danube.",
+      "photos": [
+        {
+          "path": "assets/castles/buda_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Varius",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Budav%C3%A1ri_Palota,_ABCDEF_%C3%A9p%C3%BClet.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/buda_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Illustratedjc",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Die_Einnahme_von_Buda_1686.JPG"
+          }
+        },
+        {
+          "path": "assets/castles/buda_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Christo",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Budapest,_Budav%C3%A1ri_Palota.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "blarney_castle",
+      "name": "Blarney Castle",
+      "wiki_title": "Blarney Castle",
+      "country": "Ireland",
+      "lat": 51.9285,
+      "lon": -8.5711,
+      "year_built_start": 1446,
+      "year_built_end": 1446,
+      "century_built": 15,
+      "era": "14th–15th century",
+      "architecture_style": "Irish tower house",
+      "built_by": "Cormac Láidir MacCarthy, King of Munster",
+      "dynasty_empire": "MacCarthy of Muskerry dynasty",
+      "purpose": "Built as the stronghold of the MacCarthy dynasty to defend and administer their territory in Munster; the third fortification raised on the site after earlier timber and stone structures.",
+      "description": "Blarney's massive keep is best known for the Blarney Stone set into its battlements, said to grant the gift of eloquent speech, or \"blarney\", to anyone who kisses it while leaning backward over the parapet edge. The surrounding demesne includes extensive gardens and a network of limestone caves.",
+      "photos": [
+        {
+          "path": "assets/castles/blarney_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Ryanhuntmuzik",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Blarney_Castle_Ireland.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/blarney_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "The mobot",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Blarney_house.JPG"
+          }
+        },
+        {
+          "path": "assets/castles/blarney_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Picture of myself taken by my boyfriend in August 2002",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Blarney_stone.png"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "castel_del_monte",
+      "name": "Castel del Monte",
+      "wiki_title": "Castel del Monte, Apulia",
+      "country": "Italy",
+      "lat": 41.0847,
+      "lon": 16.2708,
+      "year_built_start": 1240,
+      "year_built_end": 1246,
+      "century_built": 13,
+      "era": "11th–13th century",
+      "architecture_style": "Octagonal Romanesque/Gothic (Frederician)",
+      "built_by": "Holy Roman Emperor Frederick II",
+      "dynasty_empire": "House of Hohenstaufen",
+      "purpose": "Built by Frederick II as a hunting lodge and monument to his fascination with geometry and astronomy — its perfectly octagonal plan has no moat, drawbridge, or defensive ditch, so it was never a true military fortress.",
+      "description": "Rising alone on a hilltop in Apulia, Castel del Monte is unlike any other medieval castle: eight octagonal towers around an octagonal courtyard, with no evident military function. Scholars still debate whether it was a hunting lodge, an astronomical observatory, or a deliberate statement of the emperor's intellectual ambitions. It is a UNESCO World Heritage Site and appears on the Italian one-cent euro coin.",
+      "photos": [
+        {
+          "path": "assets/castles/castel_del_monte_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "ParisTaras",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Castel_del_Monte_-_Andria.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/castel_del_monte_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Berthold Werner",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Castel_del_Monte_BW_2016-10-14_13-04-18_stitch.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/castel_del_monte_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Sailko",
+            "license": "CC BY 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Castel_del_monte,_interno,_stanze,_camino_01.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "trakai_island_castle",
+      "name": "Trakai Island Castle",
+      "wiki_title": "Trakai Island Castle",
+      "country": "Lithuania",
+      "lat": 54.6553,
+      "lon": 24.9339,
+      "year_built_start": 1409,
+      "year_built_end": 1409,
+      "century_built": 15,
+      "era": "14th–15th century",
+      "architecture_style": "Gothic island castle",
+      "built_by": "Grand Duke Vytautas the Great",
+      "dynasty_empire": "Grand Duchy of Lithuania (Gediminid dynasty)",
+      "purpose": "Built on an island in Lake Galvė as the principal residence of the Grand Dukes of Lithuania and a defensive stronghold against the Teutonic Knights.",
+      "description": "Trakai is the only island castle in Eastern Europe, connected to shore by a wooden footbridge across Lake Galvė. It was the seat of Vytautas the Great, who died here in 1430, and was painstakingly reconstructed in the 20th century after centuries of ruin.",
+      "photos": [
+        {
+          "path": "assets/castles/trakai_island_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Diliff",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Trakai_Island_Castle_Chapel,_Lithuania_-_Diliff.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/trakai_island_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Skelanard (Aleksandr Petukhov)",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Trakai_castle_2016.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/trakai_island_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Diliff",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Trakai_Island_Castle,_Lithuania_-_Diliff.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "fort_st_angelo",
+      "name": "Fort St. Angelo",
+      "wiki_title": "Fort St. Angelo",
+      "country": "Malta",
+      "lat": 35.8919,
+      "lon": 14.5228,
+      "year_built_start": 1530,
+      "year_built_end": 1698,
+      "century_built": 16,
+      "era": "16th–17th century",
+      "architecture_style": "Hospitaller bastioned fortress",
+      "built_by": "Knights Hospitaller (Order of St. John)",
+      "dynasty_empire": "Order of St. John (Knights Hospitaller)",
+      "purpose": "Rebuilt as the Knights Hospitaller's headquarters and last line of defense, most critically during the Great Siege of Malta in 1565, when the Order held off a massive Ottoman invasion force.",
+      "description": "Fort St. Angelo occupies the tip of the Birgu peninsula, guarding the entrance to Malta's Grand Harbour. It anchored the defense of Malta during the 1565 Great Siege and later served as a British Royal Navy shore establishment, HMS Egmont, into the 20th century.",
+      "photos": [
+        {
+          "path": "assets/castles/fort_st_angelo_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Frank Vincentz",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Malta_-_Birgu_-_Fort_Saint_Angelo_(Upper_Barrakka_Gardens)_01_ies.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/fort_st_angelo_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Kritzolina",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:St_Anne_Chapel_at_Fort_St._Angelo_11.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/fort_st_angelo_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "G.Mannaerts",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Fort_St._Angelo_interior_01.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "muiderslot",
+      "name": "Muiderslot",
+      "wiki_title": "Muiden Castle",
+      "country": "Netherlands",
+      "lat": 52.3316,
+      "lon": 5.0708,
+      "year_built_start": 1370,
+      "year_built_end": 1386,
+      "century_built": 14,
+      "era": "14th–15th century",
+      "architecture_style": "Medieval moated brick castle",
+      "built_by": "Albert I, Count of Holland",
+      "dynasty_empire": "House of Wittelsbach (Counts of Holland)",
+      "purpose": "Rebuilt to guard the mouth of the Vecht river where it meets the Zuiderzee, protecting toll collection and trade routes into Amsterdam.",
+      "description": "A near-perfect example of a moated Dutch castle, Muiderslot's round brick towers rise straight out of a wide water-filled moat. In the 17th century it became the home of poet and historian P.C. Hooft, whose literary salon, the Muiderkring, gathered the leading writers and thinkers of the Dutch Golden Age.",
+      "photos": [
+        {
+          "path": "assets/castles/muiderslot_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Vranzvanmaaren",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Areal_view_of_Muiden_Castle_and_surroundings.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/muiderslot_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Edi Weissmann from Amsterdam, Netherlands",
+            "license": "CC BY-SA 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Muiderslot_by_Edi_Weissmann.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/muiderslot_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Unknown authorUnknown author",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Muiderslot_(Atlas_van_Loon).jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "akershus_fortress",
+      "name": "Akershus Fortress",
+      "wiki_title": "Akershus Fortress",
+      "country": "Norway",
+      "lat": 59.9075,
+      "lon": 10.7369,
+      "year_built_start": 1299,
+      "year_built_end": 1308,
+      "century_built": 13,
+      "era": "11th–13th century",
+      "architecture_style": "Medieval fortress, later Renaissance royal residence",
+      "built_by": "King Håkon V of Norway",
+      "dynasty_empire": "House of Sverre",
+      "purpose": "Built to defend Oslo from seaborne attack and serve as a royal residence; it has withstood every siege attempted against it, including assaults by Swedish and German forces.",
+      "description": "Overlooking Oslo's harbor, Akershus has never fallen to a besieging army in over 700 years, surviving sieges in the 14th, 16th, and 17th centuries as well as an attempted German takeover in 1940. It now houses the Norwegian Resistance Museum alongside its medieval halls.",
+      "photos": [
+        {
+          "path": "assets/castles/akershus_fortress_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Alhill42",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Armour_Akershus_Fortress_Oslo.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/akershus_fortress_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Ralf Roletschek",
+            "license": "GFDL 1.2",
+            "source_url": "https://commons.wikimedia.org/wiki/File:14-09-02-oslo-RalfR-370.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/akershus_fortress_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Hans A. Rosbach",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Akershus_slott_20090503-08.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "malbork_castle",
+      "name": "Malbork Castle",
+      "wiki_title": "Malbork Castle",
+      "country": "Poland",
+      "lat": 54.0397,
+      "lon": 19.0274,
+      "year_built_start": 1274,
+      "year_built_end": 1406,
+      "century_built": 14,
+      "era": "14th–15th century",
+      "architecture_style": "Brick Gothic",
+      "built_by": "Teutonic Knights",
+      "dynasty_empire": "Teutonic Order",
+      "purpose": "Built as the fortified headquarters and monastic-military convent of the Teutonic Order after they relocated their capital there in 1309.",
+      "description": "The largest castle in the world by land area and the largest brick building in Europe, Malbork combined a monastery, military fortress, and administrative palace for the Grand Master of the Teutonic Order, ruling a crusading state along the Baltic.",
+      "photos": [
+        {
+          "path": "assets/castles/malbork_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Aneta Pawska",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Dziedziniec_Zamku_Wysokiego,_Malbork.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/malbork_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Jakub Hałun",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Zamek_w_Malborku,_20210908_1112_2576.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/malbork_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Jakub Hałun",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Zamek_w_Malborku,_20210908_1114_2580.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "pena_palace",
+      "name": "Pena Palace",
+      "wiki_title": "Pena Palace",
+      "country": "Portugal",
+      "lat": 38.7876,
+      "lon": -9.3906,
+      "year_built_start": 1842,
+      "year_built_end": 1854,
+      "century_built": 19,
+      "era": "18th–19th century",
+      "architecture_style": "Romanticist (Gothic, Manueline, Moorish, and Renaissance revival)",
+      "built_by": "King Ferdinand II of Portugal",
+      "dynasty_empire": "House of Saxe-Coburg and Gotha (Portuguese branch)",
+      "purpose": "Built on the ruins of a monastery as a summer residence for the Portuguese royal family, deliberately mixing historic revival styles to create a fantastical silhouette above Sintra.",
+      "description": "Painted in vivid red and yellow, Pena Palace crowns a peak in the Sintra hills and is considered one of the finest examples of 19th-century Romanticist architecture in the world. Its eclectic mix of towers, domes, and tilework was a personal passion project of the artistically minded King Ferdinand II.",
+      "photos": [
+        {
+          "path": "assets/castles/pena_palace_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Ajay Suresh from New York, NY, USA",
+            "license": "CC BY 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Sintra,_Pal%C3%A1cio_Nacional_da_Pena,_P%C3%A1tio_dos_Arcos_(28).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/pena_palace_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": ".mw-parser-output .messagebox{margin:4px 0;width:auto;border-collapse:collapse;border:2px solid var(--border-color-progressive,#6485d1);background-color:var(--background-color-neutral-subtle,#fbfcff);",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Courtyard_Archway_and_Baskets,_Palacio_da_Pena.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/pena_palace_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": ".mw-parser-output .messagebox{margin:4px 0;width:auto;border-collapse:collapse;border:2px solid var(--border-color-progressive,#6485d1);background-color:var(--background-color-neutral-subtle,#fbfcff);",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Tiled_Window,_Pal%C3%A1cio_da_Pena.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "bran_castle",
+      "name": "Bran Castle",
+      "wiki_title": "Bran Castle",
+      "country": "Romania",
+      "lat": 45.5149,
+      "lon": 25.3672,
+      "year_built_start": 1377,
+      "year_built_end": 1388,
+      "century_built": 14,
+      "era": "14th–15th century",
+      "architecture_style": "Gothic",
+      "built_by": "Saxon guild of Brașov, by charter of King Louis I of Hungary",
+      "dynasty_empire": "Kingdom of Hungary",
+      "purpose": "Built to guard a key mountain trade route between Transylvania and Wallachia and to collect customs duties, and to defend against Ottoman incursions.",
+      "description": "Popularly marketed as 'Dracula's Castle' for its supposed link to Bram Stoker's novel, Bran was really a customs post and border fortress. Vlad III ('the Impaler') may have passed through the area, but no solid evidence ties him to residing here.",
+      "photos": [
+        {
+          "path": "assets/castles/bran_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Vislupus",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Bran_Castle_002.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/bran_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Pmatlock",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Bran_castle_09.png"
+          }
+        },
+        {
+          "path": "assets/castles/bran_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Myrabella",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Bran_castle_courtyard_round_tower.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "corvin_castle",
+      "name": "Corvin Castle",
+      "wiki_title": "Corvin Castle",
+      "country": "Romania",
+      "lat": 45.7489,
+      "lon": 22.9089,
+      "year_built_start": 1440,
+      "year_built_end": 1480,
+      "century_built": 15,
+      "era": "14th–15th century",
+      "architecture_style": "Gothic-Renaissance",
+      "built_by": "John Hunyadi",
+      "dynasty_empire": "Kingdom of Hungary (Hunyadi family)",
+      "purpose": "Built as the fortified family seat of the powerful Hunyadi family and as a stronghold against Ottoman expansion into Transylvania.",
+      "description": "One of the largest castles in Europe, Corvin Castle was the power base of John Hunyadi, regent of Hungary and celebrated for halting Ottoman advances, and later of his son Matthias Corvinus, who became one of Hungary's most renowned kings.",
+      "photos": [
+        {
+          "path": "assets/castles/corvin_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Paszczur01",
+            "license": "CC BY-SA 3.0 ro",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Hunedoara_castle.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/corvin_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Pasztilla aka Attila Terbócs",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Castle_of_Hunedoara_2019_01.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/corvin_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Unknown authorUnknown author",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Burg_Vajad_Hunyad_(Rumaenien).jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "peles_castle",
+      "name": "Peleș Castle",
+      "wiki_title": "Peleș Castle",
+      "country": "Romania",
+      "lat": 45.36,
+      "lon": 25.5406,
+      "year_built_start": 1873,
+      "year_built_end": 1914,
+      "century_built": 19,
+      "era": "18th–19th century",
+      "architecture_style": "Neo-Renaissance",
+      "built_by": "King Carol I of Romania",
+      "dynasty_empire": "House of Hohenzollern-Sigmaringen",
+      "purpose": "Built as a summer residence for the newly established Romanian royal family, intended to showcase a modern European monarchy amid the Carpathian Mountains.",
+      "description": "One of the most technologically advanced buildings of its time in Europe, Peleș had central heating, an internal power plant providing electric light, and a vacuum cleaning system, reflecting Carol I's ambition to modernize the young Kingdom of Romania.",
+      "photos": [
+        {
+          "path": "assets/castles/peles_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Photopro Pro",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Inside_of_a_castle_-_panoramio_(31).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/peles_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Spirtu",
+            "license": "CC BY 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Castelul_Pele%C8%99_(Salonul_turcesc)_nr._2.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/peles_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Daniele Napolitano",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Sinaia_-_Pele%C8%99_Castle_with_snow_in_January_2021.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "moscow_kremlin",
+      "name": "Moscow Kremlin",
+      "wiki_title": "Kremlin",
+      "country": "Russia",
+      "lat": 55.752,
+      "lon": 37.6175,
+      "year_built_start": 1482,
+      "year_built_end": 1495,
+      "century_built": 15,
+      "era": "14th–15th century",
+      "architecture_style": "Russian fortification with Italian Renaissance engineering",
+      "built_by": "Grand Prince Ivan III of Moscow",
+      "dynasty_empire": "Rurik dynasty",
+      "purpose": "Rebuilt in brick by Italian master builders to secure Ivan III's newly unified Russian state and serve as the fortified seat of the Grand Princes, later the Tsars.",
+      "description": "The Kremlin's red brick walls and 20 towers, largely the work of Italian architects brought in by Ivan III, enclose cathedrals, palaces, and the seat of Russian state power to this day. It is the largest active fortress in Europe and, together with Red Square, a UNESCO World Heritage Site.",
+      "photos": [
+        {
+          "path": "assets/castles/moscow_kremlin_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Крылов Иван",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:%D0%91%D0%B0%D1%88%D0%BD%D0%B8_%D0%9C%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BA%D1%80%D0%B5%D0%BC%D0%BB%D1%8F.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/moscow_kremlin_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Ludvig14",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Moscow_Grand_Kremlin_Palace3.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/moscow_kremlin_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Alvesgaspar",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Moscow_July_2011-10a.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "edinburgh_castle",
+      "name": "Edinburgh Castle",
+      "wiki_title": "Edinburgh Castle",
+      "country": "Scotland, United Kingdom",
+      "lat": 55.9486,
+      "lon": -3.1999,
+      "year_built_start": 1130,
+      "year_built_end": 1500,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Medieval Scottish / Gothic Military",
+      "built_by": "King David I of Scotland (earliest stone structures)",
+      "dynasty_empire": "House of Dunkeld / House of Stewart",
+      "purpose": "Built atop an extinct volcanic plug to serve as a nearly impregnable royal fortress and seat of government commanding the approach to the city.",
+      "description": "Edinburgh Castle has been besieged more than any other place in Britain. St Margaret's Chapel, from around 1130, is the oldest surviving building in the city; the rest of the complex grew over four centuries as successive monarchs added royal apartments, the Great Hall, and artillery defenses.",
+      "photos": [
+        {
+          "path": "assets/castles/edinburgh_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Wikimedia Commons contributor",
+            "license": "PD-US",
+            "source_url": "https://en.wikipedia.org/wiki/File:Aerial_View_of_Edinburgh,_by_Alfred_Buckham,_from_about_1920.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/edinburgh_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Daniel Kraft",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Edinburgh_Castle_gate_20211019.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/edinburgh_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Saffron Blaze",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Edinburgh_Castle_Rock.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "eilean_donan_castle",
+      "name": "Eilean Donan Castle",
+      "wiki_title": "Eilean Donan",
+      "country": "Scotland, United Kingdom",
+      "lat": 57.2737,
+      "lon": -5.5158,
+      "year_built_start": 1912,
+      "year_built_end": 1932,
+      "century_built": 20,
+      "era": "20th century",
+      "architecture_style": "Scottish Baronial (Revival)",
+      "built_by": "Lieutenant Colonel John MacRae-Gilstrap (rebuild); original fort circa 1220s",
+      "dynasty_empire": "Clan Mackenzie / Clan Macrae",
+      "purpose": "Originally built in the 13th century to defend the lands of Clan Mackenzie against Viking raids; lay in ruins for 200 years after a 1719 Jacobite-era bombardment before being fully rebuilt in the 20th century.",
+      "description": "One of Scotland's most photographed castles, on a tidal islet where three sea lochs meet, Eilean Donan was reduced to rubble by Royal Navy ships in 1719 after being held by Jacobite rebels, and stood as a ruin until its painstaking 20th-century reconstruction.",
+      "photos": [
+        {
+          "path": "assets/castles/eilean_donan_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Eusebius",
+            "license": "CC BY 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Eilean_Donan_castle_-_95mm.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/eilean_donan_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Diliff",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Eilean_Donan_Castle,_Scotland_-_Jan_2011.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/eilean_donan_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Rodaxx",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Eilean_Donan_Castle_bridge_view.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "stirling_castle",
+      "name": "Stirling Castle",
+      "wiki_title": "Stirling Castle",
+      "country": "Scotland, United Kingdom",
+      "lat": 56.1238,
+      "lon": -3.948,
+      "year_built_start": 1490,
+      "year_built_end": 1600,
+      "century_built": 16,
+      "era": "14th–15th century",
+      "architecture_style": "Renaissance / Gothic",
+      "built_by": "King James IV and James V of Scotland (present structures)",
+      "dynasty_empire": "House of Stewart",
+      "purpose": "Built and rebuilt as one of Scotland's most important royal residences and strategic strongholds, controlling the main route between the Scottish Lowlands and Highlands.",
+      "description": "Stirling Castle changed hands numerous times during the Wars of Scottish Independence and was a favorite residence of the Stewart monarchs; James V's ornate Renaissance palace and the Great Hall remain among Scotland's finest medieval buildings.",
+      "photos": [
+        {
+          "path": "assets/castles/stirling_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "John Slezer",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Stirling_Castle_John_Slezer.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/stirling_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Godot13",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Scotland-2016-Aerial-Stirling-Stirling_Castle_great_hall.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/stirling_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "DeFacto",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Stirling_Castle_2017.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "spis_castle",
+      "name": "Spiš Castle",
+      "wiki_title": "Spiš Castle",
+      "country": "Slovakia",
+      "lat": 48.9989,
+      "lon": 20.7644,
+      "year_built_start": 1120,
+      "year_built_end": 1200,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Romanesque-Gothic",
+      "built_by": "Kings of Hungary",
+      "dynasty_empire": "Kingdom of Hungary",
+      "purpose": "Built to defend and administer the northern border region of the Kingdom of Hungary, guarding trade routes through the Spiš region.",
+      "description": "One of the largest castle complexes in Central Europe, Spiš Castle passed through numerous noble Hungarian families over the centuries before being gutted by fire in 1780 and left as an evocative ruin overlooking the surrounding countryside.",
+      "photos": [
+        {
+          "path": "assets/castles/spis_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "ZANDMANIS",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Museum_exposition_in_castle.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/spis_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "József Süveg",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Spis_Castle_courtyard_01.JPG"
+          }
+        },
+        {
+          "path": "assets/castles/spis_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "József Süveg",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Spis_castle_wall_and_tower.JPG"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "predjama_castle",
+      "name": "Predjama Castle",
+      "wiki_title": "Predjama Castle",
+      "country": "Slovenia",
+      "lat": 45.7936,
+      "lon": 14.1319,
+      "year_built_start": 1274,
+      "year_built_end": 1274,
+      "century_built": 13,
+      "era": "11th–13th century",
+      "architecture_style": "Gothic cave castle",
+      "built_by": "Patriarchs of Aquileia",
+      "dynasty_empire": "Lords of Predjama (later House of Habsburg vassals)",
+      "purpose": "Built into the mouth of a cave halfway up a 123-metre cliff for near-total defensive advantage, exploiting the natural rock rather than relying solely on walls.",
+      "description": "Predjama is built directly into a cliff face above a cave system, so seamlessly that it is impossible to tell where the rock ends and the masonry begins. Its most famous resident, the robber baron Erazem of Predjama, reportedly used secret tunnels through the caves to outlast a year-long siege before being killed by a cannonball while using the outhouse.",
+      "photos": [
+        {
+          "path": "assets/castles/predjama_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Karl Friedrich Schinkel",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Das_Schloss_Prediama_in_Crein_XII_Stund.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/predjama_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Lettkemann",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:H%C3%B6hlenburg_Predjama_in_Slovenien.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/predjama_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Tiia Monto",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Predjama_Castle_cave.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "alcazar_of_segovia",
+      "name": "Alcázar of Segovia",
+      "wiki_title": "Alcázar of Segovia",
+      "country": "Spain",
+      "lat": 40.9538,
+      "lon": -4.1319,
+      "year_built_start": 1120,
+      "year_built_end": 1200,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Romanesque-Gothic with Mudéjar influence",
+      "built_by": "Kings of Castile, on the site of an earlier Moorish fort",
+      "dynasty_empire": "Kingdom of Castile",
+      "purpose": "Built as a royal fortress and residence during the Reconquista, defending the strategic confluence of the Eresma and Clamores rivers.",
+      "description": "Shaped like the prow of a ship atop a rocky outcrop, the Alcázar served as a favored residence of Castilian monarchs, a state prison, a Royal Artillery College, and reputedly inspired the castle in Disney's Snow White.",
+      "photos": [
+        {
+          "path": "assets/castles/alcazar_of_segovia_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "José Luiz",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Galley_Room_-_Alcazar_of_Segovia.JPG"
+          }
+        },
+        {
+          "path": "assets/castles/alcazar_of_segovia_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Ministrillo",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Fotograf%C3%ADa_Nocturna_Alc%C3%A1zar_de_Segovia.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/alcazar_of_segovia_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Ángel Sanz de Andrés",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Panor%C3%A1mica_Oto%C3%B1o_Alc%C3%A1zar_de_Segovia.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "alhambra",
+      "name": "Alhambra",
+      "wiki_title": "Alhambra",
+      "country": "Spain",
+      "lat": 37.176,
+      "lon": -3.5881,
+      "year_built_start": 1238,
+      "year_built_end": 1358,
+      "century_built": 14,
+      "era": "14th–15th century",
+      "architecture_style": "Moorish (Nasrid Islamic)",
+      "built_by": "Muhammad I ibn al-Ahmar and successors",
+      "dynasty_empire": "Nasrid Dynasty (Emirate of Granada)",
+      "purpose": "Built as a fortified palace complex to serve as the seat of the last Muslim dynasty on the Iberian Peninsula, combining military defense with courtly and residential palaces.",
+      "description": "The Alhambra's intricate stucco, tile work, and reflecting pools represent the pinnacle of Nasrid art, built as the Emirate of Granada's power waned under Christian reconquest pressure. It fell peacefully to Ferdinand and Isabella in 1492, ending Muslim rule in Spain.",
+      "photos": [
+        {
+          "path": "assets/castles/alhambra_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Daderot",
+            "license": "CC0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Convent_of_San_Francisco,_Granada_-_DSC07679.JPG"
+          }
+        },
+        {
+          "path": "assets/castles/alhambra_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Jebulon",
+            "license": "CC0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Dawn_Charles_V_Palace_Alhambra_Granada_Andalusia_Spain.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/alhambra_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Øyvind Holmstad",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Aa_old_gateway_across_rio_darro_in_albaicin_in_granada.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "kalmar_castle",
+      "name": "Kalmar Castle",
+      "wiki_title": "Kalmar Castle",
+      "country": "Sweden",
+      "lat": 56.6608,
+      "lon": 16.36,
+      "year_built_start": 1545,
+      "year_built_end": 1611,
+      "century_built": 16,
+      "era": "16th–17th century",
+      "architecture_style": "Renaissance (transformed from a medieval defensive tower)",
+      "built_by": "King Gustav Vasa and his sons",
+      "dynasty_empire": "House of Vasa",
+      "purpose": "Transformed from a medieval tower guarding the strait between the mainland and the island of Öland into a fortified Renaissance residence, reinforcing Vasa control after Sweden broke from the Kalmar Union.",
+      "description": "Kalmar Castle was the site of the 1397 union that first bound Denmark, Norway, and Sweden together under one crown. Under Gustav Vasa and his sons it was rebuilt into one of Scandinavia's best-preserved Renaissance castles, ringed by star-shaped ramparts and a wide moat.",
+      "photos": [
+        {
+          "path": "assets/castles/kalmar_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Arkland",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Kalmar_slott_borgg%C3%A5rd_fasad_och_trappa.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/kalmar_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Jopparn",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Slottskyrkan_i_Kalmar_slott_17.JPG"
+          }
+        },
+        {
+          "path": "assets/castles/kalmar_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "L.G.foto",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:1285Kalmar_slott.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "chillon_castle",
+      "name": "Chillon Castle",
+      "wiki_title": "Chillon Castle",
+      "country": "Switzerland",
+      "lat": 46.4142,
+      "lon": 6.9269,
+      "year_built_start": 1248,
+      "year_built_end": 1268,
+      "century_built": 13,
+      "era": "11th–13th century",
+      "architecture_style": "Savoyard medieval fortress",
+      "built_by": "Peter II, Count of Savoy",
+      "dynasty_empire": "House of Savoy",
+      "purpose": "Built on a rocky islet to control the only road along the shore of Lake Geneva between Burgundy and Italy, letting the Counts of Savoy tax and monitor all traffic through the pass.",
+      "description": "Chillon sits just offshore on Lake Geneva, connected to land by a short bridge, its towers reflected in the water below the Alps. Lord Byron's 1816 poem \"The Prisoner of Chillon\", inspired by a real 16th-century captive held in its dungeon, made the castle one of the most visited sites in Switzerland.",
+      "photos": [
+        {
+          "path": "assets/castles/chillon_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Giles Laurent",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:001_Chateau_de_Chillon_and_Dents_du_Midi_Photo_by_Giles_Laurent.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/chillon_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "JoachimKohler-HB",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_de_Chillon_mit_Autobahn-IMG_0823.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/chillon_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Tschubby",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Reliefkarte_Waadt_blank.png"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "caernarfon_castle",
+      "name": "Caernarfon Castle",
+      "wiki_title": "Caernarfon Castle",
+      "country": "Wales, United Kingdom",
+      "lat": 53.1394,
+      "lon": -4.2769,
+      "year_built_start": 1283,
+      "year_built_end": 1330,
+      "century_built": 13,
+      "era": "11th–13th century",
+      "architecture_style": "Edwardian Medieval",
+      "built_by": "King Edward I",
+      "dynasty_empire": "Plantagenet Dynasty (Kingdom of England)",
+      "purpose": "Built after Edward I's conquest of Wales to serve as a military stronghold, seat of government, and a deliberate symbol of English royal power over the Welsh.",
+      "description": "Modeled partly on the walls of Constantinople with polygonal towers and banded stonework, Caernarfon was designed to intimidate as much as defend. It remains the traditional site of the investiture of the Prince of Wales.",
+      "photos": [
+        {
+          "path": "assets/castles/caernarfon_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Joseph Farington",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Joseph_Farington_-_Caernarvon_Castle_-_Google_Art_Project.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/caernarfon_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Nilfanion",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Caernarfon_Castle_(7332).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/caernarfon_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Nilfanion",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Caernarfon_Castle_(7345).jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "himeji_castle",
+      "name": "Himeji Castle",
+      "wiki_title": "Himeji Castle",
+      "country": "Japan",
+      "lat": 34.8394,
+      "lon": 134.6939,
+      "year_built_start": 1601,
+      "year_built_end": 1609,
+      "century_built": 17,
+      "era": "16th–17th century",
+      "architecture_style": "Japanese Castle (Azuchi–Momoyama period)",
+      "built_by": "Ikeda Terumasa (major rebuild); original fort by Akamatsu Norimura, 1333",
+      "dynasty_empire": "Tokugawa Shogunate",
+      "purpose": "Rebuilt into its present form as a defensive stronghold and administrative seat after the Battle of Sekigahara, designed to withstand siege while projecting the authority of its new lord.",
+      "description": "Nicknamed 'White Heron Castle' for its brilliant white plaster exterior, Himeji is Japan's best-preserved feudal-era castle, having survived earthquakes, fires, and WWII bombing raids largely intact. Its labyrinthine approach was designed to confuse and slow attackers.",
+      "photos": [
+        {
+          "path": "assets/castles/himeji_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Gilles Desjardins",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Himeji_Castle_Japan.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/himeji_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Nikos Kitsakis",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Himeji_castle_in_may_2015.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/himeji_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "ScribblingGeek",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Himeji_Castle_Hallway.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "osaka_castle",
+      "name": "Osaka Castle",
+      "wiki_title": "Osaka Castle",
+      "country": "Japan",
+      "lat": 34.6873,
+      "lon": 135.5259,
+      "year_built_start": 1583,
+      "year_built_end": 1597,
+      "century_built": 16,
+      "era": "16th–17th century",
+      "architecture_style": "Japanese Castle (Azuchi–Momoyama period)",
+      "built_by": "Toyotomi Hideyoshi",
+      "dynasty_empire": "Toyotomi Clan",
+      "purpose": "Built by Hideyoshi as a display of power meant to rival and surpass Oda Nobunaga's Azuchi Castle, symbolizing the unification of Japan under his rule.",
+      "description": "Once the largest castle in Japan, Osaka Castle played a central role in the unification of the country. It was destroyed and rebuilt several times, including after the 1615 Siege of Osaka that ended the Toyotomi clan; the current tower is a 1931 concrete reconstruction.",
+      "photos": [
+        {
+          "path": "assets/castles/osaka_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Martin Falbisoner",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Osaka_Castle_Outer_Moat_and_Osaka_Business_Park,_November_2016.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/osaka_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Brandon1122334455",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Osaka_castle_tenshu.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/osaka_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Saigen Jiro",
+            "license": "CC0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Death_Place_of_Toyotomi_Hideyori_and_Yodo-dono.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "krak_des_chevaliers",
+      "name": "Krak des Chevaliers",
+      "wiki_title": "Krak des Chevaliers",
+      "country": "Syria",
+      "lat": 34.7565,
+      "lon": 36.2939,
+      "year_built_start": 1142,
+      "year_built_end": 1170,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Crusader Military (concentric fortification)",
+      "built_by": "Knights Hospitaller, on an earlier Kurdish fort",
+      "dynasty_empire": "Crusader States / Knights Hospitaller",
+      "purpose": "Built to control the Homs Gap, the primary land route between Antioch and the Mediterranean coast, and to project Crusader power deep into Muslim-held territory.",
+      "description": "Widely regarded as the finest surviving example of Crusader castle architecture, Krak des Chevaliers' concentric double-wall design allowed a small Hospitaller garrison to hold off much larger armies for over a century before Sultan Baibars finally took it in 1271.",
+      "photos": [
+        {
+          "path": "assets/castles/krak_des_chevaliers_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Wikimedia Commons contributor",
+            "license": "CC BY 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Krak_des_Chevaliers_landscape_(cropped).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/krak_des_chevaliers_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "High Contrast",
+            "license": "CC BY 3.0 de",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Hall_of_the_Knights_-_Krak_des_Chevaliers.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/krak_des_chevaliers_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Gianfranco Gazzetti",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:KRAK_DES_CHEVALIERS_-_GAR_-_6-00.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "casbah_of_algiers",
+      "name": "Casbah of Algiers",
+      "wiki_title": "Casbah of Algiers",
+      "country": "Algeria",
+      "lat": 36.7854,
+      "lon": 3.0603,
+      "year_built_start": 1516,
+      "year_built_end": 1556,
+      "century_built": 16,
+      "era": "16th–17th century",
+      "architecture_style": "Ottoman citadel and fortified medina",
+      "built_by": "Khair ad-Din Barbarossa",
+      "dynasty_empire": "Ottoman Regency of Algiers",
+      "purpose": "Fortified as the seat of Ottoman power in Algiers and a stronghold for the Barbary corsair fleets that raided Mediterranean shipping for three centuries.",
+      "description": "The Casbah's citadel crowns a dense maze of Ottoman-era houses, mosques, and palaces tumbling down to the harbor. It later became a center of Algerian resistance during the war of independence, memorialized in the film The Battle of Algiers.",
+      "photos": [
+        {
+          "path": "assets/castles/casbah_of_algiers_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Didier Descouens",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:(Narbonne)_Rue_dans_la_casbah_d%27Alger_-_Eug%C3%A8ne_Isabey_-_Mus%C3%A9e_des_Beaux-Arts_de_Narbonne.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/casbah_of_algiers_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "toufik Lerari",
+            "license": "CC BY-SA 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:AlgerCasbah.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/casbah_of_algiers_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "toufik Lerari",
+            "license": "CC BY-SA 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:CasbahDarHasanPacha.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "fortaleza_de_sao_miguel_de_luanda",
+      "name": "Fortaleza de São Miguel de Luanda",
+      "wiki_title": "Fortaleza de São Miguel de Luanda",
+      "country": "Angola",
+      "lat": -8.8115,
+      "lon": 13.2354,
+      "year_built_start": 1576,
+      "year_built_end": 1634,
+      "century_built": 16,
+      "era": "16th–17th century",
+      "architecture_style": "Portuguese star fort",
+      "built_by": "Kingdom of Portugal (Paulo Dias de Novais)",
+      "dynasty_empire": "Portuguese Empire",
+      "purpose": "Built to secure Portugal's first permanent colonial settlement on the Angolan coast and control the trade routes, including the transatlantic slave trade, running through Luanda's harbor.",
+      "description": "The fortress overlooks Luanda Bay from a promontory first fortified in 1576, rebuilt in stone through the 17th century after a period of Dutch occupation. It now houses the Angolan Armed Forces Museum, its walls lined with cannon and stone reliefs of Portuguese royal coats of arms.",
+      "photos": [
+        {
+          "path": "assets/castles/fortaleza_de_sao_miguel_de_luanda_1.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/fortaleza_de_sao_miguel_de_luanda_2.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/fortaleza_de_sao_miguel_de_luanda_3.jpg",
+          "source": "placeholder"
+        }
+      ]
+    },
+    {
+      "slug": "cairo_citadel",
+      "name": "Cairo Citadel",
+      "wiki_title": "Cairo Citadel",
+      "country": "Egypt",
+      "lat": 30.0287,
+      "lon": 31.2601,
+      "year_built_start": 1176,
+      "year_built_end": 1183,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Ayyubid/Mamluk military fortification (with later Ottoman additions)",
+      "built_by": "Salah ad-Din (Saladin)",
+      "dynasty_empire": "Ayyubid Sultanate",
+      "purpose": "Built by Saladin on a spur of the Muqattam hills to unify the defenses of Cairo and Fustat into a single fortified system and guard against Crusader attack.",
+      "description": "For nearly 700 years the Citadel was the seat of Egypt's rulers, expanded by the Mamluks and then crowned with the Ottoman-style Mosque of Muhammad Ali in the 19th century. Its ramparts still offer the best panoramic view over Cairo's minarets and the Nile.",
+      "photos": [
+        {
+          "path": "assets/castles/cairo_citadel_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Doaa Elhami",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Wall_of_Magra_el-Oyoun.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/cairo_citadel_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Mohamed Ouda",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Al-Nasir_Muhammad_Mosque_(2).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/cairo_citadel_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "لا روسا",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Cairo_Citadel_004.JPG"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "fasil_ghebbi",
+      "name": "Fasil Ghebbi",
+      "wiki_title": "Fasil Ghebbi",
+      "country": "Ethiopia",
+      "lat": 12.6094,
+      "lon": 37.4671,
+      "year_built_start": 1640,
+      "year_built_end": 1655,
+      "century_built": 17,
+      "era": "16th–17th century",
+      "architecture_style": "Gondarine style (Ethiopian, Portuguese, Indian, and Arab hybrid)",
+      "built_by": "Emperor Fasilides",
+      "dynasty_empire": "Solomonic dynasty (Ethiopian Empire)",
+      "purpose": "Built as the permanent fortified royal enclosure of Emperor Fasilides, ending centuries of a peripatetic royal court and establishing Gondar as Ethiopia's capital.",
+      "description": "Fasil Ghebbi is a walled compound of castles, banqueting halls, and churches raised by Fasilides and his successors over two centuries, blending Portuguese Baroque, Indian Gujarati, and local Aksumite building traditions. It is a UNESCO World Heritage Site known as 'Africa's Camelot.'",
+      "photos": [
+        {
+          "path": "assets/castles/fasil_ghebbi_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "A.Savin",
+            "license": "FAL",
+            "source_url": "https://commons.wikimedia.org/wiki/File:ET_Gondar_asv2018-02_img10_Fasil_Ghebbi.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/fasil_ghebbi_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "A.Savin",
+            "license": "FAL",
+            "source_url": "https://commons.wikimedia.org/wiki/File:ET_Gondar_asv2018-02_img09_Fasil_Ghebbi.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/fasil_ghebbi_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "A.Savin",
+            "license": "FAL",
+            "source_url": "https://commons.wikimedia.org/wiki/File:ET_Gondar_asv2018-02_img07_Fasil_Ghebbi.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "elmina_castle",
+      "name": "Elmina Castle",
+      "wiki_title": "Elmina Castle",
+      "country": "Ghana",
+      "lat": 5.0836,
+      "lon": -1.3496,
+      "year_built_start": 1482,
+      "year_built_end": 1482,
+      "century_built": 15,
+      "era": "14th–15th century",
+      "architecture_style": "Portuguese fortified trading post",
+      "built_by": "Kingdom of Portugal (Diogo de Azambuja)",
+      "dynasty_empire": "Portuguese Empire",
+      "purpose": "Built originally as a trading post to secure Portugal's access to West African gold — the first European building erected in sub-Saharan Africa — and later converted into a holding fort for the transatlantic slave trade under Dutch and British control.",
+      "description": "Elmina began as a gold-trading outpost, the source of its name (from the Portuguese 'a mina', the mine). Captured by the Dutch in 1637, it became one of the largest holding points on the coast for enslaved people forced across the Atlantic, and today stands as a UNESCO World Heritage Site and memorial.",
+      "photos": [
+        {
+          "path": "assets/castles/elmina_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Photo taken by Alvesgaspar",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:L%C3%A1zaro_Luis_1563.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/elmina_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Matti Blume",
+            "license": "CC BY-SA",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Castle,_Elmina_(P1100209).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/elmina_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Nkansahrexford",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:St._Georges_Castle_Elmina_Cape_Coast.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "fort_jesus",
+      "name": "Fort Jesus",
+      "wiki_title": "Fort Jesus",
+      "country": "Kenya",
+      "lat": -4.0635,
+      "lon": 39.6739,
+      "year_built_start": 1593,
+      "year_built_end": 1596,
+      "century_built": 16,
+      "era": "16th–17th century",
+      "architecture_style": "Portuguese Renaissance military fortification",
+      "built_by": "Kingdom of Portugal (designed by Giovanni Battista Cairati)",
+      "dynasty_empire": "Portuguese Empire",
+      "purpose": "Built to guard the entrance to Mombasa's Old Port and secure Portuguese control over the lucrative Swahili Coast trade routes.",
+      "description": "Designed in the shape of a man when viewed from the air, Fort Jesus changed hands nine times between the Portuguese, Omani Arabs, and British over four centuries. It is now a UNESCO World Heritage Site and one of the finest surviving examples of 16th-century Portuguese military architecture.",
+      "photos": [
+        {
+          "path": "assets/castles/fort_jesus_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Anon a mouse Lee",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:2022FtJesus.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/fort_jesus_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Chris huh",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Jesus,_Mombasa1.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/fort_jesus_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Chris huh",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Jesus,_Mombasa2.JPG"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "red_castle_of_tripoli",
+      "name": "Red Castle of Tripoli",
+      "wiki_title": "Red Castle of Tripoli",
+      "country": "Libya",
+      "lat": 32.8944,
+      "lon": 13.1873,
+      "year_built_start": 1551,
+      "year_built_end": 1638,
+      "century_built": 16,
+      "era": "16th–17th century",
+      "architecture_style": "Ottoman fortress (on Byzantine and Spanish foundations)",
+      "built_by": "Ottoman Empire, following the 1551 conquest of Tripoli",
+      "dynasty_empire": "Ottoman Empire (later Karamanli dynasty)",
+      "purpose": "Rebuilt by the Ottomans after they seized Tripoli from the Knights of Malta in 1551, to secure the harbor and serve as the seat of the ruling pasha.",
+      "description": "Assaraya al-Hamra, the 'Red Castle', has been rebuilt and expanded by nearly every power to hold Tripoli — Byzantines, Spaniards, Ottomans, and the Karamanli dynasty — making its walls a layered record of the city's history. It now houses the Red Castle Museum.",
+      "photos": [
+        {
+          "path": "assets/castles/red_castle_of_tripoli_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Abdul-Jawad Elhusuni (عبدالجواد الحسوني)",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Tripoli_Castle_Libya_interior.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/red_castle_of_tripoli_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Abdulfatah Amr",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:The_Red_Castle.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/red_castle_of_tripoli_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "SashaCoachman",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Red_castle.JPG"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "kasbah_of_the_udayas",
+      "name": "Kasbah of the Udayas",
+      "wiki_title": "Kasbah of the Udayas",
+      "country": "Morocco",
+      "lat": 34.0327,
+      "lon": -6.8327,
+      "year_built_start": 1150,
+      "year_built_end": 1195,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Almohad fortress and kasbah",
+      "built_by": "Almohad Caliph Yaqub al-Mansur",
+      "dynasty_empire": "Almohad Caliphate",
+      "purpose": "Rebuilt as a fortified royal citadel and naval base guarding the mouth of the Bou Regreg river, later occupied by Andalusian refugees who used it as a base for privateering against European shipping.",
+      "description": "Perched on a cliff where the Bou Regreg meets the Atlantic, the Kasbah's whitewashed and blue-painted lanes surround a monumental 12th-century gate, Bab Oudaia, considered one of the finest examples of Almohad architecture. It later gave Rabat's corsair republic its stronghold.",
+      "photos": [
+        {
+          "path": "assets/castles/kasbah_of_the_udayas_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Seth767",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Rising_from_the_sand.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/kasbah_of_the_udayas_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "UnknownUnknown",
+            "license": "Licence Ouverte",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Maroc_-_Rabat,_jardin_des_Oudayas_(rec0310_g).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/kasbah_of_the_udayas_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Dennis G. Jarvis",
+            "license": "CC BY-SA 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Morocco-20_(2218997326).jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "fort_sao_sebastiao_mozambique",
+      "name": "Fort São Sebastião",
+      "wiki_title": "Fort São Sebastião (Mozambique)",
+      "country": "Mozambique",
+      "lat": -15.0339,
+      "lon": 40.7358,
+      "year_built_start": 1558,
+      "year_built_end": 1620,
+      "century_built": 16,
+      "era": "16th–17th century",
+      "architecture_style": "Portuguese Renaissance military fortification",
+      "built_by": "Kingdom of Portugal",
+      "dynasty_empire": "Portuguese Empire",
+      "purpose": "Built to protect Portugal's vital way-station on the sea route between Europe and India, guarding the harbor of Mozambique Island against Dutch and Omani attack.",
+      "description": "Fort São Sebastião is the oldest complete fort still standing in sub-Saharan Africa, built from stone shipped as ballast on Portuguese carracks. Mozambique Island, which gave the country its name, is a UNESCO World Heritage Site layered with Swahili, Arab, and Portuguese architecture.",
+      "photos": [
+        {
+          "path": "assets/castles/fort_sao_sebastiao_mozambique_1.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/fort_sao_sebastiao_mozambique_2.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/fort_sao_sebastiao_mozambique_3.jpg",
+          "source": "placeholder"
+        }
+      ]
+    },
+    {
+      "slug": "duwisib_castle",
+      "name": "Duwisib Castle",
+      "wiki_title": "Duwisib Castle",
+      "country": "Namibia",
+      "lat": -24.6903,
+      "lon": 16.6875,
+      "year_built_start": 1908,
+      "year_built_end": 1909,
+      "century_built": 20,
+      "era": "20th century",
+      "architecture_style": "German colonial castle (Wilhelmine revival)",
+      "built_by": "Hans Heinrich von Wolf",
+      "dynasty_empire": "German Colonial Empire (German South West Africa)",
+      "purpose": "Built by a German cavalry captain as a private residence and horse stud farm in the semi-desert, using stone quarried locally but furnishings and materials imported from Germany by ox-wagon.",
+      "description": "Improbably sited amid the arid plains of southern Namibia, Duwisib Castle's 22 rooms were built for Hans Heinrich von Wolf and his American wife, Jayta Humphreys, who together dreamed of running a stud farm for Basuto and thoroughbred horses. Von Wolf died at the Battle of the Somme in 1916 without ever returning.",
+      "photos": [
+        {
+          "path": "assets/castles/duwisib_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Bernhard Dunst",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Dunst_Namibia_Oct_2002_slide115_-_Gesamtansicht.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/duwisib_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Willyman",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Schloss_Duwisib_Innenhof_als_Art_Kreuzgang.JPG"
+          }
+        },
+        {
+          "path": "assets/castles/duwisib_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Willyman",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Schloss_Duwisib.JPG"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "castle_of_good_hope",
+      "name": "Castle of Good Hope",
+      "wiki_title": "Castle of Good Hope",
+      "country": "South Africa",
+      "lat": -33.9258,
+      "lon": 18.4232,
+      "year_built_start": 1666,
+      "year_built_end": 1679,
+      "century_built": 17,
+      "era": "16th–17th century",
+      "architecture_style": "Dutch pentagonal bastion fortress",
+      "built_by": "Dutch East India Company (VOC)",
+      "dynasty_empire": "Dutch East India Company",
+      "purpose": "Built by the VOC to replace an earlier earthen fort and protect its vital resupply station at the Cape, where ships restocked on the long voyage between the Netherlands and the East Indies.",
+      "description": "The oldest surviving colonial building in South Africa, the Castle's five bastions were named after the titles of William of Orange. It served as the seat of the Dutch and later British colonial governments and remains the headquarters of the South African Army in the Western Cape.",
+      "photos": [
+        {
+          "path": "assets/castles/castle_of_good_hope_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Armineaghayan",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Castle_of_Good_Hope_(11).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/castle_of_good_hope_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Martinvl",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Castle_of_Good_Hope_key_ceremony.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/castle_of_good_hope_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Bernard Gagnon",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Castle_of_Good_Hope,_Cape_Town_01.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "old_fort_of_zanzibar",
+      "name": "Old Fort of Zanzibar",
+      "wiki_title": "Old Fort of Zanzibar",
+      "country": "Tanzania",
+      "lat": -6.1631,
+      "lon": 39.1875,
+      "year_built_start": 1698,
+      "year_built_end": 1701,
+      "century_built": 17,
+      "era": "16th–17th century",
+      "architecture_style": "Omani fortification",
+      "built_by": "Sultanate of Oman",
+      "dynasty_empire": "Sultanate of Oman",
+      "purpose": "Built on the ruins of an earlier Portuguese chapel after Omani Arabs expelled the Portuguese from Zanzibar, to defend Stone Town against European reprisal.",
+      "description": "The Old Fort's thick coral-stone walls enclose an open-air amphitheater used today for concerts and the Zanzibar International Film Festival. It stands at the seafront edge of Stone Town, a UNESCO World Heritage Site shaped by Swahili, Arab, Persian, Indian, and European influences.",
+      "photos": [
+        {
+          "path": "assets/castles/old_fort_of_zanzibar_1.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/old_fort_of_zanzibar_2.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/old_fort_of_zanzibar_3.jpg",
+          "source": "placeholder"
+        }
+      ]
+    },
+    {
+      "slug": "ribat_of_monastir",
+      "name": "Ribat of Monastir",
+      "wiki_title": "Ribat of Monastir",
+      "country": "Tunisia",
+      "lat": 35.778,
+      "lon": 10.8263,
+      "year_built_start": 796,
+      "year_built_end": 921,
+      "century_built": 9,
+      "era": "9th–10th century",
+      "architecture_style": "Early Islamic ribat fortress",
+      "built_by": "Harthama ibn A'yan, Abbasid governor of Ifriqiya",
+      "dynasty_empire": "Abbasid Caliphate (Aghlabid governors)",
+      "purpose": "Built as a ribat — a fortified monastery-garrison — to house volunteer warrior-monks defending the Ifriqiyan coast against Byzantine and later Norman raids.",
+      "description": "One of the oldest and best-preserved ribats in North Africa, its watchtower and crenellated walls have served as a filming location for Monty Python's Life of Brian and the TV mini-series Jesus of Nazareth. It anchors the Tunisian coastal city of Monastir.",
+      "photos": [
+        {
+          "path": "assets/castles/ribat_of_monastir_1.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/ribat_of_monastir_2.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/ribat_of_monastir_3.jpg",
+          "source": "placeholder"
+        }
+      ]
+    },
+    {
+      "slug": "potala_palace",
+      "name": "Potala Palace",
+      "wiki_title": "Potala Palace",
+      "country": "China",
+      "lat": 29.6558,
+      "lon": 91.1191,
+      "year_built_start": 637,
+      "year_built_end": 1694,
+      "century_built": 17,
+      "era": "16th–17th century",
+      "architecture_style": "Tibetan fortress-palace architecture",
+      "built_by": "5th Dalai Lama, Ngawang Lobsang Gyatso (major rebuild); originally founded by King Songtsen Gampo",
+      "dynasty_empire": "Ganden Phodrang (Tibetan government of the Dalai Lamas)",
+      "purpose": "Founded in the 7th century as a meditation retreat for King Songtsen Gampo, then almost entirely rebuilt in the 17th century by the 5th Dalai Lama as the winter palace of the Dalai Lamas and seat of the Tibetan government.",
+      "description": "Rising thirteen stories up the face of Marpo Ri, the Potala Palace combines the White Palace, used for administrative and living quarters, with the Red Palace, devoted to religious study and the gilded tombs of past Dalai Lamas. It served as the political and spiritual center of Tibet until the 14th Dalai Lama's exile in 1959, and is now a UNESCO World Heritage Site and museum.",
+      "photos": [
+        {
+          "path": "assets/castles/potala_palace_1.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/potala_palace_2.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/potala_palace_3.jpg",
+          "source": "placeholder"
+        }
+      ]
+    },
+    {
+      "slug": "hwaseong_fortress",
+      "name": "Hwaseong Fortress",
+      "wiki_title": "Hwaseong Fortress",
+      "country": "South Korea",
+      "lat": 37.2854,
+      "lon": 127.0104,
+      "year_built_start": 1794,
+      "year_built_end": 1796,
+      "century_built": 18,
+      "era": "18th–19th century",
+      "architecture_style": "Joseon fortress architecture blending Korean, Chinese, and Western military engineering",
+      "built_by": "King Jeongjo of Joseon",
+      "dynasty_empire": "Joseon Dynasty",
+      "purpose": "Built by King Jeongjo to relocate his father Crown Prince Sado's tomb near Suwon and to project royal authority away from the entrenched court factions in Hanyang, using innovative crane-and-pulley construction techniques documented in detail for the time.",
+      "description": "Hwaseong's 5.7-kilometer wall of granite and brick encircles what was once envisioned as a new royal capital, studded with gates, command posts, and firing towers that mix native Korean design with ideas drawn from Chinese and Western fortification manuals. The entire construction process was meticulously recorded in the Hwaseong Seongyeok Uigwe, which later guided its faithful post-war restoration, and the fortress is a UNESCO World Heritage Site.",
+      "photos": [
+        {
+          "path": "assets/castles/hwaseong_fortress_1.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/hwaseong_fortress_2.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/hwaseong_fortress_3.jpg",
+          "source": "placeholder"
+        }
+      ]
+    },
+    {
+      "slug": "amber_fort",
+      "name": "Amber Fort",
+      "wiki_title": "Amber Fort",
+      "country": "India",
+      "lat": 26.9855,
+      "lon": 75.8513,
+      "year_built_start": 1592,
+      "year_built_end": 1727,
+      "century_built": 16,
+      "era": "16th–17th century",
+      "architecture_style": "Rajput architecture with Mughal influences",
+      "built_by": "Raja Man Singh I",
+      "dynasty_empire": "Kachwaha dynasty of Amber",
+      "purpose": "Built as the fortified capital and palace of the Kachwaha rulers, who were prominent generals and allies of the Mughal emperors, deliberately blending Hindu Rajput and Mughal architectural elements to reflect that alliance.",
+      "description": "Amber Fort's honey-colored sandstone and marble ramparts rise above Maota Lake, unfolding into a sequence of courtyards that culminate in the mirror-encrusted Sheesh Mahal. It remained the Kachwaha seat of power until the capital moved to nearby Jaipur in 1727, and it is now part of the Hill Forts of Rajasthan UNESCO World Heritage Site.",
+      "photos": [
+        {
+          "path": "assets/castles/amber_fort_1.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/amber_fort_2.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/amber_fort_3.jpg",
+          "source": "placeholder"
+        }
+      ]
+    },
+    {
+      "slug": "mehrangarh_fort",
+      "name": "Mehrangarh Fort",
+      "wiki_title": "Mehrangarh",
+      "country": "India",
+      "lat": 26.2979,
+      "lon": 73.0181,
+      "year_built_start": 1459,
+      "year_built_end": 1459,
+      "century_built": 15,
+      "era": "14th–15th century",
+      "architecture_style": "Rajput fort architecture",
+      "built_by": "Rao Jodha",
+      "dynasty_empire": "Rathore dynasty of Marwar",
+      "purpose": "Founded by Rao Jodha as the seat of power for the newly established city of Jodhpur, sited atop a sheer rocky outcrop for maximum defensibility over the surrounding Thar desert plains.",
+      "description": "One of the largest forts in India, Mehrangarh looms nearly 125 meters above Jodhpur's old city on a cliff of solid rock, its massive walls pierced by seven gates commemorating victories over rival states. The fort's museum now houses the Rathore rulers' collections of palanquins, armor, and miniature paintings.",
+      "photos": [
+        {
+          "path": "assets/castles/mehrangarh_fort_1.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/mehrangarh_fort_2.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/mehrangarh_fort_3.jpg",
+          "source": "placeholder"
+        }
+      ]
+    },
+    {
+      "slug": "sigiriya_rock_fortress",
+      "name": "Sigiriya Rock Fortress",
+      "wiki_title": "Sigiriya",
+      "country": "Sri Lanka",
+      "lat": 7.957,
+      "lon": 80.7603,
+      "year_built_start": 477,
+      "year_built_end": 495,
+      "century_built": 5,
+      "era": "5th–8th century",
+      "architecture_style": "Ancient rock fortress and palace complex with formal water gardens",
+      "built_by": "King Kashyapa I",
+      "dynasty_empire": "Kingdom of Anuradhapura",
+      "purpose": "Built by King Kashyapa as a fortified palace atop an isolated 200-meter granite column after he seized the throne from his father, chosen both for its natural defenses and as a refuge from his half-brother Moggallana, the rightful heir.",
+      "description": "Sigiriya's summit palace is reached past the giant paws of a ruined brick lion gateway and a gallery of vivid frescoes of celestial maidens, with visitors' graffiti on the polished Mirror Wall dating back over a thousand years. After Kashyapa's defeat in 495, the site reverted to a Buddhist monastery, and it is now a UNESCO World Heritage Site regarded as one of the best-preserved examples of ancient urban planning.",
+      "photos": [
+        {
+          "path": "assets/castles/sigiriya_rock_fortress_1.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/sigiriya_rock_fortress_2.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/sigiriya_rock_fortress_3.jpg",
+          "source": "placeholder"
+        }
+      ]
+    },
+    {
+      "slug": "ajloun_castle",
+      "name": "Ajloun Castle",
+      "wiki_title": "Ajloun Castle",
+      "country": "Jordan",
+      "lat": 32.3325,
+      "lon": 35.7519,
+      "year_built_start": 1184,
+      "year_built_end": 1188,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Ayyubid Islamic military architecture",
+      "built_by": "Izz al-Din Usama, a general of Saladin",
+      "dynasty_empire": "Ayyubid Dynasty",
+      "purpose": "Built to control the iron mines of Ajloun and guard the routes linking Damascus to southern Jordan and Egypt, forming part of Saladin's chain of defensive fortresses raised against the Crusader Kingdom of Jerusalem.",
+      "description": "Also known as Qal'at ar-Rabad, Ajloun Castle crowns a hilltop in the Ajloun highlands with a commanding view over three valleys, its corner towers and arrow slits designed to counter the Crusader castles it faced across the Jordan Valley. Damaged by Mongol raids and a 1837 earthquake, it has since been restored and remains one of the best-preserved examples of Ayyubid military architecture.",
+      "photos": [
+        {
+          "path": "assets/castles/ajloun_castle_1.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/ajloun_castle_2.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/ajloun_castle_3.jpg",
+          "source": "placeholder"
+        }
+      ]
+    }
+  ]
+}

@@ -22,7 +22,10 @@ export default function Projects() {
               <p>{p.file}</p>
             </div>
             <div className="project-card__body">
-              <h3>{p.title}</h3>
+              <h3>
+                {p.title}
+                {p.wip && <span className="project-card__wip">{t.wipLabel}</span>}
+              </h3>
               <p>{p.desc}</p>
               <div className="project-card__tags">
                 {p.tags.map((tag) => (
@@ -30,8 +33,11 @@ export default function Projects() {
                 ))}
               </div>
               <div className="project-card__links">
-                <a href={p.live}>{t.liveLabel} ↗</a>
-                <a href={p.code}>{t.codeLabel} ↗</a>
+                {p.live && <a href={p.live}>{t.liveLabel} ↗</a>}
+                {p.wip && !p.live && (
+                  <span className="project-card__wip-label">{t.wipLabel}</span>
+                )}
+                {p.code && <a href={p.code}>{t.codeLabel} ↗</a>}
               </div>
             </div>
           </article>

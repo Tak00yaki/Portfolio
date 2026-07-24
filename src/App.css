@@ -636,6 +636,26 @@ section {
   font-size: 1.15rem;
   margin: 0 0 0.7rem;
   color: var(--orange-bright);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.project-card__wip {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--black);
+  background: var(--mustard);
+  padding: 0.2rem 0.5rem;
+  border: 2px solid var(--black);
+}
+
+.project-card__links span.project-card__wip-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--mustard);
 }
 
 .project-card__body > p {

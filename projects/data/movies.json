@@ -1,0 +1,1049 @@
+{
+  "movies": [
+    {
+      "title": "The Shawshank Redemption",
+      "year": 1994,
+      "imdb_rank": 1,
+      "locations": [
+        {
+          "name": "Ohio State Reformatory, Mansfield, Ohio, USA",
+          "lat": 40.7827,
+          "lon": -82.5029,
+          "scene": "Exterior and yard of the prison where Andy Dufresne is incarcerated",
+          "location_type": "on_location",
+          "still": "assets/stills/the_shawshank_redemption_1994.jpg",
+          "modern": "assets/modern/the_shawshank_redemption_1994.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Ohio_State_Reformatory_Mansfield_08.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Godfather",
+      "year": 1972,
+      "imdb_rank": 2,
+      "locations": [
+        {
+          "name": "Corleone Family Compound, 110 Longfellow Avenue, Emerson Hill, Staten Island, New York, USA",
+          "lat": 40.6065,
+          "lon": -74.0979,
+          "scene": "Connie's wedding reception at the Corleone family compound",
+          "location_type": "on_location",
+          "still": "assets/stills/the_godfather_1972.jpg",
+          "modern": "assets/modern/the_godfather_1972.jpg",
+          "modern_source": "placeholder"
+        }
+      ]
+    },
+    {
+      "title": "The Dark Knight",
+      "year": 2008,
+      "imdb_rank": 3,
+      "locations": [
+        {
+          "name": "LaSalle Street / Chicago Board of Trade Building, Chicago, Illinois, USA",
+          "lat": 41.8778,
+          "lon": -87.6324,
+          "scene": "The Joker's semi-truck flip during the chase through Chicago's financial district",
+          "location_type": "on_location",
+          "still": "assets/stills/the_dark_knight_2008.jpg",
+          "modern": "assets/modern/the_dark_knight_2008.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Chicago_Board_of_Trade_%28November_2008%29.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Godfather Part II",
+      "year": 1974,
+      "imdb_rank": 4,
+      "locations": [
+        {
+          "name": "Fleur du Lac Estate, Homewood, Lake Tahoe, California, USA",
+          "lat": 39.1023,
+          "lon": -120.1623,
+          "scene": "The Corleone lakeside compound where Michael confronts Fredo in the boathouse",
+          "location_type": "on_location",
+          "still": "assets/stills/the_godfather_part_ii_1974.jpg",
+          "modern": "assets/modern/the_godfather_part_ii_1974.jpg",
+          "modern_source": "placeholder"
+        }
+      ]
+    },
+    {
+      "title": "12 Angry Men",
+      "year": 1957,
+      "imdb_rank": 5,
+      "locations": [
+        {
+          "name": "Fox Movietone Studios, 460 West 54th Street, Manhattan, New York, USA",
+          "lat": 40.7666,
+          "lon": -73.9889,
+          "scene": "The sweltering jury deliberation room, built entirely as a studio set",
+          "location_type": "studio",
+          "still": "assets/stills/12_angry_men_1957.jpg",
+          "modern": "assets/modern/12_angry_men_1957.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Sony_Music_Studio_%28537506745%29.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Lord of the Rings: The Return of the King",
+      "year": 2003,
+      "imdb_rank": 6,
+      "locations": [
+        {
+          "name": "Hobbiton Movie Set, Matamata, Waikato, New Zealand",
+          "lat": -37.8576,
+          "lon": 175.6806,
+          "scene": "The Shire village of Hobbiton",
+          "location_type": "on_location",
+          "still": "assets/stills/the_lord_of_the_rings_the_return_of_the_king_2003.jpg",
+          "modern": "assets/modern/the_lord_of_the_rings_the_return_of_the_king_2003.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Waterhouse_Lake_Front.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Schindler's List",
+      "year": 1993,
+      "imdb_rank": 7,
+      "locations": [
+        {
+          "name": "Oskar Schindler's Enamel Factory, Krakow, Poland",
+          "lat": 50.0474,
+          "lon": 19.9618,
+          "scene": "The factory where Schindler employs and shelters his Jewish workers",
+          "location_type": "on_location",
+          "still": "assets/stills/schindler_s_list_1993.jpg",
+          "modern": "assets/modern/schindler_s_list_1993.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Schindler%E2%80%99s_factory%2C_Krak%C3%B3w%2C_2011.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "year": 2001,
+      "imdb_rank": 8,
+      "locations": [
+        {
+          "name": "Hobbiton Movie Set, Matamata, Waikato, New Zealand",
+          "lat": -37.8576,
+          "lon": 175.6806,
+          "scene": "The Shire village of Hobbiton where the Fellowship's journey begins",
+          "location_type": "on_location",
+          "still": "assets/stills/the_lord_of_the_rings_the_fellowship_of_the_ring_2001.jpg",
+          "modern": "assets/modern/the_lord_of_the_rings_the_fellowship_of_the_ring_2001.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Waterhouse_Lake_Front.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Pulp Fiction",
+      "year": 1994,
+      "imdb_rank": 9,
+      "locations": [
+        {
+          "name": "Hawthorne Grill (former site), 13763 Hawthorne Boulevard, Hawthorne, California, USA",
+          "lat": 33.9067,
+          "lon": -118.3528,
+          "scene": "The diner robbery bookending the film, staged by Pumpkin and Honey Bunny",
+          "location_type": "on_location",
+          "still": "assets/stills/pulp_fiction_1994.jpg",
+          "modern": "assets/modern/pulp_fiction_1994.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/2021-10-05_14_23_34_View_southwest_across_Hawthorne%2C_Los_Angeles_County%2C_California_from_an_airplane_heading_toward_Los_Angeles_International_Airport.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Good, the Bad and the Ugly",
+      "year": 1967,
+      "imdb_rank": 10,
+      "locations": [
+        {
+          "name": "Sad Hill Cemetery, Contreras, Burgos, Spain",
+          "lat": 41.9906,
+          "lon": -3.4083,
+          "scene": "The climactic three-way standoff in the circular cemetery",
+          "location_type": "on_location",
+          "still": "assets/stills/the_good_the_bad_and_the_ugly_1967.jpg",
+          "modern": "assets/modern/the_good_the_bad_and_the_ugly_1967.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Cementerio_Sad_Hill_3.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Lord of the Rings: The Two Towers",
+      "year": 2002,
+      "imdb_rank": 11,
+      "locations": [
+        {
+          "name": "Hobbiton Movie Set, Matamata, Waikato, New Zealand",
+          "lat": -37.8576,
+          "lon": 175.6806,
+          "scene": "The Shire village of Hobbiton",
+          "location_type": "on_location",
+          "still": "assets/stills/the_lord_of_the_rings_the_two_towers_2002.jpg",
+          "modern": "assets/modern/the_lord_of_the_rings_the_two_towers_2002.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Waterhouse_Lake_Front.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Forrest Gump",
+      "year": 1994,
+      "imdb_rank": 12,
+      "locations": [
+        {
+          "name": "Chippewa Square, Savannah, Georgia, USA",
+          "lat": 32.0758,
+          "lon": -81.0932,
+          "scene": "Forrest tells his life story to strangers while sitting on the bus-stop bench",
+          "location_type": "on_location",
+          "still": "assets/stills/forrest_gump_1994.jpg",
+          "modern": "assets/modern/forrest_gump_1994.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Carver_Heights%2C_Savannah%2C_GA_31415%2C_USA_-_panoramio_%281%29.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Fight Club",
+      "year": 1999,
+      "imdb_rank": 13,
+      "locations": [
+        {
+          "name": "Former Kaiser Steel Mill site, Fontana, California, USA",
+          "lat": 34.0805,
+          "lon": -117.502,
+          "scene": "The derelict steel mill used for the film's industrial warehouse and exterior scenes",
+          "location_type": "on_location",
+          "still": "assets/stills/fight_club_1999.jpg",
+          "modern": "assets/modern/fight_club_1999.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Interior_of_Kaiser_Steel_%28cropped%29.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Inception",
+      "year": 2010,
+      "imdb_rank": 14,
+      "locations": [
+        {
+          "name": "Pont de Bir-Hakeim, Paris, France",
+          "lat": 48.8556,
+          "lon": 2.2875,
+          "scene": "Ariadne folds the Paris streets and confronts Cobb's projection of Mal on the bridge",
+          "location_type": "on_location",
+          "still": "assets/stills/inception_2010.jpg",
+          "modern": "assets/modern/inception_2010.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Bir-Hakeim_bridge%2C_Paris_24_June_2021.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Empire Strikes Back",
+      "year": 1980,
+      "imdb_rank": 15,
+      "locations": [
+        {
+          "name": "Finse (Hardangerjokulen glacier), Norway",
+          "lat": 60.603,
+          "lon": 7.502,
+          "scene": "The ice planet Hoth exteriors, including the Rebel base and wampa sequences",
+          "location_type": "on_location",
+          "still": "assets/stills/the_empire_strikes_back_1980.jpg",
+          "modern": "assets/modern/the_empire_strikes_back_1980.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/El18_finse08.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Matrix",
+      "year": 1999,
+      "imdb_rank": 16,
+      "locations": [
+        {
+          "name": "Fox Studios Australia, Moore Park, Sydney, Australia",
+          "lat": -33.891,
+          "lon": 151.2275,
+          "scene": "The marble government-lobby shootout, built as a soundstage set",
+          "location_type": "studio",
+          "still": "assets/stills/the_matrix_1999.jpg",
+          "modern": "assets/modern/the_matrix_1999.jpg",
+          "modern_source": "placeholder"
+        }
+      ]
+    },
+    {
+      "title": "Interstellar",
+      "year": 2014,
+      "imdb_rank": 17,
+      "locations": [
+        {
+          "name": "Cooper farm site near Longview/Pekisko, Alberta, Canada",
+          "lat": 50.4336,
+          "lon": -114.1587,
+          "scene": "The cornfield farmhouse where Cooper lives with his family",
+          "location_type": "on_location",
+          "still": "assets/stills/interstellar_2014.jpg",
+          "modern": "assets/modern/interstellar_2014.jpg",
+          "modern_source": "placeholder"
+        }
+      ]
+    },
+    {
+      "title": "GoodFellas",
+      "year": 1990,
+      "imdb_rank": 18,
+      "locations": [
+        {
+          "name": "Copacabana nightclub (former), 10 East 60th Street, Manhattan, New York, USA",
+          "lat": 40.7644,
+          "lon": -73.9717,
+          "scene": "The famous unbroken Steadicam walk through the kitchen into the Copacabana",
+          "location_type": "on_location",
+          "still": "assets/stills/goodfellas_1990.jpg",
+          "modern": "assets/modern/goodfellas_1990.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Harmonie_Club_1905.JPG"
+          }
+        }
+      ]
+    },
+    {
+      "title": "One Flew Over the Cuckoo's Nest",
+      "year": 1975,
+      "imdb_rank": 19,
+      "locations": [
+        {
+          "name": "Oregon State Hospital, Salem, Oregon, USA",
+          "lat": 44.9382,
+          "lon": -123.0028,
+          "scene": "The psychiatric ward where McMurphy is committed",
+          "location_type": "on_location",
+          "still": "assets/stills/one_flew_over_the_cuckoo_s_nest_1975.jpg",
+          "modern": "assets/modern/one_flew_over_the_cuckoo_s_nest_1975.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/OSH-JoshPartee-8840-west-facade.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Se7en",
+      "year": 1995,
+      "imdb_rank": 20,
+      "locations": [
+        {
+          "name": "Warner Bros. Studios, Burbank, California, USA",
+          "lat": 34.1469,
+          "lon": -118.3418,
+          "scene": "The detectives' apartments and precinct office interiors, built on soundstages",
+          "location_type": "studio",
+          "still": "assets/stills/se7en_1995.jpg",
+          "modern": "assets/modern/se7en_1995.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Gate_4_Warner_Bros._Studios.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "It's a Wonderful Life",
+      "year": 1946,
+      "imdb_rank": 21,
+      "locations": [
+        {
+          "name": "RKO Encino Ranch backlot (former), Encino, California, USA",
+          "lat": 34.1752,
+          "lon": -118.4958,
+          "scene": "The Bedford Falls main street set, built on the RKO backlot",
+          "location_type": "studio",
+          "still": "assets/stills/it_s_a_wonderful_life_1946.jpg",
+          "modern": "assets/modern/it_s_a_wonderful_life_1946.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Starr_080207-2255_Bell_206B_helicopter_%28N5743H%29_at_Kahului_Heliport.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Silence of the Lambs",
+      "year": 1991,
+      "imdb_rank": 22,
+      "locations": [
+        {
+          "name": "Buffalo Bill's House, Perryopolis, Pennsylvania, USA",
+          "lat": 40.088,
+          "lon": -79.7507,
+          "scene": "Buffalo Bill's house with the well where he holds his victims",
+          "location_type": "on_location",
+          "still": "assets/stills/the_silence_of_the_lambs_1991.jpg",
+          "modern": "assets/modern/the_silence_of_the_lambs_1991.jpg",
+          "modern_source": "placeholder"
+        }
+      ]
+    },
+    {
+      "title": "Saving Private Ryan",
+      "year": 1998,
+      "imdb_rank": 23,
+      "locations": [
+        {
+          "name": "Ballinesker Beach, Curracloe, County Wexford, Ireland",
+          "lat": 52.3994,
+          "lon": -6.3578,
+          "scene": "The opening Omaha Beach D-Day landing sequence",
+          "location_type": "on_location",
+          "still": "assets/stills/saving_private_ryan_1998.jpg",
+          "modern": "assets/modern/saving_private_ryan_1998.jpg",
+          "modern_source": "wikimedia_commons",
+          "modern_credit": {
+            "author": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.geograph.org.uk/profile/15746\">kevin higgins</a> <span class=\"mw-valign-text-top noprint\" typeof=\"mw:File/Frameless\"><a href=\"//commons.wikime",
+            "license": "CC BY-SA 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Beach_Exit_-_geograph.org.uk_-_3959698.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Seven Samurai",
+      "year": 1956,
+      "imdb_rank": 24,
+      "locations": [
+        {
+          "name": "Tagata, Izunokuni, Shizuoka Prefecture, Japan",
+          "lat": 35.0278,
+          "lon": 138.9289,
+          "scene": "The farming village built for the samurai to defend against bandits",
+          "location_type": "on_location",
+          "still": "assets/stills/seven_samurai_1956.jpg",
+          "modern": "assets/modern/seven_samurai_1956.jpg",
+          "modern_source": "placeholder"
+        }
+      ]
+    },
+    {
+      "title": "The Green Mile",
+      "year": 1999,
+      "imdb_rank": 25,
+      "locations": [
+        {
+          "name": "Tennessee State Penitentiary, Nashville, Tennessee, USA",
+          "lat": 36.1776,
+          "lon": -86.866,
+          "scene": "The death row cell block ('the Green Mile') exteriors and corridors",
+          "location_type": "on_location",
+          "still": "assets/stills/the_green_mile_1999.jpg",
+          "modern": "assets/modern/the_green_mile_1999.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/2/24/TSP_Main_Entrance.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "City of God",
+      "year": 2003,
+      "imdb_rank": 26,
+      "locations": [
+        {
+          "name": "Cidade Alta favela complex, Cordovil, North Zone, Rio de Janeiro, Brazil (stood in for the real Cidade de Deus, which was inaccessible due to gang conflict during production)",
+          "lat": -22.8194,
+          "lon": -43.2916,
+          "scene": "The favela's cramped alleys and rooftops are the backdrop for the drug-trade turf wars that define the film's rise-and-fall narrative.",
+          "location_type": "on_location",
+          "still": "assets/stills/city_of_god_2003.jpg",
+          "modern": "assets/modern/city_of_god_2003.jpg",
+          "modern_source": "placeholder"
+        }
+      ]
+    },
+    {
+      "title": "Life Is Beautiful",
+      "year": 1998,
+      "imdb_rank": 27,
+      "locations": [
+        {
+          "name": "Piazza Grande, Arezzo, Tuscany, Italy",
+          "lat": 43.4647,
+          "lon": 11.8843,
+          "scene": "Guido woos Dora across this medieval square, including the moment the shop keys magically fall into his hands.",
+          "location_type": "on_location",
+          "still": "assets/stills/life_is_beautiful_1998.jpg",
+          "modern": "assets/modern/life_is_beautiful_1998.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Igreja_Santa_Maria_della_Pieve_Arezzo.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Terminator 2: Judgment Day",
+      "year": 1991,
+      "imdb_rank": 28,
+      "locations": [
+        {
+          "name": "Bull Creek flood-control channel at Hayvenhurst Avenue & Plummer Street, North Hills, Los Angeles, California, USA",
+          "lat": 34.1789,
+          "lon": -118.4979,
+          "scene": "The T-1000's tanker-truck pursuit of John Connor's dirt bike through the concrete drainage channel, one of the film's signature chase sequences.",
+          "location_type": "on_location",
+          "still": "assets/stills/terminator_2_judgment_day_1991.jpg",
+          "modern": "assets/modern/terminator_2_judgment_day_1991.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Bull_creek_north_from_victory.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Back to the Future",
+      "year": 1985,
+      "imdb_rank": 29,
+      "locations": [
+        {
+          "name": "Courthouse Square, Universal Studios Hollywood backlot, Universal City, California, USA",
+          "lat": 34.1385,
+          "lon": -118.3548,
+          "scene": "The standing backlot set, redressed for 1955/1985, doubles as downtown Hill Valley for the clock-tower lightning strike and DeLorean scenes.",
+          "location_type": "studio",
+          "still": "assets/stills/back_to_the_future_1985.jpg",
+          "modern": "assets/modern/back_to_the_future_1985.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Universal_Studios_Lot_%282%29.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Star Wars",
+      "year": 1977,
+      "imdb_rank": 30,
+      "locations": [
+        {
+          "name": "Hôtel Sidi Driss, Matmata, Gabès Governorate, Tunisia",
+          "lat": 33.5439,
+          "lon": 9.9691,
+          "scene": "This troglodyte hotel's sunken courtyard was used as the interior of the Lars family homestead on Tatooine.",
+          "location_type": "on_location",
+          "still": "assets/stills/star_wars_1977.jpg",
+          "modern": "assets/modern/star_wars_1977.jpg",
+          "modern_source": "wikimedia_commons",
+          "modern_credit": {
+            "author": "<a href=\"//commons.wikimedia.org/wiki/User:Lohen11\" title=\"User:Lohen11\">Lohen11</a>",
+            "license": "CC BY 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Matmata_-_Hotel_Sidi_Dris.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Kill Bill: The Whole Bloody Affair",
+      "year": 2011,
+      "imdb_rank": 31,
+      "locations": [
+        {
+          "name": "Sanctuary Adventist Church (former Calvary Baptist Church), Hi Vista, near Lancaster, California, USA",
+          "lat": 34.7353,
+          "lon": -117.7763,
+          "scene": "This Mojave Desert chapel is the real 'Two Pines' wedding chapel where the Bride and the wedding party are massacred by the DiVAS.",
+          "location_type": "on_location",
+          "still": "assets/stills/kill_bill_the_whole_bloody_affair_2011.jpg",
+          "modern": "assets/modern/kill_bill_the_whole_bloody_affair_2011.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Kill.Bill.Church.Location.Lancaster.JPG"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Spirited Away",
+      "year": 2002,
+      "imdb_rank": 32,
+      "locations": [
+        {
+          "name": "Studio Ghibli headquarters, Koganei, Tokyo, Japan",
+          "lat": 35.7019,
+          "lon": 139.5241,
+          "scene": "Animated entirely in-house at Studio Ghibli, where Hayao Miyazaki wrote and directed Chihiro's journey into the spirit world.",
+          "location_type": "animation",
+          "still": "assets/stills/spirited_away_2002.jpg",
+          "modern": "assets/modern/spirited_away_2002.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/09/Higashikoganei-Sta-S.JPG"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Gladiator",
+      "year": 2000,
+      "imdb_rank": 33,
+      "locations": [
+        {
+          "name": "Fort Ricasoli, Kalkara, Malta",
+          "lat": 35.8968,
+          "lon": 14.5269,
+          "scene": "A one-third-scale, 16-meter Colosseum replica was built inside this 17th-century fort for the arena combat scenes, with the rest added digitally.",
+          "location_type": "on_location",
+          "still": "assets/stills/gladiator_2000.jpg",
+          "modern": "assets/modern/gladiator_2000.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Fort_Ricasoli_in_November_2025_03.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Pianist",
+      "year": 2002,
+      "imdb_rank": 34,
+      "locations": [
+        {
+          "name": "Former National Defence University of Warsaw grounds, Rembertów, Warsaw, Poland (used to recreate the Umschlagplatz deportation scenes)",
+          "lat": 52.2667,
+          "lon": 21.1731,
+          "scene": "Szpilman and his family are herded here with hundreds of others onto the cattle cars bound for the death camps.",
+          "location_type": "on_location",
+          "still": "assets/stills/the_pianist_2002.jpg",
+          "modern": "assets/modern/the_pianist_2002.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Brama_AON.JPG"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Parasite",
+      "year": 2019,
+      "imdb_rank": 35,
+      "locations": [
+        {
+          "name": "Stairway near Songjeong-ro 6-gil, Ahyeon-dong, Mapo-gu, Seoul, South Korea",
+          "lat": 37.5568,
+          "lon": 126.9558,
+          "scene": "Ki-jung climbs this steep neighborhood staircase carrying peaches, part of the film's visual language of ascending and descending between rich and poor.",
+          "location_type": "on_location",
+          "still": "assets/stills/parasite_2019.jpg",
+          "modern": "assets/modern/parasite_2019.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Seoul-metro-242-Ahyeon-station-sign-20181121-075034.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Grave of the Fireflies",
+      "year": 1989,
+      "imdb_rank": 36,
+      "locations": [
+        {
+          "name": "Studio Ghibli headquarters, Koganei, Tokyo, Japan",
+          "lat": 35.7019,
+          "lon": 139.5241,
+          "scene": "Produced at Studio Ghibli, the animation studio behind Isao Takahata's wartime story of siblings Seita and Setsuko.",
+          "location_type": "animation",
+          "still": "assets/stills/grave_of_the_fireflies_1989.jpg",
+          "modern": "assets/modern/grave_of_the_fireflies_1989.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/09/Higashikoganei-Sta-S.JPG"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Psycho",
+      "year": 1960,
+      "imdb_rank": 37,
+      "locations": [
+        {
+          "name": "Bates Motel & Psycho House set, Universal Studios backlot, Universal City, California, USA",
+          "lat": 34.1375,
+          "lon": -118.353,
+          "scene": "The Bates Motel and the gothic house on the hill above it were built as a permanent set here for Norman Bates' fictional motel.",
+          "location_type": "studio",
+          "still": "assets/stills/psycho_1960.jpg",
+          "modern": "assets/modern/psycho_1960.jpg",
+          "modern_source": "placeholder"
+        }
+      ]
+    },
+    {
+      "title": "Harakiri",
+      "year": 1963,
+      "imdb_rank": 38,
+      "locations": [
+        {
+          "name": "Shochiku Kyoto Studio, Uzumasa, Ukyo-ku, Kyoto, Japan",
+          "lat": 35.0148,
+          "lon": 135.7075,
+          "scene": "Masaki Kobayashi shot this jidaigeki on Shochiku's Kyoto soundstages and backlot, the traditional home of Japanese period-film production.",
+          "location_type": "studio",
+          "still": "assets/stills/harakiri_1963.jpg",
+          "modern": "assets/modern/harakiri_1963.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Eigamura_set.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Lion King",
+      "year": 1994,
+      "imdb_rank": 39,
+      "locations": [
+        {
+          "name": "Walt Disney Animation Studios, Burbank, California, USA",
+          "lat": 34.1562,
+          "lon": -118.3252,
+          "scene": "Animated at Disney's Burbank studio, though the crew's research trip to Hell's Gate, Kenya inspired the Pride Lands' look.",
+          "location_type": "animation",
+          "still": "assets/stills/the_lion_king_1994.jpg",
+          "modern": "assets/modern/the_lion_king_1994.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Walt_Disney_Studios_Alameda_Entrance.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Departed",
+      "year": 2006,
+      "imdb_rank": 40,
+      "locations": [
+        {
+          "name": "Rooftop alley off Farnsworth Street, Fort Point, Boston, Massachusetts, USA",
+          "lat": 42.3485,
+          "lon": -71.0504,
+          "scene": "The rooftop where Queenan is thrown to his death and Billy and Colin's final confrontation plays out.",
+          "location_type": "on_location",
+          "still": "assets/stills/the_departed_2006.jpg",
+          "modern": "assets/modern/the_departed_2006.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Boston%2C_1775bsmall1.png"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Whiplash",
+      "year": 2014,
+      "imdb_rank": 41,
+      "locations": [
+        {
+          "name": "Palace Theatre, 630 S Broadway, Los Angeles, California, USA",
+          "lat": 34.0457,
+          "lon": -118.2524,
+          "scene": "This historic downtown LA theater's stage was dressed as the concert hall for Andrew's climactic 'Caravan' drum solo.",
+          "location_type": "on_location",
+          "still": "assets/stills/whiplash_2014.jpg",
+          "modern": "assets/modern/whiplash_2014.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Forrester_Building.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Prestige",
+      "year": 2006,
+      "imdb_rank": 42,
+      "locations": [
+        {
+          "name": "Los Angeles Theatre, 615 S Broadway, Los Angeles, California, USA",
+          "lat": 34.0465,
+          "lon": -118.2527,
+          "scene": "This ornate 1931 movie palace stood in for the Victorian-era London stage where the rival magicians perform their illusions.",
+          "location_type": "on_location",
+          "still": "assets/stills/the_prestige_2006.jpg",
+          "modern": "assets/modern/the_prestige_2006.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Mailing%27s_building.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "American History X",
+      "year": 1998,
+      "imdb_rank": 43,
+      "locations": [
+        {
+          "name": "2200 block of Meade Place, Venice, California, USA",
+          "lat": 33.993,
+          "lon": -118.4556,
+          "scene": "The residential curb outside this house is where Derek commits the brutal curb-stomp murder that sends him to prison.",
+          "location_type": "on_location",
+          "still": "assets/stills/american_history_x_1998.jpg",
+          "modern": "assets/modern/american_history_x_1998.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/First_Lutheran_Church_of_Venice.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Léon: The Professional",
+      "year": 1994,
+      "imdb_rank": 44,
+      "locations": [
+        {
+          "name": "71 East 97th Street, Upper East Side, Manhattan, New York City, USA",
+          "lat": 40.7875,
+          "lon": -73.9522,
+          "scene": "The exterior of the apartment building where Léon and Mathilda live, and where her family is murdered by corrupt DEA agents.",
+          "location_type": "on_location",
+          "still": "assets/stills/l_on_the_professional_1994.jpg",
+          "modern": "assets/modern/l_on_the_professional_1994.jpg",
+          "modern_source": "placeholder"
+        }
+      ]
+    },
+    {
+      "title": "Spider-Man: Across the Spider-Verse",
+      "year": 2023,
+      "imdb_rank": 45,
+      "locations": [
+        {
+          "name": "Sony Pictures Animation, 9050 Washington Blvd, Culver City, California, USA",
+          "lat": 34.0199,
+          "lon": -118.3985,
+          "scene": "Produced at Sony Pictures Animation's Culver City campus, the studio behind Miles Morales' multiverse-spanning animated adventures.",
+          "location_type": "animation",
+          "still": "assets/stills/spider_man_across_the_spider_verse_2023.jpg",
+          "modern": "assets/modern/spider_man_across_the_spider_verse_2023.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Sony_Pictures_Studios_Motor_Gate.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Cinema Paradiso",
+      "year": 1990,
+      "imdb_rank": 46,
+      "locations": [
+        {
+          "name": "Piazza Umberto I, Palazzo Adriano, Sicily, Italy",
+          "lat": 37.6816,
+          "lon": 13.3792,
+          "scene": "The town square where the Cinema Paradiso movie theater was built as a set for the film's outdoor screenings and community gatherings.",
+          "location_type": "on_location",
+          "still": "assets/stills/cinema_paradiso_1990.jpg",
+          "modern": "assets/modern/cinema_paradiso_1990.jpg",
+          "modern_source": "placeholder"
+        }
+      ]
+    },
+    {
+      "title": "Casablanca",
+      "year": 1943,
+      "imdb_rank": 47,
+      "locations": [
+        {
+          "name": "Stage 7 (\"Lucky Seven\"), Warner Bros. Studios, 4000 Warner Blvd, Burbank, California, USA",
+          "lat": 34.1483,
+          "lon": -118.3392,
+          "scene": "Rick's Café Américain was built as a standing set on this soundstage, where nearly the entire film was shot without ever going to Morocco.",
+          "location_type": "studio",
+          "still": "assets/stills/casablanca_1943.jpg",
+          "modern": "assets/modern/casablanca_1943.jpg",
+          "modern_source": "placeholder"
+        }
+      ]
+    },
+    {
+      "title": "The Intouchables",
+      "year": 2011,
+      "imdb_rank": 48,
+      "locations": [
+        {
+          "name": "Hôtel d'Avaray, 85 Rue de Grenelle, 7th arrondissement, Paris, France",
+          "lat": 48.8557,
+          "lon": 2.3217,
+          "scene": "This 18th-century mansion (now the Dutch ambassador's residence) served as the opulent Paris townhouse of the wealthy quadriplegic Philippe.",
+          "location_type": "on_location",
+          "still": "assets/stills/the_intouchables_2011.jpg",
+          "modern": "assets/modern/the_intouchables_2011.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/H%C3%B4tel_d%27Avaray_016.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Usual Suspects",
+      "year": 1995,
+      "imdb_rank": 49,
+      "locations": [
+        {
+          "name": "Fish Harbor, Terminal Island, San Pedro, Los Angeles, California, USA",
+          "lat": 33.7361,
+          "lon": -118.2676,
+          "scene": "The waterfront where the film's climactic boat explosion and shootout, recounted by Verbal Kint, take place.",
+          "location_type": "on_location",
+          "still": "assets/stills/the_usual_suspects_1995.jpg",
+          "modern": "assets/modern/the_usual_suspects_1995.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/3/31/USS_Peacock_%28MSC-198%29_underway%2C_circa_in_1969_%28NH_84419%29.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Django Unchained",
+      "year": 2012,
+      "imdb_rank": 50,
+      "locations": [
+        {
+          "name": "Evergreen Plantation, 4677 LA-18, Edgard/Wallace, Louisiana, USA",
+          "lat": 30.0268,
+          "lon": -90.6396,
+          "scene": "The plantation's real antebellum grounds and oak alley were used for the 'Candyland' plantation exteriors, with the Candie mansion built nearby as a set.",
+          "location_type": "on_location",
+          "still": "assets/stills/django_unchained_2012.jpg",
+          "modern": "assets/modern/django_unchained_2012.jpg",
+          "modern_source": "wikipedia",
+          "modern_credit": {
+            "author": "Wikipedia contributors",
+            "license": "See Wikipedia article",
+            "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Evergreen_Plantation.jpg"
+          }
+        }
+      ]
+    }
+  ]
+}
