@@ -737,6 +737,1914 @@
       ]
     },
     {
+      "slug": "eltz_castle",
+      "name": "Eltz Castle",
+      "wiki_title": "Eltz Castle",
+      "country": "Germany",
+      "lat": 50.2054,
+      "lon": 7.3366,
+      "year_built_start": 1157,
+      "year_built_end": 1650,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Romanesque–Gothic Ganerbenburg (shared family castle)",
+      "built_by": "Rudolf of Eltz and his descendants",
+      "dynasty_empire": "House of Eltz (Holy Roman Empire)",
+      "purpose": "Built to guard the trade route between the Moselle valley and the Eifel, then expanded so that several branches of the Eltz family could live side by side in one castle.",
+      "description": "Hidden in a forested valley above the Elzbach, Eltz has been owned by the same family for over 30 generations. It was never destroyed, so its tightly packed towers and half-timbered upper storeys survive much as they looked in the late Middle Ages.",
+      "photos": [
+        {
+          "path": "assets/castles/eltz_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Clementp.fr",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Le_ch%C3%A2teau_d%27Eltz_(Burg_Eltz)_en_allemagne_(cropped).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/eltz_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Carsten Steger",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_the_Eltz_Castle_(view_from_the_south).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/eltz_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Rumpadong",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Eltz_castle_with_surroundings_summer_of_2022.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "heidelberg_castle",
+      "name": "Heidelberg Castle",
+      "wiki_title": "Heidelberg Castle",
+      "country": "Germany",
+      "lat": 49.4106,
+      "lon": 8.7153,
+      "year_built_start": 1214,
+      "year_built_end": 1650,
+      "century_built": 13,
+      "era": "11th–13th century",
+      "architecture_style": "Gothic and German Renaissance (ruin)",
+      "built_by": "The Electors Palatine",
+      "dynasty_empire": "House of Wittelsbach (Electoral Palatinate)",
+      "purpose": "Seat and residence of the Prince-Electors of the Palatinate, steadily expanded into one of the grandest Renaissance palaces north of the Alps.",
+      "description": "Wrecked by French troops in the Nine Years' War and struck by lightning in 1764, Heidelberg's red sandstone ruin became an icon of German Romanticism. Its cellar holds the Heidelberg Tun, one of the largest wine barrels ever built.",
+      "photos": [
+        {
+          "path": "assets/castles/heidelberg_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Didier Descouens",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:(Narbonne)_Portrait_de_Liselotte_de_Palatinat_-_Pierre_Mignard_-_Mus%C3%A9e_des_Beaux-Arts_de_Narbonne.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/heidelberg_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "imehling",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Heidelberg_Castle_-_Friedrichsbau_Facade_-_3.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/heidelberg_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Günher Bayerl",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:G%C3%BCnther_Bayerl_Heidelberg,_Ottheinrichsbau_2015.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "wartburg",
+      "name": "Wartburg",
+      "wiki_title": "Wartburg",
+      "country": "Germany",
+      "lat": 50.9662,
+      "lon": 10.3062,
+      "year_built_start": 1067,
+      "year_built_end": 1170,
+      "century_built": 11,
+      "era": "11th–13th century",
+      "architecture_style": "Romanesque",
+      "built_by": "Count Ludwig der Springer",
+      "dynasty_empire": "Ludowingians (Landgraves of Thuringia)",
+      "purpose": "Founded as the seat of the Ludowingian counts and later landgraves of Thuringia, controlling the surrounding Thuringian Forest.",
+      "description": "A UNESCO World Heritage Site above Eisenach, the Wartburg is where Martin Luther hid in 1521–22 and translated the New Testament into German. Its Romanesque palas is one of the best-preserved secular buildings of its age.",
+      "photos": [
+        {
+          "path": "assets/castles/wartburg_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "A.Savin",
+            "license": "FAL",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Thuringia_Eisenach_asv2020-07_img23_Wartburg_Castle.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/wartburg_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "A.Savin",
+            "license": "FAL",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Thuringia_Eisenach_asv2020-07_img03_view_from_Wartburg_South_Tower.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/wartburg_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Unknown authorUnknown author",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Wartburg_aus_Suedwest.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "schwerin_castle",
+      "name": "Schwerin Castle",
+      "wiki_title": "Schwerin Castle",
+      "country": "Germany",
+      "lat": 53.6242,
+      "lon": 11.4183,
+      "year_built_start": 1845,
+      "year_built_end": 1857,
+      "century_built": 19,
+      "era": "18th–19th century",
+      "architecture_style": "Romantic Historicism (Neo-Renaissance)",
+      "built_by": "Grand Duke Friedrich Franz II (architects Georg Adolf Demmler and Friedrich August Stüler)",
+      "dynasty_empire": "House of Mecklenburg",
+      "purpose": "Rebuilt as a showpiece residence for the Grand Dukes of Mecklenburg-Schwerin on the site of a fortress used for nearly a thousand years.",
+      "description": "Rising from an island in Lake Schwerin, the castle's gilded domes and turrets were partly inspired by the Château de Chambord. It now houses the state parliament of Mecklenburg-Vorpommern.",
+      "photos": [
+        {
+          "path": "assets/castles/schwerin_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Matthias Bethke",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Schloss_Schwerin_(Mecklenburg).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/schwerin_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Roger Veringmeier",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Schwerin_Schweriner_Schloss_Kasteel_van_Schwerin_Palace_Castle_Mecklenburg-Vorpommern_Duitsland_Germany.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/schwerin_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Ralf Roletschek",
+            "license": "GFDL 1.2",
+            "source_url": "https://commons.wikimedia.org/wiki/File:15-06-06-Schlo%C3%9Fkirche-Schwerin-RalfR-N3S_7423_4_5-.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "lichtenstein_castle",
+      "name": "Lichtenstein Castle",
+      "wiki_title": "Lichtenstein Castle (Württemberg)",
+      "country": "Germany",
+      "lat": 48.4064,
+      "lon": 9.2577,
+      "year_built_start": 1840,
+      "year_built_end": 1842,
+      "century_built": 19,
+      "era": "18th–19th century",
+      "architecture_style": "Gothic Revival",
+      "built_by": "Count Wilhelm of Württemberg (later Duke of Urach)",
+      "dynasty_empire": "House of Württemberg (Dukes of Urach)",
+      "purpose": "Built as a romantic homage to the Middle Ages, inspired by Wilhelm Hauff's novel 'Lichtenstein'.",
+      "description": "Perched on a cliff edge above the Echaz valley in the Swabian Alb, Lichtenstein replaced a ruined medieval castle with a fairy-tale tower that still belongs to the Dukes of Urach.",
+      "photos": [
+        {
+          "path": "assets/castles/lichtenstein_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "André Karwath aka Aka",
+            "license": "CC BY-SA 2.5",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Lichtenstein_-_Lichtenstein_Castle_-_inside_2012_(aka).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/lichtenstein_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Ramessos",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:SchlossLietzow.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/lichtenstein_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "-donald-",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Schloss_Lichtenstein_04-2010.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "hohenschwangau_castle",
+      "name": "Hohenschwangau Castle",
+      "wiki_title": "Hohenschwangau Castle",
+      "country": "Germany",
+      "lat": 47.5555,
+      "lon": 10.7369,
+      "year_built_start": 1832,
+      "year_built_end": 1837,
+      "century_built": 19,
+      "era": "18th–19th century",
+      "architecture_style": "Gothic Revival",
+      "built_by": "Crown Prince Maximilian (later King Maximilian II of Bavaria)",
+      "dynasty_empire": "House of Wittelsbach",
+      "purpose": "Rebuilt from a medieval ruin as a summer and hunting residence for the Bavarian royal family.",
+      "description": "The yellow castle across the valley from Neuschwanstein was Ludwig II's childhood home. Its rooms are painted with scenes from German legends, including the Swan Knight saga that later shaped Ludwig's own castle.",
+      "photos": [
+        {
+          "path": "assets/castles/hohenschwangau_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Thomas Wolf, www.foto-tw.de",
+            "license": "CC BY-SA 3.0 de",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Schloss_Hohenschwangau_2021.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/hohenschwangau_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "User:Abelson",
+            "license": "CC BY 2.5",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Hohenschwangau_Castle_and_Village.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/hohenschwangau_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "sailko",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Hohenschwangau,_ext,_06_sfondo_neuschwanstein.JPG"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "marksburg",
+      "name": "Marksburg",
+      "wiki_title": "Marksburg",
+      "country": "Germany",
+      "lat": 50.2729,
+      "lon": 7.6544,
+      "year_built_start": 1117,
+      "year_built_end": 1479,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Medieval hilltop castle (Romanesque and Gothic)",
+      "built_by": "Lords of Eppstein",
+      "dynasty_empire": "Counts of Katzenelnbogen (from 1283)",
+      "purpose": "Built to protect the town of Braubach and reinforce the Rhine toll system.",
+      "description": "The Marksburg is the only hilltop castle on the Middle Rhine that was never destroyed. It is the headquarters of the German Castles Association and part of the Upper Middle Rhine Valley World Heritage Site.",
+      "photos": [
+        {
+          "path": "assets/castles/marksburg_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Tobi 87",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Marksburg-Braubach.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/marksburg_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Felix König",
+            "license": "CC BY 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Marksburg_Braubach_2012.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/marksburg_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Lencer",
+            "license": "GFDL",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Karte_Mittelrhein.png"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "reichsburg_cochem",
+      "name": "Reichsburg Cochem",
+      "wiki_title": "Cochem Castle",
+      "country": "Germany",
+      "lat": 50.146,
+      "lon": 7.1662,
+      "year_built_start": 1100,
+      "year_built_end": 1877,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Gothic Revival on medieval foundations",
+      "built_by": "Palatine Count Ezzo (attributed); rebuilt by Louis Ravené",
+      "dynasty_empire": "Holy Roman Empire (Electorate of Trier from 1294)",
+      "purpose": "An imperial castle used to collect tolls from ships on the Moselle.",
+      "description": "Destroyed by French troops in 1689, the castle above Cochem was rebuilt in the 1870s by Berlin businessman Louis Ravené as a Gothic Revival summer home.",
+      "photos": [
+        {
+          "path": "assets/castles/reichsburg_cochem_1.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/reichsburg_cochem_2.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/reichsburg_cochem_3.jpg",
+          "source": "placeholder"
+        }
+      ]
+    },
+    {
+      "slug": "rheinfels_castle",
+      "name": "Rheinfels Castle",
+      "wiki_title": "Rheinfels Castle",
+      "country": "Germany",
+      "lat": 50.1547,
+      "lon": 7.7139,
+      "year_built_start": 1245,
+      "year_built_end": 1600,
+      "century_built": 13,
+      "era": "11th–13th century",
+      "architecture_style": "Medieval fortress, later bastioned (ruin)",
+      "built_by": "Count Diether V of Katzenelnbogen",
+      "dynasty_empire": "Counts of Katzenelnbogen (later Landgraves of Hesse)",
+      "purpose": "Built to secure the Rhine toll at St. Goar.",
+      "description": "Once the largest castle on the Rhine, Rheinfels withstood a siege by the Rhenish League of cities in its first decade and a French army in 1692, before revolutionary troops blew it up in 1797.",
+      "photos": [
+        {
+          "path": "assets/castles/rheinfels_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Phantom3Pix",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Burg_Rheinfels_Bild_1.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/rheinfels_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Lencer",
+            "license": "GFDL",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Karte_Mittelrhein.png"
+          }
+        },
+        {
+          "path": "assets/castles/rheinfels_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Wilhelm Dilich",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:BurgRheinfels1607.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "pfalzgrafenstein_castle",
+      "name": "Pfalzgrafenstein Castle",
+      "wiki_title": "Pfalzgrafenstein Castle",
+      "country": "Germany",
+      "lat": 50.0853,
+      "lon": 7.7672,
+      "year_built_start": 1326,
+      "year_built_end": 1327,
+      "century_built": 14,
+      "era": "14th–15th century",
+      "architecture_style": "Gothic toll castle",
+      "built_by": "King Louis IV the Bavarian",
+      "dynasty_empire": "House of Wittelsbach (Electoral Palatinate)",
+      "purpose": "Built on a river island to force passing ships to pay tolls, working together with Gutenfels Castle on the bank.",
+      "description": "Shaped like a stone ship anchored in the middle of the Rhine near Kaub, Pfalzgrafenstein collected tolls until 1867. Blücher's army crossed the river here in 1814 while chasing Napoleon.",
+      "photos": [
+        {
+          "path": "assets/castles/pfalzgrafenstein_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Jörg Braukmann",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Burg_Pfalzgrafenstein_2017.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/pfalzgrafenstein_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Wilhelm Camphausen",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Wilhelm_Camphausen,_Bl%C3%BCchers_Rhein%C3%BCbergang_bei_Kaub.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/pfalzgrafenstein_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Alta Falisa",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:1813_Rhein%C3%BCbergang,_Denkmal_auf_linkem_Ufer.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "stolzenfels_castle",
+      "name": "Stolzenfels Castle",
+      "wiki_title": "Stolzenfels Castle",
+      "country": "Germany",
+      "lat": 50.3023,
+      "lon": 7.5913,
+      "year_built_start": 1836,
+      "year_built_end": 1842,
+      "century_built": 19,
+      "era": "18th–19th century",
+      "architecture_style": "Gothic Revival (Rhine Romanticism)",
+      "built_by": "Crown Prince Frederick William IV of Prussia (architect Karl Friedrich Schinkel)",
+      "dynasty_empire": "House of Hohenzollern",
+      "purpose": "Rebuilt from a ruined 13th-century toll castle of the Archbishops of Trier as a romantic Prussian royal residence.",
+      "description": "Stolzenfels is a key monument of Rhine Romanticism, with Schinkel's interiors, murals, and gardens restored above the river near Koblenz.",
+      "photos": [
+        {
+          "path": "assets/castles/stolzenfels_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Holger Weinandt",
+            "license": "CC BY-SA 3.0 de",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Schloss_Stolzenfels_01_Koblenz_2015.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/stolzenfels_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Holger Weinandt",
+            "license": "CC BY-SA 3.0 de",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Koblenz_im_Buga-Jahr_2011_-_Schloss_Stolzenfels_02.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/stolzenfels_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Holger Weinandt",
+            "license": "CC BY-SA 3.0 de",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Koblenz_im_Buga-Jahr_2011_-_Schloss_Stolzenfels_04.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "rheinstein_castle",
+      "name": "Rheinstein Castle",
+      "wiki_title": "Rheinstein Castle",
+      "country": "Germany",
+      "lat": 49.9906,
+      "lon": 7.8597,
+      "year_built_start": 1825,
+      "year_built_end": 1829,
+      "century_built": 19,
+      "era": "18th–19th century",
+      "architecture_style": "Gothic Revival",
+      "built_by": "Prince Frederick of Prussia",
+      "dynasty_empire": "House of Hohenzollern",
+      "purpose": "Rebuilt from a medieval ruin as a romantic summer residence, one of the first Rhine castles restored in the 19th century.",
+      "description": "Clinging to a rock spur near Trechtingshausen, Rheinstein started the fashion for rebuilding ruined Rhine castles in a romantic medieval style.",
+      "photos": [
+        {
+          "path": "assets/castles/rheinstein_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Lencer",
+            "license": "GFDL",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Karte_Mittelrhein.png"
+          }
+        },
+        {
+          "path": "assets/castles/rheinstein_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Wikimedia Commons contributor",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Rheinstein_Castle,_the_Rhine,_Germany-LCCN2002714123.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/rheinstein_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Manfred Heyde",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Rheinstein.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "burg_katz",
+      "name": "Burg Katz",
+      "wiki_title": "Katz Castle",
+      "country": "Germany",
+      "lat": 50.1515,
+      "lon": 7.7276,
+      "year_built_start": 1371,
+      "year_built_end": 1898,
+      "century_built": 14,
+      "era": "14th–15th century",
+      "architecture_style": "Gothic (rebuilt in historicist style)",
+      "built_by": "Count Wilhelm II of Katzenelnbogen",
+      "dynasty_empire": "Counts of Katzenelnbogen",
+      "purpose": "Built to strengthen the Katzenelnbogen counts' control of the Rhine toll alongside Rheinfels.",
+      "description": "'Cat Castle' above St. Goarshausen was named after its builders and faces its smaller rival Burg Maus. Blown up by Napoleon's troops in 1806, it was rebuilt in the 1890s.",
+      "photos": [
+        {
+          "path": "assets/castles/burg_katz_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "DXR",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Burg_Katz,_St._Goarshausen,_Southwest_view_20141002_2.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/burg_katz_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "DXR",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Burg_Katz,_St._Goarshausen,_West_view_20141002_1.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/burg_katz_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Alexander Hoernigk",
+            "license": "CC BY 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:St.Goarshausen_Loreley_Burg_Katz_2016-03-27-17-13-57.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "burg_maus",
+      "name": "Burg Maus",
+      "wiki_title": "Maus Castle",
+      "country": "Germany",
+      "lat": 50.1393,
+      "lon": 7.7154,
+      "year_built_start": 1356,
+      "year_built_end": 1388,
+      "century_built": 14,
+      "era": "14th–15th century",
+      "architecture_style": "Gothic",
+      "built_by": "Archbishop Boemund II of Trier (completed by Kuno von Falkenstein)",
+      "dynasty_empire": "Electorate of Trier",
+      "purpose": "Built to protect the Archbishop of Trier's territory and tolls against the Counts of Katzenelnbogen.",
+      "description": "The Katzenelnbogens nicknamed it 'the Mouse' to mock it next to their Burg Katz ('the Cat'). It was one of the most advanced castles of its time and survived largely intact.",
+      "photos": [
+        {
+          "path": "assets/castles/burg_maus_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Lencer",
+            "license": "GFDL",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Karte_Mittelrhein.png"
+          }
+        },
+        {
+          "path": "assets/castles/burg_maus_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "The mobot",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Maus_castle_from_the_rhine.JPG"
+          }
+        },
+        {
+          "path": "assets/castles/burg_maus_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Claus-Joachim Dickow",
+            "license": "CC BY-SA 2.5",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Burg_Maus_am_Rhein.JPG"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "burghausen_castle",
+      "name": "Burghausen Castle",
+      "wiki_title": "Burghausen Castle",
+      "country": "Germany",
+      "lat": 48.165,
+      "lon": 12.834,
+      "year_built_start": 1025,
+      "year_built_end": 1503,
+      "century_built": 11,
+      "era": "11th–13th century",
+      "architecture_style": "Gothic",
+      "built_by": "Dukes of Bavaria-Landshut",
+      "dynasty_empire": "House of Wittelsbach (Bavaria-Landshut)",
+      "purpose": "Served as the second residence of the Dukes of Lower Bavaria and a fortified store for their treasury.",
+      "description": "Stretching about 1,051 metres along a ridge above the Salzach, Burghausen is often listed as the longest castle complex in the world, with six courtyards in a row.",
+      "photos": [
+        {
+          "path": "assets/castles/burghausen_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "C.Stadler/Bwag",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Burghausen_-_Hauptburg_(1).JPG"
+          }
+        },
+        {
+          "path": "assets/castles/burghausen_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Carsten Steger",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Burghausen_Castle.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/burghausen_castle_3.jpg",
+          "source": "placeholder"
+        }
+      ]
+    },
+    {
+      "slug": "albrechtsburg",
+      "name": "Albrechtsburg",
+      "wiki_title": "Albrechtsburg",
+      "country": "Germany",
+      "lat": 51.166,
+      "lon": 13.4713,
+      "year_built_start": 1471,
+      "year_built_end": 1524,
+      "century_built": 15,
+      "era": "14th–15th century",
+      "architecture_style": "Late Gothic",
+      "built_by": "Arnold of Westphalia, for Ernest and Albert of Wettin",
+      "dynasty_empire": "House of Wettin",
+      "purpose": "Built as a joint residence for the brothers Ernest and Albert, rulers of Saxony.",
+      "description": "Considered the first palace-style castle in Germany, the Albrechtsburg above Meissen later housed the first European porcelain factory from 1710 to 1863.",
+      "photos": [
+        {
+          "path": "assets/castles/albrechtsburg_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Perigrinator",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Meissen_Albrechtburg_Castle_Spiral_Staircase.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/albrechtsburg_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Perigrinator",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Detail_of_Great_Hall_Vaulting_in_Albrechtsburg_Castle_in_Meissen,_Germany.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/albrechtsburg_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "User:Kolossos",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Albrechtsburg-Wendelstein-i.JPG"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "wernigerode_castle",
+      "name": "Wernigerode Castle",
+      "wiki_title": "Wernigerode Castle",
+      "country": "Germany",
+      "lat": 51.8288,
+      "lon": 10.7898,
+      "year_built_start": 1862,
+      "year_built_end": 1885,
+      "century_built": 19,
+      "era": "18th–19th century",
+      "architecture_style": "Neo-Gothic Historicism",
+      "built_by": "Count Otto of Stolberg-Wernigerode (architect Carl Frühling)",
+      "dynasty_empire": "House of Stolberg-Wernigerode",
+      "purpose": "Rebuilt as a representative residence on the site of a 12th-century castle guarding the Harz mountains.",
+      "description": "Overlooking the half-timbered town of Wernigerode, the castle is one of the most important examples of northern German Historicism and is now a museum.",
+      "photos": [
+        {
+          "path": "assets/castles/wernigerode_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Stefan Schäfer, Lich",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Schlosskirche_St._Pantaleon_und_Anna_(Wernigerode)_2017.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/wernigerode_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Andreas Tille",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:WernigerodeCastleWinter.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/wernigerode_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Norbert Kaiser",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Schloss_Wernigerode_-_Ansicht_von_der_Schlossterrasse_(01-2).jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "moritzburg_castle",
+      "name": "Moritzburg Castle",
+      "wiki_title": "Moritzburg Castle",
+      "country": "Germany",
+      "lat": 51.1681,
+      "lon": 13.6797,
+      "year_built_start": 1542,
+      "year_built_end": 1733,
+      "century_built": 16,
+      "era": "16th–17th century",
+      "architecture_style": "Baroque",
+      "built_by": "Duke Maurice of Saxony; rebuilt by Augustus the Strong",
+      "dynasty_empire": "House of Wettin (Albertine line)",
+      "purpose": "Begun as a hunting lodge for Duke Maurice, then turned into a Baroque hunting palace for Augustus the Strong's court.",
+      "description": "Set on an artificial island in a lake north of Dresden, Moritzburg is famous as the setting of the film 'Three Wishes for Cinderella' and for its collection of hunting trophies.",
+      "photos": [
+        {
+          "path": "assets/castles/moritzburg_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "DynaMoToR",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Leuchtturm_Moritzburg_1.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/moritzburg_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Johann Caspar Ulinger",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Moritzburg1733.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/moritzburg_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Unknown authorUnknown author",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:MoritzburgOct11_Fasanenschl%C3%B6sschen1790.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "konigstein_fortress",
+      "name": "Königstein Fortress",
+      "wiki_title": "Königstein Fortress",
+      "country": "Germany",
+      "lat": 50.9192,
+      "lon": 14.0717,
+      "year_built_start": 1241,
+      "year_built_end": 1589,
+      "century_built": 13,
+      "era": "11th–13th century",
+      "architecture_style": "Hilltop fortress (bastioned, Renaissance onwards)",
+      "built_by": "Kings of Bohemia; fortified by Elector Christian I of Saxony",
+      "dynasty_empire": "House of Wettin",
+      "purpose": "A medieval castle turned into the Saxon state's impregnable fortress, refuge, treasury, and state prison.",
+      "description": "One of Europe's largest hilltop fortresses, Königstein sits on a sandstone mesa above the Elbe. It was never captured, and its well, at 152.5 metres, is the deepest in Saxony.",
+      "photos": [
+        {
+          "path": "assets/castles/konigstein_fortress_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "A.Savin",
+            "license": "FAL",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Festung_Koenigstein_asv2023-01_img17_Aussicht.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/konigstein_fortress_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Nikater",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:K%C3%B6nigstein041.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/konigstein_fortress_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Henry Mühlpfordt",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Brunnen_Festung_Koenigstein_2007_04_22.JPG"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "colditz_castle",
+      "name": "Colditz Castle",
+      "wiki_title": "Colditz Castle",
+      "country": "Germany",
+      "lat": 51.1311,
+      "lon": 12.8077,
+      "year_built_start": 1046,
+      "year_built_end": 1591,
+      "century_built": 11,
+      "era": "11th–13th century",
+      "architecture_style": "Renaissance on medieval foundations",
+      "built_by": "Elector Augustus of Saxony (Renaissance rebuild)",
+      "dynasty_empire": "House of Wettin",
+      "purpose": "A medieval stronghold rebuilt as a Renaissance hunting lodge and residence for the Saxon electors.",
+      "description": "Colditz is best known as Oflag IV-C, the WWII prisoner-of-war camp for Allied officers considered escape risks, and the scene of many famous escape attempts.",
+      "photos": [
+        {
+          "path": "assets/castles/colditz_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Ernst Ferdinand Oehme",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Colditz_Castle_1828_by_Ernst_Ferdinand_Oehme,_Albertinum,_Dresden.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/colditz_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "File:Schloss colditz wappen.JPG: Z thomas derivative work: Georgfotoart",
+            "license": "CC BY 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Schloss_colditz_wappen_b.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/colditz_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "File:Colditz Castle 2011.jpg: Lowgoz (talk) (Uploads) derivative work: Georgfotoart",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Colditz_Castle_2011_b_(cropped).jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "nuremberg_castle",
+      "name": "Nuremberg Castle",
+      "wiki_title": "Nuremberg Castle",
+      "country": "Germany",
+      "lat": 49.458,
+      "lon": 11.0758,
+      "year_built_start": 1050,
+      "year_built_end": 1571,
+      "century_built": 11,
+      "era": "11th–13th century",
+      "architecture_style": "Romanesque and Gothic imperial castle",
+      "built_by": "Holy Roman Emperors (begun under the Salian dynasty)",
+      "dynasty_empire": "Holy Roman Empire (Salian and Hohenstaufen dynasties)",
+      "purpose": "An imperial residence where every Holy Roman Emperor stayed between 1050 and 1571, anchoring the free imperial city of Nuremberg.",
+      "description": "The Kaiserburg crowns a sandstone ridge above Nuremberg's old town. Its Romanesque double chapel and the round Sinwell Tower are among the city's best-known landmarks.",
+      "photos": [
+        {
+          "path": "assets/castles/nuremberg_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Tilman2007",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:N%C3%BCrnberg,_Burg,_Burgkapelle,_Detail_Innen-20160304-003.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/nuremberg_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "The original uploader was AlterVista at German Wikipedia.",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Nuernberg_Burg_Panorama_PtGUI.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/nuremberg_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "User:Kolossos",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Nuernberg-Burg.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "veste_coburg",
+      "name": "Veste Coburg",
+      "wiki_title": "Veste Coburg",
+      "country": "Germany",
+      "lat": 50.2643,
+      "lon": 10.9818,
+      "year_built_start": 1056,
+      "year_built_end": 1600,
+      "century_built": 11,
+      "era": "11th–13th century",
+      "architecture_style": "Medieval hilltop fortress (Gothic and Renaissance)",
+      "built_by": "Counts of Henneberg; later the Wettins",
+      "dynasty_empire": "House of Wettin (Saxe-Coburg)",
+      "purpose": "A hilltop fortress guarding the town of Coburg and the route between Franconia and Thuringia.",
+      "description": "One of Germany's largest castles, the 'Crown of Franconia' sheltered Martin Luther for six months in 1530 and today holds major art and armour collections.",
+      "photos": [
+        {
+          "path": "assets/castles/veste_coburg_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Neptuul",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Mammutbaum_-_Veste_Coburg.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/veste_coburg_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Carsten Steger",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_the_Coburg_Fortress.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/veste_coburg_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Unknown authorUnknown author",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:VesteCoburg1900SO.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "harburg_castle",
+      "name": "Harburg Castle",
+      "wiki_title": "Harburg Castle",
+      "country": "Germany",
+      "lat": 48.786,
+      "lon": 10.6896,
+      "year_built_start": 1150,
+      "year_built_end": 1600,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Romanesque and Gothic",
+      "built_by": "House of Hohenstaufen",
+      "dynasty_empire": "House of Oettingen (from 1299)",
+      "purpose": "Built by the Hohenstaufen emperors to control the trade route through the Wörnitz valley.",
+      "description": "Harburg is one of the largest and best-preserved castles in southern Germany, with its walls, towers and wall walks almost entirely intact.",
+      "photos": [
+        {
+          "path": "assets/castles/harburg_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "User:Mateus2019",
+            "license": "CC BY 3.0 de",
+            "source_url": "https://commons.wikimedia.org/wiki/File:GER_%E2%80%94_BY_%E2%80%94_Schwaben_%E2%80%94_Landkreis_Donau-Ries_%E2%80%94_Harburg_(Burg,_Garten)_2021.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/harburg_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Tilman2007",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Harburg_in_Schwaben,_Burg_20170826_001.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/harburg_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Rikiwiki2",
+            "license": "CC BY-SA 3.0 de",
+            "source_url": "https://commons.wikimedia.org/wiki/File:D-7-79-155-1_Harburg_Burg_Inneres-Tor_108.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "trausnitz_castle",
+      "name": "Trausnitz Castle",
+      "wiki_title": "Trausnitz Castle",
+      "country": "Germany",
+      "lat": 48.5333,
+      "lon": 12.155,
+      "year_built_start": 1204,
+      "year_built_end": 1580,
+      "century_built": 13,
+      "era": "11th–13th century",
+      "architecture_style": "Gothic with Renaissance additions",
+      "built_by": "Duke Louis I of Bavaria",
+      "dynasty_empire": "House of Wittelsbach",
+      "purpose": "Founded together with the town of Landshut as the seat of the Wittelsbach dukes.",
+      "description": "Overlooking Landshut, Trausnitz was the residence of the Dukes of Bavaria-Landshut. Its Renaissance 'Fools' Staircase' is painted with life-size commedia dell'arte figures.",
+      "photos": [
+        {
+          "path": "assets/castles/trausnitz_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Diego Delso",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Castillo_Trausnitz,_Landshut,_Alemania,_2012-05-27,_DD_18.JPG"
+          }
+        },
+        {
+          "path": "assets/castles/trausnitz_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Diego Delso",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Castillo_Trausnitz,_Landshut,_Alemania,_2012-05-27,_DD_16.JPG"
+          }
+        },
+        {
+          "path": "assets/castles/trausnitz_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "User:Jhbrady",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Trausnitz001.JPG"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "marienberg_fortress",
+      "name": "Marienberg Fortress",
+      "wiki_title": "Marienberg Fortress",
+      "country": "Germany",
+      "lat": 49.7899,
+      "lon": 9.9208,
+      "year_built_start": 1201,
+      "year_built_end": 1719,
+      "century_built": 13,
+      "era": "11th–13th century",
+      "architecture_style": "Renaissance and Baroque fortress on a medieval core",
+      "built_by": "Prince-Bishop Konrad von Querfurt",
+      "dynasty_empire": "Prince-Bishopric of Würzburg",
+      "purpose": "The residence of the Prince-Bishops of Würzburg for nearly 500 years, later turned into a Baroque fortress.",
+      "description": "Marienberg towers over the Main river and Würzburg. Its round church, the Marienkirche, dates from the early 8th century and is one of the oldest churches in Germany.",
+      "photos": [
+        {
+          "path": "assets/castles/marienberg_fortress_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Carsten Steger",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_the_Marienberg_Fortress_and_its_outer_bastions_(view_from_the_southwest).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/marienberg_fortress_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "DXR",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:West_overview_of_Festung_Marienberg_20140602.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/marienberg_fortress_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Hajotthu",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Festung_Marienberg_Infotafel.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "mespelbrunn_castle",
+      "name": "Mespelbrunn Castle",
+      "wiki_title": "Mespelbrunn Castle",
+      "country": "Germany",
+      "lat": 49.9142,
+      "lon": 9.2916,
+      "year_built_start": 1412,
+      "year_built_end": 1569,
+      "century_built": 15,
+      "era": "14th–15th century",
+      "architecture_style": "Moated castle, Renaissance remodelling",
+      "built_by": "Hamann Echter; remodelled by Peter Echter",
+      "dynasty_empire": "Echter von Mespelbrunn family (later Counts of Ingelheim)",
+      "purpose": "Built as a fortified home for the Echter family in the Spessart forest, given to them by the Archbishop of Mainz.",
+      "description": "Reflected in its pond deep in the Spessart, Mespelbrunn is one of Germany's most photographed moated castles and is still lived in by the Counts of Ingelheim.",
+      "photos": [
+        {
+          "path": "assets/castles/mespelbrunn_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Rainer Lippert, Edit by Muhammad Mahdi Karim",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Wasserschloss_Mespelbrunn,_6_edit01.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/mespelbrunn_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "The original uploader was Presse03 at German Wikipedia.",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Mespelbrunn_04.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/mespelbrunn_castle_3.jpg",
+          "source": "placeholder"
+        }
+      ]
+    },
+    {
+      "slug": "frankenstein_castle",
+      "name": "Frankenstein Castle",
+      "wiki_title": "Frankenstein Castle",
+      "country": "Germany",
+      "lat": 49.7926,
+      "lon": 8.6681,
+      "year_built_start": 1250,
+      "year_built_end": 1250,
+      "century_built": 13,
+      "era": "11th–13th century",
+      "architecture_style": "Medieval hilltop castle (ruin)",
+      "built_by": "Konrad II Reiz of Breuberg",
+      "dynasty_empire": "Lords of Frankenstein",
+      "purpose": "Built as the seat of the Lords of Frankenstein, overlooking the Rhine plain near Darmstadt.",
+      "description": "The ruin is linked by legend to the alchemist Johann Konrad Dippel, born here in 1673, and is often (if unproven) suggested as an inspiration for Mary Shelley's novel.",
+      "photos": [
+        {
+          "path": "assets/castles/frankenstein_castle_1.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/frankenstein_castle_2.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/frankenstein_castle_3.jpg",
+          "source": "placeholder"
+        }
+      ]
+    },
+    {
+      "slug": "hambach_castle",
+      "name": "Hambach Castle",
+      "wiki_title": "Hambach Castle",
+      "country": "Germany",
+      "lat": 49.3264,
+      "lon": 8.1208,
+      "year_built_start": 1050,
+      "year_built_end": 1100,
+      "century_built": 11,
+      "era": "11th–13th century",
+      "architecture_style": "Romanesque (restored in the 19th and 20th centuries)",
+      "built_by": "Salian dynasty (attributed)",
+      "dynasty_empire": "Prince-Bishopric of Speyer",
+      "purpose": "A medieval castle that became a residence of the Bishops of Speyer.",
+      "description": "In 1832 around 30,000 people gathered here for the Hambach Festival to demand freedom and German unity, waving the black-red-gold flag that became Germany's national colours.",
+      "photos": [
+        {
+          "path": "assets/castles/hambach_castle_1.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/hambach_castle_2.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/hambach_castle_3.jpg",
+          "source": "placeholder"
+        }
+      ]
+    },
+    {
+      "slug": "trifels_castle",
+      "name": "Trifels Castle",
+      "wiki_title": "Trifels Castle",
+      "country": "Germany",
+      "lat": 49.1446,
+      "lon": 7.9922,
+      "year_built_start": 1081,
+      "year_built_end": 1200,
+      "century_built": 11,
+      "era": "11th–13th century",
+      "architecture_style": "Romanesque imperial castle (rebuilt 1938–1966)",
+      "built_by": "Hohenstaufen emperors",
+      "dynasty_empire": "House of Hohenstaufen",
+      "purpose": "An imperial castle used as a secure treasury for the Imperial Regalia and as a state prison.",
+      "description": "High on a sandstone rock in the Palatinate Forest, Trifels held the crown jewels of the Holy Roman Empire and imprisoned Richard the Lionheart in 1193.",
+      "photos": [
+        {
+          "path": "assets/castles/trifels_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Carsten Steger",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Trifels_Castle_(view_from_the_southeast).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/trifels_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Gerd Eichmann",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Trifels-44-2022-gje.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/trifels_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Gerd Eichmann",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Trifels-38-2022-gje.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "altena_castle",
+      "name": "Altena Castle",
+      "wiki_title": "Altena Castle",
+      "country": "Germany",
+      "lat": 51.297,
+      "lon": 7.6735,
+      "year_built_start": 1108,
+      "year_built_end": 1915,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Medieval hilltop castle (rebuilt in Historicist style)",
+      "built_by": "Counts of Berg-Altena",
+      "dynasty_empire": "Counts of Mark",
+      "purpose": "Built as the ancestral seat of the Counts of Altena, who later became the Counts of Mark.",
+      "description": "Rebuilt in the early 20th century, Altena is where Richard Schirrmann opened the world's first youth hostel in 1914, which still operates inside the castle.",
+      "photos": [
+        {
+          "path": "assets/castles/altena_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Carsten Steger",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_the_Altena_Castle_(view_from_the_east).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/altena_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "[Rheinpfeil]",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Burg_Gudenau_2006_2.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/altena_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Dr.G.Schmitz",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Altena_Burg_20051030.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "burg_vischering",
+      "name": "Burg Vischering",
+      "wiki_title": "Vischering Castle",
+      "country": "Germany",
+      "lat": 51.812,
+      "lon": 7.4325,
+      "year_built_start": 1271,
+      "year_built_end": 1580,
+      "century_built": 13,
+      "era": "11th–13th century",
+      "architecture_style": "Moated castle (Wasserburg), Renaissance rebuild",
+      "built_by": "Albert Droste, steward of the Bishop of Münster",
+      "dynasty_empire": "Droste zu Vischering family (Prince-Bishopric of Münster)",
+      "purpose": "Built by the Bishop of Münster's steward as a defensive moated castle against the rival Lüdinghausen castle.",
+      "description": "Ringed by two moats in the Münsterland, Vischering is one of the oldest and best-preserved moated castles in Westphalia and is still owned by the family that built it.",
+      "photos": [
+        {
+          "path": "assets/castles/burg_vischering_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Dietmar Rabich",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:L%C3%BCdinghausen,_Burg_Vischering_--_2014_--_5492.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/burg_vischering_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "[Rheinpfeil]",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Burg_Gudenau_2006_2.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/burg_vischering_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Mbdortmund",
+            "license": "GFDL 1.2",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Duesseldorf_1951sw.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "ehrenbreitstein_fortress",
+      "name": "Ehrenbreitstein Fortress",
+      "wiki_title": "Ehrenbreitstein Fortress",
+      "country": "Germany",
+      "lat": 50.3647,
+      "lon": 7.615,
+      "year_built_start": 1817,
+      "year_built_end": 1828,
+      "century_built": 19,
+      "era": "18th–19th century",
+      "architecture_style": "Prussian polygonal fortress",
+      "built_by": "Kingdom of Prussia (on the site of an 11th-century castle)",
+      "dynasty_empire": "Kingdom of Prussia (House of Hohenzollern)",
+      "purpose": "Rebuilt by Prussia as part of the fortifications of Koblenz to guard the Rhine against France.",
+      "description": "Ehrenbreitstein looks down on the Deutsches Eck, where the Moselle meets the Rhine. A cable car crosses the Rhine to it from Koblenz.",
+      "photos": [
+        {
+          "path": "assets/castles/ehrenbreitstein_fortress_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Julian Lupyan",
+            "license": "CC0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:The_Griffin_Cannon,_Ehrenbreitstein_Fortress,_Koblenz,_2025.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/ehrenbreitstein_fortress_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Joseph Mallord William Turner (1775 - 1851)",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:William_Turner,_View_of_Ehrenbreitstein_(1835).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/ehrenbreitstein_fortress_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Julian Lupyan",
+            "license": "CC0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Entrance_to_Ehrenbreitstein_Fortress,_Koblenz,_Germany.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "bentheim_castle",
+      "name": "Bentheim Castle",
+      "wiki_title": "Bentheim Castle",
+      "country": "Germany",
+      "lat": 52.3053,
+      "lon": 7.1586,
+      "year_built_start": 1050,
+      "year_built_end": 1500,
+      "century_built": 11,
+      "era": "11th–13th century",
+      "architecture_style": "Romanesque and Gothic hilltop castle",
+      "built_by": "Counts of Bentheim",
+      "dynasty_empire": "House of Bentheim-Steinfurt",
+      "purpose": "The ancestral seat of the Counts of Bentheim near the Dutch border.",
+      "description": "Bentheim sits on a sandstone hill above the spa town of Bad Bentheim and is still owned by the Princes of Bentheim and Steinfurt.",
+      "photos": [
+        {
+          "path": "assets/castles/bentheim_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Norbert Nagel",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Celle_castle_-_Germany_-_02.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/bentheim_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Kleuske",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Burg_Bentheim,_Junge_Touristen_vor_dem_Pulverturm.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/bentheim_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Jacob van Ruisdael",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Ruisdael_kasteel_Bentheim_M.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "schloss_burg",
+      "name": "Schloss Burg",
+      "wiki_title": "Burg Castle",
+      "country": "Germany",
+      "lat": 51.1376,
+      "lon": 7.153,
+      "year_built_start": 1133,
+      "year_built_end": 1914,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Romanesque (reconstructed in Historicist style)",
+      "built_by": "Count Adolf II of Berg",
+      "dynasty_empire": "Counts (later Dukes) of Berg",
+      "purpose": "Built as the main residence of the Counts of Berg above the Wupper river.",
+      "description": "Abandoned and ruined after the Thirty Years' War, Schloss Burg was rebuilt between 1890 and 1914 and is now the largest reconstructed castle in North Rhine-Westphalia.",
+      "photos": [
+        {
+          "path": "assets/castles/schloss_burg_1.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/schloss_burg_2.jpg",
+          "source": "placeholder"
+        },
+        {
+          "path": "assets/castles/schloss_burg_3.jpg",
+          "source": "placeholder"
+        }
+      ]
+    },
+    {
+      "slug": "drachenburg_castle",
+      "name": "Drachenburg Castle",
+      "wiki_title": "Schloss Drachenburg",
+      "country": "Germany",
+      "lat": 50.6667,
+      "lon": 7.2072,
+      "year_built_start": 1882,
+      "year_built_end": 1884,
+      "century_built": 19,
+      "era": "18th–19th century",
+      "architecture_style": "Historicism (Gothic Revival)",
+      "built_by": "Baron Stephan von Sarter",
+      "dynasty_empire": "German Empire (private villa)",
+      "purpose": "Built as a lavish private residence for a stockbroker who made his fortune on the Suez Canal shares.",
+      "description": "Halfway up the Drachenfels in the Siebengebirge, Drachenburg looks medieval but was finished in only two years with modern comforts. Its owner never actually lived in it.",
+      "photos": [
+        {
+          "path": "assets/castles/drachenburg_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Carsten Steger",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Schloss_Drachenburg_(view_from_the_northeast).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/drachenburg_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Dmitry Tonkonog and Ksenia Fedosova",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:20130816_Drachenfels.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/drachenburg_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "[Rheinpfeil]",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Burg_Gudenau_2006_2.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "marienburg_castle_hanover",
+      "name": "Marienburg Castle",
+      "wiki_title": "Marienburg Castle (Hanover)",
+      "country": "Germany",
+      "lat": 52.1714,
+      "lon": 9.7706,
+      "year_built_start": 1858,
+      "year_built_end": 1867,
+      "century_built": 19,
+      "era": "18th–19th century",
+      "architecture_style": "Gothic Revival",
+      "built_by": "King George V of Hanover (architect Conrad Wilhelm Hase)",
+      "dynasty_empire": "House of Hanover",
+      "purpose": "A birthday gift from King George V to his wife, Queen Marie, intended as a summer residence.",
+      "description": "Hanover was annexed by Prussia in 1866 before the castle was finished, so the royal family barely used it. It is still owned by the House of Hanover.",
+      "photos": [
+        {
+          "path": "assets/castles/marienburg_castle_hanover_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Norbert Nagel",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Celle_castle_-_Germany_-_02.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/marienburg_castle_hanover_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "GZagatta",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Schloss_Marienburg_im_herbstlichen_Abendlicht.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/marienburg_castle_hanover_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Carsten Steger",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Marienburg_Castle_(view_from_the_south).jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "wewelsburg",
+      "name": "Wewelsburg",
+      "wiki_title": "Wewelsburg",
+      "country": "Germany",
+      "lat": 51.607,
+      "lon": 8.651,
+      "year_built_start": 1603,
+      "year_built_end": 1609,
+      "century_built": 17,
+      "era": "16th–17th century",
+      "architecture_style": "Weser Renaissance (triangular plan)",
+      "built_by": "Prince-Bishop Dietrich von Fürstenberg of Paderborn",
+      "dynasty_empire": "Prince-Bishopric of Paderborn",
+      "purpose": "Built as a secondary residence for the Prince-Bishops of Paderborn.",
+      "description": "Germany's only triangular castle was taken over by Heinrich Himmler for the SS in the 1930s. Today it houses a youth hostel and a memorial and documentation centre.",
+      "photos": [
+        {
+          "path": "assets/castles/wewelsburg_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "File:Aerial image of Wewelsburg (view from the southwest).jpg: Carsten Steger derivative work: Georgfotoart",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Wewelsburg_(view_from_the_southwest)_b.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/wewelsburg_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "File:SS Wewelsburg Castle - Crypt Ritual Dungeon.jpg: Goelie derivative work: Georgfotoart",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:SS_Wewelsburg_Castle_-_Crypt_Ritual_Dungeon_b.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/wewelsburg_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "[Rheinpfeil]",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Burg_Gudenau_2006_2.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "celle_castle",
+      "name": "Celle Castle",
+      "wiki_title": "Celle Castle",
+      "country": "Germany",
+      "lat": 52.6243,
+      "lon": 10.0806,
+      "year_built_start": 1292,
+      "year_built_end": 1690,
+      "century_built": 13,
+      "era": "11th–13th century",
+      "architecture_style": "Renaissance and Baroque on a medieval core",
+      "built_by": "Duke Otto II of Brunswick-Lüneburg",
+      "dynasty_empire": "House of Welf (Brunswick-Lüneburg)",
+      "purpose": "Built to guard a crossing of the Aller river, later the residence of the Dukes of Brunswick-Lüneburg.",
+      "description": "Celle Castle contains the oldest theatre in Germany still in use (1674) and a richly decorated Renaissance chapel.",
+      "photos": [
+        {
+          "path": "assets/castles/celle_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Norbert Nagel",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Celle_castle_-_Germany_-_02.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/celle_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Ymblanter",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Celle_Castle_inner_yard_1.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/celle_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Photographer and uploader was Hajotthu at de.wikipedia",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Schloss_Celle_Treppenflur-Decke_(3).JPG"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "stahleck_castle",
+      "name": "Stahleck Castle",
+      "wiki_title": "Stahleck Castle",
+      "country": "Germany",
+      "lat": 50.0606,
+      "lon": 7.7648,
+      "year_built_start": 1135,
+      "year_built_end": 1135,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Medieval hilltop castle (rebuilt 1925–1967)",
+      "built_by": "Goswin of Stahleck",
+      "dynasty_empire": "Counts Palatine of the Rhine",
+      "purpose": "Built to protect Bacharach and its wine trade, and later a seat of the Counts Palatine.",
+      "description": "Blown up by French troops in 1689, Stahleck was rebuilt in the 20th century and now serves as a youth hostel above Bacharach.",
+      "photos": [
+        {
+          "path": "assets/castles/stahleck_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Lhalas",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Stahleck_Castle_(now_operating_as_a_hostel).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/stahleck_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Lencer",
+            "license": "GFDL",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Karte_Mittelrhein.png"
+          }
+        },
+        {
+          "path": "assets/castles/stahleck_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Sir Gawain",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:BurgStahleckNW.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "lahneck_castle",
+      "name": "Lahneck Castle",
+      "wiki_title": "Lahneck Castle",
+      "country": "Germany",
+      "lat": 50.308,
+      "lon": 7.6125,
+      "year_built_start": 1226,
+      "year_built_end": 1245,
+      "century_built": 13,
+      "era": "11th–13th century",
+      "architecture_style": "Gothic (restored in the 19th century)",
+      "built_by": "Archbishop Siegfried III of Mainz",
+      "dynasty_empire": "Electorate of Mainz",
+      "purpose": "Built to protect the Archbishop of Mainz's silver mines and the mouth of the Lahn river.",
+      "description": "Above Lahnstein, Lahneck is linked to the legend of Idilia Dubb, a young Scottish woman said to have died trapped in its tower in 1851.",
+      "photos": [
+        {
+          "path": "assets/castles/lahneck_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Wikimedia Commons contributor",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Lahneck_Castle,_the_Rhine,_Germany-LCCN2002714112.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/lahneck_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Lencer",
+            "license": "GFDL",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Karte_Mittelrhein.png"
+          }
+        },
+        {
+          "path": "assets/castles/lahneck_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Holger Weinandt",
+            "license": "CC BY-SA 3.0 de",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Burg_Lahneck_2010.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "meersburg_castle",
+      "name": "Meersburg Castle",
+      "wiki_title": "Meersburg Castle",
+      "country": "Germany",
+      "lat": 47.6935,
+      "lon": 9.2706,
+      "year_built_start": 1100,
+      "year_built_end": 1550,
+      "century_built": 12,
+      "era": "11th–13th century",
+      "architecture_style": "Romanesque and Gothic",
+      "built_by": "Prince-Bishops of Konstanz (tradition credits Dagobert I)",
+      "dynasty_empire": "Prince-Bishopric of Konstanz",
+      "purpose": "Served as a residence and stronghold of the Prince-Bishops of Konstanz on Lake Constance.",
+      "description": "The Old Castle in Meersburg claims to be the oldest inhabited castle in Germany. The poet Annette von Droste-Hülshoff lived and died here in 1848.",
+      "photos": [
+        {
+          "path": "assets/castles/meersburg_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "OpenStreetMap-Mitwirkende, SRTM + OpenTopoMap (CC – BY – SA) + Bernhard Uff dem Sand",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Bodensee_topografische_Karte.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/meersburg_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "A.Savin",
+            "license": "FAL",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Bodensee_Meersburg_asv2022-10_img2.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/meersburg_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "JoachimKohler-HB",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Bodensee,_Meersburg,_reger_Schiffsverkehr_und_die_Nagelfluhkette_im_Allg%C3%A4u.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "spandau_citadel",
+      "name": "Spandau Citadel",
+      "wiki_title": "Spandau Citadel",
+      "country": "Germany",
+      "lat": 52.5413,
+      "lon": 13.2129,
+      "year_built_start": 1559,
+      "year_built_end": 1594,
+      "century_built": 16,
+      "era": "16th–17th century",
+      "architecture_style": "Italian Renaissance bastioned fortress",
+      "built_by": "Elector Joachim II of Brandenburg (architects Chiaramella da Gandino and Rochus of Lynar)",
+      "dynasty_empire": "House of Hohenzollern (Margraviate of Brandenburg)",
+      "purpose": "Built to protect Berlin and the Brandenburg electors against attack.",
+      "description": "One of the best-preserved Renaissance fortresses in Europe. Its Julius Tower, older than the citadel, later held the imperial war treasure.",
+      "photos": [
+        {
+          "path": "assets/castles/spandau_citadel_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Carsten Steger",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Spandau_Citadel_(view_from_the_southeast).jpg"
+          }
+        },
+        {
+          "path": "assets/castles/spandau_citadel_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Thomas Wolf, www.foto-tw.de",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Brandenburger_Tor_nachts.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/spandau_citadel_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "Wikimedia Commons contributor",
+            "license": "See file page",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Zitadelle_Spandau_-_Berlin_-_2014.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "glucksburg_castle",
+      "name": "Glücksburg Castle",
+      "wiki_title": "Glücksburg Castle",
+      "country": "Germany",
+      "lat": 54.8317,
+      "lon": 9.5469,
+      "year_built_start": 1582,
+      "year_built_end": 1587,
+      "century_built": 16,
+      "era": "16th–17th century",
+      "architecture_style": "Renaissance water castle",
+      "built_by": "Duke John the Younger of Schleswig-Holstein-Sonderburg",
+      "dynasty_empire": "House of Oldenburg (Glücksburg line)",
+      "purpose": "Built as the residence of Duke John the Younger on the Flensburg Fjord.",
+      "description": "Rising from its own lake, Glücksburg is the ancestral seat of a line whose descendants include the royal houses of Denmark, Norway, and formerly Greece.",
+      "photos": [
+        {
+          "path": "assets/castles/glucksburg_castle_1.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "User:Matthias Süßen",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Schloss_Gluecksburg_msu_2018_-7111.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/glucksburg_castle_2.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "User:Matthias Süßen",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Gluecksburg_msu_2018_-7129.jpg"
+          }
+        },
+        {
+          "path": "assets/castles/glucksburg_castle_3.jpg",
+          "source": "wikipedia",
+          "credit": {
+            "author": "User:Matthias Süßen",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Gluecksburg_msu_2018_-7133.jpg"
+          }
+        }
+      ]
+    },
+    {
       "slug": "palamidi_fortress",
       "name": "Palamidi Fortress",
       "wiki_title": "Palamidi",
@@ -2473,7 +4381,12 @@
       "photos": [
         {
           "path": "assets/castles/old_fort_of_zanzibar_1.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "Peter Bennett / ZIFF",
+            "license": "CC BY 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Zanzibar_International_Film_Festival_2013.jpg"
+          }
         },
         {
           "path": "assets/castles/old_fort_of_zanzibar_2.jpg",
@@ -2504,11 +4417,21 @@
       "photos": [
         {
           "path": "assets/castles/ribat_of_monastir_1.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "Dennis G. Jarvis",
+            "license": "CC BY-SA 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Ribat_of_Monastir,_Tunisia.jpg"
+          }
         },
         {
           "path": "assets/castles/ribat_of_monastir_2.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "Mohamed Ezzi",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Grand_Ribat_Monastir.JPG"
+          }
         },
         {
           "path": "assets/castles/ribat_of_monastir_3.jpg",
@@ -2535,15 +4458,30 @@
       "photos": [
         {
           "path": "assets/castles/potala_palace_1.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "Laika ac from UK",
+            "license": "CC BY-SA 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Potala_Palace_(23651397662).jpg"
+          }
         },
         {
           "path": "assets/castles/potala_palace_2.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "Antoine Taveneaux",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Potala_palace21.jpg"
+          }
         },
         {
           "path": "assets/castles/potala_palace_3.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "Gerd Eichmann",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Lhasa-Potala-66-Ostseite-2014-gje.jpg"
+          }
         }
       ]
     },
@@ -2566,15 +4504,30 @@
       "photos": [
         {
           "path": "assets/castles/hwaseong_fortress_1.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "unknown (1795), uploader (2013)",
+            "license": "Public domain",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Commented-Haenghaeng-seojangdaeyajo.jpg"
+          }
         },
         {
           "path": "assets/castles/hwaseong_fortress_2.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "Pldx1",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Daeseungwon.jpg"
+          }
         },
         {
           "path": "assets/castles/hwaseong_fortress_3.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "Pldx1",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Daeseungwon_(inside).jpg"
+          }
         }
       ]
     },
@@ -2597,15 +4550,30 @@
       "photos": [
         {
           "path": "assets/castles/amber_fort_1.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "Jakub Hałun",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:20191219_Fort_Amber,_Amer,_Jaipur_0955_9481.jpg"
+          }
         },
         {
           "path": "assets/castles/amber_fort_2.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "Chainwit.",
+            "license": "CC BY 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Amer_Fort_-_Ganesh_Pol_(2022)_-_img_01.jpg"
+          }
         },
         {
           "path": "assets/castles/amber_fort_3.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "BazaNews",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Amber_Fort_Second_Courtyard_Mirror_Palace_view.jpg"
+          }
         }
       ]
     },
@@ -2628,15 +4596,30 @@
       "photos": [
         {
           "path": "assets/castles/mehrangarh_fort_1.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "Vyacheslav Argenberg",
+            "license": "CC BY 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Jodhpur,_India,_Gates_of_Mehrangarh_Fort.jpg"
+          }
         },
         {
           "path": "assets/castles/mehrangarh_fort_2.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "Vyacheslav Argenberg",
+            "license": "CC BY 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Jodhpur,_India,_Mehrangarh_Fort,_Palace_2.jpg"
+          }
         },
         {
           "path": "assets/castles/mehrangarh_fort_3.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "Gili Chupak",
+            "license": "CC BY-SA 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Palanquins_at_Mehrangarh_Museum,_Jodhpur.jpg"
+          }
         }
       ]
     },
@@ -2659,15 +4642,30 @@
       "photos": [
         {
           "path": "assets/castles/sigiriya_rock_fortress_1.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "V. Epiney",
+            "license": "CC BY-SA 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:On_top_of_Sigir%C3%AEya%27s_Lion_Rock_(36399791715).jpg"
+          }
         },
         {
           "path": "assets/castles/sigiriya_rock_fortress_2.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "Shoka at English Wikipedia",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:SriLanka_Sigiriya_gardens.jpg"
+          }
         },
         {
           "path": "assets/castles/sigiriya_rock_fortress_3.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "Zarniwoop und Zarquon",
+            "license": "CC BY-SA 4.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Sigiriya_from_Pidurangala_2023.jpg"
+          }
         }
       ]
     },
@@ -2690,15 +4688,30 @@
       "photos": [
         {
           "path": "assets/castles/ajloun_castle_1.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "Hiking in Jordan website and guidebook",
+            "license": "CC BY-SA 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Ajloun_Castle.jpg"
+          }
         },
         {
           "path": "assets/castles/ajloun_castle_2.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "JoTB",
+            "license": "CC BY-SA 3.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Ajlun_castle.jpg"
+          }
         },
         {
           "path": "assets/castles/ajloun_castle_3.jpg",
-          "source": "placeholder"
+          "source": "wikipedia",
+          "credit": {
+            "author": "Uwe Brodrecht",
+            "license": "CC BY-SA 2.0",
+            "source_url": "https://commons.wikimedia.org/wiki/File:Ajloun_Castle_1.jpg"
+          }
         }
       ]
     }
