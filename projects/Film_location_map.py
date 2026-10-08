@@ -44,7 +44,7 @@ def build_map(movies: list[dict]) -> folium.Map:
         center = (sum(lats) / len(lats), sum(lons) / len(lons))
         zoom = 2
 
-    fmap = folium.Map(location=center, zoom_start=zoom, tiles="CartoDB positron")
+    fmap = folium.Map(location=center, zoom_start=zoom, tiles="OpenStreetMap")
 
     for i, movie in enumerate(movies):
         color = MARKER_COLORS[i % len(MARKER_COLORS)]

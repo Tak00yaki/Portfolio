@@ -141,7 +141,7 @@ def build_map(castles: list[dict], color_by: str) -> folium.Map:
         center = (sum(lats) / len(lats), sum(lons) / len(lons))
         zoom = 3
 
-    fmap = folium.Map(location=center, zoom_start=zoom, tiles="CartoDB positron")
+    fmap = folium.Map(location=center, zoom_start=zoom, tiles="OpenStreetMap")
 
     color_keys = sorted({c[color_by] for c in castles})
     color_map = {key: MARKER_COLORS[i % len(MARKER_COLORS)] for i, key in enumerate(color_keys)}
