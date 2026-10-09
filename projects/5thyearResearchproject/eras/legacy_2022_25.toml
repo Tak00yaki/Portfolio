@@ -1,0 +1,63 @@
+# Era settings: pre-2026 power-unit rules (2022-2025), calibrated on the 2024 Bahrain GP.
+# Every era-specific number lives here; racesim.py contains none.
+# [A#] tags point to the numbered entries in ASSUMPTIONS.md.
+
+name = "legacy_2022_25"
+
+[race]
+track = "Bahrain"
+calibration_race = "2024 Bahrain GP (FastF1), free-air laps"
+laps = 57
+min_stops = 1
+max_stops = 3
+start_compound = "SOFT"          # every car started on softs in 2024
+start_tyre_age = 3               # laps already done in qualifying (median of top 10)
+force_change_laps_left = 20      # [A15] force a compound change if none made by then (ETH Sec. 4.7)
+
+[track]
+base_lap_s = 94.176              # empty-tank lap at lap 0, mean driver (3rd_4th_week.py step 1)
+evolution_s_per_lap = -0.00694   # [A9] leftover lap trend after the fuel effect is fixed (+/- 0.0014)
+
+[car]
+mass_empty_kg = 798.0            # [A10] FIA minimum mass incl. driver, no fuel
+fuel_start_kg = 110.0            # [A11] maximum race fuel; real start loads are often lower
+fuel_lhv_mj_per_kg = 43.0        # [A12] lower heating value of the fuel
+mass_time_s_per_kg = 0.03        # [A8] lap-time cost of 1 kg; rule of thumb, needs a source
+
+[pit]
+loss_s = 24.88                   # median green-flag stop, 2024 (2nd_week.py)
+
+[tyres]
+# Lap-time loss = k0 + k1 * wear, wear in "laps at reference mass" (2nd_week.py free-air fit).
+wear_mass_exponent = 1.0         # [A13] beta: wear per lap = 1 + beta * (m / m_ref - 1); 0 = Week 2 model
+wear_ref = "mid_race"            # m_ref = empty mass + half the start fuel
+
+[tyres.SOFT]
+k0 = 0.0
+k1 = 0.1318
+
+[tyres.MEDIUM]                   # [A14] not run in 2024: midpoint of soft and hard
+k0 = 0.0794
+k1 = 0.1176
+
+[tyres.HARD]
+k0 = 0.1589
+k1 = 0.1033
+
+[energy.fuel]
+# Per-lap fuel energy as a fraction x of nominal (start fuel / laps); ETH Eq. 2 bounds.
+alloc_min_frac = 0.9
+alloc_max_frac = 1.1
+# [A16] lap-time effect of using more/less fuel than nominal: dT = -gain*x + curv*x^2,
+# x = (u - nominal) / nominal. Placeholder: saving 10% costs ~0.5 s, using 10% more gains ~0.3 s.
+gain_s = 4.0
+curv_s = 10.0
+
+[energy.battery]
+# Net battery energy per lap u (MJ, + = net discharge). Battery starts full (ETH Eq. 8).
+capacity_mj = 4.0                # [A17] usable state-of-charge window
+net_min_mj = -2.0                # [A18] most net charging per lap
+net_max_mj = 2.0                 # [A18] most net discharge per lap
+# [A19] lap-time effect: dT = -gain*u + curv*u^2. Placeholder values.
+gain_s_per_mj = 0.25
+curv_s_per_mj2 = 0.02
