@@ -8,6 +8,16 @@ export const translations = {
         { href: "#contact", label: "CONTACT" },
       ],
     },
+    chaos: {
+      label: "CHAOS",
+      hint: "How much chaos can you handle?",
+      levels: ["CALM", "GRID RACE"],
+      locked: "IN THE GARAGE",
+      spin: "SPIN",
+      spinning: "SPINNING...",
+      lightsOn: "LIGHTS ON...",
+      lightsOut: "LIGHTS OUT AND AWAY WE GO!",
+    },
     hero: {
       eyebrow: "SYSTEM ONLINE",
       subtitle: "SOFTWARE ENGINEER — BUILDER — PERPETUAL TINKERER",
@@ -184,6 +194,16 @@ export const translations = {
         { href: "#projects", label: "プロジェクト" },
         { href: "#contact", label: "連絡先" },
       ],
+    },
+    chaos: {
+      label: "カオス",
+      hint: "どれくらいのカオスに耐えられる？",
+      levels: ["おだやか", "グリッドレース"],
+      locked: "ガレージで準備中",
+      spin: "スピン",
+      spinning: "回転中...",
+      lightsOn: "スタートシグナル点灯...",
+      lightsOut: "ライツアウト！レーススタート！",
     },
     hero: {
       eyebrow: "システムオンライン",

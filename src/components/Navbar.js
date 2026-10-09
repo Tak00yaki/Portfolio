@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { translations } from "../i18n/translations";
+import ChaosDial from "./ChaosDial";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -19,6 +20,7 @@ export default function Navbar() {
             {link.label}
           </a>
         ))}
+        <ChaosDial />
         <div className="lang-toggle" role="group" aria-label="Language">
           <button
             className={lang === "en" ? "is-active" : ""}
