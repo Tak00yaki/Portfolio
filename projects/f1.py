@@ -9,13 +9,20 @@ current position.
 Run with:  ./.venv/bin/python f1.py
 """
 
+import asyncio
+import json
 import math
 import random
 import sys
 import time
 
 import pygame
-import requests
+
+# In the browser (pygbag/WebAssembly) there are no sockets, so `requests`
+# can't be used; the weather lookup goes through the browser's XHR instead.
+IN_BROWSER = sys.platform == "emscripten"
+if not IN_BROWSER:
+    import requests
 
 # --------------------------------------------------------------------------- #
 # Constants
@@ -541,9 +548,21 @@ def fetch_current_weather_state(lat, lon, fallback):
     """
     url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current_weather=true"
     try:
-        response = requests.get(url, timeout=5)
-        response.raise_for_status()
-        data = response.json()
+        if IN_BROWSER:
+            import platform  # pygbag's bridge to the browser's JS globals
+            # synchronous XHR, like requests.get; returns "" on any HTTP error
+            text = str(platform.window.eval(
+                "(function(){var x=new XMLHttpRequest();"
+                f"x.open('GET','{url}',false);x.send(null);"
+                "return x.status==200?x.responseText:'';})()"
+            ))
+            if not text:
+                raise RuntimeError("weather request failed")
+            data = json.loads(text)
+        else:
+            response = requests.get(url, timeout=5)
+            response.raise_for_status()
+            data = response.json()
 
         code = data["current_weather"]["weathercode"]
         state = WEATHERCODE_TO_STATE.get(code, fallback)
@@ -1506,7 +1525,7 @@ class Game:
 
     # ---------------------------------------------------------------- main loop
 
-    def run(self):
+    async def run(self):
         last_time = time.time()
         while True:
             now = time.time()
@@ -1514,10 +1533,10 @@ class Game:
             last_time = now
 
             for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    sys.exit()
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                quit_requested = event.type == pygame.QUIT or (
+                    event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE
+                )
+                if quit_requested and not IN_BROWSER:
                     pygame.quit()
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
@@ -1565,7 +1584,8 @@ class Game:
 
             pygame.display.flip()
             self.clock.tick(FPS)
+            await asyncio.sleep(0)  # hand control back to the browser each frame
 
 
 if __name__ == "__main__":
-    Game().run()
+    asyncio.run(Game().run())

@@ -127,7 +127,7 @@ export const translations = {
           desc: "Pick a driver and circuit and watch a simulated race unfold with a live leaderboard, weather changes, yellow flags, DNFs, and crash animations.",
           tags: ["Python", "Pygame", "Simulation"],
           wip: true,
-          live: null,
+          live: "https://khushikhan.com/f1/",
           code: "https://github.com/Tak00yaki/Portfolio/blob/main/projects/f1.py",
         },
         {
@@ -295,7 +295,7 @@ export const translations = {
           desc: "ドライバーとサーキットを選ぶと、天候の変化・イエローフラッグ・リタイア・クラッシュアニメーション付きのレースをライブリーダーボードで観戦できます。",
           tags: ["Python", "Pygame", "Simulation"],
           wip: true,
-          live: null,
+          live: "https://khushikhan.com/f1/",
           code: "https://github.com/Tak00yaki/Portfolio/blob/main/projects/f1.py",
         },
         {
