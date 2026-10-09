@@ -131,6 +131,15 @@ export const translations = {
           code: "https://github.com/Tak00yaki/Portfolio/blob/main/projects/f1.py",
         },
         {
+          title: "F1 Strategy AI vs the 2026 Rules",
+          file: "racesim.py",
+          desc: "Research project: train a reinforcement-learning race strategist under the 2022–25 F1 rules, then measure how well its pit-stop and energy decisions hold up under the 2026 power-unit rules. The race simulator is fitted to real lap data from FastF1.",
+          tags: ["Python", "Gymnasium", "FastF1", "Reinforcement Learning"],
+          wip: true,
+          live: null,
+          code: "https://github.com/Tak00yaki/Portfolio/tree/main/projects/5thyearResearchproject",
+        },
+        {
           title: "Film Location Map",
           file: "film_location_map.py",
           desc: "Search for a movie and see pins dropped at its real-world filming locations — click a pin to compare the movie still against a present-day photo of the same spot.",
@@ -297,6 +306,15 @@ export const translations = {
           wip: true,
           live: "https://khushikhan.com/f1/",
           code: "https://github.com/Tak00yaki/Portfolio/blob/main/projects/f1.py",
+        },
+        {
+          title: "F1 戦略AI × 2026年ルール",
+          file: "racesim.py",
+          desc: "研究プロジェクト：2022〜25年のF1ルールで強化学習のレース戦略AIを訓練し、2026年の新パワーユニット規則のもとでピットストップとエネルギー管理の判断がどこまで通用するかを測定します。レースシミュレーターはFastF1の実際のラップデータに合わせて調整しています。",
+          tags: ["Python", "Gymnasium", "FastF1", "Reinforcement Learning"],
+          wip: true,
+          live: null,
+          code: "https://github.com/Tak00yaki/Portfolio/tree/main/projects/5thyearResearchproject",
         },
         {
           title: "映画ロケ地マップ",
