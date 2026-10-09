@@ -21,6 +21,8 @@ import json
 import pathlib
 
 import folium
+from branca.element import MacroElement
+from jinja2 import Template
 import streamlit as st
 from PIL import Image
 from streamlit_folium import st_folium
@@ -40,6 +42,31 @@ ERA_ORDER = [
 
 MARKER_COLORS = ["red", "blue", "green", "purple", "orange", "darkred", "cadetblue", "darkgreen"]
 POPUP_THUMB_SIZE = (240, 240)
+WORLD_LAT = 85.05  # Web Mercator tiles stop here; beyond it is blank
+
+
+class FitWorldMinZoom(MacroElement):
+    """Raise the map's min zoom so the world always fills the map box, never leaving blank edges."""
+
+    _template = Template("""
+        {% macro script(this, kwargs) %}
+        (function (map) {
+            var world = L.latLngBounds([[-{{ this.lat }}, -180], [{{ this.lat }}, 180]]);
+            function fit() {
+                if (!map.getSize().x) return;
+                var z = Math.ceil(map.getBoundsZoom(world, true));
+                map.setMinZoom(z);
+                if (map.getZoom() < z) map.setZoom(z);
+            }
+            fit();
+            map.on("resize", fit);
+        })({{ this._parent.get_name() }});
+        {% endmacro %}
+    """)
+
+    def __init__(self):
+        super().__init__()
+        self.lat = WORLD_LAT
 
 
 @st.cache_data
@@ -141,7 +168,15 @@ def build_map(castles: list[dict], color_by: str) -> folium.Map:
         center = (sum(lats) / len(lats), sum(lons) / len(lons))
         zoom = 3
 
-    fmap = folium.Map(location=center, zoom_start=zoom, tiles="OpenStreetMap")
+    # Keep the view on a single, non-repeating copy of the world.
+    fmap = folium.Map(
+        location=center, zoom_start=zoom, tiles=None,
+        min_zoom=2, max_bounds=True,
+        min_lat=-WORLD_LAT, max_lat=WORLD_LAT, min_lon=-180, max_lon=180,
+        max_bounds_viscosity=1.0,
+    )
+    folium.TileLayer("OpenStreetMap", no_wrap=True).add_to(fmap)
+    FitWorldMinZoom().add_to(fmap)
 
     color_keys = sorted({c[color_by] for c in castles})
     color_map = {key: MARKER_COLORS[i % len(MARKER_COLORS)] for i, key in enumerate(color_keys)}
