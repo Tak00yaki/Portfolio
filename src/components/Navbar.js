@@ -20,7 +20,7 @@ export default function Navbar() {
             {link.label}
           </a>
         ))}
-        <ChaosDial />
+        <ChaosDial onPick={() => setOpen(false)} />
         <div className="lang-toggle" role="group" aria-label="Language">
           <button
             className={lang === "en" ? "is-active" : ""}

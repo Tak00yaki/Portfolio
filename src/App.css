@@ -1153,9 +1153,33 @@ section {
   color: var(--cream);
 }
 
+/* narrow screens: no side margins, so the grid runs along a strip at the bottom */
+.racing__lane--bottom {
+  display: none;
+}
+
 @media (max-width: 1099px) {
-  .racing {
+  .racing__lane--left,
+  .racing__lane--right {
     display: none;
+  }
+
+  .racing__lane--bottom {
+    display: block;
+    top: auto;
+    left: 0;
+    right: 0;
+    width: auto;
+    background: rgba(18, 15, 12, 0.96);
+    border-top-width: 2px;
+  }
+
+  .racing__car {
+    filter: none;
+  }
+
+  body.is-racing {
+    padding-bottom: 52px;
   }
 }
 
@@ -1385,9 +1409,35 @@ section {
   color: var(--orange);
 }
 
-@media (max-width: 1099px) {
-  .chaos,
+/* tablet: tighten the navbar so the dial fits on one line */
+@media (min-width: 721px) and (max-width: 1099px) {
+  .navbar__links {
+    gap: 1.25rem;
+  }
+}
+
+.chaos__button span {
+  white-space: nowrap;
+}
+
+/* mobile menu: the dial sits in the dropdown and its panel opens inline */
+@media (max-width: 720px) {
+  .navbar__links.is-open {
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+
+  .chaos {
+    margin: 1rem 6vw 0;
+    align-self: flex-start;
+  }
+
+  .chaos__panel {
+    position: static;
+    margin-top: 0.8rem;
+  }
+
   .start-lights {
-    display: none;
+    top: 84px;
   }
 }

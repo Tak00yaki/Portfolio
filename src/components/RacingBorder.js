@@ -5,26 +5,43 @@ import { CAR_H, CAR_W, LINE, createRace } from "./chibi/race";
 
 // The 2026 grid as chibi cars racing down the right edge, round an off-screen
 // hairpin, and back up the left edge, overtaking each other (rules in chibi/race.js).
-// Shown at chaos level 1; the cars roll in from a grid just above the screen.
-// Hover a car to pause it and meet the driver.
+// On narrow screens there are no side margins, so the cars run smaller, left to
+// right along a strip at the bottom of the screen instead.
+// Shown at chaos level 1; the cars roll in from a grid just off screen.
+// Hover (or tap) a car to pause it and meet the driver.
 
 const TURN = 1100;           // off-screen hairpin at the top and bottom (px); fits the starting grid
-const MIN_WIDTH = 1100;      // below this the side margins are too narrow
+const MIN_WIDTH = 1100;      // below this the side margins are too narrow: use the bottom strip
+const STRIP_SCALE = 0.5;     // car size on the bottom strip
+export const STRIP_H = Math.ceil((CAR_W + LINE + 8) * STRIP_SCALE);
 
 function lapGeometry() {
   const W = window.innerWidth, H = window.innerHeight;
+  if (W < MIN_WIDTH) {
+    // Race distances stay in full-size px; the strip draws them at STRIP_SCALE
+    const straight = W / STRIP_SCALE + CAR_H;
+    return { W, H, straight, lap: straight + TURN, strip: true };
+  }
   const straight = H + CAR_H;
   return { W, H, straight, lap: 2 * straight + 2 * TURN, gutter: W * 0.06 };
 }
 
-// Position on the loop -> screen position and direction (null while off-screen).
-// lat 0 = racing line, hugging the inside edge of the lane; 1 = passing line, outside.
+// Position on the loop -> centre of the car on screen, rotation and scale
+// (null while off-screen). lat 0 = racing line, hugging the inside edge of the
+// lane; 1 = passing line, outside.
 function place(s, lat, g) {
   const { W, H, straight, gutter } = g;
   const inner = CAR_W / 2 + 3;
-  if (s < straight) return { x: W - gutter + inner + lat * LINE, y: -CAR_H + s, dir: "down" };
+  if (g.strip) {
+    if (s >= straight) return null;
+    const k = STRIP_SCALE;
+    return { x: (s - CAR_H / 2) * k, y: H - (inner + 1 + lat * LINE) * k, dir: "down", rot: -90, k };
+  }
+  if (s < straight) return { x: W - gutter + inner + lat * LINE, y: s - CAR_H / 2, dir: "down", rot: 0, k: 1 };
   if (s < straight + TURN) return null;
-  if (s < 2 * straight + TURN) return { x: gutter - inner - lat * LINE, y: H - (s - straight - TURN), dir: "up" };
+  if (s < 2 * straight + TURN) {
+    return { x: gutter - inner - lat * LINE, y: H - (s - straight - TURN) + CAR_H / 2, dir: "up", rot: 0, k: 1 };
+  }
   return null;
 }
 
@@ -44,7 +61,7 @@ export default function RacingBorder() {
     const n = DRIVERS.length;
     const race = createRace(n, g.lap, Math.random, reduce ? "spread" : "grid");
     const state = race.state;
-    if (reduce) {
+    if (reduce && !g.strip) {
       // Parked: half the grid on each side, evenly spaced, no movement
       state.forEach((c, i) => {
         const side = i % 2, slot = Math.floor(i / 2);
@@ -64,7 +81,8 @@ export default function RacingBorder() {
         }
         el.style.visibility = "visible";
         el.dataset.dir = p.dir;
-        el.style.transform = `translate(${p.x - CAR_W / 2}px, ${p.y}px)`;
+        el.style.transform =
+          `translate(${p.x - CAR_W / 2}px, ${p.y - CAR_H / 2}px) rotate(${p.rot}deg) scale(${p.k})`;
       });
     };
 
@@ -72,10 +90,8 @@ export default function RacingBorder() {
     const tick = (now) => {
       const dt = Math.min(0.05, (now - last) / 1000);
       last = now;
-      if (window.innerWidth >= MIN_WIDTH) {
-        race.step(now, dt, hovered.current);
-        draw();
-      }
+      race.step(now, dt, hovered.current);
+      draw();
       raf = requestAnimationFrame(tick);
     };
 
@@ -85,9 +101,11 @@ export default function RacingBorder() {
       draw();
     };
     window.addEventListener("resize", onResize);
+    document.body.classList.add("is-racing");
     if (reduce) draw();
     else raf = requestAnimationFrame(tick);
     return () => {
+      document.body.classList.remove("is-racing");
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", onResize);
     };
@@ -96,6 +114,12 @@ export default function RacingBorder() {
   const enter = (i) => (e) => {
     hovered.current = i;
     const r = e.currentTarget.getBoundingClientRect();
+    if (window.innerWidth < MIN_WIDTH) {
+      // Bottom strip: card sits just above the strip, over the car
+      const left = Math.min(Math.max(8, r.left + r.width / 2 - 105), window.innerWidth - 218);
+      setCard({ i, left, bottom: STRIP_H + 12 });
+      return;
+    }
     const onRight = r.left > window.innerWidth / 2;
     setCard({
       i,
@@ -113,6 +137,7 @@ export default function RacingBorder() {
     <div className="racing" aria-hidden="true">
       <div className="racing__lane racing__lane--left" />
       <div className="racing__lane racing__lane--right" />
+      <div className="racing__lane racing__lane--bottom" style={{ height: STRIP_H }} />
       {DRIVERS.map((drv, i) => (
         <div
           key={drv.code}
@@ -126,7 +151,7 @@ export default function RacingBorder() {
         </div>
       ))}
       {d && (
-        <div className="racing__card" style={{ top: card.top, left: card.left, right: card.right }}>
+        <div className="racing__card" style={{ top: card.top, bottom: card.bottom, left: card.left, right: card.right }}>
           <div className="racing__sticker" dangerouslySetInnerHTML={{ __html: stickerSVG(d, "-card") }} />
           <p className="racing__name">
             <span>{d.num}</span> {d.name}

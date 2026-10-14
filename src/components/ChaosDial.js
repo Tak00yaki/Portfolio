@@ -47,7 +47,8 @@ function Knob({ angle, spinning, big }) {
   );
 }
 
-export default function ChaosDial() {
+// onPick runs once a level is chosen (the mobile menu uses it to close itself).
+export default function ChaosDial({ onPick }) {
   const { level, setLevel } = useChaos();
   const { lang } = useLanguage();
   const t = translations[lang].chaos;
@@ -81,6 +82,7 @@ export default function ChaosDial() {
     setTimeout(() => {
       setSpinning(false);
       setLevel(target);
+      onPick?.();
     }, SPIN_MS);
   };
 
@@ -113,7 +115,10 @@ export default function ChaosDial() {
                   <button
                     className={i === level ? "is-active" : ""}
                     disabled={locked || spinning}
-                    onClick={() => setLevel(i)}
+                    onClick={() => {
+                      setLevel(i);
+                      onPick?.();
+                    }}
                   >
                     <b>{i}</b> {locked ? t.locked : t.levels[i]}
                   </button>
