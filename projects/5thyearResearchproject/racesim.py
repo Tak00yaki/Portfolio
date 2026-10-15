@@ -6,12 +6,16 @@ arXiv 2512.21570), simplified to one car and calibrated on real lap data:
     lap time = base + track evolution * lap
              + mass_time * (car mass mid-lap - empty mass)     fuel: lighter car, faster lap
              + k0[compound] + k1[compound] * wear               tyre loss (Weeks 1-2)
-             + fuel-allocation term + battery-allocation term   energy decisions
-             + pit loss (on the in-lap)
+             + fuel term + battery term                         energy decisions, diminishing
+                                                                returns (square-root shaped)
+             + in-lap loss (lap of a stop) + out-lap loss (lap after) + standing start (lap 1)
 
     car mass  -= fuel energy used / LHV                          (ETH Eq. 6)
     wear      += 1 + beta * (mass mid-lap / reference mass - 1)  (ETH Eq. 26, a = 1)
     battery   -= net battery energy used, 0 <= battery <= capacity (ETH Eqs. 4, 9)
+
+Energy limits per lap (battery deploy and harvest, MGU-K power, fuel flow, race fuel)
+come from the era's FIA regulations, cited in the settings file's [rules] section.
 
 Every era-specific number comes from a settings file in eras/; nothing is hard-coded
 here, so the 2026 simulator is this code with a different file.
@@ -29,11 +33,20 @@ from gymnasium import spaces
 from scipy.optimize import minimize
 
 COMPOUNDS = ("SOFT", "MEDIUM", "HARD")
+PIT_CHOICES = (None, *COMPOUNDS)    # pit decision 0-3: no stop / soft / medium / hard
 
 
 def load_settings(path):
     with open(path, "rb") as f:
         return tomllib.load(f)
+
+
+def diminishing(u, slope, scale):
+    """Lap-time change from using energy u above nominal: -slope * u for small u, with
+    diminishing returns (square-root shaped). Using more always saves time, but each
+    extra unit saves less; saving energy costs more than the same amount used gains.
+    Defined for u > -scale."""
+    return -2 * slope * scale * (np.sqrt(1 + np.asarray(u) / scale) - 1)
 
 
 def override(settings, **changes):
@@ -53,50 +66,69 @@ class RaceState:
     lap: int            # laps completed
     fuel_mj: float      # fuel energy left
     batt_mj: float      # battery energy left
+    mass_kg: float      # car mass (empty car + fuel left)
     compound: str
     wear: float         # tyre wear, in laps at reference mass
     changes: int        # pit stops onto a different compound (ETH b_comp)
     race_time: float
-    outlap: bool        # previous lap was an in-lap
+    outlap: bool        # previous lap was an in-lap, so the next lap is an out-lap
 
 
 class RaceSim:
     def __init__(self, settings):
         self.settings = settings
         r, c, t, e = settings["race"], settings["car"], settings["tyres"], settings["energy"]
+        rules, pit = settings["rules"], settings["pit"]
         self.laps = r["laps"]
         self.base, self.evolution = settings["track"]["base_lap_s"], settings["track"]["evolution_s_per_lap"]
+        self.start_loss = r["start_loss_s"]
         self.m_empty, self.lhv, self.mass_time = c["mass_empty_kg"], c["fuel_lhv_mj_per_kg"], c["mass_time_s_per_kg"]
+        if c["fuel_start_kg"] > rules["race_fuel_max_kg"] or self.m_empty < rules["min_mass_kg"]:
+            raise ValueError("start fuel above the race maximum, or car below the minimum mass")
         self.fuel0 = c["fuel_start_kg"] * self.lhv
         self.fuel_nominal = self.fuel0 / self.laps
-        self.pit_loss = settings["pit"]["loss_s"]
+        self.inlap_loss, self.outlap_loss = pit["inlap_loss_s"], pit["outlap_loss_s"]
+        self.pit_loss = self.inlap_loss + self.outlap_loss     # per stop
         self.tyre = {k: (t[k]["k0"], t[k]["k1"]) for k in COMPOUNDS if k in t}
         self.beta = t["wear_mass_exponent"]
         self.m_ref = self.m_empty + c["fuel_start_kg"] / 2      # "mid_race"
         f, b = e["fuel"], e["battery"]
-        self.f_min, self.f_max = f["alloc_min_frac"] * self.fuel_nominal, f["alloc_max_frac"] * self.fuel_nominal
-        self.f_gain, self.f_curv = f["gain_s"], f["curv_s"]
-        self.b_cap, self.b_min, self.b_max = b["capacity_mj"], b["net_min_mj"], b["net_max_mj"]
-        self.b_gain, self.b_curv = b["gain_s_per_mj"], b["curv_s_per_mj2"]
+        # Fuel per lap: ETH's allocation band, and never above the fuel-flow limit held
+        # for a whole lap (Art. 5.2.3); the band binds first at every track we model.
+        self.fuel_flow_cap = rules["fuel_flow_max_kg_per_h"] * self.base / 3600 * self.lhv
+        self.f_min = f["alloc_min_frac"] * self.fuel_nominal
+        self.f_max = min(f["alloc_max_frac"] * self.fuel_nominal, self.fuel_flow_cap)
+        self.f_gain, self.f_scale = f["gain_s"], f["scale_frac"]
+        # Battery per lap (net, + = discharge): deploy and harvest caps, each also
+        # limited by the MGU-K power held for a whole lap (Art. 5.3.2 diagram)
+        k_mj = rules["mguk_max_kw"] / 1000 * self.base
+        self.b_cap = rules["es_soc_window_mj"]
+        self.b_max = min(rules["es_to_mguk_max_mj_per_lap"], k_mj)
+        self.b_min = -min(rules["mguk_to_es_max_mj_per_lap"], k_mj)
+        self.b_gain, self.b_scale = b["gain_s_per_mj"], b["scale_mj"]
+        if self.b_scale <= -self.b_min or self.f_scale <= 1 - f["alloc_min_frac"]:
+            raise ValueError("energy-term scale must exceed the largest saving allowed")
         self.start_compound, self.start_age = r["start_compound"], r["start_tyre_age"]
         self.force_laps_left = r["force_change_laps_left"]
         self.min_stops, self.max_stops = r["min_stops"], r["max_stops"]
 
     # --- one lap ---------------------------------------------------------------
 
-    def initial_state(self):
-        return RaceState(0, self.fuel0, self.b_cap, self.start_compound, float(self.start_age),
-                         0, 0.0, False)
+    def initial_state(self, compound=None, age=None):
+        compound = compound or self.start_compound
+        age = self.start_age if age is None else age
+        return RaceState(0, self.fuel0, self.b_cap, self.mass(self.fuel0), compound,
+                         float(age), 0, 0.0, False)
 
     def mass(self, fuel_mj):
         return self.m_empty + fuel_mj / self.lhv
 
     def fuel_term(self, u_f):
-        x = (u_f - self.fuel_nominal) / self.fuel_nominal
-        return -self.f_gain * x + self.f_curv * x ** 2
+        """x = fraction of fuel used above nominal this lap."""
+        return diminishing((u_f - self.fuel_nominal) / self.fuel_nominal, self.f_gain, self.f_scale)
 
     def batt_term(self, u_b):
-        return -self.b_gain * u_b + self.b_curv * u_b ** 2
+        return diminishing(u_b, self.b_gain, self.b_scale)
 
     def feasible(self, state, u_f, u_b):
         """Clip energy use to what keeps the rest of the race feasible (ETH Sec. 4.5):
@@ -109,9 +141,13 @@ class RaceSim:
         b_hi = min(self.b_max, state.batt_mj)
         return float(np.clip(u_f, f_lo, f_hi)), float(np.clip(u_b, b_lo, b_hi))
 
-    def step(self, state, u_f, u_b, pit_to=None):
-        """Run one lap. `pit_to`: compound fitted at the end of this lap (None = no stop).
+    def step(self, state, u_f, u_b, pit_to=None, fit_age=0.0):
+        """Run one lap. Inputs: fuel energy u_f and net battery energy u_b (MJ) this lap,
+        and the pit decision: 0-3 (PIT_CHOICES) or the compound fitted at the end of the
+        lap (None = no stop). `fit_age`: laps already on the set fitted (0 = new).
         Returns (new state, lap time, components)."""
+        if isinstance(pit_to, (int, np.integer)):
+            pit_to = PIT_CHOICES[pit_to]
         u_f, u_b = self.feasible(state, u_f, u_b)
         k = state.lap + 1
         if k == self.laps:
@@ -125,14 +161,17 @@ class RaceSim:
             "tyres": k0 + k1 * state.wear,
             "fuel use": self.fuel_term(u_f),
             "battery": self.batt_term(u_b),
-            "pit": self.pit_loss if pit_to else 0.0,
+            "start": self.start_loss if k == 1 else 0.0,
+            "in-lap": self.inlap_loss if pit_to else 0.0,
+            "out-lap": self.outlap_loss if state.outlap else 0.0,
         }
         lap_time = sum(parts.values())
         wear = state.wear + 1 + self.beta * (m_mid / self.m_ref - 1)
         new = replace(
             state, lap=k, fuel_mj=state.fuel_mj - u_f, batt_mj=state.batt_mj - u_b,
+            mass_kg=self.mass(state.fuel_mj - u_f),
             race_time=state.race_time + lap_time, outlap=bool(pit_to),
-            compound=pit_to or state.compound, wear=0.0 if pit_to else wear,
+            compound=pit_to or state.compound, wear=float(fit_age) if pit_to else wear,
             changes=state.changes + int(bool(pit_to) and pit_to != state.compound))
         return new, lap_time, {**parts, "u_f": u_f, "u_b": u_b, "mass": m_mid}
 
@@ -141,15 +180,23 @@ class RaceSim:
     def nominal_alloc(self):
         return np.full(self.laps, self.fuel_nominal), np.zeros(self.laps)
 
-    def simulate(self, compounds, pit_laps, fuel=None, batt=None):
-        """Lap-by-lap run of a plan (Week 2 format). Returns total time and per-lap records."""
+    def simulate(self, compounds, pit_laps, fuel=None, batt=None, ages=None):
+        """Lap-by-lap run of a plan (Week 2 format). `ages`: tyre age at the start of each
+        stint, for replaying a real race with used sets (default: settings start age, new
+        sets at stops). Returns total time and per-lap records."""
         fuel, batt = (fuel, batt) if fuel is not None else self.nominal_alloc()
         stops = dict(zip(pit_laps, compounds[1:]))
-        state, rows = self.initial_state(), []
-        assert compounds[0] == state.compound, "plan must start on the start compound"
+        fit_ages = dict(zip(pit_laps, ages[1:])) if ages is not None else {}
+        if ages is None:
+            state = self.initial_state()
+            assert compounds[0] == state.compound, "plan must start on the start compound"
+        else:
+            state = self.initial_state(compounds[0], ages[0])
+        rows = []
         for i in range(self.laps):
             wear, compound = state.wear, state.compound
-            state, t, parts = self.step(state, fuel[i], batt[i], stops.get(i + 1))
+            state, t, parts = self.step(state, fuel[i], batt[i], stops.get(i + 1),
+                                        fit_ages.get(i + 1, 0.0))
             rows.append({"lap": i + 1, "time": t, "compound": compound, "wear": wear,
                          "fuel_mj": state.fuel_mj, "batt_mj": state.batt_mj, **parts})
         return state.race_time, rows
@@ -162,7 +209,7 @@ class RaceSim:
         w = 1 + self.beta * (m_mid / self.m_ref - 1)
         total = np.sum(self.base + self.evolution * k + self.mass_time * (m_mid - self.m_empty)
                        + self.fuel_term(fuel) + self.batt_term(batt))
-        total += self.pit_loss * len(pit_laps)
+        total += self.start_loss + self.pit_loss * len(pit_laps)   # every stop has its out-lap
         bounds = (0, *pit_laps, self.laps)
         for i, c in enumerate(compounds):
             k0, k1 = self.tyre[c]
@@ -290,7 +337,7 @@ class F1StrategyEnv(gym.Env):
 
     def __init__(self, settings):
         self.sim = RaceSim(settings)
-        self.pit_options = (None, *[c for c in COMPOUNDS if c in self.sim.tyre])
+        self.pit_options = tuple(c for c in PIT_CHOICES if c is None or c in self.sim.tyre)
         self.action_space = spaces.Box(np.array([0, -1, 0], np.float32),
                                        np.array([1, 1, 1], np.float32))
         self.observation_space = spaces.Box(-10.0, 10.0, shape=(10,), dtype=np.float32)

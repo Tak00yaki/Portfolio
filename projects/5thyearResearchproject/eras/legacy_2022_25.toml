@@ -13,19 +13,35 @@ max_stops = 3
 start_compound = "SOFT"          # every car started on softs in 2024
 start_tyre_age = 3               # laps already done in qualifying (median of top 10)
 force_change_laps_left = 20      # [A15] force a compound change if none made by then (ETH Sec. 4.7)
+start_loss_s = 5.368             # [A29] lap-1 standing start vs a flying lap (5th_6th_week.py)
+
+[rules]
+# FIA limits for the 2022-25 power unit. Source: 2024 Formula 1 Technical Regulations,
+# Issue 4 (13 Feb 2024, in force at the 2024 Bahrain GP), unless stated otherwise.
+# https://www.fia.com/sites/default/files/fia_2024_formula_1_technical_regulations_-_issue_4_-_2024-02-13.pdf
+min_mass_kg = 798.0                  # Art. 4.1: car without fuel
+fuel_flow_max_kg_per_h = 100.0       # Art. 5.2.3 (and lower below 10,500 rpm, Art. 5.2.4)
+mguk_max_kw = 120.0                  # Art. 5.3.3; also +/-120 kW in the Art. 5.3.2 energy-flow diagram
+es_to_mguk_max_mj_per_lap = 4.0      # Art. 5.3.2 diagram: max 4 MJ/lap from ES to MGU-K (deploy)
+mguk_to_es_max_mj_per_lap = 2.0      # Art. 5.3.2 diagram: max 2 MJ/lap from MGU-K to ES (harvest) [A27]
+es_soc_window_mj = 4.0               # Art. 5.3.2 diagram: max - min ES state of charge <= 4 MJ
+race_fuel_max_kg = 110.0             # [A26] 2021 Sporting Regulations Art. 30.5 (110 kg per race);
+                                     # not found in the 2024 Technical or Sporting Regulations text
 
 [track]
 base_lap_s = 94.176              # empty-tank lap at lap 0, mean driver (3rd_4th_week.py step 1)
 evolution_s_per_lap = -0.00694   # [A9] leftover lap trend after the fuel effect is fixed (+/- 0.0014)
 
 [car]
-mass_empty_kg = 798.0            # [A10] FIA minimum mass incl. driver, no fuel
-fuel_start_kg = 110.0            # [A11] maximum race fuel; real start loads are often lower
+mass_empty_kg = 798.0            # [A10] = rules.min_mass_kg: cars assumed to run at the minimum
+fuel_start_kg = 110.0            # [A11] = rules.race_fuel_max_kg; real start loads are often lower
 fuel_lhv_mj_per_kg = 43.0        # [A12] lower heating value of the fuel
 mass_time_s_per_kg = 0.03        # [A8] lap-time cost of 1 kg; rule of thumb, needs a source
 
 [pit]
-loss_s = 24.88                   # median green-flag stop, 2024 (2nd_week.py)
+# [A28] Time lost vs the same lap without a stop, median over green-flag stops (5th_6th_week.py)
+inlap_loss_s = 2.467               # in-lap: pit entry, lap ends at the pit-lane timing line
+outlap_loss_s = 21.834             # out-lap: pit lane, stationary time, cold tyres
 
 [tyres]
 # Lap-time loss = k0 + k1 * wear, wear in "laps at reference mass" (2nd_week.py free-air fit).
@@ -48,16 +64,16 @@ k1 = 0.1033
 # Per-lap fuel energy as a fraction x of nominal (start fuel / laps); ETH Eq. 2 bounds.
 alloc_min_frac = 0.9
 alloc_max_frac = 1.1
-# [A16] lap-time effect of using more/less fuel than nominal: dT = -gain*x + curv*x^2,
-# x = (u - nominal) / nominal. Placeholder: saving 10% costs ~0.5 s, using 10% more gains ~0.3 s.
+# [A16] lap-time effect of using more/less fuel than nominal, diminishing returns:
+# dT = -2*gain*scale*(sqrt(1 + x/scale) - 1), x = (u - nominal) / nominal, slope -gain at x = 0.
+# Placeholder: saving 10% costs ~0.47 s, using 10% more gains ~0.36 s.
 gain_s = 4.0
-curv_s = 10.0
+scale_frac = 0.2
 
 [energy.battery]
 # Net battery energy per lap u (MJ, + = net discharge). Battery starts full (ETH Eq. 8).
-capacity_mj = 4.0                # [A17] usable state-of-charge window
-net_min_mj = -2.0                # [A18] most net charging per lap
-net_max_mj = 2.0                 # [A18] most net discharge per lap
-# [A19] lap-time effect: dT = -gain*u + curv*u^2. Placeholder values.
+# Capacity and the per-lap limits come from [rules] [A17, A18, A27].
+# [A19] lap-time effect, diminishing returns: dT = -2*gain*scale*(sqrt(1 + u/scale) - 1).
+# Placeholder: full 4 MJ net deploy ~ -0.83 s, full 2 MJ net harvest ~ +0.59 s.
 gain_s_per_mj = 0.25
-curv_s_per_mj2 = 0.02
+scale_mj = 4.0
