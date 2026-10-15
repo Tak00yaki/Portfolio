@@ -26,3 +26,10 @@ yarn-error.log*
 __pycache__/
 *.pyc
 .venv/
+secrets.toml
+
+.vscode/
+
+# personal movie lists (movies_rec.py)
+projects/data/my_lists.json
+projects/data/my_lists.tmp

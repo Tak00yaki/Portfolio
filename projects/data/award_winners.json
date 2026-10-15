@@ -1,0 +1,780 @@
+{
+  "winners": [
+    {
+      "title": "Wings",
+      "year": 1927,
+      "tmdb_id": 28966,
+      "poster_path": "/kEl6KCBgdmT1Nex3ka0EIWAOmtm.jpg",
+      "release_date": "1927-08-12",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Broadway Melody",
+      "year": 1928,
+      "tmdb_id": 65203,
+      "poster_path": "/giq8GJs8YGMzHxeKxNSuwzAdd1c.jpg",
+      "release_date": "1929-02-08",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "All Quiet on the Western Front",
+      "year": 1929,
+      "tmdb_id": 143,
+      "poster_path": "/1wZUB08igw8iLUgF1r4T6aJD65b.jpg",
+      "release_date": "1930-04-29",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Cimarron",
+      "year": 1930,
+      "tmdb_id": 42861,
+      "poster_path": "/cqvfhi9s1VsTgXcV1B7vX0Cb1qA.jpg",
+      "release_date": "1931-01-26",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Grand Hotel",
+      "year": 1931,
+      "tmdb_id": 33680,
+      "poster_path": "/g8xrpXJWzz91R4jL8ybMKMValB2.jpg",
+      "release_date": "1932-09-11",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Cavalcade",
+      "year": 1932,
+      "tmdb_id": 56164,
+      "poster_path": "/a6yld4HmB49b9CP9wmv3wcwk65K.jpg",
+      "release_date": "1933-02-08",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "It Happened One Night",
+      "year": 1934,
+      "tmdb_id": 3078,
+      "poster_path": "/2PNUGWAflH6UUumas0POMmokHlc.jpg",
+      "release_date": "1934-02-22",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Mutiny on the Bounty",
+      "year": 1935,
+      "tmdb_id": 12311,
+      "poster_path": "/GD98ozz6F6tSu8BWGulpseEKhv.jpg",
+      "release_date": "1935-11-22",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Great Ziegfeld",
+      "year": 1936,
+      "tmdb_id": 43277,
+      "poster_path": "/rhF6vYFVCaPCs7CgDqg3n4mNod3.jpg",
+      "release_date": "1936-04-08",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Life of Emile Zola",
+      "year": 1937,
+      "tmdb_id": 43278,
+      "poster_path": "/gsEa6ZU1zHhjTYneNNBQApzl8Vu.jpg",
+      "release_date": "1937-09-09",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "You Can't Take It with You",
+      "year": 1938,
+      "tmdb_id": 34106,
+      "poster_path": "/9JltqbDyWstYW6gnvqDO6L5bOrx.jpg",
+      "release_date": "1938-09-01",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Gone with the Wind",
+      "year": 1939,
+      "tmdb_id": 770,
+      "poster_path": "/lNz2Ow0wGCAvzckW7EOjE03KcYv.jpg",
+      "release_date": "1939-12-15",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Rebecca",
+      "year": 1940,
+      "tmdb_id": 223,
+      "poster_path": "/1qz3qUOHnVy7dL7M7G8jSErxE4b.jpg",
+      "release_date": "1940-03-23",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "How Green Was My Valley",
+      "year": 1941,
+      "tmdb_id": 43266,
+      "poster_path": "/8N7OmxBqjRVUrqergUduGgr6exy.jpg",
+      "release_date": "1941-10-28",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Mrs. Miniver",
+      "year": 1942,
+      "tmdb_id": 27367,
+      "poster_path": "/fjPjx6FTaoTussbqoLj6OYTtUyi.jpg",
+      "release_date": "1942-07-03",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Casablanca",
+      "year": 1943,
+      "tmdb_id": 289,
+      "poster_path": "/lGCEKlJo2CnWydQj7aamY7s1S7Q.jpg",
+      "release_date": "1943-01-15",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Going My Way",
+      "year": 1944,
+      "tmdb_id": 17661,
+      "poster_path": "/838yNJnOk6iZj5YK1MoKiN2n1hw.jpg",
+      "release_date": "1944-01-01",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Lost Weekend",
+      "year": 1945,
+      "tmdb_id": 28580,
+      "poster_path": "/yL6EJxPeYIcB9TChm56lHqXKzHC.jpg",
+      "release_date": "1945-11-29",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Best Years of Our Lives",
+      "year": 1946,
+      "tmdb_id": 887,
+      "poster_path": "/gd5EoAU4MM57sW3vlWxJ0NMM8cV.jpg",
+      "release_date": "1946-11-22",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Gentleman's Agreement",
+      "year": 1947,
+      "tmdb_id": 33667,
+      "poster_path": "/aCCRbcmigPk00f34hpJuWZuvABo.jpg",
+      "release_date": "1947-11-11",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Hamlet",
+      "year": 1948,
+      "tmdb_id": 23383,
+      "poster_path": "/woO9SgU2vTRMZeG0YqOLeoIqlzC.jpg",
+      "release_date": "1948-12-10",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "All the King's Men",
+      "year": 1949,
+      "tmdb_id": 25430,
+      "poster_path": "/7o8nnvFnkekDAlIYznNUWzxQFM6.jpg",
+      "release_date": "1949-11-16",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "All About Eve",
+      "year": 1950,
+      "tmdb_id": 705,
+      "poster_path": "/blBzZaatPWVuWpXEnPscMA4Xp6m.jpg",
+      "release_date": "1950-11-09",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "An American in Paris",
+      "year": 1951,
+      "tmdb_id": 2769,
+      "poster_path": "/lyDXkvG53ldz6Cf7dbjJl7TaoP5.jpg",
+      "release_date": "1951-09-26",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Greatest Show on Earth",
+      "year": 1952,
+      "tmdb_id": 27191,
+      "poster_path": "/cKI0yGPRh1IlvRKKJRoMZruior8.jpg",
+      "release_date": "1952-02-16",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "From Here to Eternity",
+      "year": 1953,
+      "tmdb_id": 11426,
+      "poster_path": "/sP3T6hTkTMCksUXb0wzzOgbXIfk.jpg",
+      "release_date": "1953-08-28",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "On the Waterfront",
+      "year": 1954,
+      "tmdb_id": 654,
+      "poster_path": "/d4S8LpbCyFJsh1tGgwGQSJdGzKm.jpg",
+      "release_date": "1954-06-22",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Marty",
+      "year": 1955,
+      "tmdb_id": 15919,
+      "poster_path": "/8tnGO5VoAQII4DbE3hozWKhV4BY.jpg",
+      "release_date": "1955-04-11",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Around the World in 80 Days",
+      "year": 1956,
+      "tmdb_id": 2897,
+      "poster_path": "/kk6Rrwh0toMz9tjuUHdS4O3v2Rk.jpg",
+      "release_date": "1956-10-17",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Bridge on the River Kwai",
+      "year": 1957,
+      "tmdb_id": 826,
+      "poster_path": "/7paXMt2e3Tr5dLmEZOGgFEn2Vo7.jpg",
+      "release_date": "1957-10-11",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Gigi",
+      "year": 1958,
+      "tmdb_id": 17281,
+      "poster_path": "/3GSuecnDr4N5ZaqTrwElSzt6eC2.jpg",
+      "release_date": "1958-05-15",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Ben-Hur",
+      "year": 1959,
+      "tmdb_id": 665,
+      "poster_path": "/m4WQ1dBIrEIHZNCoAjdpxwSKWyH.jpg",
+      "release_date": "1959-11-18",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Apartment",
+      "year": 1960,
+      "tmdb_id": 284,
+      "poster_path": "/hhSRt1KKfRT0yEhEtRW3qp31JFU.jpg",
+      "release_date": "1960-06-21",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "West Side Story",
+      "year": 1961,
+      "tmdb_id": 1725,
+      "poster_path": "/nzCMu6D5q60i2bVrIQ0DxlRSgCZ.jpg",
+      "release_date": "1961-12-13",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Lawrence of Arabia",
+      "year": 1962,
+      "tmdb_id": 947,
+      "poster_path": "/AiAm0EtDvyGqNpVoieRw4u65vD1.jpg",
+      "release_date": "1962-12-11",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Tom Jones",
+      "year": 1963,
+      "tmdb_id": 5769,
+      "poster_path": "/yKuZKLMhe74PJzaxYLh2s8h4P2P.jpg",
+      "release_date": "1963-08-24",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "My Fair Lady",
+      "year": 1964,
+      "tmdb_id": 11113,
+      "poster_path": "/bTXVc29lGSNclf94VIZ49W4gGKl.jpg",
+      "release_date": "1964-12-01",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Sound of Music",
+      "year": 1965,
+      "tmdb_id": 15121,
+      "poster_path": "/c6CrUZypAsBCaRWX0M3RVRDbhNS.jpg",
+      "release_date": "1965-03-29",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "A Man for All Seasons",
+      "year": 1966,
+      "tmdb_id": 874,
+      "poster_path": "/kcwcqMitcnRO1SySlX1HKVn7yUV.jpg",
+      "release_date": "1966-12-13",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "In the Heat of the Night",
+      "year": 1967,
+      "tmdb_id": 10633,
+      "poster_path": "/qFpfALhprXmOAbA5upTNupZw8rq.jpg",
+      "release_date": "1967-08-02",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Oliver!",
+      "year": 1968,
+      "tmdb_id": 17917,
+      "poster_path": "/1XJgoaOWKrqxkKeBKWLKSigqG8c.jpg",
+      "release_date": "1968-09-26",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Midnight Cowboy",
+      "year": 1969,
+      "tmdb_id": 3116,
+      "poster_path": "/ckklq45UxUkwgHve9xItXqXr06r.jpg",
+      "release_date": "1969-05-25",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Patton",
+      "year": 1970,
+      "tmdb_id": 11202,
+      "poster_path": "/rLM7jIEPTjj4CF7F1IrzzNjLUCu.jpg",
+      "release_date": "1970-01-25",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The French Connection",
+      "year": 1971,
+      "tmdb_id": 1051,
+      "poster_path": "/pH4saPwMjhnVGwmSH6RkMaHrt3s.jpg",
+      "release_date": "1971-10-09",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Godfather",
+      "year": 1972,
+      "tmdb_id": 238,
+      "poster_path": "/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+      "release_date": "1972-03-14",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Sting",
+      "year": 1973,
+      "tmdb_id": 9277,
+      "poster_path": "/ckmYng37zey8INYf6d10cVgIG93.jpg",
+      "release_date": "1973-12-25",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Godfather Part II",
+      "year": 1974,
+      "tmdb_id": 240,
+      "poster_path": "/8a1lJs7mFyGhGhZZDT1azJUoQiZ.jpg",
+      "release_date": "1974-12-20",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "One Flew Over the Cuckoo's Nest",
+      "year": 1975,
+      "tmdb_id": 510,
+      "poster_path": "/kjWsMh72V6d8KRLV4EOoSJLT1H7.jpg",
+      "release_date": "1975-11-19",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Rocky",
+      "year": 1976,
+      "tmdb_id": 1366,
+      "poster_path": "/raayaQ9WTUGolsYHPWc2bGonu58.jpg",
+      "release_date": "1976-12-03",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Annie Hall",
+      "year": 1977,
+      "tmdb_id": 703,
+      "poster_path": "/dEtjPywhDbAXYjoFfhBC4U9unU7.jpg",
+      "release_date": "1977-04-19",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Deer Hunter",
+      "year": 1978,
+      "tmdb_id": 11778,
+      "poster_path": "/bbGtogDZOg09bm42KIpCXUXICkh.jpg",
+      "release_date": "1978-12-08",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Kramer vs. Kramer",
+      "year": 1979,
+      "tmdb_id": 12102,
+      "poster_path": "/3CUP5V5SWfHSK4qvkZF7lMNyugY.jpg",
+      "release_date": "1979-12-07",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Ordinary People",
+      "year": 1980,
+      "tmdb_id": 16619,
+      "poster_path": "/5gQLGRmBV8XoqWgkxuRFwe3jZV7.jpg",
+      "release_date": "1980-09-19",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Chariots of Fire",
+      "year": 1981,
+      "tmdb_id": 9443,
+      "poster_path": "/qnRaum8k0HqGRml2i7OawFqUtEb.jpg",
+      "release_date": "1981-05-15",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Gandhi",
+      "year": 1982,
+      "tmdb_id": 783,
+      "poster_path": "/rOXftt7SluxskrFrvU7qFJa5zeN.jpg",
+      "release_date": "1982-12-01",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Terms of Endearment",
+      "year": 1983,
+      "tmdb_id": 11050,
+      "poster_path": "/l77DRjJuykqKMtD9GTK4YT7qKHW.jpg",
+      "release_date": "1983-11-20",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Amadeus",
+      "year": 1984,
+      "tmdb_id": 279,
+      "poster_path": "/gQRfiyfGvr1az0quaYyMram3Aqt.jpg",
+      "release_date": "1984-09-19",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Out of Africa",
+      "year": 1985,
+      "tmdb_id": 606,
+      "poster_path": "/6oMKqh08TfxmvnoFR4mm1wZB67P.jpg",
+      "release_date": "1985-12-20",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Platoon",
+      "year": 1986,
+      "tmdb_id": 792,
+      "poster_path": "/m3mmFkPQKvPZq5exmh0bDuXlD9T.jpg",
+      "release_date": "1986-12-19",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Last Emperor",
+      "year": 1987,
+      "tmdb_id": 746,
+      "poster_path": "/7TILJhdeJAaEyDiwvJZMo9SQBoe.jpg",
+      "release_date": "1987-10-04",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Rain Man",
+      "year": 1988,
+      "tmdb_id": 380,
+      "poster_path": "/iTNHwO896WKkaoPtpMMS74d8VNi.jpg",
+      "release_date": "1988-12-12",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Driving Miss Daisy",
+      "year": 1989,
+      "tmdb_id": 403,
+      "poster_path": "/iaCzvcY42HihFxQBTZCTKMpsI0P.jpg",
+      "release_date": "1989-12-13",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Dances with Wolves",
+      "year": 1990,
+      "tmdb_id": 581,
+      "poster_path": "/hw0ZEHAaTqTxSXGVwUFX7uvanSA.jpg",
+      "release_date": "1990-11-09",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Silence of the Lambs",
+      "year": 1991,
+      "tmdb_id": 274,
+      "poster_path": "/uS9m8OBk1A8eM9I042bx8XXpqAq.jpg",
+      "release_date": "1991-02-14",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Unforgiven",
+      "year": 1992,
+      "tmdb_id": 33,
+      "poster_path": "/54roTwbX9fltg85zjsmrooXAs12.jpg",
+      "release_date": "1992-08-07",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Schindler's List",
+      "year": 1993,
+      "tmdb_id": 424,
+      "poster_path": "/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg",
+      "release_date": "1993-12-15",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Forrest Gump",
+      "year": 1994,
+      "tmdb_id": 13,
+      "poster_path": "/saHP97rTPS5eLmrLQEcANmKrsFl.jpg",
+      "release_date": "1994-06-23",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Braveheart",
+      "year": 1995,
+      "tmdb_id": 197,
+      "poster_path": "/or1gBugydmjToAEq7OZY0owwFk.jpg",
+      "release_date": "1995-05-24",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The English Patient",
+      "year": 1996,
+      "tmdb_id": 409,
+      "poster_path": "/8eHHqMg8qEYtVw8LQLygsHXSR2q.jpg",
+      "release_date": "1996-11-14",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Titanic",
+      "year": 1997,
+      "tmdb_id": 597,
+      "poster_path": "/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg",
+      "release_date": "1997-12-18",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Shakespeare in Love",
+      "year": 1998,
+      "tmdb_id": 1934,
+      "poster_path": "/zdW7jdzPi4J9KZR3TyY2jn3Xh5e.jpg",
+      "release_date": "1998-12-11",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "American Beauty",
+      "year": 1999,
+      "tmdb_id": 14,
+      "poster_path": "/wby9315QzVKdW9BonAefg8jGTTb.jpg",
+      "release_date": "1999-09-15",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Gladiator",
+      "year": 2000,
+      "tmdb_id": 98,
+      "poster_path": "/aDb548BOkFfI4nFm0kx8A3Ezh7H.jpg",
+      "release_date": "2000-05-04",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "A Beautiful Mind",
+      "year": 2001,
+      "tmdb_id": 453,
+      "poster_path": "/rEIg5yJdNOt9fmX4P8gU9LeNoTQ.jpg",
+      "release_date": "2001-12-14",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Chicago",
+      "year": 2002,
+      "tmdb_id": 1574,
+      "poster_path": "/3ED8cWCXY9zkx77Sd0N5qMbsdDP.jpg",
+      "release_date": "2002-12-10",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Lord of the Rings: The Return of the King",
+      "year": 2003,
+      "tmdb_id": 122,
+      "poster_path": "/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
+      "release_date": "2003-12-17",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Million Dollar Baby",
+      "year": 2004,
+      "tmdb_id": 70,
+      "poster_path": "/jcfEqKdWF1zeyvECPqp3mkWLct2.jpg",
+      "release_date": "2004-12-05",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Crash",
+      "year": 2005,
+      "tmdb_id": 1640,
+      "poster_path": "/86BdPC6RDX88NC880pLidKn2LCj.jpg",
+      "release_date": "2005-05-06",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Departed",
+      "year": 2006,
+      "tmdb_id": 1422,
+      "poster_path": "/nT97ifVT2J1yMQmeq20Qblg61T.jpg",
+      "release_date": "2006-10-04",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "No Country for Old Men",
+      "year": 2007,
+      "tmdb_id": 6977,
+      "poster_path": "/6d5XOczc226jECq0LIX0siKtgHR.jpg",
+      "release_date": "2007-11-09",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Slumdog Millionaire",
+      "year": 2008,
+      "tmdb_id": 12405,
+      "poster_path": "/5leCCi7ZF0CawAfM5Qo2ECKPprc.jpg",
+      "release_date": "2008-11-12",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Hurt Locker",
+      "year": 2009,
+      "tmdb_id": 12162,
+      "poster_path": "/io2dfBJhasvGbgkCX9cCGVOiA99.jpg",
+      "release_date": "2008-10-10",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The King's Speech",
+      "year": 2010,
+      "tmdb_id": 45269,
+      "poster_path": "/pVNKXVQFukBaCz6ML7GH3kiPlQP.jpg",
+      "release_date": "2010-11-26",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Artist",
+      "year": 2011,
+      "tmdb_id": 74643,
+      "poster_path": "/xYMYV8lMIeQMymuNPBvq3hOnqXw.jpg",
+      "release_date": "2011-10-12",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Argo",
+      "year": 2012,
+      "tmdb_id": 68734,
+      "poster_path": "/m5gPWFZFIp4UJFABgWyLkbXv8GX.jpg",
+      "release_date": "2012-10-11",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "12 Years a Slave",
+      "year": 2013,
+      "tmdb_id": 76203,
+      "poster_path": "/xdANQijuNrJaw1HA61rDccME4Tm.jpg",
+      "release_date": "2013-10-18",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Birdman",
+      "year": 2014,
+      "tmdb_id": 194662,
+      "poster_path": "/rHUg2AuIuLSIYMYFgavVwqt1jtc.jpg",
+      "release_date": "2014-10-17",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Spotlight",
+      "year": 2015,
+      "tmdb_id": 314365,
+      "poster_path": "/8DPGG400FgaFWaqcv11n8mRd2NG.jpg",
+      "release_date": "2015-11-06",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Moonlight",
+      "year": 2016,
+      "tmdb_id": 376867,
+      "poster_path": "/qLnfEmPrDjJfPyyddLJPkXmshkp.jpg",
+      "release_date": "2016-10-21",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "The Shape of Water",
+      "year": 2017,
+      "tmdb_id": 399055,
+      "poster_path": "/9zfwPffUXpBrEP26yp0q1ckXDcj.jpg",
+      "release_date": "2017-12-01",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Green Book",
+      "year": 2018,
+      "tmdb_id": 490132,
+      "poster_path": "/7BsvSuDQuoqhWmU2fL7W2GOcZHU.jpg",
+      "release_date": "2018-11-16",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Parasite",
+      "year": 2019,
+      "tmdb_id": 496243,
+      "poster_path": "/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+      "release_date": "2019-05-30",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Nomadland",
+      "year": 2020,
+      "tmdb_id": 581734,
+      "poster_path": "/8Vc5EOUEIF1EUXuX9eLFf7BvN3P.jpg",
+      "release_date": "2021-01-29",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "CODA",
+      "year": 2021,
+      "tmdb_id": 776503,
+      "poster_path": "/BzVjmm8l23rPsijLiNLUzuQtyd.jpg",
+      "release_date": "2021-08-13",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Everything Everywhere All at Once",
+      "year": 2022,
+      "tmdb_id": 545611,
+      "poster_path": "/u68AjlvlutfEIcpmbYpKcdi09ut.jpg",
+      "release_date": "2022-03-24",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Oppenheimer",
+      "year": 2023,
+      "tmdb_id": 872585,
+      "poster_path": "/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+      "release_date": "2023-07-19",
+      "category": "Academy Award for Best Picture"
+    },
+    {
+      "title": "Anora",
+      "year": 2024,
+      "tmdb_id": 1064213,
+      "poster_path": "/cgXk2tNYhJZLXdBDO5DidAVzQ82.jpg",
+      "release_date": "2024-10-14",
+      "category": "Academy Award for Best Picture"
+    }
+  ]
+}
