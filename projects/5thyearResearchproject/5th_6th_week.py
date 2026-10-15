@@ -15,7 +15,9 @@ Each step is checked and plotted (figures/week5_*.png, week6_*.png):
    returns, and both terms are zero at nominal use.
 3. In-lap, out-lap and start losses measured from FastF1 (2024 Bahrain). Check: the
    settings file matches, the step-by-step simulator charges them on the right laps,
-   and a stop costs about 25-30 s (ETH: 26.6 s).
+   and a stop costs about 25-30 s (ETH: 26.6 s). Bahrain comes out just below that, so
+   the Week 2 method is rerun on other Bahrain years and on other tracks to show
+   the low value comes from the track, not the method.
 4. Replay every lead-lap finisher's real strategy and compare the simulated race time
    with the real one.
 
@@ -42,6 +44,11 @@ NEIGHBOUR_LAPS = 3          # clean laps either side of a stop used as its refer
 MIN_NEIGHBOURS = 2          # stops with fewer clean neighbours on a side are skipped
 ETH_STOP_S = 26.6           # ETH's in-lap + out-lap loss per stop
 STOP_RANGE = (25.0, 30.0)   # reviewer's expected range per stop
+# Races for the pit-loss cross-check: Bahrain in other years, plus Singapore (a long
+# pit lane) and Zandvoort (a short one). FastF1 first, OpenF1 if it is blocked.
+OTHER_RACES = ((2022, "Bahrain"), (2023, "Bahrain"), (2024, "Singapore"), (2024, "Netherlands"))
+LONG_PIT_LANE = (2024, "Singapore")
+SAME_TRACK_TOL = 1.5        # s: Bahrain years agree with 2024 to within this
 REPLAY_TOL = 0.001          # replayed race time within 0.1% of the real one
 TOL = 1e-6
 
@@ -255,7 +262,7 @@ def step3_pit_loss(settings, sim, res, w2_losses):
         print(f"  [ok] in-lap + out-lap loss is within {lo:g}-{hi:g} s per stop")
     else:
         print(f"  [!!] in-lap + out-lap loss is outside {lo:g}-{hi:g} s per stop "
-              f"(see ASSUMPTIONS A28)")
+              f"(see step 3b and ASSUMPTIONS A28)")
     check(abs(per_stop - sim.pit_loss) < TOL, "simulated cost per stop = in-lap + out-lap loss")
 
     fig, axes = plt.subplots(1, 2, figsize=(12, 4.2), gridspec_kw={"width_ratios": [2, 1]})
@@ -275,7 +282,7 @@ def step3_pit_loss(settings, sim, res, w2_losses):
     ax.set_xticks([])
     ax.set_xlim(-0.5, 3.1)
     style(ax, f"Time lost per green-flag stop, {YEAR} Bahrain ({len(stops)} stops, s); "
-              f"band = expected {lo:g}-{hi:g} s")
+              f"band = {lo:g}-{hi:g} s")
     ax = axes[1]
     ax.hist(starts, bins=12, color=C4, edgecolor="white")
     ax.axvline(start, color=INK, linewidth=2)
@@ -287,6 +294,50 @@ def step3_pit_loss(settings, sim, res, w2_losses):
     fig.savefig(os.path.join(FIG_DIR, "week5_pit_loss.png"), dpi=150)
     plt.close(fig)
     return stops
+
+
+def step3b_other_races(w2, w2_losses):
+    """Week 2 pit-loss method (in + out - 2 x driver median lap) on other races. It needs
+    no tyre fit, so it works on any track; on 2024 Bahrain it is within 0.7 s of step 3."""
+    print("\nStep 3b: is the low Bahrain pit loss the track or the method? (Week 2 method)")
+    races = {(YEAR, w2.EVENT): np.asarray(w2_losses)}
+    for year, event in OTHER_RACES:
+        laps, _, source = w2.load_race(year, event)
+        races[(year, event)] = np.asarray(w2.estimate_pit_loss(laps, w2.clean_laps(laps))[1])
+    races = dict(sorted(races.items(), key=lambda kv: np.median(kv[1])))
+    for (year, event), x in races.items():
+        q1, q3 = np.percentile(x, [25, 75])
+        print(f"  {year} {event:<12} {len(x):3d} stops: median {np.median(x):5.2f} s (IQR {q1:.1f}-{q3:.1f})")
+    ref = np.median(races[(YEAR, w2.EVENT)])
+    bahrain = [np.median(x) for (y, e), x in races.items() if e == w2.EVENT]
+    long_lane = np.median(races[LONG_PIT_LANE])
+    check(max(abs(b - ref) for b in bahrain) < SAME_TRACK_TOL,
+          f"every Bahrain year is within {SAME_TRACK_TOL:g} s of {YEAR}: the value is stable at this track")
+    check(long_lane > ETH_STOP_S and all(b < long_lane for b in bahrain),
+          f"the same method gives {long_lane:.1f} s at {LONG_PIT_LANE[1]} (> ETH {ETH_STOP_S} s), "
+          f"so it can measure long pit lanes; Bahrain's is shorter")
+
+    lo, hi = STOP_RANGE
+    fig, ax = plt.subplots(figsize=(8, 3.6))
+    y = np.arange(len(races))
+    ax.axvspan(lo, hi, color=GRID, alpha=0.6, zorder=0)
+    ax.axvline(ETH_STOP_S, color=MUTED, linewidth=1, linestyle="--")
+    ax.annotate(f"ETH {ETH_STOP_S} s", (ETH_STOP_S, y[-1] + 0.4), xytext=(3, 0),
+                textcoords="offset points", fontsize=8, color=MUTED)
+    for i, ((year, event), x) in enumerate(races.items()):
+        q1, med, q3 = np.percentile(x, [25, 50, 75])
+        color = C1 if event == w2.EVENT else C2
+        ax.plot([q1, q3], [i, i], color=color, linewidth=3, alpha=0.5)
+        ax.plot(med, i, "o", color=color, markersize=7)
+        ax.annotate(f"{med:.1f} s", (q3, i), xytext=(5, 0), textcoords="offset points",
+                    fontsize=8, color=INK, va="center")
+    ax.set_yticks(y, [f"{year} {event}" for year, event in races])
+    ax.set_ylim(-0.6, len(races) - 0.2)
+    style(ax, f"Pit loss per green-flag stop, Week 2 method (median, IQR, s); "
+              f"band = {lo:g}-{hi:g} s")
+    fig.tight_layout()
+    fig.savefig(os.path.join(FIG_DIR, "week5_pit_loss_tracks.png"), dpi=150)
+    plt.close(fig)
 
 
 # --- Step 4: replay real strategies ------------------------------------------------------
@@ -307,13 +358,14 @@ def step4_replay(settings, sim, res, results):
         rows.append({"pos": int(r["Position"]), "driver": r["Driver"],
                      "plan": describe(compounds, pits, sim.laps), "actual": actual,
                      "mean": t_mean - actual, "own": t_own - actual, "pace": pace,
+                     "lap1": laps_own[0]["time"] - d["LapTimeS"].iloc[0],
                      "laps": np.array([x["time"] for x in laps_own]),
                      "real": d["LapTimeS"].to_numpy()})
     print(f"  {'':3} {'drv':4} {'strategy':<22} {'real (s)':>9} {'pace':>6} "
-          f"{'sim-real, mean driver':>22} {'own pace':>9}")
+          f"{'sim-real, mean driver':>22} {'own pace':>9} {'of which lap 1':>15}")
     for x in rows:
         print(f"  P{x['pos']:<2} {x['driver']:<4} {x['plan']:<22} {x['actual']:9.1f} {x['pace']:+6.2f} "
-              f"{x['mean']:+18.1f} s {x['own']:+8.1f} s")
+              f"{x['mean']:+18.1f} s {x['own']:+8.1f} s {x['lap1']:+13.1f} s")
     own_err = np.array([x["own"] for x in rows])
     real = np.array([x["actual"] for x in rows])
     win = rows[0]
@@ -325,6 +377,16 @@ def step4_replay(settings, sim, res, results):
           f"winner's replayed race time within {REPLAY_TOL:.1%} of the real one")
     check(np.median(np.abs(own_err) / real) < REPLAY_TOL,
           f"median replay error within {REPLAY_TOL:.1%} across lead-lap finishers")
+    # Lap 1 gets one average start loss (A29), but front-runners lose ~1 s and cars in the
+    # pack much more, so take it out to test tyres, fuel and stops on their own
+    rest = own_err - np.array([x["lap1"] for x in rows])
+    worst = rows[np.argmax(np.abs(rest))]
+    w = np.argmax(np.abs(rest))
+    print(f"  without lap 1: median |error| {np.median(np.abs(rest)):.1f} s, worst "
+          f"{worst['driver']} {rest[w]:+.1f} s ({rest[w] / real[w]:+.3%}); see ASSUMPTIONS A29-A30")
+    check(np.abs(rest).max() < np.abs(own_err).max(),
+          f"the worst replay error ({rows[np.argmax(np.abs(own_err))]['driver']}) is mostly its lap 1: "
+          f"{np.abs(own_err).max():.1f} s -> {np.abs(rest).max():.1f} s without it")
 
     fig, axes = plt.subplots(1, 2, figsize=(12, 4.6))
     ax = axes[0]
@@ -368,6 +430,8 @@ if __name__ == "__main__":
     laps, results, race_laps, clean, _ = w2.prepare(YEAR)
     assert race_laps == sim.laps
     res = residuals(sim, laps, clean)
-    step3_pit_loss(settings, sim, res, w2.estimate_pit_loss(laps, clean)[1])
+    w2_losses = w2.estimate_pit_loss(laps, clean)[1]
+    step3_pit_loss(settings, sim, res, w2_losses)
+    step3b_other_races(w2, w2_losses)
     step4_replay(settings, sim, res, results)
     print(f"\nAll checks passed. Figures in {FIG_DIR}")
