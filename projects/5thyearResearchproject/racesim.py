@@ -27,6 +27,7 @@ from dataclasses import dataclass, replace
 from functools import lru_cache
 from itertools import combinations, product
 
+import casadi as ca
 import gymnasium as gym
 import numpy as np
 from gymnasium import spaces
@@ -300,6 +301,88 @@ class RaceSim:
             t, fuel, batt = self.best_energy(*plan)
         return self.race_time(*plan, fuel, batt), plan, fuel, batt
 
+
+    # --- exact optimiser (Weeks 7-8): every pit plan, exact energy for each --------
+
+    def plans(self, max_stops=2):
+        """Every legal pit plan with min_stops..max_stops stops: start on the start
+        compound, every compound order, every stop lap."""
+        for n in range(self.min_stops, max_stops + 1):
+            for rest in product(self.tyre, repeat=n):
+                compounds = (self.start_compound, *rest)
+                for pits in combinations(range(1, self.laps), n):
+                    if self.legal(compounds, pits):
+                        yield compounds, pits
+
+    def plan_params(self, compounds, pit_laps):
+        """A plan as the energy problem's parameters, per lap: new set fitted before this
+        lap (0/1), and the tyre's k0 and k1."""
+        reset, k0, k1 = np.zeros(self.laps), np.zeros(self.laps), np.zeros(self.laps)
+        reset[list(pit_laps)] = 1
+        bounds = (0, *pit_laps, self.laps)
+        for i, c in enumerate(compounds):
+            k0[bounds[i]:bounds[i + 1]], k1[bounds[i]:bounds[i + 1]] = self.tyre[c]
+        return np.concatenate([reset, k0, k1])
+
+    def energy_problem(self):
+        """CasADi + IPOPT: best fuel and battery use per lap for a pit plan passed as
+        parameters (plan_params). Same objective and limits as race_time / best_energy,
+        built once and reused for every plan. Returns (solver, bounds, objective function).
+
+        The objective is linear in the energy except for the fuel and battery terms,
+        which are convex, and every limit is linear, so the problem is convex and IPOPT's
+        optimum is the global one (ASSUMPTIONS A31)."""
+        if getattr(self, "_energy", None) is None:
+            n = self.laps
+            uf, ub = ca.SX.sym("fuel", n), ca.SX.sym("batt", n)
+            p = ca.SX.sym("plan", 3 * n)
+            reset, k0, k1 = p[:n], p[n:2 * n], p[2 * n:]
+
+            def dim(u, slope, scale):       # diminishing() for CasADi symbols
+                return -2 * slope * scale * (ca.sqrt(1 + u / scale) - 1)
+
+            f, fuel, wear = self.start_loss, self.fuel0, self.start_age
+            for i in range(n):
+                m_mid = self.mass(fuel - uf[i] / 2)
+                wear = (1 - reset[i]) * wear
+                f += (self.base + self.evolution * (i + 1) + self.mass_time * (m_mid - self.m_empty)
+                      + k0[i] + k1[i] * wear
+                      + dim((uf[i] - self.fuel_nominal) / self.fuel_nominal, self.f_gain, self.f_scale)
+                      + dim(ub[i], self.b_gain, self.b_scale))
+                wear = wear + 1 + self.beta * (m_mid / self.m_ref - 1)
+                fuel = fuel - uf[i]
+            x = ca.vertcat(uf, ub)
+            g = ca.vertcat(ca.sum1(uf), ca.cumsum(ub))      # fuel used; battery used so far
+            solver = ca.nlpsol("energy", "ipopt", {"x": x, "p": p, "f": f, "g": g},
+                               {"print_time": False, "ipopt.print_level": 0, "ipopt.sb": "yes",
+                                "ipopt.tol": 1e-10, "ipopt.bound_relax_factor": 0.0})  # limits exactly
+            bounds = {"lbx": [self.f_min] * n + [self.b_min] * n,
+                      "ubx": [self.f_max] * n + [self.b_max] * n,
+                      "lbg": [-np.inf] + [0.0] * n,                 # battery never above full
+                      "ubg": [self.fuel0] + [self.b_cap] * n}       # nor below empty
+            self._energy = solver, bounds, ca.Function("T", [x, p], [f])
+        return self._energy
+
+    def optimal_energy(self, compounds, pit_laps, x0=None):
+        """Exact best energy use for one plan. Returns (race time, fuel, battery, status)."""
+        solver, bounds, _ = self.energy_problem()
+        x0 = np.concatenate(self.nominal_alloc()) if x0 is None else x0
+        sol = solver(x0=x0, p=self.plan_params(compounds, pit_laps), **bounds)
+        x = np.asarray(sol["x"]).ravel()
+        status = solver.stats()["return_status"]
+        return float(sol["f"]) + self.pit_loss * len(pit_laps), x[:self.laps], x[self.laps:], status
+
+    def exact(self, max_stops=2):
+        """The exact optimum: optimal_energy for every plan, best of all. Returns the
+        optimum (time, compounds, pit laps, fuel, battery) and every plan's
+        (compounds, pit laps, time, status)."""
+        table, best = [], None
+        for compounds, pits in self.plans(max_stops):
+            t, fuel, batt, status = self.optimal_energy(compounds, pits)
+            table.append((compounds, pits, t, status))
+            if status == "Solve_Succeeded" and (best is None or t < best[0]):
+                best = (t, compounds, pits, fuel, batt)
+        return best, table
 
 @lru_cache(maxsize=None)
 def _pit_sets(laps, n):
