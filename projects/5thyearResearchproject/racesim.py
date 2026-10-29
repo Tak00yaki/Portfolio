@@ -6,8 +6,7 @@ arXiv 2512.21570), simplified to one car and calibrated on real lap data:
     lap time = base + track evolution * lap
              + mass_time * (car mass mid-lap - empty mass)     fuel: lighter car, faster lap
              + k0[compound] + k1[compound] * wear               tyre loss (Weeks 1-2)
-             + fuel term + battery term                         energy decisions, diminishing
-                                                                returns (square-root shaped)
+             + fuel term + battery term                         energy decisions (below)
              + in-lap loss (lap of a stop) + out-lap loss (lap after) + standing start (lap 1)
 
     car mass  -= fuel energy used / LHV                          (ETH Eq. 6)
@@ -16,6 +15,21 @@ arXiv 2512.21570), simplified to one car and calibrated on real lap data:
 
 Energy limits per lap (battery deploy and harvest, MGU-K power, fuel flow, race fuel)
 come from the era's FIA regulations, cited in the settings file's [rules] section.
+
+Two energy models, chosen by the settings file's `energy.model`:
+
+  "placeholder" (Weeks 3-8): fuel and net battery use each change the lap time with
+      square-root shaped diminishing returns (ASSUMPTIONS A16, A19); values guessed.
+  "physics" (Weeks 9-10, from the point-mass mini-sim in pointmass.py):
+      fuel     using less than flat out means lifting and coasting, which costs
+               k * (fuel saved)^p; using more is only possible by lifting less than
+               the nominal lap already does
+      battery  net use u = deploy D - free harvest h - extra harvest X. Deploying gains
+               a * (1 - exp(-D / b)); harvest from braking is free up to the lap's
+               free amount (more on in- and out-laps); harvesting more at full throttle
+               ("clipping") costs c1 X + c2 X^2. Energy carries over in the battery window.
+      The agent still chooses one net battery number per lap; within the lap the
+      simulator splits it into D, h and X as well as possible (`split`).
 
 Every era-specific number comes from a settings file in eras/; nothing is hard-coded
 here, so the 2026 simulator is this code with a different file.
@@ -97,9 +111,17 @@ class RaceSim:
         # Fuel per lap: ETH's allocation band, and never above the fuel-flow limit held
         # for a whole lap (Art. 5.2.3); the band binds first at every track we model.
         self.fuel_flow_cap = rules["fuel_flow_max_kg_per_h"] * self.base / 3600 * self.lhv
+        self.model = e["model"]
+        if self.model not in ("placeholder", "physics"):
+            raise ValueError(f"unknown energy model {self.model!r}")
         self.f_min = f["alloc_min_frac"] * self.fuel_nominal
         self.f_max = min(f["alloc_max_frac"] * self.fuel_nominal, self.fuel_flow_cap)
         self.f_gain, self.f_scale = f["gain_s"], f["scale_frac"]
+        if self.model == "physics":
+            # flat out = no lifting at all: the nominal lap already saves lift_nominal_mj
+            self.f_lift0 = f["lift_nominal_mj"]
+            self.f_max = min(self.f_max, self.fuel_nominal + self.f_lift0)
+            self.f_k, self.f_p = f["coast_k_s"], f["coast_p"]
         # Battery per lap (net, + = discharge): deploy and harvest caps, each also
         # limited by the MGU-K power held for a whole lap (Art. 5.3.2 diagram)
         k_mj = rules["mguk_max_kw"] / 1000 * self.base
@@ -107,8 +129,17 @@ class RaceSim:
         self.b_max = min(rules["es_to_mguk_max_mj_per_lap"], k_mj)
         self.b_min = -min(rules["mguk_to_es_max_mj_per_lap"], k_mj)
         self.b_gain, self.b_scale = b["gain_s_per_mj"], b["scale_mj"]
-        if self.b_scale <= -self.b_min or self.f_scale <= 1 - f["alloc_min_frac"]:
+        if self.model == "placeholder" and (self.b_scale <= -self.b_min
+                                            or self.f_scale <= 1 - f["alloc_min_frac"]):
             raise ValueError("energy-term scale must exceed the largest saving allowed")
+        if self.model == "physics":
+            self.d_cap, self.h_cap = self.b_max, -self.b_min      # deploy and harvest caps
+            self.d_a, self.d_b = b["deploy_a_s"], b["deploy_b_mj"]
+            self.c1, self.c2 = b["clip_c1_s_per_mj"], b["clip_c2_s_per_mj2"]
+            self.h_free = b["free_harvest_mj"]
+            self.h_in, self.h_out = b["inlap_bonus_mj"], b["outlap_bonus_mj"]
+            d_ref, _, x_ref = self.split(0.0, self.h_free)       # nominal lap: net zero
+            self.b_ref = self._deploy_gain(d_ref) - self._clip_cost(x_ref)
         self.start_compound, self.start_age = r["start_compound"], r["start_tyre_age"]
         self.force_laps_left = r["force_change_laps_left"]
         self.min_stops, self.max_stops = r["min_stops"], r["max_stops"]
@@ -125,10 +156,50 @@ class RaceSim:
         return self.m_empty + fuel_mj / self.lhv
 
     def fuel_term(self, u_f):
-        """x = fraction of fuel used above nominal this lap."""
+        """Lap-time change from fuel energy u_f (MJ) this lap, 0 at nominal."""
+        if self.model == "physics":
+            saved = np.maximum(self.fuel_nominal + self.f_lift0 - np.asarray(u_f), 0.0)
+            return self.f_k * (saved ** self.f_p - self.f_lift0 ** self.f_p)
         return diminishing((u_f - self.fuel_nominal) / self.fuel_nominal, self.f_gain, self.f_scale)
 
-    def batt_term(self, u_b):
+    def free_harvest(self, inlap=False, outlap=False):
+        """Energy the lap's braking can put in the battery at no cost (physics model)."""
+        return self.h_free + self.h_in * np.asarray(inlap) + self.h_out * np.asarray(outlap)
+
+    def _deploy_gain(self, d):
+        return self.d_a * (1 - np.exp(-np.asarray(d) / self.d_b))
+
+    def _clip_cost(self, x):
+        x = np.asarray(x)
+        return self.c1 * x + self.c2 * x ** 2
+
+    def split(self, u_b, free, iters=60):
+        """Best way to get net battery use u_b in a lap with `free` MJ of free harvest:
+        deploy D, free harvest h <= min(free, harvest cap), extra harvest X >= 0, with
+        D - h - X = u_b, D <= deploy cap, h + X <= harvest cap. All free harvest is taken
+        unless the deploy cap stops it; then X is raised while a MJ more deployed gains
+        more than it costs to clip (bisection on G'(D) = C'(X)). Vectorised."""
+        u = np.asarray(u_b, float)
+        h = np.minimum(np.minimum(free, self.h_cap), self.d_cap - u)
+        lo = np.maximum(0.0, -(u + h))
+        hi = np.maximum(np.minimum(self.h_cap - h, self.d_cap - u - h), lo)
+
+        def excess(x):          # marginal gain of deploying - marginal cost of clipping
+            return self.d_a / self.d_b * np.exp(-(u + h + x) / self.d_b) - (self.c1 + 2 * self.c2 * x)
+        a, b = lo.copy(), hi.copy()
+        for _ in range(iters):
+            mid = 0.5 * (a + b)
+            up = excess(mid) > 0
+            a, b = np.where(up, mid, a), np.where(up, b, mid)
+        x = np.where(excess(lo) <= 0, lo, np.where(excess(hi) >= 0, hi, 0.5 * (a + b)))
+        return u + h + x, h, x
+
+    def batt_term(self, u_b, free=None):
+        """Lap-time change from net battery use u_b (MJ, + = discharge), 0 at net zero on
+        a normal lap. `free`: the lap's free harvest (physics model; default normal lap)."""
+        if self.model == "physics":
+            d, _, x = self.split(u_b, self.h_free if free is None else free)
+            return -(self._deploy_gain(d) - self._clip_cost(x) - self.b_ref)
         return diminishing(u_b, self.b_gain, self.b_scale)
 
     def feasible(self, state, u_f, u_b):
@@ -155,13 +226,14 @@ class RaceSim:
             pit_to = None                       # a stop after the flag does nothing
         m_mid = self.mass(state.fuel_mj - u_f / 2)
         k0, k1 = self.tyre[state.compound]
+        free = self.free_harvest(bool(pit_to), state.outlap) if self.model == "physics" else None
         parts = {
             "base": self.base,
             "track": self.evolution * k,
             "fuel mass": self.mass_time * (m_mid - self.m_empty),
             "tyres": k0 + k1 * state.wear,
             "fuel use": self.fuel_term(u_f),
-            "battery": self.batt_term(u_b),
+            "battery": float(self.batt_term(u_b, free)),
             "start": self.start_loss if k == 1 else 0.0,
             "in-lap": self.inlap_loss if pit_to else 0.0,
             "out-lap": self.outlap_loss if state.outlap else 0.0,
@@ -174,7 +246,9 @@ class RaceSim:
             race_time=state.race_time + lap_time, outlap=bool(pit_to),
             compound=pit_to or state.compound, wear=float(fit_age) if pit_to else wear,
             changes=state.changes + int(bool(pit_to) and pit_to != state.compound))
-        return new, lap_time, {**parts, "u_f": u_f, "u_b": u_b, "mass": m_mid}
+        split = dict(zip(("deploy", "harvest_free", "harvest_extra"),
+                         map(float, self.split(u_b, free)))) if free is not None else {}
+        return new, lap_time, {**parts, "u_f": u_f, "u_b": u_b, "mass": m_mid, **split}
 
     # --- whole race --------------------------------------------------------------
 
@@ -209,7 +283,7 @@ class RaceSim:
         m_mid = self.mass(fuel_before - fuel / 2)
         w = 1 + self.beta * (m_mid / self.m_ref - 1)
         total = np.sum(self.base + self.evolution * k + self.mass_time * (m_mid - self.m_empty)
-                       + self.fuel_term(fuel) + self.batt_term(batt))
+                       + self.fuel_term(fuel) + self.batt_term(batt, self.lap_free(pit_laps)))
         total += self.start_loss + self.pit_loss * len(pit_laps)   # every stop has its out-lap
         bounds = (0, *pit_laps, self.laps)
         for i, c in enumerate(compounds):
@@ -219,6 +293,15 @@ class RaceSim:
             wear = age0 + np.concatenate([[0.0], np.cumsum(ws)[:-1]])
             total += np.sum(k0 + k1 * wear)
         return float(total)
+
+    def lap_free(self, pit_laps):
+        """Free harvest on every lap of a plan (physics model; None for the placeholder)."""
+        if self.model != "physics":
+            return None
+        inlap, outlap = np.zeros(self.laps, bool), np.zeros(self.laps, bool)
+        inlap[[p - 1 for p in pit_laps]] = True
+        outlap[[p for p in pit_laps]] = True
+        return self.free_harvest(inlap, outlap)
 
     # --- reference optimiser ("mathematically perfect" target for the agent) ----
 
@@ -247,6 +330,15 @@ class RaceSim:
             a = np.column_stack([np.ones(len(sets), int), sets + 1])          # stint first laps
             b = np.column_stack([sets, np.full(len(sets), self.laps)])        # stint last laps
             L = b - a + 1
+            batt_extra = 0.0                    # physics: in- and out-laps harvest more
+            if self.model == "physics":
+                inlap = np.zeros((len(sets), self.laps), bool)
+                outlap = np.zeros((len(sets), self.laps), bool)
+                rows = np.arange(len(sets))[:, None]
+                inlap[rows, sets - 1] = True
+                outlap[rows, sets] = True
+                batt_extra = (self.batt_term(batt, self.free_harvest(inlap, outlap))
+                              - self.batt_term(batt)).sum(axis=1)
             for compounds in product(self.tyre, repeat=n + 1):
                 if compounds[0] != start or len(set(compounds)) < 2:
                     continue
@@ -256,7 +348,7 @@ class RaceSim:
                 k1 = np.array([self.tyre[c][1] for c in compounds])
                 # sum of wear over a stint = age0*L + sum_{k=a..b} (C[k-1] - C[a-1])
                 wear_sum = age0 * L + (P[b] - P[a - 1]) - L * C[a - 1]
-                total = (k0 * L + k1 * wear_sum).sum(axis=1) + self.pit_loss * n
+                total = (k0 * L + k1 * wear_sum).sum(axis=1) + self.pit_loss * n + batt_extra
                 first = _first_change(compounds, sets)
                 total[first > self.laps - self.force_laps_left] = np.inf
                 i = int(np.argmin(total))
@@ -316,12 +408,14 @@ class RaceSim:
 
     def plan_params(self, compounds, pit_laps):
         """A plan as the energy problem's parameters, per lap: new set fitted before this
-        lap (0/1), and the tyre's k0 and k1."""
+        lap (0/1), the tyre's k0 and k1, and (physics model) the free harvest."""
         reset, k0, k1 = np.zeros(self.laps), np.zeros(self.laps), np.zeros(self.laps)
         reset[list(pit_laps)] = 1
         bounds = (0, *pit_laps, self.laps)
         for i, c in enumerate(compounds):
             k0[bounds[i]:bounds[i + 1]], k1[bounds[i]:bounds[i + 1]] = self.tyre[c]
+        if self.model == "physics":
+            return np.concatenate([reset, k0, k1, self.lap_free(pit_laps)])
         return np.concatenate([reset, k0, k1])
 
     def energy_problem(self):
@@ -331,7 +425,9 @@ class RaceSim:
 
         The objective is linear in the energy except for the fuel and battery terms,
         which are convex, and every limit is linear, so the problem is convex and IPOPT's
-        optimum is the global one (ASSUMPTIONS A31)."""
+        optimum is the global one (ASSUMPTIONS A31). Physics model: see _physics_problem."""
+        if getattr(self, "_energy", None) is None and self.model == "physics":
+            self._energy = self._physics_problem()
         if getattr(self, "_energy", None) is None:
             n = self.laps
             uf, ub = ca.SX.sym("fuel", n), ca.SX.sym("batt", n)
@@ -363,14 +459,57 @@ class RaceSim:
             self._energy = solver, bounds, ca.Function("T", [x, p], [f])
         return self._energy
 
+    def _physics_problem(self):
+        """Physics model: per lap fuel, deploy D, free harvest h and extra harvest X are
+        all variables, so the in-lap split is optimised with everything else. Deploy gain
+        is concave, clipping and coasting costs convex, the caps (h <= free, h + X <=
+        harvest cap, battery window) linear: still convex (A31, rechecked in Weeks 9-10)."""
+        n = self.laps
+        uf, d, h, x = (ca.SX.sym(name, n) for name in ("fuel", "deploy", "free", "extra"))
+        p = ca.SX.sym("plan", 4 * n)
+        reset, k0, k1, free = p[:n], p[n:2 * n], p[2 * n:3 * n], p[3 * n:]
+        f, fuel, wear = self.start_loss, self.fuel0, self.start_age
+        for i in range(n):
+            m_mid = self.mass(fuel - uf[i] / 2)
+            wear = (1 - reset[i]) * wear
+            saved = self.fuel_nominal + self.f_lift0 - uf[i]
+            f += (self.base + self.evolution * (i + 1) + self.mass_time * (m_mid - self.m_empty)
+                  + k0[i] + k1[i] * wear
+                  + self.f_k * (saved ** self.f_p - self.f_lift0 ** self.f_p)
+                  - self.d_a * (1 - ca.exp(-d[i] / self.d_b)) + self.c1 * x[i] + self.c2 * x[i] ** 2
+                  + self.b_ref)
+            wear = wear + 1 + self.beta * (m_mid / self.m_ref - 1)
+            fuel = fuel - uf[i]
+        xs = ca.vertcat(uf, d, h, x)
+        g = ca.vertcat(ca.sum1(uf), ca.cumsum(d - h - x), h + x, free - h)
+        solver = ca.nlpsol("energy", "ipopt", {"x": xs, "p": p, "f": f, "g": g},
+                           {"print_time": False, "ipopt.print_level": 0, "ipopt.sb": "yes",
+                            "ipopt.tol": 1e-10, "ipopt.bound_relax_factor": 0.0})
+        bounds = {"lbx": [self.f_min] * n + [0.0] * 3 * n,
+                  "ubx": [self.f_max] * n + [self.d_cap] * n + [self.h_cap] * 2 * n,
+                  "lbg": [-np.inf] + [0.0] * n + [0.0] * n + [0.0] * n,
+                  "ubg": [self.fuel0] + [self.b_cap] * n + [self.h_cap] * n + [np.inf] * n}
+        return solver, bounds, ca.Function("T", [xs, p], [f])
+
+    def energy_start(self, compounds, pit_laps, fuel=None, batt=None):
+        """Solver starting point / input vector for an allocation (default nominal):
+        (fuel, net battery) for the placeholder model, (fuel, D, h, X) for physics."""
+        fuel, batt = (fuel, batt) if fuel is not None else self.nominal_alloc()
+        if self.model != "physics":
+            return np.concatenate([fuel, batt])
+        d, h, x = self.split(batt, self.lap_free(pit_laps))
+        return np.concatenate([fuel, d, h, x])
+
     def optimal_energy(self, compounds, pit_laps, x0=None):
-        """Exact best energy use for one plan. Returns (race time, fuel, battery, status)."""
+        """Exact best energy use for one plan. Returns (race time, fuel, net battery, status)."""
         solver, bounds, _ = self.energy_problem()
-        x0 = np.concatenate(self.nominal_alloc()) if x0 is None else x0
+        x0 = self.energy_start(compounds, pit_laps) if x0 is None else x0
         sol = solver(x0=x0, p=self.plan_params(compounds, pit_laps), **bounds)
         x = np.asarray(sol["x"]).ravel()
         status = solver.stats()["return_status"]
-        return float(sol["f"]) + self.pit_loss * len(pit_laps), x[:self.laps], x[self.laps:], status
+        n = self.laps
+        batt = x[n:2 * n] - x[2 * n:3 * n] - x[3 * n:] if self.model == "physics" else x[n:]
+        return float(sol["f"]) + self.pit_loss * len(pit_laps), x[:n], batt, status
 
     def exact(self, max_stops=2):
         """The exact optimum: optimal_energy for every plan, best of all. Returns the

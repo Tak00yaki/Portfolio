@@ -60,20 +60,50 @@ k1 = 0.1176
 k0 = 0.1589
 k1 = 0.1033
 
+[energy]
+# "placeholder": Weeks 3-8 guesses [A16, A19] (the Weeks 3-8 scripts pin this);
+# "physics": terms from the point-mass mini-sim and the 2024 telemetry (9th_10th_week.py) [A34-A41]
+model = "physics"
+
 [energy.fuel]
 # Per-lap fuel energy as a fraction x of nominal (start fuel / laps); ETH Eq. 2 bounds.
 alloc_min_frac = 0.9
 alloc_max_frac = 1.1
-# [A16] lap-time effect of using more/less fuel than nominal, diminishing returns:
-# dT = -2*gain*scale*(sqrt(1 + x/scale) - 1), x = (u - nominal) / nominal, slope -gain at x = 0.
-# Placeholder: saving 10% costs ~0.47 s, using 10% more gains ~0.36 s.
+# Placeholder model [A16]: dT = -2*gain*scale*(sqrt(1 + x/scale) - 1), slope -gain at x = 0.
+# Saving 10% costs ~0.47 s, using 10% more gains ~0.36 s.
 gain_s = 4.0
 scale_frac = 0.2
+# Physics model [A38]: saving fuel F (MJ, counted from flat out, i.e. no lifting) by lifting and
+# coasting before braking costs coast_k_s * F^coast_p; the nominal lap already saves lift_nominal_mj,
+# so at most nominal + lift_nominal_mj can be used in a lap.
+coast_k_s = 0.00082              # 9th_10th_week.py step 4: 10% of nominal (8.3 MJ) costs ~0.2 s
+coast_p = 2.573
+lift_nominal_mj = 0.509          # step 3: 0.43 s/lap off throttle before braking, at full fuel flow
 
 [energy.battery]
 # Net battery energy per lap u (MJ, + = net discharge). Battery starts full (ETH Eq. 8).
 # Capacity and the per-lap limits come from [rules] [A17, A18, A27].
-# [A19] lap-time effect, diminishing returns: dT = -2*gain*scale*(sqrt(1 + u/scale) - 1).
-# Placeholder: full 4 MJ net deploy ~ -0.83 s, full 2 MJ net harvest ~ +0.59 s.
+# Placeholder model [A19]: dT = -2*gain*scale*(sqrt(1 + u/scale) - 1).
+# Full 4 MJ net deploy ~ -0.83 s, full 2 MJ net harvest ~ +0.59 s.
 gain_s_per_mj = 0.25
 scale_mj = 4.0
+# Physics model [A35-A37, A39]: u = deploy D - free harvest h - extra harvest X.
+# Fitted to the mini-sim curves (step 4) and the telemetry (step 3), 2024 Bahrain:
+deploy_a_s = 3.406               # deploying D gains deploy_a_s * (1 - exp(-D / deploy_b_mj)): 4 MJ ~ -2.2 s
+deploy_b_mj = 3.829
+clip_c1_s_per_mj = 0.0140        # extra harvest X at full throttle costs c1 X + c2 X^2: 2 MJ ~ +0.39 s
+clip_c2_s_per_mj2 = 0.0910
+free_harvest_mj = 2.04           # braking energy the MGU-K can recover on a normal lap (median)
+inlap_bonus_mj = 0.288           # more on the in-lap (braking into the pit lane) ...
+outlap_bonus_mj = 0.216          # ... and the out-lap
+
+[pointmass]
+# Point-mass car for the straight-line mini-sim (pointmass.py), fitted on 2024 Bahrain
+# full-throttle and braking samples (9th_10th_week.py step 1) [A34]
+rho_kg_m3 = 1.17                 # air density, ~25 C at sea level (night race)
+crr = 0.015                      # rolling resistance: not identifiable from the data, fixed
+rear_brake_share = 0.4           # share of braking power on the rear axle, where the MGU-K is [A36]
+power_kw = 627.0                 # wheel power at full throttle (fitted)
+cda_m2 = 1.75                    # drag area (fitted)
+brake_a_m_s2 = 22.6              # straight-line braking deceleration = a + b v^2 (fitted)
+brake_b_per_m = 0.00072

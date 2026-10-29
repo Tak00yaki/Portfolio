@@ -344,7 +344,8 @@ def plot_real(real):
 
 if __name__ == "__main__":
     os.makedirs(FIG_DIR, exist_ok=True)
-    settings = racesim.load_settings(SETTINGS)
+    # Weeks 3-8 used the placeholder energy terms (A16, A19); pinned so they stay reproducible
+    settings = racesim.override(racesim.load_settings(SETTINGS), **{"energy.model": "placeholder"})
     print(f"Era settings: {settings['name']} ({settings['race']['calibration_race']})")
     sim = racesim.RaceSim(settings)
     plans = list(sim.plans(MAX_STOPS))

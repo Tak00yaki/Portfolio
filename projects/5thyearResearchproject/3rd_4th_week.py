@@ -300,7 +300,8 @@ def step4_env(settings, t_ref, ref_plan, ref_f, ref_b, t2, plan2):
 
 if __name__ == "__main__":
     os.makedirs(FIG_DIR, exist_ok=True)
-    settings = racesim.load_settings(SETTINGS)
+    # Weeks 3-8 used the placeholder energy terms (A16, A19); pinned so they stay reproducible
+    settings = racesim.override(racesim.load_settings(SETTINGS), **{"energy.model": "placeholder"})
     print(f"Era settings: {settings['name']} ({settings['race']['calibration_race']})")
     w2 = load_week2()
     sim1, t1, plan1 = step1_fuel(settings, w2)
