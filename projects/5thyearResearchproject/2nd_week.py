@@ -169,7 +169,7 @@ def load_race(year, event=EVENT):
     return laps.sort_values(["Driver", "LapNumber"]).reset_index(drop=True), results, source
 
 
-def add_free_air(laps, year):
+def add_free_air(laps, year, event=EVENT):
     """Smallest gap to the car ahead during each lap, from OpenF1's intervals.
 
     Lap start times also come from OpenF1 (FastF1 only has them with telemetry
@@ -177,7 +177,7 @@ def add_free_air(laps, year):
     has no car ahead, so its gap is infinite. Laps with no interval data get NaN
     and are never counted as free air.
     """
-    key = openf1_session_key(year)
+    key = openf1_session_key(year, event)
     iv = openf1_get("intervals", key)
     numbers = openf1_get("drivers", key).set_index("name_acronym")["driver_number"]
     iv["date"] = pd.to_datetime(iv["date"], utc=True, format="ISO8601")

@@ -125,9 +125,10 @@ def _braking_limit(car, st, s):
     return vb
 
 
-def run(car, st, extra=None, end=None):
+def run(car, st, extra=None, end=None, deploy_limit=None):
     """One straight. `extra(s_grid) -> W` is added to the car's power while it is on the
-    throttle (None = none); `end` stops early, with no braking (used by calibrate).
+    throttle (None = none); `end` stops early, with no braking (used by calibrate);
+    `deploy_limit(v) -> W` caps positive `extra` by speed (2026 rules, Art. C5.2.8).
     Returns (time s, extra energy J, grid, speed, time on the throttle per step)."""
     s1 = st.s1 if end is None else end
     n = max(int(np.ceil((s1 - st.s0) / DS)), 2)
@@ -140,6 +141,8 @@ def run(car, st, extra=None, end=None):
     acc = np.zeros(n, bool)
     resist = car.crr * car.mass * G + st.offset
     for i in range(n):
+        if deploy_limit is not None and dP[i] > 0:
+            dP[i] = min(dP[i], deploy_limit(v[i]))
         p = max(car.power + st.power_adj + dP[i], 0.0)
         a = (p / v[i] - 0.5 * car.rho * car.cda * v[i] ** 2 - resist) / car.mass
         va = np.sqrt(max(v[i] ** 2 + 2 * a * ds, 1.0))
@@ -189,7 +192,7 @@ def _power_on(bins, power):
     return extra
 
 
-def energy_curve(car, straights, power, energy_per_j=1.0, with_order=False):
+def energy_curve(car, straights, power, energy_per_j=1.0, with_order=False, deploy_limit=None):
     """Lap-time change against energy for one kind of decision, applied 25 m at a time to
     the stretches worth most (deploy) or costing least (clip, coast) first.
 
@@ -201,7 +204,7 @@ def energy_curve(car, straights, power, energy_per_j=1.0, with_order=False):
     cand = []                                       # (time change per J, straight, stretch)
     for k, st in enumerate(straights):
         for b in _bins(st):
-            t, e, *_ = run(car, st, _power_on([b], power))
+            t, e, *_ = run(car, st, _power_on([b], power), deploy_limit=deploy_limit)
             if abs(e) > 1.0:
                 cand.append(((t - base[k]) / abs(e), k, b))
     cand.sort(key=lambda c: c[0])                   # most time saved, or least lost, per J first
@@ -210,7 +213,7 @@ def energy_curve(car, straights, power, energy_per_j=1.0, with_order=False):
     E, T = [0.0], [0.0]
     for _, k, b in cand:
         chosen[k].append(b)
-        times[k], e, *_ = run(car, straights[k], _power_on(chosen[k], power))
+        times[k], e, *_ = run(car, straights[k], _power_on(chosen[k], power), deploy_limit=deploy_limit)
         energies[k] = abs(e)
         E.append(sum(energies) * energy_per_j / 1e6)
         T.append(sum(times) - sum(base))

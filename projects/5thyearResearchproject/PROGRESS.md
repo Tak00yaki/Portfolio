@@ -1,7 +1,7 @@
 # Progress log
 
 One entry per week block: what was built, the results, what went wrong, and what is still open.
-Assumptions are numbered in [ASSUMPTIONS.md](ASSUMPTIONS.md) (A1–A41); every number below can be
+Assumptions are numbered in [ASSUMPTIONS.md](ASSUMPTIONS.md) (A1–A47); every number below can be
 reproduced by running that week's script with the project's `.venv`.
 
 **Project:** train an RL strategist on a 2022–25-rules race simulator, drop it into a 2026-rules
@@ -268,6 +268,60 @@ Commits `1b9b873` and `6912532`, 15 Oct.
 
 ---
 
+## Week 11: 2026 settings, benchmark and a transfer test with no RL (`11th_week.py`, 2 Nov)
+
+**Built**
+- `eras/2026.toml`, with limits from the FIA 2026 Technical Regulations Issue 18 and article citations.
+- `eras/legacy_2022_25_barcelona.toml`: 2024 recalibrated on the same track. The Bahrain file is unchanged.
+- One pipeline for both years: tyres, base lap, pit and start losses, car, mini-sim curves, free harvest.
+- The mini-sim now applies the 2026 deploy taper with speed (Art. C5.2.8).
+
+**Which race:** the 2026 Sakhir race was cancelled, and October's "Bahrain GP" ran in Kuala Lumpur. Barcelona
+replaces it: raced in both eras, dry, no safety car in either year (two VSCs in 2026), same 66 laps. Hungary was the other
+candidate, but its 2026 telemetry drifts off the lap-time clock from about lap 6.
+
+**Results**
+
+| | 2024 Barcelona | 2026 Barcelona |
+|---|---|---|
+| Engine, no deploy | 570 kW (measured) | 398 kW (from fuel flow) |
+| Drag area | 1.61 m² | 0.92 m² |
+| Free harvest per lap | 1.45 MJ | 3.08 MJ |
+| Harvest cap per lap | 2 MJ, reached every lap | 8.5 MJ, never reached |
+| Optimum deploy per lap | 2.06 MJ | 5.26 MJ (limited by the straights) |
+| Clipping per lap | 0.18–0.55 MJ | 2.10 MJ |
+| In-lap net battery | +0.06 MJ, same as any lap | **−0.77 MJ, charges** |
+| Benchmark | S20 → M23 → M23, 5366.24 s | M15 → S25 → S26, 5588.03 s |
+
+- All 13,616 plans solved in both eras. Convexity holds in both (spread 3.6e-12 s).
+- **The in-lap charging the reviewer expected appears under the real 2026 rules.** The harvest cap no longer
+  binds, as Weeks 9–10 predicted. The out-lap still doesn't deploy more.
+- Transfer test, 2024 optimum in the 2026 simulator:
+
+  | Seconds lost per race | Linear tyre fit | No soft stints |
+  |---|---|---|
+  | Stop laps only, best 2026 compounds | 2.3 | 0.4 |
+  | Whole old pit plan | 16.9 | 5.6 |
+  | Energy, net number, simulator re-splits | 0.25 | 0.25 |
+  | Energy, old deploy and harvest amounts kept | 22–58 | 22–58 |
+
+- **2026 is a big change, and only in energy. Stop timing transfers (0.4–2.3 s); the deploy and harvest amounts don't.**
+- **The current environment can't show this.** Its one net battery number lets the simulator re-split each lap perfectly,
+  so an old agent would lose only 0.25 s on energy. RL on the current action space would wrongly reject the hypothesis.
+- None of the unpublished inputs changes the picture: 7 MJ cap, fuel 65–85 kg, rear share and deploy gain −10% leave
+  net energy at 0.2–0.3 s and the plan loss at about 17 s; tyre wear +20% raises the plan loss to 22.7 s.
+
+**Problems**
+- First 2026 fit gave a no-deploy car of 163 kW, because I assumed real deploy of 8.5 MJ. I called CdA 0.93 unphysical too;
+  that was wrong (a hand check supports it). Engine power now comes from fuel flow, and real deploy is measured.
+- An upper-envelope car fit gave an impossible 174–246 kW engine and was dropped.
+- The clip fit missed by 0.055 s at amounts nobody would use. It is now fitted only up to what can be deployed.
+- The 2026 benchmark passes every check but isn't believable: all real strategies lose 15–29 s. The linear soft fit is the
+  likely cause, so results are given both ways (A43). This needs a real fix before RL scores against it.
+- The 58 s energy figure rests on the model deploying nearly twice the real cars' 2.77 MJ, so it is an upper bound (A45).
+
+---
+
 ## Reference: IAmTomShaw/f1-race-replay
 
 https://github.com/IAmTomShaw/f1-race-replay, checked 16 Oct.
@@ -294,22 +348,14 @@ The useful parts are in `src/`:
 
 ## Next steps
 
-1. **2026 settings file**, with the same mini-sim at 350 kW and the 2026 car's mass, aero and harvest
-   cap (source each from the 2026 Technical Regulations). Then:
-   - check whether the harvest cap still binds; if it doesn't, the energy trade-off is real there;
-   - rerun the convexity check (A31) on it.
-2. **RL agent:** train on `F1StrategyEnv` (physics model) and score it against
-   `results/optimum_legacy_2022_25_physics.json`. `all_plans_legacy_2022_25_physics.csv` gives any
-   plan's time.
-3. **Find citable sources** for A8 (fuel effect), A12 (fuel energy content) and A36 (rear braking share).
-4. **Open questions:**
-   - Alonso's unexplained −6.0 s replay error.
-   - Lap-1 loss depends on starting position, but the model uses one value (A29).
-   - The model has no tyre warm-up term after the out-lap.
-   - In- and out-laps miss part of a straight in the pit lane (A37).
-5. **Housekeeping:**
-   - Add `run_all.py` that runs every week's script.
-   - Decide what to do with the uncommitted `borrowed/` and `projects/shot.py` in the repo root.
+1. **Split the battery action before RL:** give the environment deploy and harvest as separate decisions, in both eras.
+   With one net number the energy transfer loss is hidden (0.25 s against 22–58 s).
+2. **Fix the 2026 soft tyre:** a wear cliff or stint-length limit, then rerun the benchmark. Real strategies should lose a few seconds, not 15+.
+3. **Check the 2026 deploy gap:** the model deploys 5.26 MJ, real cars about 2.8 MJ on the straights. Track the 4 MJ window within a lap (A39, A45).
+4. **RL agent:** train on Barcelona 2024, test on Barcelona 2026, score against the fixed benchmark.
+5. **Find sources:** the Barcelona race recharge notice (A42), Nominal Tyre Mass (A46), A8, A12, A36.
+6. **Open questions:** Alonso's replay error; lap-1 loss by grid position (A29); no tyre warm-up term; pit laps miss part of a straight (A37).
+7. **Housekeeping:** add `run_all.py`; decide what to do with `projects/shot.py`.
 
 ## Lessons
 

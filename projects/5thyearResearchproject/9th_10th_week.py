@@ -124,11 +124,11 @@ def check_settings(found, section, keys, rel=0.01):
 
 # --- Telemetry ---------------------------------------------------------------------
 
-def load_traces(w2, laps, clean, sim):
+def load_traces(w2, laps, clean, sim, year=YEAR, event=None, drivers=DRIVERS):
     """Every green-flag lap of DRIVERS as a speed trace: time, distance, smoothed speed,
     acceleration, throttle, brake, DRS, car mass. Kind: clean (Week 2 definition, A5),
     in- or out-lap."""
-    key = w2.openf1_session_key(YEAR)
+    key = w2.openf1_session_key(year, event or w2.EVENT)
     numbers = w2.openf1_get("drivers", key).set_index("name_acronym")["driver_number"]
     timing = w2.openf1_get("laps", key).dropna(subset=["date_start", "lap_duration"])
     timing["t0"] = pd.to_datetime(timing["date_start"], utc=True, format="ISO8601")
@@ -136,7 +136,7 @@ def load_traces(w2, laps, clean, sim):
     green = laps[laps["Green"].astype(bool)].set_index(["Driver", "LapNumber"])
     fuel_kg = sim.fuel0 / sim.lhv
     traces = []
-    for drv in DRIVERS:
+    for drv in drivers:
         n = int(numbers[drv])
         car = w2.openf1_get("car_data", key, driver_number=n)
         car["t"] = pd.to_datetime(car["date"], utc=True, format="ISO8601")
@@ -161,7 +161,7 @@ def load_traces(w2, laps, clean, sim):
                 "t": t, "v": v, "a": np.gradient(v, t),
                 "s": np.r_[0, np.cumsum(0.5 * (v[1:] + v[:-1]) * np.diff(t))],
                 "throttle": c["throttle"].to_numpy(), "brake": c["brake"].to_numpy(),
-                "drs": c["drs"].to_numpy(),
+                "drs": pd.to_numeric(c["drs"], errors="coerce").fillna(0).to_numpy(),   # none in 2026
                 "mass": sim.m_empty + fuel_kg * (1 - (lap - 0.5) / sim.laps),   # A11: constant burn
             })
     return traces

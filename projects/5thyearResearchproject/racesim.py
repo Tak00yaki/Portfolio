@@ -98,7 +98,7 @@ class RaceSim:
         self.base, self.evolution = settings["track"]["base_lap_s"], settings["track"]["evolution_s_per_lap"]
         self.start_loss = r["start_loss_s"]
         self.m_empty, self.lhv, self.mass_time = c["mass_empty_kg"], c["fuel_lhv_mj_per_kg"], c["mass_time_s_per_kg"]
-        if c["fuel_start_kg"] > rules["race_fuel_max_kg"] or self.m_empty < rules["min_mass_kg"]:
+        if c["fuel_start_kg"] > rules.get("race_fuel_max_kg", np.inf) or self.m_empty < rules["min_mass_kg"]:
             raise ValueError("start fuel above the race maximum, or car below the minimum mass")
         self.fuel0 = c["fuel_start_kg"] * self.lhv
         self.fuel_nominal = self.fuel0 / self.laps
@@ -110,13 +110,16 @@ class RaceSim:
         f, b = e["fuel"], e["battery"]
         # Fuel per lap: ETH's allocation band, and never above the fuel-flow limit held
         # for a whole lap (Art. 5.2.3); the band binds first at every track we model.
-        self.fuel_flow_cap = rules["fuel_flow_max_kg_per_h"] * self.base / 3600 * self.lhv
+        # (2026 limits the energy flow itself, Art. C5.2.3)
+        flow = rules.get("fuel_energy_flow_max_mj_per_h")
+        flow = rules["fuel_flow_max_kg_per_h"] * self.lhv if flow is None else flow
+        self.fuel_flow_cap = flow * self.base / 3600
         self.model = e["model"]
         if self.model not in ("placeholder", "physics"):
             raise ValueError(f"unknown energy model {self.model!r}")
         self.f_min = f["alloc_min_frac"] * self.fuel_nominal
         self.f_max = min(f["alloc_max_frac"] * self.fuel_nominal, self.fuel_flow_cap)
-        self.f_gain, self.f_scale = f["gain_s"], f["scale_frac"]
+        self.f_gain, self.f_scale = f.get("gain_s"), f.get("scale_frac")
         if self.model == "physics":
             # flat out = no lifting at all: the nominal lap already saves lift_nominal_mj
             self.f_lift0 = f["lift_nominal_mj"]
@@ -126,9 +129,10 @@ class RaceSim:
         # limited by the MGU-K power held for a whole lap (Art. 5.3.2 diagram)
         k_mj = rules["mguk_max_kw"] / 1000 * self.base
         self.b_cap = rules["es_soc_window_mj"]
-        self.b_max = min(rules["es_to_mguk_max_mj_per_lap"], k_mj)
+        self.b_max = min(rules.get("es_to_mguk_max_mj_per_lap", np.inf), k_mj,   # no such cap in 2026
+                         b.get("deploy_max_mj", np.inf))                         # what fits on the straights
         self.b_min = -min(rules["mguk_to_es_max_mj_per_lap"], k_mj)
-        self.b_gain, self.b_scale = b["gain_s_per_mj"], b["scale_mj"]
+        self.b_gain, self.b_scale = b.get("gain_s_per_mj"), b.get("scale_mj")
         if self.model == "placeholder" and (self.b_scale <= -self.b_min
                                             or self.f_scale <= 1 - f["alloc_min_frac"]):
             raise ValueError("energy-term scale must exceed the largest saving allowed")

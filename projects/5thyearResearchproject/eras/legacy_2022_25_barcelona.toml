@@ -1,0 +1,85 @@
+# Era settings: pre-2026 power unit (2022-25), calibrated on the 2024 Spanish GP at Barcelona.
+# Same rules and method as legacy_2022_25.toml (Bahrain); measured numbers from 11th_week.py.
+# [A#] tags point to ASSUMPTIONS.md. Rules source: 2024 Technical Regulations Issue 4, as there.
+
+name = "legacy_2022_25_barcelona"
+
+[race]
+track = "Barcelona"
+calibration_race = "2024 Spanish GP (OpenF1), clean laps"
+laps = 66
+min_stops = 1
+max_stops = 3
+start_compound = "SOFT"          # top 10 all started on softs
+start_tyre_age = 3
+force_change_laps_left = 20      # [A15]
+start_loss_s = 6.896             # [A29]
+
+[rules]
+min_mass_kg = 798.0                  # Art. 4.1
+fuel_flow_max_kg_per_h = 100.0       # Art. 5.2.3
+mguk_max_kw = 120.0                  # Art. 5.3.3
+es_to_mguk_max_mj_per_lap = 4.0      # Art. 5.3.2 diagram
+mguk_to_es_max_mj_per_lap = 2.0      # Art. 5.3.2 diagram [A27]
+es_soc_window_mj = 4.0               # Art. 5.3.2 diagram
+race_fuel_max_kg = 110.0             # [A26]
+
+[track]
+base_lap_s = 78.299
+evolution_s_per_lap = -0.01001
+
+[car]
+mass_empty_kg = 798.0            # [A10]
+fuel_start_kg = 110.0            # [A11]
+fuel_lhv_mj_per_kg = 43.0        # [A12]
+mass_time_s_per_kg = 0.03        # [A8]
+
+[pit]
+inlap_loss_s = 3.730             # [A28]
+outlap_loss_s = 19.25
+
+[tyres]
+wear_mass_exponent = 1.0         # [A13]
+wear_ref = "mid_race"
+
+[tyres.SOFT]
+k0 = 0.0
+k1 = 0.0819
+
+[tyres.MEDIUM]
+k0 = -0.0407
+k1 = 0.0832
+
+[tyres.HARD]
+k0 = 0.198
+k1 = 0.0763
+
+[energy]
+model = "physics"
+
+[energy.fuel]
+alloc_min_frac = 0.9
+alloc_max_frac = 1.1
+coast_k_s = 0.000725             # [A38]
+coast_p = 2.647
+lift_nominal_mj = 0.795
+
+[energy.battery]
+deploy_a_s = 1.839               # [A35]
+deploy_b_mj = 2.520
+deploy_max_mj = 3.46             # what fits on the straights at 120 kW (10th percentile of laps)
+clip_c1_s_per_mj = 0.0135        # [A37]
+clip_c2_s_per_mj2 = 0.0953
+free_harvest_mj = 1.454          # [A36] below the 2 MJ cap here, unlike Bahrain
+inlap_bonus_mj = 0.370
+outlap_bonus_mj = 0.094
+
+[pointmass]
+rho_kg_m3 = 1.17                 # [A34]
+crr = 0.015
+rear_brake_share = 0.4           # [A36]
+deploy_grid_mj = 4.0
+power_kw = 614.0
+cda_m2 = 1.606
+brake_a_m_s2 = 15.18
+brake_b_per_m = 0.00298

@@ -1,0 +1,91 @@
+# Era settings: 2026 rules, calibrated on the 2026 Barcelona-Catalunya GP (14 June).
+# Measured numbers from 11th_week.py; [A#] tags point to ASSUMPTIONS.md.
+# Rules source: 2026 FIA F1 Regulations Section C [Technical] Issue 18 (7 May 2026), in force at this race,
+# and Section B [Sporting] Issue 06. Articles cited here read the same in Issue 19 except where noted. [A42]
+# https://www.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_c_technical_-_iss_18_-_2026-05-07.pdf
+
+name = "2026"
+
+[race]
+track = "Barcelona"
+calibration_race = "2026 Barcelona-Catalunya GP (OpenF1), clean laps"
+laps = 66
+min_stops = 1
+max_stops = 3
+start_compound = "MEDIUM"        # most common start (13 of 22; 3 of the 5 lead-lap finishers)
+start_tyre_age = 0
+force_change_laps_left = 20      # [A15]
+start_loss_s = 7.944             # [A29]
+
+[rules]
+min_mass_kg = 768.0                       # Art. C4.1: 724 kg + Nominal Tyre Mass; 44 kg tyres taken from the
+                                          # widely quoted 768 kg, the FIA tyre figure not found [A46]
+fuel_energy_flow_max_mj_per_h = 3000.0    # Art. C5.2.3 (no mass-flow limit)
+mguk_max_kw = 350.0                       # Art. C5.2.7: ERS-K, electrical DC, both directions
+mguk_taper_a_kw = 1800.0                  # Art. C5.2.8i: deploy <= 1800 - 5 * km/h below 340 km/h
+mguk_taper_b_kw_per_kmh = 5.0
+mguk_to_es_max_mj_per_lap = 8.5           # Art. C5.2.10 recharge per lap; reduced to 7 at some events, set by an
+                                          # FIA notice to teams (B7.2.1b) not found for this race [A42]
+es_soc_window_mj = 4.0                    # Art. C5.2.9
+# No per-lap deploy limit and no race fuel limit appear in Section C or B: see deploy_max_mj, fuel_start_kg.
+
+[track]
+base_lap_s = 82.381
+evolution_s_per_lap = -0.02104
+
+[car]
+mass_empty_kg = 768.0            # [A46]
+fuel_start_kg = 74.9             # [A44] estimated, not published
+fuel_lhv_mj_per_kg = 39.5        # [A44] midpoint of the 38-41 MJ/kg allowed in Appendix C fuel table
+mass_time_s_per_kg = 0.03        # [A8] kept from the old era
+
+[pit]
+inlap_loss_s = 4.060             # [A28]
+outlap_loss_s = 20.50
+
+[tyres]
+wear_mass_exponent = 1.0         # [A13]
+wear_ref = "mid_race"
+
+[tyres.SOFT]
+k0 = 0.0
+k1 = 0.0885
+
+[tyres.MEDIUM]
+k0 = -0.389                      # [A43]
+k1 = 0.1697
+
+[tyres.HARD]
+k0 = -0.140
+k1 = 0.1201
+
+[energy]
+model = "physics"
+
+[energy.fuel]
+alloc_min_frac = 0.9
+alloc_max_frac = 1.1
+coast_k_s = 0.00264              # [A38]
+coast_p = 2.498
+lift_nominal_mj = 0.236
+
+[energy.battery]
+deploy_a_s = 3.329               # [A45]
+deploy_b_mj = 3.611
+deploy_max_mj = 5.27             # no FIA cap: what fits on the straights with the Art. C5.2.8 taper
+clip_c1_s_per_mj = 0.0           # [A45]
+clip_c2_s_per_mj2 = 0.0512
+free_harvest_mj = 3.077          # [A36] well below the 8.5 MJ cap
+inlap_bonus_mj = 0.859
+outlap_bonus_mj = 0.066
+
+[pointmass]
+rho_kg_m3 = 1.17                 # [A34]
+crr = 0.015
+rear_brake_share = 0.4           # [A36]
+ice_fuel_to_wheel = 0.4775       # [A45] 2024's measured efficiency: engine = 398 kW at full flow
+deploy_grid_mj = 12.0
+power_kw = 512.0                 # average on full throttle, engine + real deploy
+cda_m2 = 0.915                   # straight-mode active aero
+brake_a_m_s2 = 13.54
+brake_b_per_m = 0.00264
