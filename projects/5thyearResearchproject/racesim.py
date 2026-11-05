@@ -87,6 +87,7 @@ class RaceState:
     changes: int        # pit stops onto a different compound (ETH b_comp)
     race_time: float
     outlap: bool        # previous lap was an in-lap, so the next lap is an out-lap
+    age: float = 0.0    # laps on the current set (A1: 0 on its first lap)
 
 
 class RaceSim:
@@ -105,6 +106,8 @@ class RaceSim:
         self.inlap_loss, self.outlap_loss = pit["inlap_loss_s"], pit["outlap_loss_s"]
         self.pit_loss = self.inlap_loss + self.outlap_loss     # per stop
         self.tyre = {k: (t[k]["k0"], t[k]["k1"]) for k in COMPOUNDS if k in t}
+        # Oldest a set may get: the tyre model is only used where it was fitted (A48)
+        self.max_age = {k: t[k].get("max_age", np.inf) for k in self.tyre}
         self.beta = t["wear_mass_exponent"]
         self.m_ref = self.m_empty + c["fuel_start_kg"] / 2      # "mid_race"
         f, b = e["fuel"], e["battery"]
@@ -154,7 +157,7 @@ class RaceSim:
         compound = compound or self.start_compound
         age = self.start_age if age is None else age
         return RaceState(0, self.fuel0, self.b_cap, self.mass(self.fuel0), compound,
-                         float(age), 0, 0.0, False)
+                         float(age), 0, 0.0, False, age=float(age))
 
     def mass(self, fuel_mj):
         return self.m_empty + fuel_mj / self.lhv
@@ -217,27 +220,46 @@ class RaceSim:
         b_hi = min(self.b_max, state.batt_mj)
         return float(np.clip(u_f, f_lo, f_hi)), float(np.clip(u_b, b_lo, b_hi))
 
-    def step(self, state, u_f, u_b, pit_to=None, fit_age=0.0):
+    def apply_split(self, state, free, deploy, extra):
+        """Physics model, the agent's own deploy and extra harvest (MJ): all free harvest is
+        taken, extra harvest up to the harvest cap, then deploy cut (or extra, then free
+        harvest given up) so the battery stays inside its window. Returns (D, h, X, net)."""
+        h = min(float(free), self.h_cap)
+        x = float(np.clip(extra, 0.0, self.h_cap - h))
+        d = float(np.clip(deploy, 0.0, self.d_cap))
+        d = min(d, state.batt_mj + h + x)                        # battery >= 0
+        over = (h + x - d) - (self.b_cap - state.batt_mj)        # battery <= full
+        if over > 0:
+            cut = min(x, over)
+            x, h = x - cut, h - (over - cut)
+        return d, h, x, d - h - x
+
+    def step(self, state, u_f, u_b, pit_to=None, fit_age=0.0, split=None):
         """Run one lap. Inputs: fuel energy u_f and net battery energy u_b (MJ) this lap,
         and the pit decision: 0-3 (PIT_CHOICES) or the compound fitted at the end of the
         lap (None = no stop). `fit_age`: laps already on the set fitted (0 = new).
+        `split` (physics model): (deploy, extra harvest) in MJ used as given instead of
+        the best split of u_b, which is then ignored (A49).
         Returns (new state, lap time, components)."""
         if isinstance(pit_to, (int, np.integer)):
             pit_to = PIT_CHOICES[pit_to]
-        u_f, u_b = self.feasible(state, u_f, u_b)
         k = state.lap + 1
         if k == self.laps:
             pit_to = None                       # a stop after the flag does nothing
+        free = self.free_harvest(bool(pit_to), state.outlap) if self.model == "physics" else None
+        if split is not None:
+            d, h, x, u_b = self.apply_split(state, free, *split)
+        u_f, u_b = self.feasible(state, u_f, u_b)
         m_mid = self.mass(state.fuel_mj - u_f / 2)
         k0, k1 = self.tyre[state.compound]
-        free = self.free_harvest(bool(pit_to), state.outlap) if self.model == "physics" else None
         parts = {
             "base": self.base,
             "track": self.evolution * k,
             "fuel mass": self.mass_time * (m_mid - self.m_empty),
             "tyres": k0 + k1 * state.wear,
             "fuel use": self.fuel_term(u_f),
-            "battery": float(self.batt_term(u_b, free)),
+            "battery": float(self.batt_term(u_b, free) if split is None
+                             else -(self._deploy_gain(d) - self._clip_cost(x) - self.b_ref)),
             "start": self.start_loss if k == 1 else 0.0,
             "in-lap": self.inlap_loss if pit_to else 0.0,
             "out-lap": self.outlap_loss if state.outlap else 0.0,
@@ -249,10 +271,14 @@ class RaceSim:
             mass_kg=self.mass(state.fuel_mj - u_f),
             race_time=state.race_time + lap_time, outlap=bool(pit_to),
             compound=pit_to or state.compound, wear=float(fit_age) if pit_to else wear,
-            changes=state.changes + int(bool(pit_to) and pit_to != state.compound))
-        split = dict(zip(("deploy", "harvest_free", "harvest_extra"),
-                         map(float, self.split(u_b, free)))) if free is not None else {}
-        return new, lap_time, {**parts, "u_f": u_f, "u_b": u_b, "mass": m_mid, **split}
+            changes=state.changes + int(bool(pit_to) and pit_to != state.compound),
+            age=float(fit_age) if pit_to else state.age + 1)
+        if free is None:
+            used = {}
+        else:
+            used = (d, h, x) if split is not None else tuple(map(float, self.split(u_b, free)))
+            used = dict(zip(("deploy", "harvest_free", "harvest_extra"), used))
+        return new, lap_time, {**parts, "u_f": u_f, "u_b": u_b, "mass": m_mid, **used}
 
     # --- whole race --------------------------------------------------------------
 
@@ -310,9 +336,13 @@ class RaceSim:
     # --- reference optimiser ("mathematically perfect" target for the agent) ----
 
     def legal(self, compounds, pit_laps):
-        """>= 2 compounds, and the first change no later than the forced-change lap."""
+        """>= 2 compounds, the first change no later than the forced-change lap, and no
+        set older than its compound's max_age at the flag or the next stop."""
         changes = [p for p, (a, b) in zip(pit_laps, zip(compounds, compounds[1:])) if a != b]
-        return bool(changes) and changes[0] <= self.laps - self.force_laps_left
+        bounds = (0, *pit_laps, self.laps)
+        ages = [(self.start_age if i == 0 else 0) + bounds[i + 1] - bounds[i] - 1 for i in range(len(compounds))]
+        return (bool(changes) and changes[0] <= self.laps - self.force_laps_left
+                and all(a <= self.max_age[c] for a, c in zip(ages, compounds)))
 
     def best_plan(self, fuel=None, batt=None, start_compound=None):
         """Exact best pit plan for a fixed energy allocation.
@@ -355,6 +385,8 @@ class RaceSim:
                 total = (k0 * L + k1 * wear_sum).sum(axis=1) + self.pit_loss * n + batt_extra
                 first = _first_change(compounds, sets)
                 total[first > self.laps - self.force_laps_left] = np.inf
+                limit = np.array([self.max_age[c] for c in compounds])
+                total[(age0 + L - 1 > limit).any(axis=1)] = np.inf
                 i = int(np.argmin(total))
                 if np.isfinite(total[i]) and (best is None or total[i] < best[0]):
                     best = (total[i], compounds, tuple(int(x) for x in sets[i]))
@@ -557,32 +589,59 @@ class F1StrategyEnv(gym.Env):
 
     Reward: base lap time - lap time (ETH Eq. 67), so the return is
     -(race time - laps * base) and maximising it minimises race time.
+
+    `split_battery=True` (physics model, A49): action (Box, 4) [F, D, X, P], all 0..1,
+    D = deploy as a fraction of the lap's deploy cap, X = extra harvest as a fraction
+    of the harvest cap; the simulator no longer splits a net number for the agent. The
+    observation gets an 11th entry, laps on the set / that compound's max_age, and a
+    stop onto a new set of the same compound is forced when a set reaches max_age.
     """
 
     metadata = {"render_modes": []}
 
-    def __init__(self, settings):
+    def __init__(self, settings, split_battery=False, no_stop_share=None):
+        """`no_stop_share`: part of the pit output's 0..1 range meaning "no stop" (default:
+        an equal share with each compound); the rest is split equally between compounds."""
         self.sim = RaceSim(settings)
+        self.split_battery = split_battery
+        if split_battery and self.sim.model != "physics":
+            raise ValueError("split_battery needs the physics energy model")
         self.pit_options = tuple(c for c in PIT_CHOICES if c is None or c in self.sim.tyre)
-        self.action_space = spaces.Box(np.array([0, -1, 0], np.float32),
-                                       np.array([1, 1, 1], np.float32))
-        self.observation_space = spaces.Box(-10.0, 10.0, shape=(10,), dtype=np.float32)
+        n = len(self.pit_options)
+        share = 1 / n if no_stop_share is None else no_stop_share
+        self.pit_edges = np.r_[0.0, share + (1 - share) * np.arange(n - 1) / (n - 1)]  # lower edge of each bin
+        if split_battery:
+            self.action_space = spaces.Box(np.zeros(4, np.float32), np.ones(4, np.float32))
+        else:
+            self.action_space = spaces.Box(np.array([0, -1, 0], np.float32),
+                                           np.array([1, 1, 1], np.float32))
+        n_obs = 11 if split_battery else 10
+        self.observation_space = spaces.Box(-10.0, 10.0, shape=(n_obs,), dtype=np.float32)
         self.state, self.last_lap = None, 0.0
 
     def decode(self, action):
-        F, B, P = np.clip(action, self.action_space.low, self.action_space.high)
+        """(fuel MJ, battery, pit): battery is the net MJ, or (deploy, extra) with split_battery."""
+        a = np.clip(action, self.action_space.low, self.action_space.high)
         s = self.sim
+        F, P = a[0], a[-1]
         u_f = s.f_min + F * (s.f_max - s.f_min)
-        u_b = s.b_min + (B + 1) / 2 * (s.b_max - s.b_min)
-        pit = self.pit_options[min(int(P * len(self.pit_options)), len(self.pit_options) - 1)]
-        return u_f, u_b, pit
+        if self.split_battery:
+            batt = (a[1] * s.d_cap, a[2] * s.h_cap)
+        else:
+            batt = s.b_min + (a[1] + 1) / 2 * (s.b_max - s.b_min)
+        pit = self.pit_options[int(np.searchsorted(self.pit_edges, P, side="right")) - 1]
+        return u_f, batt, pit
 
     def encode(self, u_f, u_b, pit):
-        """Inverse of decode: the action that produces (u_f, u_b, pit)."""
+        """Inverse of decode: the action that produces (u_f, battery, pit)."""
         s = self.sim
         F = (u_f - s.f_min) / (s.f_max - s.f_min)
+        i = self.pit_options.index(pit)
+        P = 0.5 * (self.pit_edges[i] + np.r_[self.pit_edges[1:], 1.0][i])
+        if self.split_battery:
+            d, x = u_b
+            return np.array([F, d / s.d_cap, x / s.h_cap, P], np.float32)
         B = 2 * (u_b - s.b_min) / (s.b_max - s.b_min) - 1
-        P = (self.pit_options.index(pit) + 0.5) / len(self.pit_options)
         return np.array([F, B, P], np.float32)
 
     def _obs(self):
@@ -598,7 +657,8 @@ class F1StrategyEnv(gym.Env):
             float(st.outlap),
             (self.last_lap - s.base) / s.pit_loss,
             (s.laps - st.lap) / s.laps,
-        ], dtype=np.float32)
+        ] + ([st.age / min(s.max_age[st.compound], s.laps)] if self.split_battery else []),
+            dtype=np.float32)
 
     def reset(self, *, seed=None, options=None):
         super().reset(seed=seed)
@@ -606,14 +666,19 @@ class F1StrategyEnv(gym.Env):
         return self._obs(), {}
 
     def step(self, action):
-        u_f, u_b, pit = self.decode(action)
+        u_f, batt, pit = self.decode(action)
         s, st = self.sim, self.state
         forced = False
         left_after = s.laps - st.lap - 1
         if st.changes == 0 and left_after <= s.force_laps_left and (pit is None or pit == st.compound):
             pit = "HARD" if st.compound != "HARD" else "MEDIUM"
             forced = True
-        self.state, lap_time, parts = s.step(st, u_f, u_b, pit)
+        if pit is None and left_after > 0 and st.age + 1 > s.max_age[st.compound]:
+            pit, forced = st.compound, True          # set at its age limit: new set, same compound
+        if self.split_battery:
+            self.state, lap_time, parts = s.step(st, u_f, 0.0, pit, split=batt)
+        else:
+            self.state, lap_time, parts = s.step(st, u_f, batt, pit)
         self.last_lap = lap_time
         terminated = self.state.lap == s.laps
         info = {"lap_time": lap_time, "forced_change": forced, **parts}

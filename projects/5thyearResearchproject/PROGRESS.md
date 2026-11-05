@@ -1,14 +1,14 @@
 # Progress log
 
 One entry per week block: what was built, the results, what went wrong, and what is still open.
-Assumptions are numbered in [ASSUMPTIONS.md](ASSUMPTIONS.md) (A1–A47); every number below can be
+Assumptions are numbered in [ASSUMPTIONS.md](ASSUMPTIONS.md) (A1–A56); every number below can be
 reproduced by running that week's script with the project's `.venv`.
 
 **Project:** train an RL strategist on a 2022–25-rules race simulator, drop it into a 2026-rules
 simulator, and measure the time lost per race and how fast retraining recovers it.
 Hypothesis: pit timing transfers, energy management breaks.
 
-**Calibration race:** 2024 Bahrain GP, 57 laps.
+**Calibration race:** 2024 Bahrain GP, 57 laps (Weeks 1–10); 2024 and 2026 Spanish GP at Barcelona, 66 laps (Week 11 on).
 
 ---
 
@@ -319,6 +319,119 @@ candidate, but its 2026 telemetry drifts off the lap-time clock from about lap 6
 - The 2026 benchmark passes every check but isn't believable: all real strategies lose 15–29 s. The linear soft fit is the
   likely cause, so results are given both ways (A43). This needs a real fix before RL scores against it.
 - The 58 s energy figure rests on the model deploying nearly twice the real cars' 2.77 MJ, so it is an upper bound (A45).
+- I first read Section C Issue 17, then Issue 19, but the Barcelona race (14 June) ran under Issue 18 (7 May). The
+  articles we cite were compared across 18 and 19: the same apart from a per-cylinder flow limit and a Low Grip sentence.
+- Hungary was the first choice (no safety car in either year), but its 2026 telemetry drifts off the lap-time clock
+  from about lap 6: cars appeared to cross the line at 83–311 km/h. Barcelona passes the same test (8 km/h spread).
+
+---
+
+## Week 12: stint limits, split battery action, the RL agent (`12th_week.py`, 4–5 Nov)
+
+**Left from Week 11, done first**
+- **Battery action split:** the agent now chooses deploy and extra harvest itself (A49). The environment replays each
+  era's exact optimum to 1e-4 s.
+- **2026 soft tyre fixed:** each compound is only used up to the age the data covers (A48); longer stints are illegal for
+  the optimiser and forced stops in the environment. 2026 soft wear went from 0.089 to 0.165 s/lap.
+- **3 stops rechecked (A32b):** with the age limits a 3-stop plan wins in 2026. New benchmarks:
+  2024 S20 → M23 → M23, 5366.38 s; 2026 M14 → H17 → H17 → H18, 5599.34 s. Real 2026 strategies now lose 3.6–5.2 s
+  (Verstappen 17.9 s), not 15–29 s.
+- No-RL transfer test, final: stop laps +1.15 s, whole old plan +13.3 s, energy with the net number +0.28 s, energy
+  with old amounts kept +22 to +58 s.
+
+**Built:** SAC (Stable-Baselines3 2.7.0) on the split-action environment, VecNormalize, reward in seconds per lap,
+5 seeds per case, 200,000 steps per run (A50). Cases: train 2024; train 2026 from scratch; 2024 agents dropped into
+2026 unchanged; those agents then trained 100,000 more steps on 2026. Losses split into pit/tyre and energy.
+
+**Results (v2, mean ± sd over 5 seeds, seconds behind each era's benchmark)**
+
+| Case | Lost | Pit/tyre | Energy |
+|---|---|---|---|
+| 2024 agent in 2024 | +2.4 ± 0.3 | +1.0 ± 0.5 | +1.4 ± 0.4 |
+| 2026 agent in 2026, from scratch | +11.8 ± 13.9 | +8.6 ± 13.3 | +3.3 ± 1.2 |
+| 2024 agent in 2026, zero-shot | +26.8 ± 7.9 | +18.7 ± 9.1 | +8.1 ± 2.5 |
+| …same, starting on softs (A51) | +12.9 ± 7.5 | +4.5 ± 8.2 | +8.5 ± 5.3 |
+| 2024 agent after 100k steps on 2026 | +12.0 ± 8.5 | +9.8 ± 9.2 | +2.2 ± 0.9 |
+
+- Baselines: never stop (unless forced) 2024 +27.7 s, 2026 +17.8 s; random 2024 +46.8 s, 2026 +80.2 s.
+  Every 2024 seed beats both; 2026 seed 3 does not (it learned, then collapsed, A53). Without it, 2026 from scratch is
+  +5.6 ± 2.0 s.
+- **Energy breaks on arrival:** zero-shot energy loss +8 s, against +1.4 s (2024) and +3.3 s (2026) for agents in their
+  own era. The typical lap is close to the 2026 optimum (deploy 4.3–5.2 MJ against 5.27) because actions are fractions of
+  each era's limits (A49). The loss comes from uneven laps and battery left unused at the flag (up to 4 MJ). So the
+  scaled action hides most of the 22–58 s the no-RL test found with the old MJ amounts kept.
+- **Pit/tyre also breaks, for a tyre reason:** the 2024 agents keep 2024 stint lengths (about 21 laps on softs), which
+  2026's faster-wearing tyres don't allow, so the environment forces stops (S16 → S16 → S14 → H20 on 4 of 5 soft-start
+  runs). That is a tyre change between seasons, not the power-unit rules.
+- **Recovery:** the 2024 agents start ahead (+13.7 s against +24.0 s after 10,000 steps) but end behind (+7.6 s against
+  +4.8 s at 100,000 steps, medians). Their energy loss recovers as fast as from scratch (about 40,000 steps); the
+  pit/tyre loss is what stays high.
+
+**Problems**
+- **v1 pit output (equal quarters):** 4 of 5 2024 agents learned to stop after lap 1, about 17 s each. Half the range now
+  means "no stop" (A52); v1 is kept in `results/rl_v1_equal_pit_bins` and `models/v1_equal_pit_bins`.
+- **v1 zero-shot:** some agents stopped on almost every lap, because the 2026 start compound (medium) was never seen at lap 0
+  in 2024. The soft-start check (A51) separates that out.
+- The random baseline first stopped on most laps (+1042 s). It now matches Weeks 3–4 (a stop with probability 2/laps).
+- My first pit-bin code put "no stop" on half the range even by default; caught by checking the old mapping.
+- The check "every 2026 seed beats the baselines" failed (seed 3). It is reported, not loosened or hidden, with every
+  run's final, best and last-5 scores.
+- The session restarted mid-run; the training job survived and finished.
+
+---
+
+## Weeks 13–14: the main experiments, and small fixes (`13th_14th_week.py`, `run_all.py`, 5 Nov)
+
+**Built**
+- **Transfer, a second reading (A54):** the same 2024 agents in 2026 with the battery action kept in 2024 MJ rather
+  than scaled to the 2026 limits.
+- **Adaptation (A55):** the 2024 agents trained on 2026 for 200,000 steps, the same budget as from scratch. Scored every
+  10,000 steps. The first 100,000 steps reproduce Week 12 exactly.
+- **Context (A56):** everything compared with a normal season's change, the ~2 s lost by planning 2024 Bahrain with
+  2023 numbers (Weeks 1–2).
+- **A8 and A12 sourced and checked** (step 4), and `run_all.py`, which runs every week in order, stops at the first
+  failure, and lists every saved result or figure that changed.
+
+**Results** (seconds behind the 2026 benchmark, mean ± sd over 5 seeds)
+
+| 2024 agent in 2026 | Lost | Pit/tyre | Energy |
+|---|---|---|---|
+| zero-shot, battery as fractions of each era's limits (A49) | +26.8 ± 7.9 | +18.7 ± 9.1 | +8.1 ± 2.5 |
+| zero-shot, battery in absolute 2024 MJ (A54) | +49.3 ± 5.9 | +18.0 ± 8.0 | +31.3 ± 5.7 |
+
+| Steps on 2026 | Retrained 2024 agent | From scratch |
+|---|---|---|
+| 0 | +26.8 ± 7.9 (median +21.9) | — |
+| 10,000 | +18.9 ± 9.9 (+13.7) | +28.2 ± 9.9 (+24.0) |
+| 50,000 | +14.6 ± 7.9 (+13.7) | +7.6 ± 2.8 (+7.0) |
+| 100,000 | +12.0 ± 8.5 (+7.6) | +5.4 ± 1.3 (+4.8) |
+| 200,000 | +9.1 ± 4.2 (+8.4) | +11.8 ± 13.9 (+5.0) |
+
+- **Energy breaks, and how much depends on the reading:** if the old strategist keeps its 2024 MJ, the energy loss is
+  +31 s (the no-RL test gave +22 to +58 s); if its actions scale with the new limits, +8 s. Pit/tyre loss is the same,
+  +18 s, either way.
+- **Pit/tyre does not transfer either:** the 2024 stint lengths exceed 2026 tyre life (A48), so stops are forced.
+- **Recovery is fast for energy, slow for pit stops:** the energy loss falls to the from-scratch level within
+  10,000–50,000 steps. The pit/tyre loss is still +5.4 s at 200,000 steps (from scratch: +2.6 s at 100,000). The 2024
+  start helps only for the first 20,000 steps; after that the agents trained from scratch are ahead. The retrained median
+  first comes within 2 s of the from-scratch level at 140,000 steps.
+- **Context:** zero-shot loses 11× (fractions) to 24× (absolute MJ) a normal season's change. Even after 200,000 steps the
+  transfer still costs +3.3 s (median), more than a normal season.
+- Every retrained seed beats never-stop and random. Seed 3 reached +4.8 s and ended at +14.9 s (energy +12 s): the same
+  late collapse as Week 12 (A53).
+- **A8 (0.03 s/kg):** the TUM race simulation's published values are 0.023 (Sakhir) to 0.033 s/kg (Catalunya), for 2019
+  cars. Our data can't separate mass from track evolution; the point-mass straights give only 0.003 s/kg, because mass
+  costs time mainly in corners. Over 0.023–0.033 every benchmark keeps its plan and moves ≤ 0.2 s. Kept.
+- **A12 (43 MJ/kg):** petrol 43.5–44.0 MJ/kg (Heywood; ORNL), E10 fuel 41.8–42.3. Over that range every 2024 benchmark
+  keeps its plan and moves ≤ 0.03 s. Kept.
+
+**Problems**
+- The first training launch failed: the worker processes could not import the Week 12 module loaded by file path. A
+  wrapper in the Week 13–14 file fixed it.
+- The first A8 check moved race times by −51 to +22 s, because only the lap trend was refitted and not the base lap.
+  With both moved as a refit would, the change is ≤ 0.2 s.
+- I could not open Heywood's table or the 2022 fuel article; both are marked to check against the originals (A12).
+- Alonso's −6 s replay error and the lap-1 grid effect are left as logged limitations, as the reviewer suggested.
 
 ---
 
@@ -348,14 +461,17 @@ The useful parts are in `src/`:
 
 ## Next steps
 
-1. **Split the battery action before RL:** give the environment deploy and harvest as separate decisions, in both eras.
-   With one net number the energy transfer loss is hidden (0.25 s against 22–58 s).
-2. **Fix the 2026 soft tyre:** a wear cliff or stint-length limit, then rerun the benchmark. Real strategies should lose a few seconds, not 15+.
-3. **Check the 2026 deploy gap:** the model deploys 5.26 MJ, real cars about 2.8 MJ on the straights. Track the 4 MJ window within a lap (A39, A45).
-4. **RL agent:** train on Barcelona 2024, test on Barcelona 2026, score against the fixed benchmark.
-5. **Find sources:** the Barcelona race recharge notice (A42), Nominal Tyre Mass (A46), A8, A12, A36.
-6. **Open questions:** Alonso's replay error; lap-1 loss by grid position (A29); no tyre warm-up term; pit laps miss part of a straight (A37).
-7. **Housekeeping:** add `run_all.py`; decide what to do with `projects/shot.py`.
+1. **Separate the tyre effect from the power-unit effect:** rerun zero-shot and retraining in a 2026 simulator with 2024
+   tyres, so the pit/tyre loss measures the rules change, not Pirelli's. Most of the remaining transfer cost is pit/tyre.
+2. **More robust training:** late collapses on 2 of 15 runs (2026 seed 3; retrained seed 3). Try a lower learning rate,
+   more seeds, or scoring over several races; keep reporting the final agent.
+3. **Recovery:** try a fresh pit head (keep the energy layers, relearn pit decisions), since pit habits are what does not
+   come back.
+4. **Write-up:** the hypothesis as two numbers per reading (fractions, absolute MJ), the recovery curve, and the 2 s
+   context.
+5. **Still open:** deploy gap (model 5.3 MJ, real ~2.8 MJ, A45); Barcelona's race recharge notice (A42); Nominal Tyre
+   Mass (A46); A36; check Heywood's table and the 2022 E10 article (A12); A8 for heavier 2026 cars; Alonso's replay
+   error and lap-1 grid effect (logged limitations); `projects/shot.py`.
 
 ## Lessons
 

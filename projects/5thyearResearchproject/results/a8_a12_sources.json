@@ -1,0 +1,82 @@
+{
+ "tum_mass": {
+  "Catalunya 2019": 0.033,
+  "Sakhir 2019": 0.023,
+  "Budapest 2019": 0.028,
+  "Monza 2019": 0.027,
+  "Singapore 2019": 0.03
+ },
+ "straights_s_per_kg": 0.003047074218215329,
+ "lhv_e10": {
+  "Heywood": 42.29,
+  "ORNL": 41.82
+ },
+ "cases": {
+  "2024 Bahrain": {
+   "A8 0.023 s/kg": {
+    "time_change_s": 0.10439822696116607,
+    "plan": "S15 -> H21 -> H21",
+    "same_plan": true
+   },
+   "A8 0.033 s/kg": {
+    "time_change_s": -0.04554911955438001,
+    "plan": "S15 -> H21 -> H21",
+    "same_plan": true
+   },
+   "A12 42.3 MJ/kg (Heywood E10)": {
+    "time_change_s": -0.007925145811896073,
+    "plan": "S15 -> H21 -> H21",
+    "same_plan": true
+   },
+   "A12 41.8 MJ/kg (ORNL E10)": {
+    "time_change_s": -0.01332688767433865,
+    "plan": "S15 -> H21 -> H21",
+    "same_plan": true
+   },
+   "A12 44.0 MJ/kg (petrol)": {
+    "time_change_s": 0.010707901958085131,
+    "plan": "S15 -> H21 -> H21",
+    "same_plan": true
+   }
+  },
+  "2024 Barcelona": {
+   "A8 0.023 s/kg": {
+    "time_change_s": 0.2036098471699006,
+    "plan": "S20 -> M23 -> M23",
+    "same_plan": true
+   },
+   "A8 0.033 s/kg": {
+    "time_change_s": -0.08932887117134669,
+    "plan": "S20 -> M23 -> M23",
+    "same_plan": true
+   },
+   "A12 42.3 MJ/kg (Heywood E10)": {
+    "time_change_s": -0.01545637745221029,
+    "plan": "S20 -> M23 -> M23",
+    "same_plan": true
+   },
+   "A12 41.8 MJ/kg (ORNL E10)": {
+    "time_change_s": -0.025999977269748342,
+    "plan": "S20 -> M23 -> M23",
+    "same_plan": true
+   },
+   "A12 44.0 MJ/kg (petrol)": {
+    "time_change_s": 0.020864423910097685,
+    "plan": "S20 -> M23 -> M23",
+    "same_plan": true
+   }
+  },
+  "2026 Barcelona": {
+   "A8 0.023 s/kg": {
+    "time_change_s": 0.07318417698206758,
+    "plan": "M14 -> H17 -> H17 -> H18",
+    "same_plan": true
+   },
+   "A8 0.033 s/kg": {
+    "time_change_s": -0.031854800410656026,
+    "plan": "M14 -> H17 -> H17 -> H18",
+    "same_plan": true
+   }
+  }
+ }
+}

@@ -2,3 +2,5 @@
 __pycache__/
 fastf1_cache/
 figures/
+models/
+logs/

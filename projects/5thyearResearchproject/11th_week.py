@@ -8,7 +8,8 @@ Barcelona (2024 Spanish GP, 2026 Barcelona GP). Each year goes through the same 
 2. Tyres, base lap, pit and start losses from the race's laps (Weeks 2, 3-4, 5-6).
 3. Car, mini-sim curves, free harvest, lifting (Weeks 9-10), with each era's MGU-K rules.
 4. Closed forms. Check: settings files hold what was measured.
-5. Exact optimiser, every 1-2 stop plan, both eras; convexity with random starts.
+5. Exact optimiser, every 1-2 stop plan and every 3-stop plan that could win, both eras;
+   convexity with random starts.
 6. Transfer test: the 2024 optimum run in the 2026 simulator, split into seconds lost
    to the pit plan and to the energy pattern. If that is near zero, RL has little to show.
 7. Sensitivity of the test to what is not published: harvest cap, fuel load, rear share.
@@ -44,7 +45,7 @@ ERAS = {2024: "legacy_2022_25_barcelona.toml", 2026: "2026.toml"}
 CURVE_EVERY = 3
 MAX_STOPS = 2
 N_PLANS_CONVEX, N_STARTS = 5, 10
-THROTTLE_REF_YEAR = 2024
+AGE_BIN, AGE_MIN_LAPS = 4, 10        # A48: a compound is used up to the last 4-lap age band with 10+ clean laps
 SUCCESS = "Solve_Succeeded"
 TOL = 1e-6
 CALIBRATE = bool(os.environ.get("CALIBRATE"))
@@ -132,6 +133,14 @@ def step2_race(year, settings, data):
     print(f"\nStep 2, {year}: {race_laps} laps, {len(clean)} clean, {len(fit_laps)} in free air "
           f"{dict(fit_laps['Compound'].value_counts())}")
     burn = car["fuel_start_kg"] / race_laps
+    max_age = {}
+    for c, d in clean.groupby("Compound"):
+        n = d.groupby(d["Age"] // AGE_BIN).size()
+        dense = n.index[n >= AGE_MIN_LAPS]
+        max_age[c] = int((dense.max() + 1) * AGE_BIN - 1)
+    print(f"  oldest age with data (A48): {max_age}; clean laps beyond: "
+          f"{ {c: int((clean[clean['Compound'] == c]['Age'] > a).sum()) for c, a in max_age.items()} }")
+    clean = clean[clean["Age"] <= clean["Compound"].map(max_age)]
     corrected = clean.copy()            # A43: 2026 has too few free-air laps on softs; same method both years
     corrected["LapTimeS"] -= car["mass_time_s_per_kg"] * (car["fuel_start_kg"] - burn * (corrected["LapNumber"] - 0.5))
     params, se, track, track_se, offsets, _ = w2.fit_tyre_model(corrected)
@@ -151,7 +160,7 @@ def step2_race(year, settings, data):
         check(r["laps"] == race_laps and r["start_compound"] == start_c and r["start_tyre_age"] == age,
               f"{year}: settings race matches ({race_laps} laps, starts {start_c.lower()} age {age:.0f})")
     for c, (k0, k1) in params.items():
-        check_file({"k0": k0, "k1": k1}, settings["tyres"].get(c, {}), f"{year} {c.lower()}", rel=0.05)
+        check_file({"k0": k0, "k1": k1, "max_age": max_age[c]}, settings["tyres"].get(c, {}), f"{year} {c.lower()}", rel=0.05)
 
     if CALIBRATE and "energy" not in settings:
         return params
@@ -301,9 +310,27 @@ def plan_table(sim, year):
     print(f"  solver status {dict(statuses)}")
     check(bad == 0 or df["status"].iloc[0] == SUCCESS and bad / len(df) < 0.01,
           f"{year}: solves succeeded on {statuses[SUCCESS]} of {len(df)} plans, including the fastest")
+    # 3 stops (A32 re-checked under the age limits, A48): exact energy can save at most
+    # `gain` on any plan, so only 3-stop plans within twice that at nominal energy can win
+    nominal = np.array([sim.race_time(c, p, *sim.nominal_alloc()) for c, p in zip(df["compounds"], df["pits"])])
+    gain = float(np.max(nominal - df["time"].to_numpy()))
+    three = racesim.RaceSim(racesim.override(sim.settings, **{"race.min_stops": 3}))
+    nom3 = [(sim.race_time(c, p, *sim.nominal_alloc()), c, p) for c, p in three.plans(3)]
+    near = [(c, p) for t, c, p in nom3 if t - best[0] < 2 * gain]
+    rows3 = [(c, p, *sim.optimal_energy(c, p)[::3]) for c, p in near]
+    print(f"  3 stops: {len(nom3)} legal plans, best at nominal energy {min(t for t, *_ in nom3) - best[0]:+.2f} s; "
+          f"{len(near)} within 2 x the largest energy gain ({gain:.2f} s) solved exactly")
+    if rows3:
+        df = pd.concat([df, pd.DataFrame(rows3, columns=["compounds", "pits", "time", "status"])])
+        df = df.sort_values("time").reset_index(drop=True)
+        if df["time"].iloc[0] < best[0]:
+            c, p = df.loc[0, "compounds"], df.loc[0, "pits"]
+            t, fuel, batt, _ = sim.optimal_energy(c, p)
+            best = (t, c, p, fuel, batt)
+    check((df["status"] == SUCCESS).all(), f"{year}: every 3-stop solve succeeded")
     df["gap"] = df["time"] - best[0]
     df["plan"] = [describe(c, p, sim.laps) for c, p in zip(df["compounds"], df["pits"])]
-    print(f"  OPTIMUM {year}: {describe(best[1], best[2], sim.laps)}, {best[0]:.3f} s")
+    print(f"  OPTIMUM {year} (1-3 stops): {describe(best[1], best[2], sim.laps)}, {best[0]:.3f} s")
     for _, r in df.head(3).iterrows():
         print(f"    {r['plan']:<20} {r['time']:10.3f} s {r['gap']:+7.3f} s")
     return best, df
@@ -381,8 +408,9 @@ def step6b_tyres(sim, old, b_new, b_old, r_old, df, data):
     repeated with soft stints after the start ruled out, as the real field raced."""
     print("\nStep 6b: is the plan loss real? Real 2026 strategies against the benchmark:")
     real = real_strategies(sim, data, b_new[0])
-    print(f"  median {np.median([x[3] for x in real]):.1f} s lost (Bahrain 2024: 1.6 s): too much to be strategy")
-    no_soft = df[[all(x != "SOFT" for x in c) for c in df["compounds"]]].iloc[0]
+    med = np.median([x[3] for x in real])
+    print(f"  median {med:.1f} s lost (Bahrain 2024: 1.6 s)" + (": too much to be strategy" if med > 10 else ""))
+    no_soft = df[[all(x != "SOFT" for x in c) for c in df["compounds"]]].iloc[0]       # A43 check
     t, f, b, _ = sim.optimal_energy(no_soft["compounds"], no_soft["pits"])
     alt = (t, no_soft["compounds"], no_soft["pits"], f, b)
     print(f"  fastest plan without softs: {no_soft['plan']}, {t:.3f} s (+{t - b_new[0]:.2f} s); real strategies against it:")

@@ -30,8 +30,8 @@ es_soc_window_mj = 4.0                    # Art. C5.2.9
 # No per-lap deploy limit and no race fuel limit appear in Section C or B: see deploy_max_mj, fuel_start_kg.
 
 [track]
-base_lap_s = 82.381
-evolution_s_per_lap = -0.02104
+base_lap_s = 81.928
+evolution_s_per_lap = -0.02017
 
 [car]
 mass_empty_kg = 768.0            # [A46]
@@ -49,15 +49,18 @@ wear_ref = "mid_race"
 
 [tyres.SOFT]
 k0 = 0.0
-k1 = 0.0885
+k1 = 0.1646
+max_age = 15                   # [A48] oldest age with 10+ clean laps in a 4-lap band
 
 [tyres.MEDIUM]
-k0 = -0.389                      # [A43]
-k1 = 0.1697
+k0 = 0.0505                      # [A43, A48]
+k1 = 0.1706
+max_age = 19                   # [A48] oldest age with 10+ clean laps in a 4-lap band
 
 [tyres.HARD]
-k0 = -0.140
-k1 = 0.1201
+k0 = 0.2932
+k1 = 0.1197
+max_age = 27                   # [A48] oldest age with 10+ clean laps in a 4-lap band
 
 [energy]
 model = "physics"

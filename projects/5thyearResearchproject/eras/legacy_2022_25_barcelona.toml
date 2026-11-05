@@ -25,8 +25,8 @@ es_soc_window_mj = 4.0               # Art. 5.3.2 diagram
 race_fuel_max_kg = 110.0             # [A26]
 
 [track]
-base_lap_s = 78.299
-evolution_s_per_lap = -0.01001
+base_lap_s = 78.3
+evolution_s_per_lap = -0.01005
 
 [car]
 mass_empty_kg = 798.0            # [A10]
@@ -45,14 +45,17 @@ wear_ref = "mid_race"
 [tyres.SOFT]
 k0 = 0.0
 k1 = 0.0819
+max_age = 23                   # [A48] oldest age with 10+ clean laps in a 4-lap band
 
 [tyres.MEDIUM]
-k0 = -0.0407
-k1 = 0.0832
+k0 = -0.046
+k1 = 0.084
+max_age = 27                   # [A48] oldest age with 10+ clean laps in a 4-lap band
 
 [tyres.HARD]
-k0 = 0.198
-k1 = 0.0763
+k0 = 0.1877
+k1 = 0.0774
+max_age = 31                   # [A48] oldest age with 10+ clean laps in a 4-lap band
 
 [energy]
 model = "physics"
