@@ -1,7 +1,7 @@
 # Progress log
 
 One entry per week block: what was built, the results, what went wrong, and what is still open.
-Assumptions are numbered in [ASSUMPTIONS.md](ASSUMPTIONS.md) (A1–A56); every number below can be
+Assumptions are numbered in [ASSUMPTIONS.md](ASSUMPTIONS.md) (A1–A58); every number below can be
 reproduced by running that week's script with the project's `.venv`.
 
 **Project:** train an RL strategist on a 2022–25-rules race simulator, drop it into a 2026-rules
@@ -435,6 +435,58 @@ candidate, but its 2026 telemetry drifts off the lap-time clock from about lap 6
 
 ---
 
+## Week 15: tyres against power unit (`15th_week.py`, 6 Nov)
+
+**Built**
+- Two mixed simulators (A57): 2026 rules with 2024 tyres ("power unit only"), and 2024 rules with 2026 tyres ("tyres
+  only"). Each has its own exact benchmark. The 2024 agents are dropped into each with no retraining, and the battery is
+  read both ways (fractions, A49; absolute 2024 MJ, A54).
+- Checks: only the tyre settings differ from the host era, and both readings agree in the 2024-PU world (scale 1).
+
+**Results**
+- **Benchmarks:** "power unit only" S20 → M23 → M23, the 2024 plan (2026 is M14 → H17 → H17 → H18); "tyres only"
+  M13 → H17 → H18 → H18, close to the 2026 plan. **The best pit plan is set by the tyres, not the power-unit rules.**
+- 2024 agents, no retraining, mean over 5 seeds (s behind each world's own benchmark):
+
+  | World | Reading | Lost | Pit/tyre | Energy |
+  |---|---|---|---|---|
+  | own era (2024) | — | +2.4 | +1.0 | +1.4 |
+  | tyres only | either | +22.3 ± 4.9 | +19.1 ± 5.0 | +3.2 ± 0.3 |
+  | power unit only | fractions | +18.6 ± 10.3 | +9.1 ± 9.9 | +9.5 ± 4.5 |
+  | power unit only | absolute MJ | +35.1 ± 4.7 | +3.0 ± 4.6 | +32.1 ± 4.3 |
+  | both (2026) | fractions | +26.8 ± 7.9 | +18.7 ± 9.1 | +8.1 ± 2.5 |
+  | both (2026) | absolute MJ | +49.3 ± 5.9 | +18.0 ± 8.0 | +31.3 ± 5.7 |
+
+- **The hypothesis holds for the power-unit rules:** with the old tyres kept and the battery in absolute MJ, pit timing
+  loses +3.0 s and energy +32.1 s. The +18 s pit/tyre loss in 2026 comes from the tyres (+18 s added by tyres, +2 s by
+  the power unit).
+- With the fraction reading, the power-unit-only pit loss is larger (+9.1 s, two seeds stop 3 times). The energy actions
+  change the laps, which pushes some agents into extra stops.
+- The effects don't add (interaction −12 s fractions, −6 s absolute): both changes push the agents into extra stops, and
+  those overlap.
+- **Recovery from the power unit alone (A58):** the 2024 agents retrained in "2026 PU, 2024 tyres" against agents trained
+  there from scratch (mean, median in brackets; s behind that world's benchmark):
+
+  | Steps | Retrained, PU only | Scratch, PU only | Retrained, 2026 (both) | Scratch, 2026 (both) |
+  |---|---|---|---|---|
+  | 0 | +18.6 (+21.3) | — | +26.8 (+21.9) | — |
+  | 10,000 | +7.2 (+3.0) | +34.6 (+33.6) | +18.9 (+13.7) | +28.2 (+24.0) |
+  | 50,000 | +3.0 (+3.0) | +6.8 (+6.2) | +14.6 (+13.7) | +7.6 (+7.0) |
+  | 100,000 | +2.8 (+3.0) | +6.3 (+5.8) | +12.0 (+7.6) | +5.4 (+4.8) |
+  | 200,000 | +2.4 (+2.9) | +4.3 (+4.5) | +9.1 (+8.4) | +11.8 (+5.0) |
+
+  Without the tyre change, the old agents recover within 10,000 steps (median +3.0 s, inside a normal season's 2 s of
+  the from-scratch level) and stay ahead of agents trained from scratch for all 200,000 steps. Energy recovers in about
+  10,000 steps and pit/tyre stays near +1 s: the old pit timing is kept and only the energy has to be relearned. In
+  real 2026 the 2024 start helps only for 20,000 steps, because the stint habits have to be unlearned. No run collapsed.
+  Figure: `figures/week15_recovery.png`.
+
+**Problems**
+- None new. The tyres-only world starts on new mediums, which the agents never saw (A51); that start is counted as tyre
+  loss.
+
+---
+
 ## Reference: IAmTomShaw/f1-race-replay
 
 https://github.com/IAmTomShaw/f1-race-replay, checked 16 Oct.
@@ -461,14 +513,13 @@ The useful parts are in `src/`:
 
 ## Next steps
 
-1. **Separate the tyre effect from the power-unit effect:** rerun zero-shot and retraining in a 2026 simulator with 2024
-   tyres, so the pit/tyre loss measures the rules change, not Pirelli's. Most of the remaining transfer cost is pit/tyre.
+1. **Recovery in 2026 with a fresh pit head:** keep the energy layers and relearn pit decisions, since in real 2026 the
+   tyre habits are what does not come back (Week 15).
 2. **More robust training:** late collapses on 2 of 15 runs (2026 seed 3; retrained seed 3). Try a lower learning rate,
    more seeds, or scoring over several races; keep reporting the final agent.
-3. **Recovery:** try a fresh pit head (keep the energy layers, relearn pit decisions), since pit habits are what does not
-   come back.
-4. **Write-up:** the hypothesis as two numbers per reading (fractions, absolute MJ), the recovery curve, and the 2 s
-   context.
+3. **Fair-budget check:** compare a retrained agent with a from-scratch agent at equal total steps (A58).
+4. **Write-up:** the hypothesis as two numbers per reading (fractions, absolute MJ), split into tyres and power unit
+   (Week 15), the recovery curves, and the 2 s context.
 5. **Still open:** deploy gap (model 5.3 MJ, real ~2.8 MJ, A45); Barcelona's race recharge notice (A42); Nominal Tyre
    Mass (A46); A36; check Heywood's table and the 2022 E10 article (A12); A8 for heavier 2026 cars; Alonso's replay
    error and lap-1 grid effect (logged limitations); `projects/shot.py`.

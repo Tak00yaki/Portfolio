@@ -54,7 +54,12 @@ C1, C2, C3, C4 = "#2a78d6", "#eb6834", "#1baf7a", "#eda100"
 INK, MUTED, GRID = "#1f1f1e", "#6b6a64", "#e6e5e0"
 
 
+WORLDS = {}                 # other settings by name, registered by later weeks (Week 15's mixed simulators)
+
+
 def settings(era):
+    if era in WORLDS:
+        return WORLDS[era]
     return racesim.load_settings(os.path.join(HERE, "eras", f"{ERAS[era]}.toml"))
 
 
@@ -67,7 +72,7 @@ def make_env(era, start=None):
 
 
 def benchmark(era):
-    with open(os.path.join(HERE, "results", f"optimum_{ERAS[era]}.json")) as f:
+    with open(os.path.join(HERE, "results", f"optimum_{ERAS.get(era, era)}.json")) as f:
         return json.load(f)["race_time_s"]
 
 
