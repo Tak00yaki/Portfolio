@@ -1,7 +1,7 @@
 # Progress log
 
 One entry per week block: what was built, the results, what went wrong, and what is still open.
-Assumptions are numbered in [ASSUMPTIONS.md](ASSUMPTIONS.md) (A1–A58); every number below can be
+Assumptions are numbered in [ASSUMPTIONS.md](ASSUMPTIONS.md) (A1–A59); every number below can be
 reproduced by running that week's script with the project's `.venv`.
 
 **Project:** train an RL strategist on a 2022–25-rules race simulator, drop it into a 2026-rules
@@ -487,6 +487,41 @@ candidate, but its 2026 telemetry drifts off the lap-time clock from about lap 6
 
 ---
 
+## Week 16: retraining in 2026 with a fresh pit decision (`16th_week.py`, 9 Nov)
+
+**Built**
+- Two ways to drop the 2024 stint habit before retraining in 2026 (A59): re-initialise only the actor's pit output
+  ("fresh pit output"), or that and the critic ("+ critic"). 5 seeds each, 200,000 steps, as the full retraining
+  (Weeks 13–14).
+- Checks: only the intended parameters change, and the energy outputs are unchanged on 2026 states.
+- `12th_week.RESETS` lets the Week 12 trainer apply a change to a loaded agent before retraining.
+
+**Results** (s behind the 2026 benchmark, mean (median) over 5 seeds)
+
+| Steps | Fresh pit output | + critic | Full retraining | From scratch |
+|---|---|---|---|---|
+| 10,000 | +18.9 (+22.6) | +39.7 (+36.0) | +18.9 (+13.7) | +28.2 (+24.0) |
+| 50,000 | **+5.7 (+6.3)** | +18.2 (+12.3) | +14.6 (+13.7) | +7.6 (+7.0) |
+| 100,000 | +5.5 (+4.8) | +16.4 (+9.8) | +12.0 (+7.6) | +5.4 (+4.8) |
+| 200,000 | +6.5 (+7.2) | +8.7 (+6.6) | +9.1 (+8.4) | +11.8 (+5.0) |
+
+- **The stint habit is in the pit output:** resetting only that row removes most of the stuck pit/tyre loss. The
+  pit/tyre median is below full retraining at 95% of checkpoints, and the agents reach +5.7 s at 50,000 steps, where
+  full retraining is at +14.6 s.
+- **But it is no better than starting from scratch:** ahead of from scratch at only half the checkpoints, and level at
+  100,000 steps. In real 2026 the kept energy layers save little, because energy is relearned within ~50,000 steps
+  anyway (Weeks 13–14). In the power-unit-only world (Week 15) the old agent was worth much more, because its pit
+  timing still fitted.
+- **Keep the critic:** resetting it as well is the slowest option of all until ~200,000 steps (energy +13.8 s at 10,000
+  steps). The actor follows an untrained critic and loses its energy skill for a while. Seed 3 ends at +17.5 s.
+- The pit/tyre loss of the fresh-pit agents drifts up slightly after 100,000 steps (+3.3 → +4.4 s, mean).
+
+**Problems**
+- The 0-step score with a fresh pit output is +1,156 s (random stops on most laps). It is labelled as the cost of the
+  reset and left out of the plot (A59), not reported as a transfer result.
+
+---
+
 ## Reference: IAmTomShaw/f1-race-replay
 
 https://github.com/IAmTomShaw/f1-race-replay, checked 16 Oct.
@@ -513,13 +548,14 @@ The useful parts are in `src/`:
 
 ## Next steps
 
-1. **Recovery in 2026 with a fresh pit head:** keep the energy layers and relearn pit decisions, since in real 2026 the
-   tyre habits are what does not come back (Week 15).
-2. **More robust training:** late collapses on 2 of 15 runs (2026 seed 3; retrained seed 3). Try a lower learning rate,
+1. **Write-up:** the hypothesis as two numbers per reading (fractions, absolute MJ), split into tyres and power unit
+   (Week 15), the recovery curves (Weeks 13–16), and the 2 s context.
+2. **More robust training:** late collapses in Weeks 12–16 (2026 seed 3; retrained seed 3; fresh pit + critic seed 3). Try a lower learning rate,
    more seeds, or scoring over several races; keep reporting the final agent.
 3. **Fair-budget check:** compare a retrained agent with a from-scratch agent at equal total steps (A58).
-4. **Write-up:** the hypothesis as two numbers per reading (fractions, absolute MJ), split into tyres and power unit
-   (Week 15), the recovery curves, and the 2 s context.
+4. **What cues the stint habit:** the agent sees tyre age as a fraction of each era's age limit, yet the 2024 agents
+   still run ~20-lap medium stints in 2026 (limit 19). Check which observation (age fraction, wear, laps left) drives
+   the stop, e.g. by perturbing one at a time.
 5. **Still open:** deploy gap (model 5.3 MJ, real ~2.8 MJ, A45); Barcelona's race recharge notice (A42); Nominal Tyre
    Mass (A46); A36; check Heywood's table and the 2022 E10 article (A12); A8 for heavier 2026 cars; Alonso's replay
    error and lap-1 grid effect (logged limitations); `projects/shot.py`.

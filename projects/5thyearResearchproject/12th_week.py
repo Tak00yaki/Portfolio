@@ -55,6 +55,7 @@ INK, MUTED, GRID = "#1f1f1e", "#6b6a64", "#e6e5e0"
 
 
 WORLDS = {}                 # other settings by name, registered by later weeks (Week 15's mixed simulators)
+RESETS = {}                 # name -> f(model): changes to a loaded agent before retraining (Week 16)
 
 
 def settings(era):
@@ -153,7 +154,8 @@ def train(job):
     from stable_baselines3 import SAC
     from stable_baselines3.common.vec_env import DummyVecEnv, VecNormalize
     torch.set_num_threads(1)
-    name, era, seed, steps, init = job
+    name, era, seed, steps, init, *opts = job
+    reset = opts[0] if opts else None
     path = os.path.join(MODEL_DIR, name)
     log = os.path.join(RL_DIR, f"{name}.json")
     if os.path.exists(log):
@@ -166,6 +168,8 @@ def train(job):
         vec = VecNormalize.load(os.path.join(MODEL_DIR, init, "vecnormalize.pkl"), venv)
         model = SAC.load(os.path.join(MODEL_DIR, init, "model"), env=vec, seed=seed)
         model.learning_starts = 2_000           # fresh buffer: learn from 2026 races, not stale 2024 ones
+        if reset is not None:
+            RESETS[reset](model)
     curve = []
     if init is not None:            # zero-shot score before any 2026 training
         vec.training = False
@@ -180,7 +184,7 @@ def train(job):
     os.makedirs(path, exist_ok=True)
     model.save(os.path.join(path, "model"))
     vec.save(os.path.join(path, "vecnormalize.pkl"))
-    out = {"name": name, "era": era, "seed": seed, "init": init, "no_stop_share": NO_STOP_SHARE,
+    out = {"name": name, "era": era, "seed": seed, "init": init, "reset": reset, "no_stop_share": NO_STOP_SHARE,
            "minutes": (time.time() - t0) / 60, "curve": curve}
     if init is None and era == "2024":      # the 2024 agent dropped into 2026 as it is
         vec.training = False
