@@ -19,9 +19,9 @@ import time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SCRIPTS = ["1st_week.py", "2nd_week.py", "3rd_4th_week.py", "5th_6th_week.py", "7th_8th_week.py",
-           "9th_10th_week.py", "11th_week.py", "12th_week.py", "13th_14th_week.py", "15th_week.py", "16th_week.py"]
-RL = {"12th_week.py", "13th_14th_week.py", "15th_week.py", "16th_week.py"}      # take "analyse" unless --train
-WATCH = ["results/*.json", "results/*.csv", "results/rl/*.json", "results/rl/*.csv", "figures/*.png"]
+           "9th_10th_week.py", "11th_week.py", "12th_week.py", "13th_14th_week.py", "15th_week.py", "16th_week.py", "17th_week.py", "18th_week.py", "19th_week.py", "results_pack.py"]
+RL = {"12th_week.py", "13th_14th_week.py", "15th_week.py", "16th_week.py", "18th_week.py", "19th_week.py"}      # take "analyse" unless --train
+WATCH = ["RESULTS.md", "results/*.json", "results/*.csv", "results/rl/*.json", "results/rl/*.csv", "figures/*.png"]
 
 
 def snapshot():

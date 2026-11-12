@@ -56,6 +56,7 @@ INK, MUTED, GRID = "#1f1f1e", "#6b6a64", "#e6e5e0"
 
 WORLDS = {}                 # other settings by name, registered by later weeks (Week 15's mixed simulators)
 RESETS = {}                 # name -> f(model): changes to a loaded agent before retraining (Week 16)
+LR_VARIANTS = {}            # name -> {"lr": start, "lr_end": end or None}: learning-rate schedules (Week 18)
 
 
 def settings(era):
@@ -156,6 +157,9 @@ def train(job):
     torch.set_num_threads(1)
     name, era, seed, steps, init, *opts = job
     reset = opts[0] if opts else None
+    lr_name = opts[1] if len(opts) > 1 else None
+    lr0 = LR_VARIANTS[lr_name]["lr"] if lr_name else None
+    lr1 = LR_VARIANTS[lr_name].get("lr_end") if lr_name else None
     path = os.path.join(MODEL_DIR, name)
     log = os.path.join(RL_DIR, f"{name}.json")
     if os.path.exists(log):
@@ -163,7 +167,7 @@ def train(job):
     venv = DummyVecEnv([lambda: make_env(era)])
     if init is None:
         vec = VecNormalize(venv, norm_obs=True, norm_reward=False, clip_obs=10.0)
-        model = SAC("MlpPolicy", vec, seed=seed, verbose=0, **SAC_KW)
+        model = SAC("MlpPolicy", vec, seed=seed, verbose=0, **{**SAC_KW, **({"learning_rate": lr0} if lr0 else {})})
     else:
         vec = VecNormalize.load(os.path.join(MODEL_DIR, init, "vecnormalize.pkl"), venv)
         model = SAC.load(os.path.join(MODEL_DIR, init, "model"), env=vec, seed=seed)
@@ -177,6 +181,10 @@ def train(job):
         vec.training = True
     t0 = time.time()
     for done in range(EVAL_EVERY, steps + 1, EVAL_EVERY):
+        if lr0 is not None:             # set per chunk: SB3's own progress resets with each learn() call
+            from stable_baselines3.common.utils import ConstantSchedule
+            frac = (done - EVAL_EVERY) / steps
+            model.lr_schedule = ConstantSchedule(lr0 if lr1 is None else lr0 + (lr1 - lr0) * frac)
         model.learn(EVAL_EVERY, reset_num_timesteps=False)
         vec.training = False
         curve.append({"steps": done, **evaluate(model, vec, era)})
@@ -184,7 +192,7 @@ def train(job):
     os.makedirs(path, exist_ok=True)
     model.save(os.path.join(path, "model"))
     vec.save(os.path.join(path, "vecnormalize.pkl"))
-    out = {"name": name, "era": era, "seed": seed, "init": init, "reset": reset, "no_stop_share": NO_STOP_SHARE,
+    out = {"name": name, "era": era, "seed": seed, "init": init, "reset": reset, "lr": lr_name, "no_stop_share": NO_STOP_SHARE,
            "minutes": (time.time() - t0) / 60, "curve": curve}
     if init is None and era == "2024":      # the 2024 agent dropped into 2026 as it is
         vec.training = False

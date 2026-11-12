@@ -108,7 +108,7 @@ def benchmark(label, s):
 
 # --- 3. Zero-shot -----------------------------------------------------------------------------
 
-def zero_shot(s, t_bench):
+def zero_shot(s, t_bench, prefix="sac_2024"):
     """The 2024 agents in world `s`, battery as fractions (A49) and as absolute 2024 MJ (A54)."""
     from stable_baselines3 import SAC
     from stable_baselines3.common.vec_env import DummyVecEnv, VecNormalize
@@ -120,7 +120,7 @@ def zero_shot(s, t_bench):
                 "absolute": np.array([1.0, s24.d_cap / host.d_cap, s24.h_cap / host.h_cap, 1.0], np.float32)}
     out = {k: [] for k in readings}
     for seed in range(N_SEEDS):
-        path = os.path.join(w12.MODEL_DIR, f"sac_2024_s{seed}")
+        path = os.path.join(w12.MODEL_DIR, f"{prefix}_s{seed}")
         vec = VecNormalize.load(os.path.join(path, "vecnormalize.pkl"), DummyVecEnv([env]))
         vec.training = False
         model = SAC.load(os.path.join(path, "model"))

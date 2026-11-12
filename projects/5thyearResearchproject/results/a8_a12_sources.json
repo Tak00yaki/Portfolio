@@ -76,6 +76,11 @@
     "time_change_s": -0.031854800410656026,
     "plan": "M14 -> H17 -> H17 -> H18",
     "same_plan": true
+   },
+   "A8 0.040 s/kg": {
+    "time_change_s": -0.1070880396209759,
+    "plan": "M14 -> H17 -> H17 -> H18",
+    "same_plan": true
    }
   }
  }

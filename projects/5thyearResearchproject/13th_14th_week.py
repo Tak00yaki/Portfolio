@@ -66,6 +66,7 @@ N_TOP = 60                          # best plans re-solved in the sensitivity
 SENS_ERAS = {"2024 Bahrain": ("legacy_2022_25", "legacy_2022_25_physics"),     # (settings, saved plans)
              "2024 Barcelona": ("legacy_2022_25_barcelona", "legacy_2022_25_barcelona"),
              "2026 Barcelona": ("2026", "2026")}
+A8_2026_HIGH = 0.040                # 2026 cars are heavier than 2019's (768 vs 743 kg): +20% on the highest value
 C1, C2, C3, C4, INK, MUTED, GRID = w12.C1, w12.C2, w12.C3, w12.C4, w12.INK, w12.MUTED, w12.GRID
 
 
@@ -302,7 +303,8 @@ def step4_sources():
         # as a refit would: base and evolution move so a lap at nominal fuel keeps its measured time
         cases = {f"A8 {m:.3f} s/kg": {"car.mass_time_s_per_kg": m, "track.evolution_s_per_lap": ev0 + (m - m0) * burn,
                                       "track.base_lap_s": b0 - (m - m0) * (f0 + 0.5 * burn)}
-                 for m in (min(TUM_MASS.values()), max(TUM_MASS.values()))}
+                 for m in (min(TUM_MASS.values()), max(TUM_MASS.values()))
+                 + ((A8_2026_HIGH,) if era.startswith("2026") else ())}
         if era.startswith("2024"):      # 2026 fuel is set by its own rules (A44)
             cases.update({f"A12 {v:.1f} MJ/kg ({k} E10)": {"car.fuel_lhv_mj_per_kg": v} for k, v in blends.items()})
             cases["A12 44.0 MJ/kg (petrol)"] = {"car.fuel_lhv_mj_per_kg": 44.0}

@@ -1,7 +1,7 @@
 # Progress log
 
 One entry per week block: what was built, the results, what went wrong, and what is still open.
-Assumptions are numbered in [ASSUMPTIONS.md](ASSUMPTIONS.md) (A1–A59); every number below can be
+Assumptions are numbered in [ASSUMPTIONS.md](ASSUMPTIONS.md) (A1–A62); every number below can be
 reproduced by running that week's script with the project's `.venv`.
 
 **Project:** train an RL strategist on a 2022–25-rules race simulator, drop it into a 2026-rules
@@ -334,8 +334,9 @@ candidate, but its 2026 telemetry drifts off the lap-time clock from about lap 6
 - **2026 soft tyre fixed:** each compound is only used up to the age the data covers (A48); longer stints are illegal for
   the optimiser and forced stops in the environment. 2026 soft wear went from 0.089 to 0.165 s/lap.
 - **3 stops rechecked (A32b):** with the age limits a 3-stop plan wins in 2026. New benchmarks:
-  2024 S20 → M23 → M23, 5366.38 s; 2026 M14 → H17 → H17 → H18, 5599.34 s. Real 2026 strategies now lose 3.6–5.2 s
-  (Verstappen 17.9 s), not 15–29 s.
+  2024 S20 → M23 → M23, 5366.38 s; 2026 M14 → H17 → H17 → H18, 5599.34 s. Real 2026 strategies now lose 4.3–5.9 s
+  (Verstappen 18.6 s), not 15–29 s. (Corrected in Week 19: this entry first said 3.6–5.2 s and 17.9 s, which the
+  saved results don't support.)
 - No-RL transfer test, final: stop laps +1.15 s, whole old plan +13.3 s, energy with the net number +0.28 s, energy
   with old amounts kept +22 to +58 s.
 
@@ -522,6 +523,117 @@ candidate, but its 2026 telemetry drifts off the lap-time clock from about lap 6
 
 ---
 
+## Week 17: what cues the stint habit (`17th_week.py`, 10 Nov)
+
+**Built**
+- Every stop of the 2024 agents in 2024 and in 2026 (no retraining), chosen or forced (A60), with what the agent saw
+  then. A one-input test of the first stint, and the forced stops of every 2026 run after training. No training; a few
+  seconds.
+
+**Results**
+- **The 2024 agents never choose their first stop:** in 4 of 5 races in 2024 the soft's age limit (A48) stops them on
+  lap 21, which is where the 2024 benchmark stops anyway (S20), so relying on it cost nothing. In 2026 they do the same
+  on mediums in 4 of 5 races: the medium limit stops them on lap 20 (benchmark: lap 14), and the forced stop puts on
+  another medium.
+- **No single input triggers it:** setting any one input to any value it takes in the race turns at most 10–30% of
+  first-stint laps into a chosen stop (median 26%, one race 56%). The habit is to wait for the limit, not a cue
+  that changes in 2026.
+- **The stops they do choose transfer:** chosen stops come at the same age fraction in both eras (median 0.87 in 2024,
+  0.88 in 2026), so that part of the pit decision is era-independent.
+- **Retraining fixes the first stop:** after 2026 training the first stop is chosen in every run, from scratch (0 of 5
+  forced) and fully retrained (0 of 5), and in 4 of 5 fresh-pit runs.
+- So the "pit/tyre" loss of the 2024 agents is partly the environment's age limit doing their stopping (A60). This
+  should go in the write-up as a limitation of A48: with a penalty or no forced stop, the agents would have had to
+  learn the first stop themselves.
+
+---
+
+## Week 18: more stable training (`18th_week.py`, 10 Nov)
+
+**What the "collapses" were:** each is one bad deterministic race in which a pit decision flips (a lap-1 stop at
+170,000 steps in 2026 seed 3) or the energy plan jumps, with good scores 10–20k steps either side. Smaller swings
+appear in other seeds too. The two retrained seed-3 runs start from the same 2024 agent with the same seed, so the
+three are not independent failures.
+
+**Built**
+- Two learning-rate settings on 2026 from scratch, the same 5 seeds (A61): decaying 3e-4 → 3e-5, and constant 1e-4.
+  `12th_week.LR_VARIANTS` lets the Week 12 trainer use them; earlier runs are unchanged. Checked that the rate reaches
+  both optimisers.
+
+**Results** (2026 from scratch, 200,000 steps; s behind the benchmark)
+
+| Learning rate | Final, mean ± sd (median) | Mean of last 5 | Late drops > 5 s | Median swing | Runs ending > best + 5 s |
+|---|---|---|---|---|---|
+| constant 3e-4 (Weeks 12–17) | +11.8 ± 13.9 (+5.0) | +30.0 | 6 | 0.43 s | 1 |
+| decaying 3e-4 → 3e-5 | +4.7 ± 0.4 (+4.8) | +4.9 | 0 | 0.33 s | 0 |
+| **constant 1e-4** | **+3.3 ± 0.2 (+3.3)** | +4.1 | 1 | 0.20 s | 0 |
+
+- **Both fix the instability; 1e-4 also learns better:** every 1e-4 seed ends between +3.0 and +3.4 s, 1.7 s better than
+  the old median, with the spread over seeds cut from 13.9 s to 0.2 s. One 1e-4 seed had a single bad race at
+  180,000 steps (+21 s) and recovered.
+- **What this means for Weeks 12–17:** those agents were trained at 3e-4, so their scores carry extra noise, and the
+  from-scratch 2026 level was about 1.7 s too pessimistic. The conclusions compare groups trained the same way, but the
+  numbers in the write-up should come from a rerun at 1e-4 (next steps).
+
+---
+
+## Week 19: the main experiments at learning rate 1e-4, and the results pack (`19th_week.py`, `results_pack.py`, 11–12 Nov)
+
+**Built**
+- `19th_week.py` reruns the runs behind the main results at constant lr 1e-4 (A62), under `_lr1e4` names so the 3e-4
+  runs stay as they were: 2024 and "2026 PU, 2024 tyres" from scratch, then from the new 2024 agents full retraining
+  on 2026, retraining on "2026 PU, 2024 tyres", and the fresh pit output. 25 runs; 2026 from scratch is Week 18's.
+  Its analysis puts every headline number at both rates side by side and reports whether each conclusion still holds.
+  Tested on the old runs first: it reproduces every saved 3e-4 number, including Week 15's decomposition exactly.
+- `15th_week.zero_shot` takes which agents to load (default the original ones; Week 15's results unchanged).
+- `results_pack.py` writes `RESULTS.md`: claims C1–C7 with their numbers at both rates, source files, figures,
+  assumptions and limitations, from the saved results only, plus 30 number checks (files and assumptions cited exist,
+  numbers match PROGRESS.md, Week 19's 3e-4 numbers match the older weeks). It draws
+  `figures/results_decomposition.png` (C4). Last script in `run_all.py`.
+- **A8 for the heavier 2026 car:** the 2026 check now also runs 0.040 s/kg (+20% on the highest published value; 2026
+  cars are 768 kg against 2019's 743 kg). The 2026 benchmark keeps its plan and moves 0.11 s (0.045 s/kg: 0.16 s). Closed.
+
+**Results** (s behind each world's benchmark; mean (median) over 5 seeds; 3e-4 → 1e-4)
+
+| | 3e-4 | 1e-4 |
+|---|---|---|
+| 2024 agent in 2024 | +2.4 | +1.5 |
+| Zero-shot 2026, fractions: lost / pit / energy | +26.8 / +18.7 / +8.1 | +18.4 / +8.0 / +10.5 |
+| Zero-shot 2026, absolute MJ: lost / pit / energy | +49.3 / +18.0 / +31.3 | +42.7 / +8.2 / +34.5 |
+| Added by the 2026 tyres: pit / energy | +18.2 / +1.8 | +12.5 / +4.7 |
+| Added by the 2026 power unit, absolute MJ: pit / energy | +2.0 / +30.7 | +2.0 / +31.3 |
+| 2026: retrained vs from scratch at 200k | +9.1 (+8.4) vs +11.8 (+5.0) | +5.5 (+4.2) vs +3.2 (+3.3) |
+| 2026: retrained first within 2 s of from scratch | 140k | 160k |
+| PU only: retrained vs from scratch at 200k | +2.4 (+2.9) vs +4.3 (+4.5) | +1.4 (+0.9) vs +6.8 (+3.4) |
+| PU only: retrained within 2 s / ahead | 10k / every checkpoint | 10k / every checkpoint |
+| Fresh pit output: pit/tyre below full retraining | 95% of checkpoints | 95% |
+| 2024 agents' first stop forced (in 2024 / in 2026) | 4 / 4 of 5 | 0 / 2 of 5 |
+
+- **Every conclusion holds except one:** with the battery as fractions, the zero-shot loss is now more energy than
+  pit/tyre. The 1e-4 2024 agents choose their own first stops (none forced in 2024), so in 2026 fewer stops land where
+  the age limit puts them, and the pit/tyre loss halves (+18.7 → +8.0 s). The hypothesis's core is unchanged and
+  clearer: the power unit alone costs +2.0 s pit/tyre and +31.3 s energy (absolute MJ), and the tyres drive the
+  pit/tyre loss.
+- **Week 17 revised:** "the agents wait for the age limit" was partly a 3e-4 effect. The stint-length habit is not:
+  at 1e-4 the first 2026 stint is still 18–20 laps (benchmark 14, medium limit 19).
+- **Retraining in 2026:** the 2024 start still helps only for the first 20k steps, and comes within 2 s of from
+  scratch at 160k. Part of the early lead is from scratch learning more slowly at 1e-4 (+57 s median at 10k against
+  +24 s at 3e-4). In the power-unit-only world the old agents are ahead at every checkpoint and end at +0.9 s (median).
+- **Spread:** smaller in 3 of 6 groups. Two single seeds widen the others: the stuck "PU only" seed 2 (+21.4 s) and
+  fresh pit output seed 3 (+11.8 s). Medians are no worse at 1e-4 in all six groups.
+- `RESULTS.md` now uses the 1e-4 numbers; figure `figures/week19_rerun.png`.
+
+**Problems**
+- **The Mac slept on battery during training:** runs that take ~22 min took 147 min to 19 h. Nothing was lost (finished
+  runs are saved, a restart skips them). Long runs now go with `caffeinate -i -w <pid>`.
+- **A lower learning rate can lock a seed in early:** "2026 PU, 2024 tyres" from scratch, seed 2, settled smoothly on a
+  lap-1 stop (S1 → M24 → S18 → M23, +21.4 s) and stayed there; at 3e-4 the same seed ended at +4.1 s. So 1e-4 trades
+  late collapses for early lock-in, which belongs in the write-up.
+- **A stale number found by the pack's checks:** A48 and the Week 12 entry said real 2026 strategies lose 3.6–5.2 s
+  (Verstappen 17.9 s); the saved results and the current code give 4.3–5.9 s (18.6 s). Both corrected.
+
+---
+
 ## Reference: IAmTomShaw/f1-race-replay
 
 https://github.com/IAmTomShaw/f1-race-replay, checked 16 Oct.
@@ -548,16 +660,16 @@ The useful parts are in `src/`:
 
 ## Next steps
 
-1. **Write-up:** the hypothesis as two numbers per reading (fractions, absolute MJ), split into tyres and power unit
+1. **Write-up (you write; `RESULTS.md` has the numbers):** the hypothesis as two numbers per reading (fractions, absolute MJ), split into tyres and power unit
    (Week 15), the recovery curves (Weeks 13–16), and the 2 s context.
-2. **More robust training:** late collapses in Weeks 12–16 (2026 seed 3; retrained seed 3; fresh pit + critic seed 3). Try a lower learning rate,
-   more seeds, or scoring over several races; keep reporting the final agent.
+2. **Write-up check:** read `RESULTS.md` section 1 against the claims you want to make; the fraction-reading result
+   changed at 1e-4 (Week 19).
 3. **Fair-budget check:** compare a retrained agent with a from-scratch agent at equal total steps (A58).
-4. **What cues the stint habit:** the agent sees tyre age as a fraction of each era's age limit, yet the 2024 agents
-   still run ~20-lap medium stints in 2026 (limit 19). Check which observation (age fraction, wear, laps left) drives
-   the stop, e.g. by perturbing one at a time.
+4. **Age limit without a free stop (A60):** retrain the 2024 agents in an environment where reaching the age limit
+   costs time instead of forcing a stop, to see whether they learn to choose the first stop and whether the pit
+   timing then transfers.
 5. **Still open:** deploy gap (model 5.3 MJ, real ~2.8 MJ, A45); Barcelona's race recharge notice (A42); Nominal Tyre
-   Mass (A46); A36; check Heywood's table and the 2022 E10 article (A12); A8 for heavier 2026 cars; Alonso's replay
+   Mass (A46); A36; check Heywood's table and the 2022 E10 article (A12); Alonso's replay
    error and lap-1 grid effect (logged limitations); `projects/shot.py`.
 
 ## Lessons
