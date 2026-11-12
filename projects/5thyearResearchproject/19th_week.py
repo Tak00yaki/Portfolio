@@ -50,6 +50,8 @@ w16 = load("week16", "16th_week.py")
 check, report = w12.check, w12.report
 N_SEEDS = w12.N_SEEDS
 LR = "lr1e4"
+EXTRA_SEEDS = range(N_SEEDS, 2 * N_SEEDS)     # stage 3: 2024 agents only, to firm up the zero-shot split (A63)
+EXTRA_WORKERS = 5                             # stage 3 runs all at once (8 cores, nothing else running)
 PU_ONLY = w15.PU_ONLY
 # module level: the worker processes need these in this module's copy of Week 12
 w12.LR_VARIANTS[LR] = {"lr": 1e-4}
@@ -69,16 +71,18 @@ def stages():
           for name, era, reset in (("sac_2024to2026_long", "2026", None), ("sac_2024topu", PU_ONLY, None),
                                    ("sac_2024to2026_pit", "2026", "pit"))
           for s in range(N_SEEDS)]
-    return s1, s2
+    s3 = [(f"sac_2024_{LR}_s{s}", "2024", s, w12.STEPS, None, None, LR) for s in EXTRA_SEEDS]
+    return s1, s2, s3
 
 
 def run_training():
     for i, jobs in enumerate(stages(), 1):
         todo = [j for j in jobs if not os.path.exists(os.path.join(w12.RL_DIR, f"{j[0]}.json"))]
         if todo:
-            print(f"Stage {i}: training {len(todo)} runs at lr 1e-4, {w12.STEPS:,} steps ({w12.WORKERS} at a time)",
+            print(f"Stage {i}: training {len(todo)} runs at lr 1e-4, {w12.STEPS:,} steps "
+                  f"({w12.WORKERS if i < 3 else EXTRA_WORKERS} at a time)",
                   flush=True)
-            with Pool(w12.WORKERS) as pool:
+            with Pool(w12.WORKERS if i < 3 else EXTRA_WORKERS) as pool:
                 pool.map(train, todo, chunksize=1)
 
 
@@ -258,6 +262,62 @@ def stops():
     return out
 
 
+def ci(x):
+    """Mean, sd and 95% t-interval of the mean."""
+    from scipy import stats
+    x = np.asarray(x, float)
+    h = stats.t.ppf(0.975, len(x) - 1) * x.std(ddof=1) / np.sqrt(len(x))
+    return {"mean": float(x.mean()), "sd": float(x.std(ddof=1)), "lo": float(x.mean() - h), "hi": float(x.mean() + h),
+            "n": int(len(x)), "positive": int((x > 0).sum())}
+
+
+def ten_seeds():
+    """Stage 3 (A63): the zero-shot split and the tyre/power-unit parts with the 1e-4 2024 agents of 10 seeds.
+    Differences are paired within a seed: energy - pit in the same race, or a world against the same agent's own era."""
+    seeds = range(2 * N_SEEDS)
+    rs = [json.load(open(os.path.join(w12.RL_DIR, f"sac_2024_{LR}_s{s}.json"))) for s in seeds]
+    check(all(r["lr"] == LR for r in rs), f"all {len(rs)} 2024 agents at 1e-4 are there and trained at that rate")
+    worlds = {"2026": (w12.settings("2026"), w12.benchmark("2026")),
+              **{label: (w15.hybrid(*w15.WORLDS[label]), w12.benchmark(w15.WORLDS[label][2])) for label in w15.WORLDS}}
+    shots = {w: w15.zero_shot(st, t, f"sac_2024_{LR}", seeds)[0] for w, (st, t) in worlds.items()}
+    check(max(abs(a["lost"] - r["zero_shot_2026"]["lost"]) for a, r in zip(shots["2026"]["fractions"], rs)) < 1e-6,
+          "zero-shot in 2026 matches the score saved at the end of training, every seed")
+    own = [r["curve"][-1] for r in rs]
+    print(f"\nStep 6: the 2024 agents at 1e-4, {len(rs)} seeds; paired differences, mean [95% CI] (seeds > 0)")
+    out = {"per_seed": {}, "split": {}, "parts": {}}
+    for k in ("fractions", "absolute"):
+        z = shots["2026"][k]
+        out["per_seed"][f"2026 {k}"] = [{"seed": s, "pit": a["pit"], "energy": a["energy"], "plan": a["plan"]}
+                                        for s, a in zip(seeds, z)]
+        d = ci([a["energy"] - a["pit"] for a in z])
+        out["split"][k] = {"pit": ci([a["pit"] for a in z]), "energy": ci([a["energy"] for a in z]), "energy_minus_pit": d}
+        print(f"  2026, battery as {k:<9}: pit/tyre {out['split'][k]['pit']['mean']:+6.2f}, energy "
+              f"{out['split'][k]['energy']['mean']:+6.2f}; energy - pit {d['mean']:+6.2f} [{d['lo']:+6.2f}, {d['hi']:+6.2f}] "
+              f"({d['positive']} of {d['n']})")
+        print("    per seed (pit / energy): " + ", ".join(f"{a['pit']:.1f}/{a['energy']:.1f}" for a in z))
+    parts = {"tyres: pit": ("2024 PU, 2026 tyres", "fractions", "pit"),
+             "tyres: energy": ("2024 PU, 2026 tyres", "fractions", "energy"),
+             "power unit, fractions: pit": ("2026 PU, 2024 tyres", "fractions", "pit"),
+             "power unit, fractions: energy": ("2026 PU, 2024 tyres", "fractions", "energy"),
+             "power unit, absolute: pit": ("2026 PU, 2024 tyres", "absolute", "pit"),
+             "power unit, absolute: energy": ("2026 PU, 2024 tyres", "absolute", "energy")}
+    for name, (w, k, x) in parts.items():
+        c = ci([a[x] - o[x] for a, o in zip(shots[w][k], own)])
+        out["parts"][name] = c
+        print(f"  added by {name:<30} {c['mean']:+6.2f} [{c['lo']:+6.2f}, {c['hi']:+6.2f}]")
+    first, last = (np.mean([a["energy"] - a["pit"] for a in shots["2026"]["fractions"]][i:i + N_SEEDS]) for i in (0, N_SEEDS))
+    print(f"  fractions, energy - pit: seeds 0-{N_SEEDS - 1} {first:+.2f}, seeds {N_SEEDS}-{2 * N_SEEDS - 1} {last:+.2f}")
+    f, a = out["split"]["fractions"]["energy_minus_pit"], out["split"]["absolute"]["energy_minus_pit"]
+    report(f["lo"] > 0 or f["hi"] < 0, "battery as fractions: the zero-shot energy and pit/tyre losses differ "
+           f"(95% CI of the difference {f['lo']:+.1f} to {f['hi']:+.1f} s excludes 0)")
+    report(a["lo"] > 0, "battery in absolute MJ: the zero-shot loss is more energy than pit/tyre (CI above 0)")
+    report(out["parts"]["tyres: pit"]["lo"] > out["parts"]["power unit, absolute: pit"]["hi"],
+           "the tyres add more pit/tyre loss than the power unit (absolute MJ), CIs apart")
+    report(out["parts"]["power unit, absolute: energy"]["lo"] > out["parts"]["tyres: energy"]["hi"],
+           "the power unit adds more energy loss than the tyres, CIs apart")
+    return out
+
+
 def plot(table):
     fig, axes = plt.subplots(1, 2, figsize=(12, 4.2), sharey=True)
     for ax, world, (rt_g, sc_g) in zip(axes, ("2026", "PU only"), (("2026 retrained", "2026 from scratch"),
@@ -290,9 +350,10 @@ def analyse():
     a, table = adaptation()
     p = fresh_pit()
     st = stops()
+    ten = ten_seeds()
     table.to_csv(os.path.join(w12.RL_DIR, "week19_adaptation.csv"), index=False)
     with open(os.path.join(w12.RL_DIR, "week19_rerun.json"), "w") as fh:
-        json.dump({"finals": f, "transfer": t, "adaptation": a, "fresh_pit": p, "stops": st}, fh, indent=1)
+        json.dump({"finals": f, "transfer": t, "adaptation": a, "fresh_pit": p, "stops": st, "ten_seeds": ten}, fh, indent=1)
     plot(table)
 
 

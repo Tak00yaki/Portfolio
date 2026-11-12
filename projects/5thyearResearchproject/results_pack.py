@@ -213,6 +213,68 @@ def stops_table(new):
     return "\n".join(rows)
 
 
+def tyre_vs_pu(ten):
+    """Whether the tyres' pit/tyre part is clearly larger than the power unit's, for each reading."""
+    if not ten:
+        return ""
+    t = ten["parts"]["tyres: pit"]
+    out = []
+    for k, name in (("absolute", "absolute-MJ"), ("fractions", "fraction")):
+        p = ten["parts"][f"power unit, {k}: pit"]
+        if t["lo"] > p["hi"]:
+            out.append(f"with the {name} reading the tyres' part is clearly larger (intervals apart)")
+        elif t["mean"] > p["mean"]:
+            out.append(f"with the {name} reading it is larger but the intervals overlap")
+        else:
+            out.append(f"with the {name} reading it is not larger")
+    return ". " + "; ".join(out)[0].upper() + "; ".join(out)[1:]
+
+
+def split_sentence(new, T):
+    """Claim 3's second half: which way the fraction-reading split goes, from the 10-seed interval when it exists."""
+    if not new:
+        return ""
+    old = (f"at 3e-4 (5 seeds) it was pit/tyre {fmt(T['2026, battery as fractions']['pit'])} s against energy "
+           f"{fmt(T['2026, battery as fractions']['energy'])} s, because those agents left their first stop to the age limit (C6)")
+    ten = load("results/rl/week19_rerun.json").get("ten_seeds")
+    if not ten:
+        return ("\n   At 1e-4 (5 seeds) the fraction-reading loss is "
+                f"{fmt(new['transfer']['2026, battery as fractions']['energy'])} s energy against "
+                f"{fmt(new['transfer']['2026, battery as fractions']['pit'])} s pit/tyre; " + old + ".")
+    sp = ten["split"]["fractions"]
+    d = sp["energy_minus_pit"]
+    if d["lo"] > 0:
+        verdict = "more energy than pit/tyre"
+    elif d["hi"] < 0:
+        verdict = "more pit/tyre than energy"
+    else:
+        verdict = "about equal between energy and pit/tyre"
+    return (f"\n   With fractions, at 1e-4 over {d['n']} seeds the loss is **{verdict}**: energy {fmt(sp['energy']['mean'])} s, "
+            f"pit/tyre {fmt(sp['pit']['mean'])} s, difference {fmt(d['mean'])} s (95% CI {fmt(d['lo'])} to {fmt(d['hi'])}, "
+            f"{d['positive']} of {d['n']} seeds more energy); " + old + ".")
+
+
+def ten_seed_table(new):
+    """C3/C4 at 1e-4 with 10 seeds: means and 95% intervals of the paired differences (Week 19 step 6, A63)."""
+    if not new:
+        return ""
+    ten = load("results/rl/week19_rerun.json").get("ten_seeds")
+    if not ten:
+        return "10 seeds at 1e-4 (Week 19 step 6): pending.\n\n"
+    n = ten["split"]["fractions"]["pit"]["n"]
+    row = lambda name, c: (f"| {name} | {fmt(c['mean'])} | {fmt(c['lo'])} to {fmt(c['hi'])} | "  # noqa: E731
+                           f"{c['positive']} of {c['n']} |")
+    lines = [f"**1e-4 with {n} seeds** (Week 19 step 6, A63). Differences are paired within a seed: energy minus "
+             "pit/tyre in the same race, or a world minus the same agent's own-era score.", "",
+             "| Quantity | Mean (s) | 95% CI (s) | Seeds above 0 |", "|---|---|---|---|"]
+    for k in ("fractions", "absolute"):
+        sp = ten["split"][k]
+        lines += [row(f"2026, battery as {k}: pit/tyre", sp["pit"]), row(f"2026, battery as {k}: energy", sp["energy"]),
+                  row(f"2026, battery as {k}: energy minus pit/tyre", sp["energy_minus_pit"])]
+    lines += [row(f"added by the {name}", c) for name, c in ten["parts"].items()]
+    return "\n".join(lines) + "\n\n"
+
+
 def progress_has(text, label):
     with open(path("PROGRESS.md")) as f:
         body = f.read().replace("−", "-")
@@ -258,6 +320,14 @@ def build():
                  if not os.path.basename(p).startswith("sac_2026_lr1e4")])
     T, Tn = old["transfer"], (new or {}).get("transfer")
     P, PA, prate = (Tn, new["adaptation"], "1e-4") if new else (T, old["adaptation"], "3e-4")
+    TEN = load("results/rl/week19_rerun.json").get("ten_seeds") if new else None
+
+    def q(part, key, five):
+        """Short-answer number: the 10-seed mean and 95% CI when Step 6 has run, else the 5-seed mean."""
+        if not TEN:
+            return f"{fmt(five)} s"
+        c = TEN["parts"][part] if key is None else TEN["split"][part][key]
+        return f"{fmt(c['mean'])} s (95% CI {fmt(c['lo'])} to {fmt(c['hi'])})"
     status = ("complete: the 1e-4 column is final" if new else
               f"running: {n_new} of 25 Week 19 runs saved, the 1e-4 column reads \"pending\" until "
               "`19th_week.py analyse` has run")
@@ -311,7 +381,7 @@ def build():
         CITED.add(fig19)
 
     used = ["A1", "A4", "A8", "A12", "A15", "A30", "A31", "A32", "A39", "A43", "A45", "A48", "A49", "A50", "A51",
-            "A52", "A53", "A54", "A55", "A56", "A57", "A58", "A59", "A60", "A61", "A62"]
+            "A52", "A53", "A54", "A55", "A56", "A57", "A58", "A59", "A60", "A61", "A62", "A63"]
     missing = [a for a in used if a not in A]
     check(not missing, "every assumption cited is in ASSUMPTIONS.md" + (f" (missing: {', '.join(missing)})" if missing else ""))
     for c in sorted(CITED):
@@ -342,20 +412,17 @@ column then shows whether a conclusion depends on the training setting.
 
 **Hypothesis:** pit timing transfers, energy management breaks.
 
-**What the evidence supports** (lr {prate} numbers{"; the 3e-4 runs agree unless the claim says so" if new else "; check them against 1e-4 when it is in"}):
-1. **For the power-unit rules alone, the hypothesis holds.** With the 2024 tyres kept and the battery read in absolute
-   MJ, the old agents lose {fmt(P['power unit part']['absolute']['pit'])} s on pit/tyre and
-   {fmt(P['power unit part']['absolute']['energy'])} s on energy (C4), and recover within
-   {ks(PA['PU only']['first_within_2s'])} steps (C5).
-2. **In the real 2026 change, pit timing breaks too, because of the tyres, not the power unit.** The 2026 tyres add
-   {fmt(P['tyre loss part']['pit'])} s of pit/tyre loss; the power unit adds
-   {fmt(P['power unit part']['absolute']['pit'])} s (absolute MJ) or {fmt(P['power unit part']['fractions']['pit'])} s (fractions) (C4).
-3. **How badly energy breaks depends on how the old agent reads the battery:** {fmt(P['2026, battery as fractions']['energy'])} s
-   if its actions scale with the new limits, {fmt(P['2026, battery as absolute']['energy'])} s if it keeps its 2024 MJ (C3).
-   The two readings bracket the answer (A49, A54).{"" if not new else f"""
-   At 1e-4 the zero-shot loss with fractions is more energy ({fmt(P['2026, battery as fractions']['energy'])} s) than pit/tyre
-   ({fmt(P['2026, battery as fractions']['pit'])} s); at 3e-4 it was the other way round (pit/tyre {fmt(T['2026, battery as fractions']['pit'])} s against energy
-   {fmt(T['2026, battery as fractions']['energy'])} s), because the 3e-4 agents left their first stop to the age limit (C6)."""}
+**What the evidence supports** (lr {prate} numbers{", 10 seeds for claims 1-3 (A63); the 3e-4 runs agree unless the claim says so" if TEN else ("; the 3e-4 runs agree unless the claim says so" if new else "; check them against 1e-4 when it is in")}):
+1. **For the power-unit rules alone, the hypothesis holds in proportion: energy breaks far more than pit timing.** With
+   the 2024 tyres kept and the battery read in absolute MJ, the old agents lose {q('power unit, absolute: pit', None, P['power unit part']['absolute']['pit'])} on pit/tyre and
+   {q('power unit, absolute: energy', None, P['power unit part']['absolute']['energy'])} on energy (C4), and recover within
+   {ks(PA['PU only']['first_within_2s'])} steps (C5). Pit timing does not transfer perfectly: its loss is small but above zero{' and above a normal season (2 s)' if TEN and TEN['parts']['power unit, absolute: pit']['mean'] > YEAR_TO_YEAR_S else ''}.
+2. **In the real 2026 change, pit timing breaks too, mostly because of the tyres.** The 2026 tyres add
+   {q('tyres: pit', None, P['tyre loss part']['pit'])} of pit/tyre loss; the power unit adds
+   {q('power unit, absolute: pit', None, P['power unit part']['absolute']['pit'])} (absolute MJ) or {q('power unit, fractions: pit', None, P['power unit part']['fractions']['pit'])} (fractions) (C4){tyre_vs_pu(TEN)}.
+3. **How badly energy breaks depends on how the old agent reads the battery:** {q('fractions', 'energy', P['2026, battery as fractions']['energy'])}
+   if its actions scale with the new limits, {q('absolute', 'energy', P['2026, battery as absolute']['energy'])} if it keeps its 2024 MJ (C3).
+   The two readings bracket the answer (A49, A54).{split_sentence(new, T)}
 4. **Energy is relearned quickly; the stint habit is what holds retraining back** (C5, C6): in 2026 the retrained
    agents first come within 2 s of from scratch at {ks(PA['2026']['first_within_2s'])} steps.
 
@@ -406,7 +473,7 @@ Mean over 5 seeds, lost / pit-tyre / energy (s).
 {tline("2026, battery as fractions of each era's limits (A49)", lambda t: t["2026, battery as fractions"])}
 {tline("2026, battery in absolute 2024 MJ (A54)", lambda t: t["2026, battery as absolute"])}
 
-For scale (2026): never stop {fmt(base['2026']['never_stop']['lost'])} s, random policy (median)
+{ten_seed_table(new)}For scale (2026): never stop {fmt(base['2026']['never_stop']['lost'])} s, random policy (median)
 {fmt(base['2026']['random_median'])} s. A normal season's change: ~{YEAR_TO_YEAR_S:.0f} s (A56).
 
 Source: `results/rl/step4_summary.json`, `results/rl/week15_decomposition.json`, `results/rl/baselines.json`

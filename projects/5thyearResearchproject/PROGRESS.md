@@ -1,7 +1,7 @@
 # Progress log
 
 One entry per week block: what was built, the results, what went wrong, and what is still open.
-Assumptions are numbered in [ASSUMPTIONS.md](ASSUMPTIONS.md) (A1–A62); every number below can be
+Assumptions are numbered in [ASSUMPTIONS.md](ASSUMPTIONS.md) (A1–A63); every number below can be
 reproduced by running that week's script with the project's `.venv`.
 
 **Project:** train an RL strategist on a 2022–25-rules race simulator, drop it into a 2026-rules
@@ -609,8 +609,8 @@ three are not independent failures.
 | Fresh pit output: pit/tyre below full retraining | 95% of checkpoints | 95% |
 | 2024 agents' first stop forced (in 2024 / in 2026) | 4 / 4 of 5 | 0 / 2 of 5 |
 
-- **Every conclusion holds except one:** with the battery as fractions, the zero-shot loss is now more energy than
-  pit/tyre. The 1e-4 2024 agents choose their own first stops (none forced in 2024), so in 2026 fewer stops land where
+- **Every conclusion holds except one:** with the battery as fractions, the zero-shot loss is no longer mostly
+  pit/tyre (5 seeds: energy +10.5, pit/tyre +8.0 s; 10 seeds: about equal, see below). The 1e-4 2024 agents choose their own first stops (none forced in 2024), so in 2026 fewer stops land where
   the age limit puts them, and the pit/tyre loss halves (+18.7 → +8.0 s). The hypothesis's core is unchanged and
   clearer: the power unit alone costs +2.0 s pit/tyre and +31.3 s energy (absolute MJ), and the tyres drive the
   pit/tyre loss.
@@ -621,7 +621,24 @@ three are not independent failures.
   +24 s at 3e-4). In the power-unit-only world the old agents are ahead at every checkpoint and end at +0.9 s (median).
 - **Spread:** smaller in 3 of 6 groups. Two single seeds widen the others: the stuck "PU only" seed 2 (+21.4 s) and
   fresh pit output seed 3 (+11.8 s). Medians are no worse at 1e-4 in all six groups.
-- `RESULTS.md` now uses the 1e-4 numbers; figure `figures/week19_rerun.png`.
+- **Ten seeds for the 2024 agents (A63, step 6):** with 5 seeds the fraction-reading split was +2.5 ± 9.0 s (energy minus
+  pit/tyre), too noisy to call. 5 more 2024 agents at 1e-4 (seeds 5–9, all at once, 23 min; own-era +1.0 to +2.0 s).
+  Paired within a seed, mean [95% CI] over 10 seeds:
+
+  | | Mean (s) | 95% CI (s) |
+  |---|---|---|
+  | 2026, fractions: energy minus pit/tyre | +0.8 | −5.7 to +7.4 (6 of 10 seeds above 0) |
+  | 2026, absolute MJ: energy minus pit/tyre | +24.1 | +15.1 to +33.0 (9 of 10) |
+  | Added by the tyres: pit/tyre | +17.0 | +9.4 to +24.6 |
+  | Added by the power unit (absolute MJ): pit/tyre / energy | +4.5 / +33.4 | +1.0 to +8.0 / +29.1 to +37.7 |
+  | Added by the power unit (fractions): pit/tyre / energy | +6.5 / +9.9 | +2.1 to +10.9 / +4.8 to +15.0 |
+
+  - **With fractions, energy and pit/tyre losses are about equal** at 1e-4; neither dominates. The pit/tyre losses are
+    bimodal (about 5 s or about 23 s per seed): a seed either lands on a workable plan or not.
+  - **The power unit alone costs some pit/tyre time too** (+4.5 s, above zero and above a normal season's 2 s), but far
+    less than energy (+33.4 s). The tyres' pit/tyre part is clearly larger than the power unit's with absolute MJ;
+    with fractions the intervals overlap. The write-up wording is softened to match (`RESULTS.md` section 1).
+- `RESULTS.md` now uses the 1e-4 numbers (10 seeds for the transfer split); figure `figures/week19_rerun.png`.
 
 **Problems**
 - **The Mac slept on battery during training:** runs that take ~22 min took 147 min to 19 h. Nothing was lost (finished
@@ -663,7 +680,7 @@ The useful parts are in `src/`:
 1. **Write-up (you write; `RESULTS.md` has the numbers):** the hypothesis as two numbers per reading (fractions, absolute MJ), split into tyres and power unit
    (Week 15), the recovery curves (Weeks 13–16), and the 2 s context.
 2. **Write-up check:** read `RESULTS.md` section 1 against the claims you want to make; the fraction-reading result
-   changed at 1e-4 (Week 19).
+   changed at 1e-4, and with 10 seeds energy and pit/tyre are about equal there (Week 19).
 3. **Fair-budget check:** compare a retrained agent with a from-scratch agent at equal total steps (A58).
 4. **Age limit without a free stop (A60):** retrain the 2024 agents in an environment where reaching the age limit
    costs time instead of forcing a stop, to see whether they learn to choose the first stop and whether the pit

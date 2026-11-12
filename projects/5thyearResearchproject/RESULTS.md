@@ -21,20 +21,18 @@ column then shows whether a conclusion depends on the training setting.
 
 **Hypothesis:** pit timing transfers, energy management breaks.
 
-**What the evidence supports** (lr 1e-4 numbers; the 3e-4 runs agree unless the claim says so):
-1. **For the power-unit rules alone, the hypothesis holds.** With the 2024 tyres kept and the battery read in absolute
-   MJ, the old agents lose +2.0 s on pit/tyre and
-   +31.3 s on energy (C4), and recover within
-   10k steps (C5).
-2. **In the real 2026 change, pit timing breaks too, because of the tyres, not the power unit.** The 2026 tyres add
-   +12.5 s of pit/tyre loss; the power unit adds
-   +2.0 s (absolute MJ) or +5.3 s (fractions) (C4).
-3. **How badly energy breaks depends on how the old agent reads the battery:** +10.5 s
-   if its actions scale with the new limits, +34.5 s if it keeps its 2024 MJ (C3).
+**What the evidence supports** (lr 1e-4 numbers, 10 seeds for claims 1-3 (A63); the 3e-4 runs agree unless the claim says so):
+1. **For the power-unit rules alone, the hypothesis holds in proportion: energy breaks far more than pit timing.** With
+   the 2024 tyres kept and the battery read in absolute MJ, the old agents lose +4.5 s (95% CI +1.0 to +8.0) on pit/tyre and
+   +33.4 s (95% CI +29.1 to +37.7) on energy (C4), and recover within
+   10k steps (C5). Pit timing does not transfer perfectly: its loss is small but above zero and above a normal season (2 s).
+2. **In the real 2026 change, pit timing breaks too, mostly because of the tyres.** The 2026 tyres add
+   +17.0 s (95% CI +9.4 to +24.6) of pit/tyre loss; the power unit adds
+   +4.5 s (95% CI +1.0 to +8.0) (absolute MJ) or +6.5 s (95% CI +2.1 to +10.9) (fractions) (C4). With the absolute-MJ reading the tyres' part is clearly larger (intervals apart); with the fraction reading it is larger but the intervals overlap.
+3. **How badly energy breaks depends on how the old agent reads the battery:** +12.7 s (95% CI +9.5 to +15.9)
+   if its actions scale with the new limits, +37.9 s (95% CI +33.4 to +42.4) if it keeps its 2024 MJ (C3).
    The two readings bracket the answer (A49, A54).
-   At 1e-4 the zero-shot loss with fractions is more energy (+10.5 s) than pit/tyre
-   (+8.0 s); at 3e-4 it was the other way round (pit/tyre +18.7 s against energy
-   +8.1 s), because the 3e-4 agents left their first stop to the age limit (C6).
+   With fractions, at 1e-4 over 10 seeds the loss is **about equal between energy and pit/tyre**: energy +12.7 s, pit/tyre +11.9 s, difference +0.8 s (95% CI -5.7 to +7.4, 6 of 10 seeds more energy); at 3e-4 (5 seeds) it was pit/tyre +18.7 s against energy +8.1 s, because those agents left their first stop to the age limit (C6).
 4. **Energy is relearned quickly; the stint habit is what holds retraining back** (C5, C6): in 2026 the retrained
    agents first come within 2 s of from scratch at 160k steps.
 
@@ -84,6 +82,23 @@ Mean over 5 seeds, lost / pit-tyre / energy (s).
 | 2024 agent in its own era (2024) | +2.4 / +1.0 / +1.4 | +1.5 / +0.6 / +1.0 |
 | 2026, battery as fractions of each era's limits (A49) | +26.8 / +18.7 / +8.1 | +18.4 / +8.0 / +10.5 |
 | 2026, battery in absolute 2024 MJ (A54) | +49.3 / +18.0 / +31.3 | +42.7 / +8.2 / +34.5 |
+
+**1e-4 with 10 seeds** (Week 19 step 6, A63). Differences are paired within a seed: energy minus pit/tyre in the same race, or a world minus the same agent's own-era score.
+
+| Quantity | Mean (s) | 95% CI (s) | Seeds above 0 |
+|---|---|---|---|
+| 2026, battery as fractions: pit/tyre | +11.9 | +5.7 to +18.0 | 10 of 10 |
+| 2026, battery as fractions: energy | +12.7 | +9.5 to +15.9 | 10 of 10 |
+| 2026, battery as fractions: energy minus pit/tyre | +0.8 | -5.7 to +7.4 | 6 of 10 |
+| 2026, battery as absolute: pit/tyre | +13.8 | +5.1 to +22.5 | 10 of 10 |
+| 2026, battery as absolute: energy | +37.9 | +33.4 to +42.4 | 10 of 10 |
+| 2026, battery as absolute: energy minus pit/tyre | +24.1 | +15.1 to +33.0 | 9 of 10 |
+| added by the tyres: pit | +17.0 | +9.4 to +24.6 | 10 of 10 |
+| added by the tyres: energy | +4.2 | +2.7 to +5.8 | 10 of 10 |
+| added by the power unit, fractions: pit | +6.5 | +2.1 to +10.9 | 10 of 10 |
+| added by the power unit, fractions: energy | +9.9 | +4.8 to +15.0 | 10 of 10 |
+| added by the power unit, absolute: pit | +4.5 | +1.0 to +8.0 | 10 of 10 |
+| added by the power unit, absolute: energy | +33.4 | +29.1 to +37.7 | 10 of 10 |
 
 For scale (2026): never stop +17.8 s, random policy (median)
 +80.2 s. A normal season's change: ~2 s (A56).
@@ -258,6 +273,7 @@ plan early. Seeds ending more than 5 s worse at 1e-4 than at 3e-4 (from the save
 | A60 | A stop is "chosen" when the pit output falls in a stop bin (A52) and "forced" otherwise (the age limit, A48, or the compound rule, A15). The one-input test sets each … | heuristic |
 | A61 | Stability test: 2026 from scratch, seeds 0–4, 200,000 steps, with a learning rate decaying linearly from 3e-4 to 3e-5 (set every 10,000 steps, because SB3's own … | heuristic |
 | A62 | Rerun at constant learning rate 1e-4 (A61) of the runs behind the main results: 2024 from scratch, "2026 PU, 2024 tyres" from scratch, and from the new 2024 agents full … | heuristic |
+| A63 | Ten seeds for the 1e-4 2024 agents (seeds 0–9; 5–9 added in Week 19, trained exactly as 0–4), because with 5 seeds the fraction-reading split of the zero-shot loss … | heuristic |
 
 Full text: `ASSUMPTIONS.md`.
 
