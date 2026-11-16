@@ -4,6 +4,7 @@ import { translations } from "../i18n/translations";
 import Modal from "./Modal";
 import InterestDetail from "./InterestDetail";
 import TravelMap from "./TravelMap";
+import Mixtape from "./Mixtape";
 
 export default function Interests() {
   const { lang } = useLanguage();
@@ -18,25 +19,7 @@ export default function Interests() {
         <h2>{t.heading}</h2>
       </div>
 
-      <div className="interests__grid">
-        {t.items.map((item) => (
-          <button
-            className="cassette"
-            key={item.id}
-            onClick={() => setSelected(item)}
-          >
-            <div className="cassette__window">
-              <span className="cassette__reel" />
-              <span className="cassette__reel" />
-            </div>
-            <div className="cassette__label">
-              <span className="cassette__icon">{item.icon}</span>
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
-            </div>
-          </button>
-        ))}
-      </div>
+      <Mixtape items={t.items} onSelect={setSelected} />
 
       {selected && (
         <Modal
