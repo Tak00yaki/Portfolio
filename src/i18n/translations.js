@@ -160,12 +160,12 @@ export const translations = {
         },
         {
           title: "Castle Map",
-          file: "castles_locations.py",
+          file: "castles/index.html",
           desc: "Browse real castles around the world on an interactive map — filter by architecture style, era, or dynasty, and click a pin for history and photos.",
-          tags: ["Python", "Streamlit", "Folium"],
+          tags: ["JavaScript", "Leaflet", "Python"],
           wip: true,
-          live: "https://portfolio-6cpt2gquzbecoi236k3tye.streamlit.app/",
-          code: "https://github.com/Tak00yaki/Portfolio/blob/main/projects/castles_locations.py",
+          live: "https://khushikhan.com/castles/",
+          code: "https://github.com/Tak00yaki/Portfolio/tree/main/public/castles",
         },
         {
           title: "Movie & Music Recommender",
@@ -347,12 +347,12 @@ export const translations = {
         },
         {
           title: "城マップ",
-          file: "castles_locations.py",
+          file: "castles/index.html",
           desc: "世界中の実在する城を地図上で閲覧。建築様式・時代・王朝でフィルターでき、ピンをクリックすると歴史や写真を見られます。",
-          tags: ["Python", "Streamlit", "Folium"],
+          tags: ["JavaScript", "Leaflet", "Python"],
           wip: true,
-          live: "https://portfolio-6cpt2gquzbecoi236k3tye.streamlit.app/",
-          code: "https://github.com/Tak00yaki/Portfolio/blob/main/projects/castles_locations.py",
+          live: "https://khushikhan.com/castles/",
+          code: "https://github.com/Tak00yaki/Portfolio/tree/main/public/castles",
         },
         {
           title: "映画・音楽レコメンダー",

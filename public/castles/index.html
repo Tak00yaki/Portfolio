@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Castle Map</title>
+  <meta name="description" content="Browse real castles around the world on a map. Filter by architecture style, era or dynasty, and click a pin for history and photos." />
+  <meta name="theme-color" content="#0b0a08" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏰</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="8125c8d4-cb4f-4465-bdcf-0cbb6416a7f1" data-domains="khushikhan.com,www.khushikhan.com"></script>
+  <style>
+    :root {
+      --black: #0b0a08;
+      --black-soft: #17130f;
+      --black-card: #1e1712;
+      --orange: #ff6a1a;
+      --amber: #ffb037;
+      --cream: #f4e6c8;
+      --cream-dim: #cdbb96;
+      --line: rgba(244, 230, 200, 0.16);
+      --font-display: "Bungee", cursive;
+      --font-mono: "Space Mono", monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--cream);
+      font-family: var(--font-mono);
+      font-size: 14px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--amber); }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 20px 16px 48px; }
+
+    header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
+    h1 { font-family: var(--font-display); font-weight: 400; color: var(--orange); font-size: clamp(26px, 5vw, 40px); margin: 0; letter-spacing: 1px; }
+    .back { font-size: 13px; text-decoration: none; color: var(--cream-dim); }
+    .back:hover { color: var(--amber); }
+    .sub { color: var(--cream-dim); margin: 6px 0 18px; }
+
+    /* Controls */
+    .controls { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+    @media (max-width: 900px) { .controls { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 480px) { .controls { grid-template-columns: 1fr; } }
+    .ctl { position: relative; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+    .ctl > label, .ctl > .lbl { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--cream-dim); }
+    button, select, input {
+      font: inherit; color: var(--cream); background: var(--black-card);
+      border: 1px solid var(--line); border-radius: 6px;
+    }
+    select, .dd-btn { height: 40px; padding: 0 12px; width: 100%; cursor: pointer; }
+    select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--cream-dim) 50%), linear-gradient(135deg, var(--cream-dim) 50%, transparent 50%); background-position: calc(100% - 17px) 17px, calc(100% - 12px) 17px; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 30px; }
+    .dd-btn { display: flex; align-items: center; justify-content: space-between; gap: 8px; text-align: left; }
+    .dd-btn span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .dd-btn.partial { border-color: var(--orange); }
+    button:hover, select:hover { border-color: var(--amber); }
+    button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--orange); outline-offset: 1px; }
+
+    .dd-panel {
+      position: absolute; top: calc(100% + 6px); left: 0; z-index: 1000;
+      width: max(100%, 300px); max-width: calc(100vw - 32px);
+      background: var(--black-soft); border: 1px solid var(--line); border-radius: 8px;
+      padding: 10px; box-shadow: 0 12px 30px rgba(0,0,0,.5);
+    }
+    .dd-panel[hidden] { display: none; }
+    .dd-panel input[type=search] { width: 100%; height: 36px; padding: 0 10px; }
+    .dd-actions { display: flex; gap: 8px; margin: 8px 0; }
+    .dd-actions button { flex: 1; height: 32px; cursor: pointer; font-size: 12px; }
+    .dd-list { max-height: 280px; overflow-y: auto; border-top: 1px solid var(--line); padding-top: 6px; }
+    .dd-list label { display: flex; gap: 8px; align-items: flex-start; padding: 5px 2px; cursor: pointer; font-size: 13px; }
+    .dd-list input { accent-color: var(--orange); margin-top: 3px; flex: none; }
+    .dd-empty { color: var(--cream-dim); font-size: 12px; padding: 6px 2px; }
+
+    .status { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; margin: 14px 0 10px; color: var(--cream-dim); font-size: 13px; }
+    .legend { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+    .legend span { display: inline-flex; align-items: center; gap: 5px; }
+    .legend i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+    /* Map */
+    #map { height: min(70vh, 720px); min-height: 360px; border-radius: 10px; border: 1px solid var(--line); background: #aad3df; }
+    .empty-msg { padding: 14px; border: 1px dashed var(--line); border-radius: 8px; color: var(--cream-dim); margin-bottom: 10px; }
+    .pin {
+      width: 30px; height: 30px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg);
+      border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,.45);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pin b { transform: rotate(45deg); color: #fff; font-size: 15px; line-height: 1; font-weight: 400; }
+    .pin.sel { border-color: var(--amber); box-shadow: 0 0 0 3px var(--amber), 0 2px 6px rgba(0,0,0,.45); }
+    .leaflet-tooltip { font-family: var(--font-mono); font-size: 12px; }
+    .leaflet-popup-content-wrapper, .leaflet-popup-tip { background: var(--black-soft); color: var(--cream); border: 1px solid var(--line); }
+    .leaflet-popup-content { margin: 12px; width: 250px !important; font-family: var(--font-mono); font-size: 12px; line-height: 1.55; }
+    .leaflet-container a.leaflet-popup-close-button { color: var(--cream-dim); }
+    .leaflet-popup-scrolled { border: 0; padding-right: 4px; }
+    .pop img { width: 100%; height: 120px; object-fit: cover; border-radius: 6px; margin-bottom: 8px; display: block; background: var(--black-card); }
+    .pop h3 { margin: 0; font-size: 14px; color: var(--amber); }
+    .pop .country { color: var(--cream-dim); font-style: italic; margin-bottom: 6px; }
+    .pop p { margin: 0 0 3px; }
+    .pop b { color: var(--cream); }
+    .pop .more { margin-top: 8px; width: 100%; height: 32px; cursor: pointer; background: var(--orange); color: var(--black); border: 0; font-weight: 700; }
+
+    /* Detail */
+    .picker { margin-top: 28px; max-width: 480px; }
+    #detail { margin-top: 20px; scroll-margin-top: 16px; }
+    #detail h2 { font-family: var(--font-display); font-weight: 400; color: var(--orange); font-size: clamp(20px, 3.5vw, 28px); margin: 0 0 2px; }
+    #detail .meta { color: var(--cream-dim); margin-bottom: 12px; }
+    .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin: 14px 0; }
+    .fact { background: var(--black-card); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+    .fact .k { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--cream-dim); }
+    .desc { max-width: 75ch; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 16px; }
+    .gallery figure { margin: 0; }
+    .gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; background: var(--black-card); display: block; }
+    .gallery figcaption { font-size: 11px; color: var(--cream-dim); margin-top: 4px; overflow-wrap: anywhere; }
+    .no-photo { color: var(--cream-dim); font-style: italic; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Castle Map</h1>
+      <a class="back" href="/">← khushikhan.com</a>
+    </header>
+    <p class="sub">Explore real castles around the world. Click a pin for its history, architecture and photos.</p>
+
+    <div class="controls">
+      <div class="ctl" data-filter="architecture_style" data-label="Architecture style"></div>
+      <div class="ctl" data-filter="era" data-label="Era of build"></div>
+      <div class="ctl" data-filter="dynasty_empire" data-label="Dynasty / empire"></div>
+      <div class="ctl">
+        <label for="colorBy">Color pins by</label>
+        <select id="colorBy">
+          <option value="era" selected>Era of build</option>
+          <option value="architecture_style">Architecture style</option>
+          <option value="dynasty_empire">Dynasty / empire</option>
+        </select>
+      </div>
+      <div class="ctl">
+        <label for="sortBy">Sort castle list by</label>
+        <select id="sortBy">
+          <option value="name">Name</option>
+          <option value="year_built_start">Year built</option>
+          <option value="architecture_style">Architecture style</option>
+          <option value="dynasty_empire">Dynasty / empire</option>
+          <option value="built_by">Built by</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="status">
+      <span id="count">Loading castles…</span>
+      <span class="legend" id="legend"></span>
+    </div>
+    <div class="empty-msg" id="emptyMsg" hidden>No castles match the current filters. Widen your selection above.</div>
+    <div id="map" role="region" aria-label="Map of castles"></div>
+
+    <div class="ctl picker">
+      <label for="picker">Or pick a castle to view its photo gallery</label>
+      <select id="picker"><option value="">Choose a castle…</option></select>
+    </div>
+    <section id="detail" aria-live="polite"></section>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script>
+  (function () {
+    "use strict";
+
+    var ERA_ORDER = ["5th–8th century", "9th–10th century", "11th–13th century", "14th–15th century",
+                     "16th–17th century", "18th–19th century", "20th century"];
+    var COLORS = ["#d63e2a", "#3b82c4", "#4c9a2a", "#8e44ad", "#f0932b", "#8b1e1e", "#3a8f95", "#2d5a27"];
+    var WORLD_LAT = 85.05;
+
+    var castles = [];
+    var selected = {};     // field -> Set of checked values
+    var options = {};      // field -> ordered list of values
+    var markers = {};      // slug -> marker
+    var selectedSlug = null;
+    var layer, map;
+
+    var $ = function (id) { return document.getElementById(id); };
+    function esc(s) {
+      return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+      });
+    }
+    function yearLabel(c) {
+      return c.year_built_start === c.year_built_end ? String(c.year_built_start) : c.year_built_start + "–" + c.year_built_end;
+    }
+
+    // ---------- Map ----------
+    map = L.map("map", {
+      worldCopyJump: false, minZoom: 2, maxBoundsViscosity: 1.0,
+      maxBounds: [[-WORLD_LAT, -180], [WORLD_LAT, 180]]
+    }).setView([30, 10], 2);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      noWrap: true, maxZoom: 18,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    layer = L.layerGroup().addTo(map);
+
+    // Keep the world filling the map box (no blank grey edges).
+    function fitWorldMinZoom() {
+      if (!map.getSize().x) return;
+      var z = Math.ceil(map.getBoundsZoom(L.latLngBounds([[-WORLD_LAT, -180], [WORLD_LAT, 180]]), true));
+      map.setMinZoom(z);
+      if (map.getZoom() < z) map.setZoom(z);
+    }
+    map.on("resize", fitWorldMinZoom);
+
+    function pinIcon(color, isSel) {
+      return L.divIcon({
+        className: "", iconSize: [30, 30], iconAnchor: [15, 30], popupAnchor: [0, -28], tooltipAnchor: [12, -16],
+        html: '<div class="pin' + (isSel ? " sel" : "") + '" style="background:' + color + '"><b>♜</b></div>'
+      });
+    }
+
+    function popupHtml(c) {
+      var p = c.photos[0];
+      return '<div class="pop">' +
+        (p ? '<img src="' + esc(p.thumb) + '" alt="' + esc(c.name) + '" />' : "") +
+        "<h3>" + esc(c.name) + "</h3>" +
+        '<div class="country">' + esc(c.country) + "</div>" +
+        "<p><b>Built:</b> " + esc(yearLabel(c)) + " (" + esc(c.era) + ")</p>" +
+        "<p><b>Style:</b> " + esc(c.architecture_style) + "</p>" +
+        "<p><b>Built by:</b> " + esc(c.built_by) + "</p>" +
+        "<p><b>Dynasty / empire:</b> " + esc(c.dynasty_empire) + "</p>" +
+        "<p><b>Why:</b> " + esc(c.purpose) + "</p>" +
+        '<button class="more" type="button" data-slug="' + esc(c.slug) + '">Photos &amp; story ↓</button>' +
+        "</div>";
+    }
+
+    // ---------- Filters ----------
+    function buildFilter(el) {
+      var field = el.dataset.filter, label = el.dataset.label, opts = options[field];
+      el.innerHTML =
+        '<span class="lbl">' + esc(label) + "</span>" +
+        '<button type="button" class="dd-btn" aria-expanded="false"><span></span><span aria-hidden="true">▾</span></button>' +
+        '<div class="dd-panel" hidden>' +
+          '<input type="search" placeholder="Search ' + esc(label.toLowerCase()) + '…" aria-label="Search ' + esc(label) + '" />' +
+          '<div class="dd-actions"><button type="button" data-act="all">Select all</button><button type="button" data-act="none">Clear</button></div>' +
+          '<div class="dd-list"></div>' +
+        "</div>";
+
+      var btn = el.querySelector(".dd-btn"), panel = el.querySelector(".dd-panel"),
+          search = el.querySelector("input"), list = el.querySelector(".dd-list");
+
+      function updateBtn() {
+        var n = selected[field].size;
+        btn.firstChild.textContent = n === opts.length ? "All (" + n + ")" : n + " of " + opts.length + " selected";
+        btn.classList.toggle("partial", n !== opts.length);
+      }
+      function renderList() {
+        var q = search.value.trim().toLowerCase();
+        var vis = opts.filter(function (o) { return !q || o.toLowerCase().indexOf(q) !== -1; });
+        list.innerHTML = vis.length ? vis.map(function (o, i) {
+          return '<label><input type="checkbox" data-i="' + opts.indexOf(o) + '"' + (selected[field].has(o) ? " checked" : "") + " /> " + esc(o) + "</label>";
+        }).join("") : '<div class="dd-empty">No matches.</div>';
+      }
+      function setOpen(open) {
+        document.querySelectorAll(".dd-panel").forEach(function (p) { if (p !== panel) { p.hidden = true; p.previousElementSibling.setAttribute("aria-expanded", "false"); } });
+        panel.hidden = !open;
+        btn.setAttribute("aria-expanded", String(open));
+        if (open) { search.value = ""; renderList(); search.focus(); }
+      }
+
+      btn.addEventListener("click", function () { setOpen(panel.hidden); });
+      search.addEventListener("input", renderList);
+      list.addEventListener("change", function (e) {
+        var o = opts[+e.target.dataset.i];
+        if (e.target.checked) selected[field].add(o); else selected[field].delete(o);
+        updateBtn(); render();
+      });
+      el.querySelector(".dd-actions").addEventListener("click", function (e) {
+        var act = e.target.dataset.act; if (!act) return;
+        selected[field] = new Set(act === "all" ? opts : []);
+        renderList(); updateBtn(); render();
+      });
+      panel.addEventListener("keydown", function (e) { if (e.key === "Escape") { setOpen(false); btn.focus(); } });
+      updateBtn();
+    }
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".ctl[data-filter]")) {
+        document.querySelectorAll(".dd-panel").forEach(function (p) { p.hidden = true; p.previousElementSibling.setAttribute("aria-expanded", "false"); });
+      }
+    });
+
+    // ---------- Render ----------
+    function filtered() {
+      return castles.filter(function (c) {
+        return selected.architecture_style.has(c.architecture_style) && selected.era.has(c.era) && selected.dynasty_empire.has(c.dynasty_empire);
+      });
+    }
+
+    function colorMap(list, field) {
+      var keys = Array.from(new Set(list.map(function (c) { return c[field]; })));
+      keys = field === "era" ? ERA_ORDER.filter(function (e) { return keys.indexOf(e) !== -1; }) : keys.sort();
+      var m = {};
+      keys.forEach(function (k, i) { m[k] = COLORS[i % COLORS.length]; });
+      return m;
+    }
+
+    var lastFitKey = null;
+    function render() {
+      var list = filtered(), colorBy = $("colorBy").value, sortBy = $("sortBy").value;
+      var colors = colorMap(list, colorBy);
+      var sortLabel = $("sortBy").selectedOptions[0].textContent.toLowerCase();
+
+      $("count").textContent = list.length + " of " + castles.length + " castles shown · sorted by " + sortLabel;
+      $("emptyMsg").hidden = list.length > 0;
+
+      var keys = Object.keys(colors);
+      $("legend").innerHTML = keys.length && keys.length <= COLORS.length ? keys.map(function (k) {
+        return '<span><i style="background:' + colors[k] + '"></i>' + esc(k) + "</span>";
+      }).join("") : (keys.length ? "<span>Pin colours repeat: " + keys.length + " groups</span>" : "");
+
+      layer.clearLayers(); markers = {};
+      var popupMaxH = Math.max(200, $("map").clientHeight - 60);
+      list.forEach(function (c) {
+        var m = L.marker([c.lat, c.lon], { icon: pinIcon(colors[c[colorBy]], c.slug === selectedSlug), title: c.name, alt: c.name, riseOnHover: true });
+        m._color = colors[c[colorBy]];
+        m.bindTooltip("<b>" + esc(c.name) + "</b><br><i>" + esc(c.country) + "</i>", { sticky: true, direction: "auto" });
+        m.bindPopup(popupHtml(c), { maxWidth: 280, maxHeight: popupMaxH, autoPanPadding: [12, 12] });
+        m.on("click", function () { select(c.slug, false); });
+        m.addTo(layer); markers[c.slug] = m;
+      });
+
+      // Re-fit only when the set of visible castles changes.
+      var fitKey = list.map(function (c) { return c.slug; }).join(",");
+      if (fitKey !== lastFitKey) {
+        lastFitKey = fitKey;
+        if (list.length === 1) map.setView([list[0].lat, list[0].lon], 6);
+        else if (list.length > 1) map.fitBounds(list.map(function (c) { return [c.lat, c.lon]; }), { padding: [30, 30] });
+      }
+
+      var sorted = list.slice().sort(function (a, b) {
+        var x = a[sortBy], y = b[sortBy];
+        return typeof x === "number" ? x - y : String(x).localeCompare(String(y));
+      });
+      $("picker").innerHTML = '<option value="">Choose a castle…</option>' + sorted.map(function (c) {
+        return '<option value="' + esc(c.slug) + '"' + (c.slug === selectedSlug ? " selected" : "") + ">" + esc(c.name) + "</option>";
+      }).join("");
+    }
+
+    function renderDetail(c) {
+      if (!c) { $("detail").innerHTML = ""; return; }
+      var gallery = c.photos.length ? '<div class="gallery">' + c.photos.map(function (p) {
+        var credit = p.author ? esc(p.author) + (p.license ? " · " + esc(p.license) : "") : "";
+        if (credit && p.url) credit = '<a href="' + esc(p.url) + '" target="_blank" rel="noopener">' + credit + "</a>";
+        return '<figure><img loading="lazy" src="' + esc(p.src) + '" alt="' + esc(c.name) + '" />' +
+               (credit ? "<figcaption>" + credit + "</figcaption>" : "") + "</figure>";
+      }).join("") + "</div>" : '<p class="no-photo">No photos yet for this castle.</p>';
+
+      $("detail").innerHTML =
+        "<h2>" + esc(c.name) + "</h2>" +
+        '<div class="meta">' + esc(c.country) + " · built " + esc(yearLabel(c)) + "</div>" +
+        '<p class="desc">' + esc(c.description) + "</p>" +
+        '<div class="facts">' +
+          '<div class="fact"><div class="k">Style</div>' + esc(c.architecture_style) + "</div>" +
+          '<div class="fact"><div class="k">Built by</div>' + esc(c.built_by) + "</div>" +
+          '<div class="fact"><div class="k">Dynasty / empire</div>' + esc(c.dynasty_empire) + "</div>" +
+          '<div class="fact"><div class="k">Why it was built</div>' + esc(c.purpose) + "</div>" +
+        "</div>" + gallery;
+    }
+
+    function select(slug, fromPicker) {
+      var prev = markers[selectedSlug];
+      selectedSlug = slug || null;
+      if (prev) prev.setIcon(pinIcon(prev._color, false));
+      var m = markers[selectedSlug];
+      if (m) m.setIcon(pinIcon(m._color, true));
+      $("picker").value = selectedSlug || "";
+      var c = castles.find(function (x) { return x.slug === selectedSlug; });
+      renderDetail(c);
+      try { history.replaceState(null, "", selectedSlug ? "#" + selectedSlug : location.pathname); } catch (e) {}
+      if (fromPicker && m) {
+        map.setView(m.getLatLng(), Math.max(map.getZoom(), 6), { animate: false });
+        m.openPopup();   // Leaflet auto-pans so the whole popup is visible
+      }
+    }
+
+    $("colorBy").addEventListener("change", render);
+    $("sortBy").addEventListener("change", render);
+    $("picker").addEventListener("change", function () { select(this.value, true); });
+    $("map").addEventListener("click", function (e) {
+      var b = e.target.closest(".more");
+      if (b) { select(b.dataset.slug, false); $("detail").scrollIntoView({ behavior: "smooth" }); }
+    });
+
+    // ---------- Load ----------
+    fetch("castles.json")
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (data) {
+        castles = data.castles;
+        ["architecture_style", "dynasty_empire"].forEach(function (f) {
+          options[f] = Array.from(new Set(castles.map(function (c) { return c[f]; }))).sort();
+        });
+        options.era = ERA_ORDER.filter(function (e) { return castles.some(function (c) { return c.era === e; }); });
+        Object.keys(options).forEach(function (f) { selected[f] = new Set(options[f]); });
+        document.querySelectorAll(".ctl[data-filter]").forEach(buildFilter);
+        fitWorldMinZoom();
+        render();
+        var hash = decodeURIComponent(location.hash.slice(1));
+        if (hash && markers[hash]) select(hash, true);
+      })
+      .catch(function () {
+        $("count").textContent = "Couldn't load the castle list. Please refresh the page.";
+      });
+  })();
+  </script>
+</body>
+</html>
