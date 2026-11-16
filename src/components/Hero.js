@@ -22,7 +22,6 @@ export default function Hero() {
 
   return (
     <section id="top" className="hero">
-      <div className="hero__rays" aria-hidden="true" />
 
       <div className="hero__content">
         <p className="hero__eyebrow">

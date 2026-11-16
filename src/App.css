@@ -5,6 +5,40 @@
   overflow-x: hidden;
 }
 
+/* ===== night sky backdrop ===== */
+
+.night-sky {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background: linear-gradient(to bottom, #07080b 0%, #0a0a0b 45%, #0b0a08 75%, #120c08 100%);
+}
+
+.night-sky__milkyway {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(ellipse 60% 9% at 50% 50%, rgba(244, 230, 200, 0.045), transparent 70%),
+    radial-gradient(ellipse 35% 5% at 42% 49%, rgba(255, 176, 55, 0.035), transparent 70%);
+  transform: rotate(-24deg);
+  filter: blur(6px);
+}
+
+.night-sky__stars {
+  position: absolute;
+  inset: 0;
+}
+
+.night-sky__horizon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 32vh;
+  background: radial-gradient(ellipse 90% 100% at 50% 100%, rgba(255, 106, 26, 0.1), transparent 70%);
+}
+
 .scanlines {
   position: fixed;
   inset: 0;
@@ -173,7 +207,9 @@ section {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 6vw;
-  background: var(--black);
+  background: rgba(11, 10, 8, 0.85);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border-bottom: 3px solid var(--orange);
 }
 
@@ -305,18 +341,6 @@ section {
   align-items: center;
   gap: 3rem;
   padding-top: 3rem;
-}
-
-.hero__rays {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: repeating-conic-gradient(
-    from 0deg,
-    rgba(255, 106, 26, 0.07) 0deg 6deg,
-    transparent 6deg 12deg
-  );
-  mask-image: radial-gradient(circle at 70% 30%, black, transparent 65%);
 }
 
 .hero__eyebrow {

@@ -7,6 +7,7 @@ import Projects from "./components/Projects";
 import Footer from "./components/Footer";
 import RacingBorder from "./components/RacingBorder";
 import StartLights from "./components/StartLights";
+import NightSky from "./components/NightSky";
 import { ChaosProvider, useChaos } from "./chaos/ChaosContext";
 import { LanguageProvider } from "./i18n/LanguageContext";
 import "./App.css";
@@ -27,6 +28,7 @@ export default function App() {
     <LanguageProvider>
       <ChaosProvider>
         <div className="app">
+          <NightSky />
           <div className="scanlines" aria-hidden="true" />
           <div className="grain" aria-hidden="true" />
           <ChaosLayer />
